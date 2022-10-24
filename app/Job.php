@@ -8,17 +8,17 @@
 
  *
 
- * @category Worketic
+ * @category 
 
  *
 
- * @package Worketic
+ * @package 
 
- * @author  Amentotech <theamentotech@gmail.com>
+ * @author  
 
- * @license http://www.amentotech.com Amentotech
+ * @license 
 
- * @link    http://www.amentotech.com
+ * @link    
 
  */
 
@@ -1025,7 +1025,7 @@ class Job extends Model
 
             if ($search_datePosted == "hour") {
 
-                $jobs->whereRaw('jobs.created_at = DATE_SUB(NOW(), INTERVAL 1 HOUR)');
+                $jobs->whereRaw('jobs.created_at >= DATE_SUB(NOW(), INTERVAL 1 HOUR)');
             } else {
 
                 $timeFrom = Carbon::now();
@@ -1037,7 +1037,6 @@ class Job extends Model
         }
 
         $jobs = $jobs->orderByRaw("is_featured DESC, updated_at DESC")->with(["employer", "location"])->paginate(2);
-
 
         foreach ($jobs as $job) {
             $desc = strip_tags(stripslashes($job->description));
@@ -1051,7 +1050,7 @@ class Job extends Model
             $categoryNames = array();
 
             foreach ($catId as $catable) {
-                array_push($categoryNames, ["name" => Category::find($catable->category_id)->title]);
+                array_push($categoryNames, ["name" => Category::find($catable->category_id)->title??""]);
             }
 
             $job["categories"] = $categoryNames;
@@ -1069,7 +1068,7 @@ class Job extends Model
 
     /**
 
-     * Delete recoed from storage
+     * Delete record from storage
 
      *
 

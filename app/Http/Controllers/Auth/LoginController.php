@@ -124,7 +124,7 @@ class LoginController extends Controller
 
                 if (empty($user_role_type)) {
 
-                    Session::flash('error', trans('Unfortunately you have been logged out due to in-sufficient role privileges for you account, For Further details contact to administrator'));
+                    Session::flash('error', trans('Leider wurden Sie aufgrund unzureichender Rollenrechte für Ihr Konto abgemeldet. Für weitere Informationen wenden Sie sich bitte an den Administrator'));
 
                     Auth::logout();
 
@@ -209,9 +209,9 @@ class LoginController extends Controller
             "email" => "required|exists:users,email",
             "password" => "required",
         ],[
-            "email.required" => "Email field is empty",
-            "email.exists" => "No account was found with this email",
-            "password" => "Password field is empty"
+            "email.required" => "E-Mail-Feld ist leer",
+            "email.exists" => "Es wurde kein Konto mit dieser E-Mail gefunden",
+            "password.required" => "Passwortfeld ist leer"
         ]);
 
         if($req->remember == true)
@@ -265,19 +265,15 @@ class LoginController extends Controller
                 {
                     return [
                         "status" => "Login failed",
-                        "msg" => "Failed to login, try again later"
+                        "msg" => "Anmeldung fehlgeschlagen, versuchen Sie es später noch einmal"
                     ];
                 }
-
-                
-
-
             }
             else{
                 // if not verified send error response
                 return [
                     "status" => "unverified_user",
-                    "msg" => "We sent you a verification code to your email. Verify your account before logging in"
+                    "msg" => "Wir haben Ihnen einen Verifizierungscode an Ihre E-Mail geschickt. Überprüfen Sie Ihr Konto, bevor Sie sich anmelden"
                 ];
             }
         }
@@ -285,9 +281,10 @@ class LoginController extends Controller
         {
             return [
                 "status" => "password_missmatch",
-                "msg" => "Password is wrong"
+                "msg" => "Das Passwort ist falsch"
             ];
         }
+        
     }
 
     public function resendVerificationCode(Request $req)

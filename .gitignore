@@ -9,3 +9,12 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+resources/views/back-end/freelancer/dashboardBackup.blade.php
+resources/js/components/pages/show/sections/categoriesBackup.vue
+resources/js/components/pages/show/sections/freelancersV2Backup.vue
+resources/js/components/pages/show/sections/jobsBackup.vue
+resources/views/masterBackup.blade.php
+resources/js/components/pages/show/sections/packagesBackup.vue
+resources/js/components/pages/show/sections/app/style3Backup.vue
+resources/js/components/SearchComponentV2Backup.vue
+resources/js/components/pages/show/sections/sliders/style4Backup.vue

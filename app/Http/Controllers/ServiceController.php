@@ -358,7 +358,7 @@ class ServiceController extends Controller
 
                     'service_price'    => 'required',
 
-                    'response_time'    => 'required',
+                    // 'response_time'    => 'required',
 
                     'description'    => 'required',
 

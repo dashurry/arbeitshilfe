@@ -38,15 +38,14 @@ body {
 	/* background: #f9fcff; */
 	/* overflow-x: hidden; */
 	font:400 14px/23px 'Poppins', Arial, Helvetica, sans-serif;
-		background-image: 	url(../images/background-home.svg),
+		/* background-image: 	url(../images/background-home.svg),
 							url(../images/background-home4.svg),
 							url(../images/background-home2.svg);
 		background-repeat: no-repeat, no-repeat, no-repeat;
 		background-size: contain, contain, contain;
 		background-position: 	top center, 
 								top 15% right,
-								bottom right;
-
+								bottom right; */
 }
 body h3,
 body h4,
@@ -902,13 +901,9 @@ li.wt-rss a { background:#ff6600; }
 .wt-formtheme{
 	width:100%;
 }
-.border-stripe {
-    border-color: #6772e5!important;
-	border-top-left-radius: 10px!important;
-	border-bottom-left-radius: 10px!important;
-}
 .custom-border-top {
     border-top: 2px solid #6658ea;
+	border-radius: 0.75rem !important;
 }
 .wt-formtheme fieldset{
 	border:0;
@@ -3655,7 +3650,7 @@ body.wt-login .wt-userlogedin{display: block;}
 	    -webkit-box-shadow: 0 0 0 5px rgba(255,88,81,0.2);
 	box-shadow: 0 0 0 5px rgba(255,88,81,0.2);
 }
-/* Job Single Style */
+/* Job Single Style
 .wt-haslayout  .card{
 	position: relative;
     display: flex;
@@ -3666,7 +3661,7 @@ body.wt-login .wt-userlogedin{display: block;}
     background-clip: border-box;
     border: 1px solid rgba(0,0,0,.085);
     border-radius: 1rem;
-}
+} */
 
 .wt-proposalholder{
 	float: left;
@@ -10659,11 +10654,11 @@ a:focus{text-decoration: none !important;}
 	padding: 30px;
 	margin: -30px;
 }
-.card{
+/* .card{
 	border: 0 solid rgba(27,22,66,.125);
     border-radius: 0;
 	box-shadow: 0 0 24px rgb(27 22 66 / 4%), 0 44px 74px rgb(27 22 66 / 6%);
-}
+} */
 .card-freelancer{
 	position: relative;
     display: flex;
@@ -11138,16 +11133,6 @@ a:hover {
 .mb-10 {
     margin-bottom: 5rem!important;
 }
-.display-3 {
-    font-weight: 500;
-    line-height: 1.08;
-	font-size: 4rem;
-}
-.display-5{
-	font-size: 3rem;
-	color: #1b1642;
-    font-family: "DM Sans", sans-serif;
-}
 .fw-bold {
     font-size: 3rem;
 	font-weight: 500!important;
@@ -11195,21 +11180,8 @@ a:hover {
     font-weight: 400;
     line-height: 1.6;
 }
-.list-checked-warning>li:before {
-    color: #f5c070;
-}
-.list-checked>li:before {
-    content: "";
-    font-family: Fontawesome;
-    left: 0;
-    position: absolute;
-    top: 0;
-}
 .btn {
-    /* background-color: transparent;
-    border: 1px solid transparent; */
     border-radius: .5rem 0 .5rem 0;
-    /* color: #1b1642; */
     cursor: pointer;
     display: inline-block;
     font-size: 1.125rem;
@@ -13142,71 +13114,37 @@ Listing Show More
     line-height: 1.6;
 	margin-top: 13px;
 }
-
-/* modal */
-.modal .btn-close {
-    position: absolute;
-    right: 1.5rem;
-    top: 1.5rem;
+/* Video Button */
+.cs-video-btn{
+	display: inline-block;
+-ms-flex: 0 0 auto;
+flex: 0 0 auto;
+width: 3.25rem;
+height: 3.25rem;
+padding-left: .125rem;
+transition: background-color 0.3s ease-in-out,color 0.3s ease-in-out,box-shadow 0.3s ease-in-out;
+border-radius: 50%;
+background-color: #ff5851;
+color: #fff;
+font-size: 1rem;
+text-align: center;
+text-decoration: none;
+box-shadow: 0 0.25rem 1rem -0.25rem rgb(30 33 44 / 20%);
+vertical-align: middle;
 }
-.btn-close:hover {
-    color: #575a7b;
-    opacity: .75;
-    text-decoration: none;
+.cs-video-btn:hover {
+color: #fff;
+text-decoration: none;
+box-shadow: 0px 0px 30px 6px rgba(255,88,81,1);
+-webkit-box-shadow: 0px 0px 30px 6px rgba(255,88,81,1);
+-moz-box-shadow: 0px 0px 30px 6px rgba(255,88,81,1);
 }
-.btn-close {
-    background: transparent url("../images/delete_20px.svg") 50%/2em auto no-repeat;
-    border: 0;
-    border-radius: 1rem;
-    box-sizing: content-box;
-    color: #575a7b;
-    height: 0.5em;
-    opacity: .5;
-    padding: 0.25em;
-    width: 0.5em;
+.cs-video-btn::before {
+padding-left: .125rem;
+font-family: "createx-icons";
+line-height: 3.25rem;
+content: '\e93f';
 }
-.signinform input{
-	height: 50px !important;
-	background-color: #f3f8ff;
-	border: none;
-	font-size: 16px;
-	color: black !important;
-	padding: 10px 20px !important;
-	border-radius: 0.5rem 0 0 0.5rem !important;
-}
-.signinform .input-group-append button{
-	border-radius: 0 0.5rem 0.5rem 0 !important;
-}
-
-.signinform input:active{
-	background-color: #f3f8ff !important;
-	outline: none !important;
-	border: none !important;
-}
-.signinform input:focus{
-	background-color: #f3f8ff !important;
-	outline: none !important;
-	border: none !important;
-}
-.signinform .eye-btn{
-	background-color: #f3f8ff;
-	padding: 0 15px;
-	color: #8d9aae;
-	width: 100%;
-}
-/* End */
-/* Custom p */
-.krtzy{
-	font-family: 'DM Sans', sans-serif !important;
-	color: #1b1642;
-    font-size: 1.125rem;
-    font-weight: 400;
-    line-height: 1.6;
-}
-/* Custom p */
-/* End */
-
-
 /* Dashboard */
 .wt-insightsitemholder .card {
     position: relative;
@@ -13381,22 +13319,17 @@ Listing Show More
 	background-color: black;
 }
 
-.goodkitH1{
+/* .goodkitH1{
 	color: #323232;
 	font-weight: 500 !important;
 	font-family: 'DM Serif Display',serif;
 	font-size: 4.5rem;
 	line-height: 1.08;
-}
-.goodkitParagraph{
+} */
+/* .goodkitParagraph{
 	color: #575a7b!important;
 	font-family: DM Sans,sans-serif;
-	font-weight: 400;
-	font-size: 1.375rem;
-	line-height: 1.6;
-	max-width: 630px;
-	margin: 0 auto;
-}
+} */
 .msg-item{
 	width: 100%;
 	padding: 10px 15px;

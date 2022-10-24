@@ -6,17 +6,17 @@
 
  *
 
- * @category Worketic
+ * @category 
 
  *
 
- * @package Worketic
+ * @package 
 
- * @author  Amentotech <theamentotech@gmail.com>
+ * @author  
 
- * @license http://www.amentotech.com Amentotech
+ * @license 
 
- * @link    http://www.amentotech.com
+ * @link    
 
  */
 

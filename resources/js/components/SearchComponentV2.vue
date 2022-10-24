@@ -1,28 +1,23 @@
 <template>
-    <!-- <div class="wt-bannerthree-form"> -->
         <form id="fromSearch">
-        <!-- <form class="wt-formtheme wt-form-service" id="fromSearch"> -->
-            <!-- <div class="wt-formtitlethree"><h3><span>{{slider.search_form_subtitle}}</span>{{slider.search_form_title}}</h3></div> -->
-            <!-- <fieldset> -->
                 <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <div class="form-group form-control-underline d-flex border-stripe custom-border-top align-items-center justify-content-center bg-white p-4 flex-wrap">
-                            <div class="col-xs-3 col-sm-3 col-md-4 col-lg-3">
-                                <div class="d-flex wt-select align-items-center justify-content-start">
+                        <div class="form-group form-control-underline d-flex custom-border-top align-items-center justify-content-center bg-white pt-4 pl-4 flex-wrap shadow">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-3 mb-2">
+                                <div class="d-flex align-items-center justify-content-start">
                                     <i class="material-symbols-outlined">search</i>
                                     <vue-bootstrap-typeahead class="" size="sm" v-model="query" :data="searchable_data" :placeholder="placeholder" :serializer="item => item.name" ref="searchfield" @input="watchSearchResults(types)" inputClass="search-field border-0 pl-0" @hit="recordSelected">
-                                    <template slot="suggestion" slot-scope="{ data, htmlText }">
-                                        <div class="d-flex align-items-center">
-                                        <span class="ml-4" v-html="htmlText"></span>
-                                        </div>
-                                        <input type="hidden" name="keyword" :value="data.slug" id="hidden_field">
-                                    </template>
+                                        <template slot="suggestion" slot-scope="{ data, htmlText }">
+                                            <div class="d-flex align-items-center">
+                                            <span class="ml-4" v-html="htmlText"></span>
+                                            </div>
+                                            <input type="hidden" name="keyword" :value="data.slug" id="hidden_field">
+                                        </template>
                                     </vue-bootstrap-typeahead>
-                                        <!-- <span v-if="is_show" class="no-record-span">{{no_record}}</span> -->
+                                        <span v-if="is_show" class="no-record-span">{{no_record}}</span>
                                 </div>
                             </div>
                             
-                            <div class="col-xs-3 col-sm-3 col-md-4 col-lg-3">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-3 mb-2">
                                 <div class="d-flex wt-select align-items-center justify-content-center">
                                     <i class="material-symbols-outlined">layers</i>
                                     <select class="border-0 pl-0" v-model="types" v-on:change="getSearchableData(types), emptyField(types)">
@@ -31,63 +26,31 @@
                                 </div>
                             </div>
                             
-                            <div class="col-xs-3 col-sm-3 col-md-4 col-lg-3">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-3 mb-2">
                                 <div class="d-flex wt-select align-items-center justify-content-center">
                                     <i class="material-symbols-outlined">place</i>
                                     <select class="locations border-0 pl-0" name="locations" v-html="locations"></select>
                                 </div>
                             </div>
 
-                            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-3 mb-2">
                                 <div class="d-flex align-items-center justify-content-center">
-                                    <button class="btn btn-primary shadow-none lift">
-                                        <a href="javascript:void(0);" class="text-white d-flex align-items-center" v-on:click.prevent="submitSearchForm(types)">{{trans('lang.search_now')}}
-                                        </a>
+                                    <button class="btn btn-primary shadow lift">
+                                        <a href="javascript:void(0);" class="text-white d-flex align-items-center" v-on:click.prevent="submitSearchForm(types)">{{trans('lang.search_now')}}</a>
                                     </button>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                    <div class="form-group d-flex align-items-center justify-content-center bg-white p-4 border-top">
-                        <i class="material-symbols-outlined">layers</i>
-                        <span class="wt-select">
-                        <select class="border-1" v-model="types" v-on:change="getSearchableData(types), emptyField(types)">
-                            <option v-for="(filter, index) in filters" :key="index" :value="filter.value">{{filter.title}}</option>
-                        </select>
-                        </span>
-                    </div>
-                    </div>
-                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 custom-srch-bar d-flex align-items-center">
-                    <div class="form-group">
-                        <label class="srch-icon">
-                        <i class="material-symbols-outlined">place</i>
-                        </label>
-                        <span class="wt-select">
-                        <select class="locations border-0" name="locations" v-html="locations"></select>
-                        </span>
-                    </div>
-                    </div>
-                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 d-flex align-center">
-                    <div class="wt-bannerthreeform-footer">
-                        <a href="javascript:void(0);" class="btn btn-primary shadow-none lift" v-on:click.prevent="submitSearchForm(types)">
-                        {{trans('lang.search_now')}}
-                        <span class=" ml-2 fas fa-paper-plane"></span>
-                        </a>
-                    </div>
-                    </div> -->
+                    
                     <div class="form-group wt-pricerange-group" v-if="types=='job' || types=='service'">
                     <h4>{{slider.price_range_title}}</h4>
                     <div class="wt-amountbox">
                         <input type="text" :value="symbol+start+'-'+symbol+end" id="wt-consultationfeeamount" readonly="">
                     </div>
-                    <!-- <span>{{slider.listing_tagline}}</span> -->
                     <a-slider id="wt-pricerange" class="wt-productrangeslider wt-themerangeslider" range :min="0" :max="max_value" :reverse="reverse" @change="onChange" :defaultValue="[0, max_value]" />
                     </div>
                 </div>
-            <!-- </fieldset> -->
         </form>
-    <!-- </div> -->
 </template>
 <script>
  export default{
@@ -154,9 +117,6 @@
                 axios.get(APP_URL + '/search/location-list')
                 .then(function (response) {
                     self.locations = response.data;
-                    // setTimeout(function(){ 
-                    //     jQuery("body select.locations").msDropDown();
-                    // }, 100);
                 });
             },
             changeFilter(){

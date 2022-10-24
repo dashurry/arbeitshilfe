@@ -39,9 +39,11 @@
 
 	@auth
 		<meta name="isLoggedIn" content="true">
+		<meta name="userType" content="{{{ Helper::getAuthRoleName() }}}">
 	@endauth
 	@guest
 	<meta name="isLoggedIn" content="false">
+	<meta name="userType" content="null">
 	@endguest
 
 	<link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -71,14 +73,15 @@
 
 	<link href="{{ asset('css/linearicons.css') }}" rel="stylesheet">
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
-
 	@stack('sliderStyle')
+
 	<link href="{{ asset("css/chosen.css") }}" rel="stylesheet">
+
 	<link href="{{ asset('css/main.css') }}" rel="stylesheet">
 
-	<link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+	<link href="{{ asset('css/aos.css') }}" rel="stylesheet">
 
+	<link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 
 	@if(Helper::getTextDirection() == 'rtl')
 
@@ -119,7 +122,8 @@
 		<script type="text/javascript">
 
 			var USERID = {!! json_encode(Auth::user()->id) !!}
-
+			
+			
 			window.Laravel = {!! json_encode([
 
 			'csrfToken'=> csrf_token(),
@@ -220,11 +224,10 @@
 
 	</div>
 	@guest
-		<div class="modal fade" id="modalSignIn" tabindex="-1" aria-labelledby="modalSignInHeading" aria-modal="true" role="dialog" style="background-color: rgba(39,31,122,0.7)">
+		<div class="modal fade bg-transparent" id="modalSignIn" tabindex="-1" aria-labelledby="modalSignInHeading" aria-modal="true" role="dialog">
 			<div class="modal-dialog modal-md modal-dialog-centered" role="document">
-				<div class="modal-content" style="border-radius: 1rem;border-bottom-left-radius: 0;border-top-right-radius: 0;">
-					<div class="modal-body p-5">
-
+				<div class="modal-content rounded-top-start-3 rounded-bottom-end-3">
+					<div class="modal-body">
 						<!-- Close -->
 						<button class="btn-close" data-dismiss="modal" type="button" aria-label="Close"></button>
 
@@ -236,12 +239,12 @@
 							Account Verification
 						</h3>
 						<!-- Text -->
-						<p class="krtzy text-center" v-if="!needVerify">
+						<p class="text-center" v-if="!needVerify">
 							Sie haben noch kein Konto?
 							<a href="{{{ route('register') }}}" class="text-primary">{{{ trans('lang.create_account') }}}</a>
 						</p>
 						
-						<p class="krtzy text-center" v-if="needVerify">
+						<p class="text-center" v-if="needVerify">
 							@{{ verifyMsg }}
 						</p>
 						<div class="alert alert-success fade show" role="alert" v-if="verificationSuccess">
@@ -254,32 +257,26 @@
 								<!-- Email -->
 								<div class="form-group">
 									<div class="input-group signinform">
-										<input id="email" type="email" name="email" class="form-control" :class="{'is-invalid' : errEmail.error==true}" placeholder="Email" required autofocus v-model="loginForm.email">
-										<div class="input-group-append">
-											<button type="button" class="eye-btn"><i class="fas fa-user"></i></button>
-										</div>
+										<input id="email" type="email" name="email" class="form-control" :class="{'is-invalid' : errEmail.error==true}" placeholder="Email" autofocus v-model="loginForm.email">
 									</div>
-									<span class="invalid-feedback d-block" role="alert" v-if="errEmail.error">
+									<div class="invalid-feedback d-block" role="alert" v-if="errEmail.error">
 										@{{ errEmail.msg }}
-									</span>
+									</div>
 									
 								</div>
 								<!-- Password -->
 								<div class="form-group">
 									<div class="input-group signinform">
-										<input id="password" type="password" name="password" class="form-control" :class="{'is-invalid' : passError.error==true}" placeholder="Password" required v-model="loginForm.password">
-										<div class="input-group-append">
-											<button type="button" class="eye-btn"><i class="fas fa-key"></i></button>
-										</div>
-										<span class="invalid-feedback d-block" role="alert" v-if="passError.error">
+										<input id="password" type="password" name="password" class="form-control" :class="{'is-invalid' : passError.error==true}" placeholder="Password" v-model="loginForm.password">
+										<div class="invalid-feedback d-block" role="alert" v-if="passError.error">
 											@{{ passError.msg }}
-										</span>
+										</div>
 
 									</div>
 								</div>
 								<div class="form-group">
 									<span class="text-left">
-										<label class="krtzy" for="remember">
+										<label class="" for="remember">
 											<input id="remember" type="checkbox" name="remember" v-model="loginForm.remember"> &nbsp;{{{ trans('lang.keep_me_logged_in') }}}
 										</label>
 									</span>
@@ -335,7 +332,7 @@
 						</form>
 
 						
-
+						
 					</div>
 				</div>
 			</div>
@@ -347,37 +344,44 @@
 	<script src="{{ asset('js/tinymce/tinymce.min.js') }}"></script>
 	
 	@yield('bootstrap_script')
-	
 	<script src="{{ asset('js/app.js') }}"></script>
 	
 	<script src="{{ asset('js/vendor/jquery-library.js') }}"></script>
 	
     <script src="{{ asset('js/jquery-ui-min.js') }}"></script>
-	
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
 	<script src="{{ asset("js/chosen.min.js") }}"></script>
     @stack('scripts')
 
+		<script src="{{ asset('js/aos.js') }}"></script>
+
 	<script>
+		$(window).on("load", function() {
+				AOS.init();
+				setTimeout(() => {AOS.refresh();}, 500);
+				setTimeout(() => {AOS.refresh();}, 1000);
+				setTimeout(() => {AOS.refresh();}, 1500);
+		});
+		$(window).on("scroll", function() {
+				AOS.refresh();
+		});	
+
+				// $("body,html").animate({
+				// scrollTop: 5
+				// }, 3000);
+				// $(function() {
+				// 	AOS.init();
+				// });
+				// let scrollRef = 0;
+				// window.addEventListener('scroll', function() {
+				// // increase value up to 10, then refresh AOS
+				// scrollRef >= 0.1 ? scrollRef++ : AOS.refresh();
+				// });
+
 		if($('.chosen-select').length){
             $(".chosen-select").chosen();
         }
-	</script>
-	<script>
-		$("body,html").animate({
-		scrollTop: 5
-		}, 3000);
-		$(function() {
-			AOS.init();
-		});
-		let scrollRef = 0;
-		window.addEventListener('scroll', function() {
-		// increase value up to 10, then refresh AOS
-		scrollRef >= 0.1 ? scrollRef++ : AOS.refresh();
-		});
-	 </script>
-    <script>
+
         jQuery(window).load(function () {
 			
 			jQuery(".preloader-outer").delay(500).fadeOut();
@@ -385,16 +389,13 @@
             jQuery(".pins").delay(500).fadeOut("slow");
 			
         });
-		</script>
+		
 		@if (auth()->check())
-			<script> window.authUser = {!! json_encode(auth()->user()->id) !!}; </script>
+				window.authUser = {!! json_encode(auth()->user()->id) !!}; 
 		@else
-		<script>
-			window.authUser = null;
-		</script>
-	@endif
-
-	
+				window.authUser = null;
+		@endif
+	</script>
 </body>
 
 </html>

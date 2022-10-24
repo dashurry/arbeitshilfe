@@ -60,6 +60,14 @@ import {Form} from "vform";
 window.Form = Form;
 // Form
 
+// Typed plugin
+import VueTypedJs from 'vue-typed-js'
+
+// AOS plugin
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+
 
 import moment from "moment";
 
@@ -75,8 +83,8 @@ Vue.prototype.trans = (key) => {
 };
 
 Vue.prototype.$isLoggedIn = document.querySelector('meta[name="isLoggedIn"]').getAttribute('content');
+Vue.prototype.$userType = document.querySelector('meta[name="userType"]').getAttribute('content');
 Vue.prototype.$userId = window.USERID;
-
 
 
 Vue.filter('two_digits', function (value) {
@@ -116,6 +124,10 @@ Vue.use(Vuebar);
 Vue.use(Collapse);
 
 Vue.use(Slider);
+
+Vue.use(AOS);
+
+Vue.use(VueTypedJs)
 
 
 
@@ -868,7 +880,7 @@ if (document.getElementById("modalSignIn")){
             },
             passError: {
                 error: false,
-                msg: "",
+                msg: "Error",
             },
             sendingCodeLoader: false,
             codeSent: false,

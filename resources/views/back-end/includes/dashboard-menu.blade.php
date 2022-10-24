@@ -1,11 +1,11 @@
 @auth
-
+    
     <div id="wt-sidebarwrapper" class="wt-sidebarwrapper" data-menu="open">
 
         <div id="wt-btnmenutoggle" class="wt-btnmenutoggle">
 
             <span class="menu-icon">
-                <i class="material-symbols-outlined">menu_open</i>
+                <i class="material-symbols-outlined">undo</i>
             </span>
 
         </div>

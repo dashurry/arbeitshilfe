@@ -226,13 +226,13 @@
 
                                         <div class="form-group">
 
-                                            {!! Form::number( 'freelancer[no_of_services]', null, ['class' =>'form-control ', 'placeholder' => trans('lang.freelancer_pkg_opt.no_of_services'), 'v-model'=>'package.services'] ) !!}
+                                            {!! Form::text( 'freelancer[no_of_services]', null, ['class' =>'form-control ', 'placeholder' => trans('lang.freelancer_pkg_opt.no_of_services'), 'v-model'=>'package.services'] ) !!}
 
                                         </div>
 
                                         <div class="form-group">
 
-                                            {!! Form::number( 'freelancer[no_of_featured_services]', null, ['class' =>'form-control ', 'placeholder' => trans('lang.freelancer_pkg_opt.no_of_featured_services'), 'v-model'=>'package.featured_services'] ) !!}
+                                            {!! Form::text( 'freelancer[no_of_featured_services]', null, ['class' =>'form-control ', 'placeholder' => trans('lang.freelancer_pkg_opt.no_of_featured_services'), 'v-model'=>'package.featured_services'] ) !!}
 
                                         </div>
 

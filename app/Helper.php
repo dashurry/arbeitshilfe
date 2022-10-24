@@ -8,17 +8,17 @@
 
  *
 
- * @category Worketic
+ * @category 
 
  *
 
- * @package Worketic
+ * @package 
 
- * @author  Amentotech <theamentotech@gmail.com>
+ * @author  
 
- * @license http://www.amentotech.com Amentotech
+ * @license 
 
- * @link    http://www.amentotech.com
+ * @link    
 
  */
 
@@ -2252,13 +2252,13 @@ class Helper extends Model
 
                 $list = array(
 
-                    // 'no_of_connects' => trans('lang.freelancer_pkg_opt.no_of_credits'),
+                    'no_of_connects' => trans('lang.freelancer_pkg_opt.no_of_credits'),
 
-                    // 'no_of_skills' => trans('lang.freelancer_pkg_opt.no_of_skills'),
+                    'no_of_skills' => trans('lang.freelancer_pkg_opt.no_of_skills'),
 
-                    // 'no_of_services' => trans('lang.freelancer_pkg_opt.no_of_services'),
+                    'no_of_services' => trans('lang.freelancer_pkg_opt.no_of_services'),
 
-                    // 'no_of_featured_services' => trans('lang.freelancer_pkg_opt.no_of_featured_services'),
+                    'no_of_featured_services' => trans('lang.freelancer_pkg_opt.no_of_featured_services'),
 
                     'duration' => trans('lang.freelancer_pkg_opt.pkg_duration'),
 
@@ -7329,7 +7329,7 @@ class Helper extends Model
 
         $message = !empty($message) ? $message : trans('lang.restricted_text');
 
-        if (isset($_SERVER["SERVER_NAME"]) && $_SERVER["SERVER_NAME"] === 'amentotech.com') {
+        if (isset($_SERVER["SERVER_NAME"]) && $_SERVER["SERVER_NAME"] === 'maurofrappietro.com') {
 
             return $message;
 
@@ -7363,7 +7363,7 @@ class Helper extends Model
 
         $message = !empty($message) ? $message : trans('lang.restricted_text');
 
-        if (isset($_SERVER["SERVER_NAME"]) && $_SERVER["SERVER_NAME"] === 'amentotech.com') {
+        if (isset($_SERVER["SERVER_NAME"]) && $_SERVER["SERVER_NAME"] === 'maurofrappietro.com') {
 
             return response()->json(['message' => $message]);
 
