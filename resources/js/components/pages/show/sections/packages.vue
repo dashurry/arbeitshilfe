@@ -16,7 +16,7 @@
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4" :key="index">
             <!-- Card -->
             <div class="card rounded-top-start-3 rounded-bottom-end-3 mt-6">
-              <div class="card-body">
+              <div class="card-body text-center">
                 <!-- Preheading -->
                 <h6 class="text-center text-uppercase text-warning"> {{ pkgItem.title }} </h6>
                 <!-- Price -->
@@ -27,22 +27,25 @@
                 </p>
                 <!-- List -->
                 <ul class="list-checked list-checked-warning">
-                  <li class="mb-3 d-flex">
+                  <li class="mb-3 d-flex align-items-center">
                     <i class="material-symbols-outlined mr-2 text-warning font-weight-bold">check</i>{{ pkgItem.options.no_of_connects }}
                   </li>
-                  <li class="mb-3 d-flex">
+                  <li class="mb-3 d-flex align-items-center">
                     <i class="material-symbols-outlined mr-2 text-warning font-weight-bold">check</i>{{ pkgItem.options.no_of_services }} 
                     </li>
-                  <li class="mb-3 d-flex"><i class="material-symbols-outlined mr-2 text-warning font-weight-bold">check</i>{{ pkgItem.options.no_of_featured_services }} 
+                  <li class="mb-3 d-flex align-items-center">
+                    <i class="material-symbols-outlined mr-2 text-warning font-weight-bold">check</i>{{ pkgItem.options.no_of_featured_services }} 
                   </li>
-                  <li class="mb-3 d-flex" v-if="!pkgItem.options.no_of_skills == ''"><i class="material-symbols-outlined mr-2 text-warning font-weight-bold">check</i>{{ pkgItem.options.no_of_skills }} 
+                  <li class="mb-3 d-flex align-items-center" v-if="!pkgItem.options.no_of_skills == ''">
+                    <i class="material-symbols-outlined mr-2 text-warning font-weight-bold">check</i>{{ pkgItem.options.no_of_skills }} 
                   </li>
-                  <li class="mb-3 d-flex" v-if="!pkgItem.options.duration == ''"><i class="material-symbols-outlined mr-2 text-warning font-weight-bold">check</i>{{ pkgItem.options.duration }} 
+                  <li class="mb-3 d-flex align-items-center" v-if="!pkgItem.options.duration == ''">
+                    <i class="material-symbols-outlined mr-2 text-warning font-weight-bold">check</i>{{ pkgItem.options.duration }} 
                   </li>
                 </ul>
                 <!-- Button -->
-                <a v-if="role !== 'admin' && isLoggedIn =='true'" class="btn w-100 btn-primary shadow-none lift" :href="baseUrl+'/user/package/checkout/' + pkgItem.id" target="_blank"> Purchase </a>
-                <a v-else class="btn w-100 btn-primary shadow-none lift" href='#' data-target="#modalSignIn" data-toggle="modal"> Purchase </a>
+                <a v-if="role !== 'admin' && isLoggedIn =='true'" class="btn w-50 btn-primary btn-lg shadow-none lift" :href="baseUrl+'/user/package/checkout/' + pkgItem.id" target="_blank"> Purchase </a>
+                <a v-else class="btn w-50 btn-lg btn-primary shadow-none lift" href='#' data-target="#modalSignIn" data-toggle="modal"> Purchase </a>
               </div>
             </div>
           </div>

@@ -31,8 +31,10 @@
 @endsection
 
 @section('main')
-
-	<main id="wt-main" class="wt-main wt-haslayout">
+    <!-- Dark Overlay element -->
+    <div class="overlay"></div>
+	{{-- <main id="wt-main" class="wt-main wt-haslayout"> --}}
+    <main id="wt-main" class="container">
 
         @if (Auth::user())
 
@@ -95,6 +97,22 @@
 
             });
         })
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#dismiss, .overlay').on('click', function () {
+                $('#sidebar').removeClass('active');
+                $('.overlay').removeClass('active');
+            });
+
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').addClass('active');
+                $('.overlay').addClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
     </script>
 
 @endpush

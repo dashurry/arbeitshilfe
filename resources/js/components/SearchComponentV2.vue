@@ -35,7 +35,7 @@
 
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-3 mb-2">
                                 <div class="d-flex align-items-center justify-content-center">
-                                    <button class="btn btn-primary shadow lift">
+                                    <button class="btn btn-primary btn-lg shadow lift">
                                         <a href="javascript:void(0);" class="text-white d-flex align-items-center" v-on:click.prevent="submitSearchForm(types)">{{trans('lang.search_now')}}</a>
                                     </button>
                                 </div>

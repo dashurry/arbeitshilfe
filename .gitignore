@@ -18,3 +18,5 @@ resources/js/components/pages/show/sections/packagesBackup.vue
 resources/js/components/pages/show/sections/app/style3Backup.vue
 resources/js/components/SearchComponentV2Backup.vue
 resources/js/components/pages/show/sections/sliders/style4Backup.vue
+resources/views/back-end/includes/dashboard-menuBackup.blade.php
+resources/views/back-end/includes/sidebar.blade.php

@@ -454,7 +454,7 @@
 
                         <a href="{{{ route('showFreelancerProposals') }}}">
 
-                            <i class="ti-bookmark-alt"></i>
+                            <i class="material-symbols-outlined">science</i>
 
                             <span>{{ trans('lang.proposals') }}</span>
 

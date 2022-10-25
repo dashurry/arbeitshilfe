@@ -98,6 +98,11 @@ class ArticleController extends Controller
      {
          return view('front-end.howitworks');
      }
+     /* sidebar Page */
+     public function sideBar()
+     {
+         return view('back-end.includes.sidebar');
+     }
 
     public function index()
 

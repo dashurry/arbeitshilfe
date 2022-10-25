@@ -148,6 +148,7 @@ Route::get('page/uber-uns', 'ArticleController@aboutPage')->name('main.about');
 Route::get('page/dienstleistungen', 'ArticleController@categoryPage')->name('main.category');
 Route::get('page/categories', 'ArticleController@categories')->name('main.categories');
 Route::get('page/wie-funktioniert-arbeits-hilfe', 'ArticleController@howitworksPage')->name('main.howitworks');
+Route::get('/sidebar', 'ArticleController@sidebar')->name('main.sidebar');
 
 Route::get('about-us', 'ArticleController@aboutPage')->name('main.about');
 
