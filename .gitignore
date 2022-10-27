@@ -20,3 +20,5 @@ resources/js/components/SearchComponentV2Backup.vue
 resources/js/components/pages/show/sections/sliders/style4Backup.vue
 resources/views/back-end/includes/dashboard-menuBackup.blade.php
 resources/views/back-end/includes/sidebar.blade.php
+resources/js/components/pages/job/JobFilterBackup.vue
+resources/views/front-end/jobs/indexBlade.blade.php

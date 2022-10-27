@@ -8,8 +8,8 @@
             <h2 data-aos="fade-up" :style="{color:category.titleTwoColor}">{{category.title}} {{category.titleTwo}}</h2>
             <div data-aos="fade-up" v-html="category.description" class="text-muted h5 font-weight-light mt-4 mb-4"></div>
             <div class="wt-btnarea" data-aos="fade-up">
-              <a v-if="isLoggedIn == 'true'" :href="baseUrl+'/page/dienstleistungen'" class="btn btn-primary shadow-none lift">{{ trans('lang.show_all') }}</a>
-              <a v-else href="#" data-target="#modalSignIn" data-toggle="modal" class="btn btn-primary shadow-none lift">{{ trans('lang.show_all') }}</a>
+              <a v-if="isLoggedIn == 'true'" :href="baseUrl+'/page/dienstleistungen'" class="btn btn-primary btn-lg shadow-none lift">{{ trans('lang.show_all') }}</a>
+              <a v-else href="#" data-target="#modalSignIn" data-toggle="modal" class="btn btn-primary btn-lg shadow-none lift">{{ trans('lang.show_all') }}</a>
             </div>
           </div>
         </div>

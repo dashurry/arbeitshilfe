@@ -251,7 +251,7 @@
 							<strong>Congrats!</strong> @{{ verificationSuccessMsg }}
 						</div>
 						<!-- Form -->
-						<form class="mb-6" @submit.prevent="signIn">
+						<form class="mb-6 text-center" @submit.prevent="signIn">
 							@csrf
 							<div v-if="!needVerify">
 								<!-- Email -->
@@ -282,7 +282,7 @@
 									</span>
 								</div>
 								<!-- Button -->
-								<button class="btn w-100 btn-primary" type="submit" :disabled="isLoginBusy==true">
+								<button class="btn btn-lg w-50 btn-primary lift" type="submit" :disabled="isLoginBusy==true">
 									<span v-if="!isLoginBusy">{{{ trans('lang.sign_in') }}}</span>
 									<span v-if="isLoginBusy" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
 								</button>

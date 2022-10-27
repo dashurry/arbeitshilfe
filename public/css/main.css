@@ -51,11 +51,11 @@ body h3,
 body h4,
 body h5,
 body h6 {
-	color: #323232;
+	/* color: #323232;
 	margin: 0 0 8px;
 	font-weight: 700;
 	line-height: 1.5;
-	font-style: normal;
+	font-style: normal; */
 	/* text-transform:capitalize; */
 	font-family: 'Poppins', Arial, Helvetica, sans-serif;
 }
@@ -68,12 +68,6 @@ body h1, body h2 {
 	/* text-transform:capitalize; */
 	font-family: 'DM Serif Display', sans-serif;
 }
-h1 { font-size: 48px;}
-h2 { font-size: 36px;}
-h3 { font-size: 24px;}
-h4 { font-size: 18px;}
-h5 { font-size: 16px;}
-h6 { font-size: 14px;}
 h1 a,
 h2 a,
 h3 a,
@@ -12582,28 +12576,6 @@ input:checked + .slider:before {
     color: #696969;
 }
 
-.job-block .bookmark-btn{
-    position: absolute;
-    right: 0;
-    top: -15px;
-    height: 30px;
-    width: 30px;
-    line-height: 35px;
-    text-align: center;
-    font-size: 14px;
-    border-radius: 50%;
-    cursor: pointer;
-    background: #ffffff;
-    -webkit-transition: all 300ms ease;
-    -o-transition: all 300ms ease;
-    transition: all 300ms ease;
-}
-
-.job-block .bookmark-btn:hover{
-    background: #ECEDF2;
-
-}
-
 .job-block .job-other-info{
     position: relative;
     display: -webkit-box;
@@ -12683,8 +12655,7 @@ input:checked + .slider:before {
     position: relative;
     display: none;
 }
-
-.ls-section .filters-outer{
+.filters-outer{
     position: relative;
     background: #F5F7FC;
     border-radius: 8px;
@@ -12773,39 +12744,14 @@ input:checked + .slider:before {
     position: relative;
     margin-bottom: 30px;
 }
+
 .call-to-action-four {
     position: relative;
-    background-color: rgba(25,103,210,.07);
-    padding: 30px 30px;
-    padding-right: 140px;
-    border-radius: 10px;
-    overflow: hidden;
-}
-.call-to-action-four h5 {
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 24px;
-    color: #202124;
-    margin-bottom: 17px;
-}
-.call-to-action-four p {
-    font-size: 14px;
-    line-height: 24px;
-    color: #696969;
-    margin-bottom: 25px;
-}
-.call-to-action-four .image {
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 100%;
-    width: 140px;
     background-repeat: no-repeat;
-    background-position: center left;
-    background-size: cover;
-	background-image: url("../images/ads.png");
+    background-position: center right;
+    background-size: auto;
+    background-image: url(../images/ads.png);
 }
-
 .chosen-container-single .chosen-single div:after{
 	margin: 15px 0 0 !important;
 }
@@ -13496,7 +13442,7 @@ content: '\e93f';
 	position: relative;
 	height: calc(100% - 162px);
 	overflow-y: scroll;
-	padding: 25px 25px 0 25px;
+	/* padding: 25px 25px 0 25px; */
 	display: flex;
 	flex-direction: column-reverse;
 }

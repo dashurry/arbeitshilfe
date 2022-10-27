@@ -1,28 +1,24 @@
 <template>
-    <div class="auto-container">
+    <div class="container">
         <div class="row">
 
             <!-- Filters Column -->
-            <div class="filters-column col-lg-4 col-md-12 col-sm-12">
-                <div class="inner-column">
-                    <div class="filters-outer">
-                        <button type="button" class="theme-btn close-filters">X</button>
+            <div class="col-lg-4 col-md-12 col-sm-12">
+                <div class="card border-0">
+                    <div class="card-body mb-5" style="background: #F5F7FC;">
                         
-                        <form class="wt-formtheme wt-formsearch">
+                        <form>
                             
                             <!-- Filter Block -->
                             <!-- v-debounce:700ms="filterJob" -->
-                            <div class="filter-block">
-                                <h4>Start Search</h4>
+                            
+                                 <h5 class="font-weight-normal text-dark">Start Search</h5>
                                 <div class="form-group">
-                                    <input type="text" class="border-0" name="s" placeholder="Jobs suchen..." v-model="filterForm.keyword">
-                                    <i class="icon material-symbols-outlined">search</i>
+                                    <input type="text" class="form-control form-control-lg" name="s" placeholder="Jobs suchen..." v-model="filterForm.keyword">
                                 </div>
-                            </div>
 
                             <!-- Filter Block -->
-                            <div class="filter-block">
-                                <h4>Categories</h4>
+                                <h5 class="font-weight-normal text-dark">Categories</h5>
                                 <div class="form-group">
                                     <multiselect v-model="filterForm.ctgs" :options="categories" :multiple="true" 
                                     :close-on-select="true"
@@ -35,13 +31,10 @@
                                     @input="filterJob"
                                     >
                                     </multiselect>
-                                    <i v-if="filterForm.ctgs.length < 1" class="icon material-symbols-outlined">layers</i>
                                 </div>
-                            </div>
 
                             <!-- Checkboxes Ouer -->
-                            <div class="filter-block">
-                                <h4>Locations</h4>
+                                <h5 class="font-weight-normal text-dark">Locations</h5>
                                 <div class="form-group">
                                     <multiselect v-model="filterForm.locations" :options="locations" :multiple="true" 
                                     :close-on-select="true"
@@ -54,26 +47,11 @@
                                     @input="filterJob"
                                     >
                                     </multiselect>
-                                    <i v-if="filterForm.locations.length < 1" class="icon material-symbols-outlined">home_pin</i>
                                 </div>
-                            </div>
 
                             <!-- Checkboxes Ouer -->
-                            <!-- <div class="checkbox-outer">
-                                <h4>Skills</h4>
-                                <ul class="checkboxes">
-
-                                    <li v-for="(skill,i) in skills" :key="i">
-                                        <input :id="`skill-${i}`" type="checkbox" name="skills[]" :value="skill.slug" v-model="filterForm.skills" @change="filterJob">
-                                        <label :for="`skill-${i}`">{{ skill.title }}</label>                            
-                                    </li>
-
-                                </ul>
-                            </div> -->
-
-                            <!-- Checkboxes Ouer -->
-                            <div class="checkbox-outer">
-                                <h4>{{ trans('lang.project_length') }}</h4>
+                            <div class="mb-4">
+                                <h5 class="font-weight-normal text-dark">{{ trans('lang.project_length') }}</h5>
                                 <ul class="checkboxes">
 
                                     <li v-for="(length,i) in project_length" :key="i">
@@ -84,8 +62,8 @@
                                 </ul>
                             </div>
 
-                            <div class="checkbox-outer">
-                                <h4>Datum der Veröffentlichung</h4>
+                            <div class="mb-4">
+                                <h5 class="font-weight-normal text-dark">Datum der Veröffentlichung</h5>
                                 <ul class="checkboxes">
                                     <li>
                                         <input id="check-aa" type="radio" name="dateCheck" v-model="filterForm.datePosted" value="" checked @change="filterJob">
@@ -114,37 +92,35 @@
                                 </ul>
                             </div>
 
-                            <div class="filter-block">
+                            <div class="mb-4">
                                 <h4>Tags</h4>
-                                <ul class="tags-style-one">
-                                    <li><a href="#">app</a></li>
-                                    <li><a href="#">administrative</a></li>
-                                    <li><a href="#">android</a></li>
-                                    <li><a href="#">wordpress</a></li>
-                                    <li><a href="#">design</a></li>
-                                    <li><a href="#">react</a></li>
+                                <ul class="d-flex flex-wrap justify-content-around">
+                                    <li class="mb-3"><a href="#" class="p-2 bg-white text-muted">app</a></li>
+                                    <li class="mb-3"><a href="#" class="p-2 bg-white text-muted">administrative</a></li>
+                                    <li class="mb-3"><a href="#" class="p-2 bg-white text-muted">android</a></li>
+                                    <li class="mb-3"><a href="#" class="p-2 bg-white text-muted">wordpress</a></li>
+                                    <li class="mb-3"><a href="#" class="p-2 bg-white text-muted">design</a></li>
+                                    <li class="mb-3"><a href="#" class="p-2 bg-white text-muted">react</a></li>
                                 </ul>
                             </div>
 
                         </form>
                     </div>
 
-                    <div class="call-to-action-four">
+                    <div class="call-to-action-four p-4" style="background-color: #1967d212;">
                         <h5>Rekrutieren?</h5>
-                        <p>Inserieren Sie Ihre Stellen bei Millionen von monatlichen Nutzern und durchsuchen Sie Millionen Lebensläufe in unserer Datenbank.</p>
-                        <a href="#" class="theme-btn btn-style-one bg-blue"><span class="btn-title">Jetzt mit der Rekrutierung beginnen</span></a>
-                        <div class="image"></div>
+                        <p class="w-50">Inserieren Sie Ihre Stellen bei Millionen von monatlichen Nutzern und durchsuchen Sie Millionen Lebensläufe in unserer Datenbank.</p>
+                        <a href="#" class="btn btn-primary">Jetzt mit der Rekrutierung beginnen</a>
                     </div>
 
                 </div>
                 </div>
             <!-- Content Column -->
-            <div class="content-column col-lg-8 col-md-12 col-sm-12">
+            <div class="col-lg-8 col-md-12 col-sm-12">
                     
-                <div class="mb-3"><span><strong class="text-muted">{{ filteredJobs.length }}</strong> of 
-                <strong class="text-muted">{{ jobData.total }}</strong> results</span></div>
-
-                <div class="ls-outer">
+                <div class="mb-3">
+                    <span><strong class="text-muted">{{ filteredJobs.length }}</strong> of <strong class="text-muted">{{ jobData.total }}</strong> results</span>
+                </div>
 
                     <template v-if="filterLoading">
                         <div class="spinner">
@@ -154,54 +130,59 @@
 
                     <template v-else>
                         <!-- Job Block -->
-                        <div class="job-block featured_class" v-for="(job,i) in filteredJobs" :key="i">
+                        <div class="card mb-3" v-for="(job,i) in filteredJobs" :key="i">
                             
                             <span v-if="job.is_feature=='true'" class="wt-featuredtag"><img src="/images/featured.png" alt="" 
                             data-tipso="Plus Member" class="template-content tipso_style"></span>
 
-                            <div class="inner-box">
-                                <div class="content">
-                                    <span class="company-logo mt-3">
-                                        <img src="https://creativelayers.net/themes/superio/images/resource/company-logo/1-2.png" alt="">
-                                        </span>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-1 col-lg-1 col-md-12 col-sm-12 col-xs-12">
+                                        <img src="https://creativelayers.net/themes/superio/images/resource/company-logo/1-2.png" alt="" class="img-fluid">
+                                    </div>       
+                                    <div class="col-10">
+                                        <a :href="`/profile/${job.employer.slug}`" class="d-flex align-items-center"><i class="material-symbols-outlined">verified</i> {{ job.employer.first_name +" "+ job.employer.last_name }}</a>
+                                        <p style="font-size: 12px; color: #a7a7a7;">Member Since: {{ moment(job.employer.created_at).format("MMMM YYYY") }}</p>
+                                        <h4 class="mt-3"><a :href="`/job/${job.slug}`">{{ job.title }}</a></h4>
+                                        <p>{{ job.description }}</p>
+                                        <ul class="d-flex mb-3">
+                                            <li class="d-flex align-items-center mr-3">
+                                                <i class="material-symbols-outlined mr-2">date_range</i> 
+                                                <vue-moment-ago prefix="" suffix="ago" :date="job.created_at" lang="en" />
+                                            </li>
+                                            <li class="d-flex align-items-center mr-3" v-if="job.price!=null || job.price > 0">
+                                                <span class="material-symbols-outlined mr-2">payments</span> {{ job.price }} Fr
+                                            </li>
+                                            <li class="d-flex align-items-center" v-else>
+                                                <i class="material-symbols-outlined mr-2">payments</i> Open
+                                            </li>
+                                            
+                                            <!-- <li><i class=""></i></li> -->
+                                        </ul>
+                                        <ul class="d-flex justify-content-around flex-wrap align-items-center">
 
-                                    <a :href="`/profile/${job.employer.slug}`" class="d-flex align-items-center"><i class="material-symbols-outlined">verified</i> {{ job.employer.first_name +" "+ job.employer.last_name }}</a>
-                                    <p style="font-size: 12px; color: #a7a7a7;">Member Since: {{ moment(job.employer.created_at).format("MMMM YYYY") }}</p>
+                                            <li v-if="job.project_level != ''" class="privacy"><i class="material-symbols-outlined">payments</i> {{ job.project_level }}</li>
 
-                                    <h4 class="mt-3"><a :href="`/job/${job.slug}`">{{ job.title }}</a></h4>
-                                    <p>{{ job.description }}</p>
-                                    <ul class="job-info">
-                                        <li class="d-flex align-items-center"><i class="icon material-symbols-outlined mr-2">date_range</i> <vue-moment-ago prefix="" suffix="ago" :date="job.created_at" lang="en" /> </li>
-                                        <!-- <vue-moment-ago prefix="" suffix="ago" :date="job.created_at" lang="en" /> -->
-                                        <li class="d-flex align-items-center" v-if="job.price!=null || job.price > 0"><span class="icon material-symbols-outlined mr-2">payments</span> {{ job.price }} Fr</li>
-                                        
-                                        <li class="d-flex align-items-center" v-else><i class="icon material-symbols-outlined mr-2">payments</i> Open</li>
-                                        
-                                        <!-- <li><i class=""></i></li> -->
-                                    </ul>
-                                    <ul class="job-other-info">
+                                            <li class="mb-2 d-flex align-items-center badge badge-primary badge-pill"><i class="material-symbols-outlined">home_pin</i> {{ job.location.title }}</li>
 
-                                        <li v-if="job.project_level != ''" class="privacy"><i class="fas fa-dollar-sign"></i> {{ job.project_level }}</li>
+                                            <li class="mb-2 d-flex align-items-center badge badge-pill badge-warning"><i class="material-symbols-outlined">schedule</i> {{ job.duration }}</li>
 
-                                        <li class="time d-flex align-items-center"><i class="material-symbols-outlined">home_pin</i> {{ job.location.title }}</li>
+                                            <li class="mb-2 d-flex align-items-center badge badge-pill badge-danger"><i class="material-symbols-outlined">fingerprint</i> {{ trans('lang.job_id') }} - {{ job.code }}</li>
 
-                                        <li class="required d-flex align-items-center"><i class="material-symbols-outlined">schedule</i> {{ job.duration }}</li>
+                                            <li v-for="(cat,i) in job.categories" :key="i" class="mb-2 d-flex align-items-center badge badge-pill badge-success"><i class="material-symbols-outlined">layers</i>{{ cat.name }}</li>
+                                        </ul>
+                                    </div>
 
-                                        <li class="tag d-flex align-items-center"><i class="material-symbols-outlined">fingerprint</i> {{ trans('lang.job_id') }} - {{ job.code }}</li>
+                                    <div class="col-xl-1 col-lg-1 col-md-12 col-sm-12 col-xs-12">
+                                        <button @click.prevent="addWishList($event,job.id,'saved_jobs')">
+                                            <span class="fa-heart" :class="my_saved_jobs.includes(job.id)?'fas text-danger':'far'"></span>
+                                        </button>
 
-                                        <li v-for="(cat,i) in job.categories" :key="i" class="cat d-flex align-items-center"><i class="material-symbols-outlined">layers</i>{{ cat.name }}</li>
-                                    </ul>
+                                        <!-- <button v-else class="bookmark-btn active" @click.prevent="addWishList(job.id,'saved_jobs')" v-cloak>
+                                            <span class="far fa-heart"></span>
+                                        </button> -->
 
-
-
-                                    <button @click.prevent="addWishList($event,job.id,'saved_jobs')" class="bookmark-btn">
-                                        <span class="fa-heart" :class="my_saved_jobs.includes(job.id)?'fas text-danger':'far'"></span>
-                                    </button>
-
-                                    <!-- <button v-else class="bookmark-btn active" @click.prevent="addWishList(job.id,'saved_jobs')" v-cloak>
-                                        <span class="far fa-heart"></span>
-                                    </button> -->
-
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -213,15 +194,13 @@
                         </div>
 
                         <!-- Listing Show More -->
-                        <div class="ls-show-more">
+                        <div class="ls-show-more d-flex flex-column align-items-center mt-5">
                             <p>Zeigt {{ filteredJobs.length }} von {{ jobData.total }} Jobs</p>
                             <div class="bar"><span class="bar-inner" :style="`width: ${progressWidth}%`"></span></div>
                             <button v-if="nextPage != null" @click="showMoreData()" class="show-more">Mehr anzeigen</button>
                         </div>
 
                     </template>
-
-                </div>
             </div>
 
         </div>
@@ -386,7 +365,7 @@ export default {
 </script>
 <style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
 <style>
-.multiselect__tags {
+/* .multiselect__tags {
     min-height: 60px;
     border: 1px solid #ECEDF2;
     border-radius: 8px;
@@ -409,5 +388,5 @@ export default {
     margin-top: 12px;
     font-weight: 600;
     color: #1967d2;
-}
+} */
 </style>
