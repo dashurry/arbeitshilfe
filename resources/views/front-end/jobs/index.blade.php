@@ -28,6 +28,7 @@
 
         </div>
     @endif
+    <div class="overlay"></div>
     <section class="text-center mt-5 mb-5">
         <div class="container">
             <div>
@@ -40,7 +41,7 @@
         </div>
     </section>
 
-    <section id="jobFilter" class="ls-section bg-white pt-5 pb-5">
+    <section id="jobFilter" class="bg-white pt-5 pb-5">
         <jobfilter-section 
         :categories="{{ json_encode($categories) }}"
         :locations="{{ json_encode($locations) }}"

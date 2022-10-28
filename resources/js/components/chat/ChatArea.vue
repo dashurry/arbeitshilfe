@@ -1,34 +1,33 @@
 <template>
-<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
     <div class="chat-box" :id="`chat-conversation-${this.$route.params.id}`">
-    <div class="title">
-        <div class="d-flex" v-if="!loadingConv">
-            <a :href="`/profile/${threadDetails.participant.user_slug}`" class="user-name">{{ threadDetails.participant.name }}</a>
+        <div class="card">
+            <div class="title card-body">
+                <div class="d-flex align-items-center font-weight-bold h5" v-if="!loadingConv">
+                    <a :href="`/profile/${threadDetails.participant.user_slug}`" class="text-dark">{{ threadDetails.participant.name }}</a>
 
-            <div style="display:flex; flex-direction: center;" v-if="participantOnline">
-                <span class="online-status online"></span><small class="ml-2">Online</small>
-            </div>
-            <div style="display:flex; flex-direction: center;" v-else>
-                <span class="online-status"></span>
-            </div>
+                    <div v-if="participantOnline">
+                        <span class="online-status online"></span><small class="ml-2">Online</small>
+                    </div>
+                    <div v-else>
+                        <span class="online-status"></span>
+                    </div>
 
+                </div>
+                <a v-if="!loadingConv" :href="`/job/${threadDetails.project.slug}`" class="text-dark">@ {{ threadDetails.project.name }}</a>
+            </div>
         </div>
-        <a v-if="!loadingConv" :href="`/job/${threadDetails.project.slug}`" class="project-name">@ {{ threadDetails.project.name }}</a>
-    </div>
-
-    <div class="msg-box">
-        
-
-        <div style="margin-top: 100px; height: 100%;" class="text-center" v-if="loadingMsg">
+    <!-- Chat Box -->
+    <div class="d-flex flex-column-reverse">
+        <!-- Loader -->
+        <div class="text-center" v-if="loadingMsg">
             <div class="spinner-border" role="status">
                 <span class="sr-only">Laden...</span>
             </div>
-        </div>
-
-        
-
-        <div class="no-msg text-center" style="margin-top: 100px" v-if="!loadingMsg && msg.length < 1">
-            <h1 class="text-success"><i class="fas fa-check-circle"></i></h1>
+        </div> 
+        <!-- Welcome Msg -->
+        <div class="text-center" v-if="!loadingMsg && msg.length < 1">
+            <h1 class="text-success"><i class="material-symbols-outlined">check_circle</i></h1>
             <h4>Willkommen</h4>
             <h3>Senden Sie eine Nachricht, um loszulegen</h3>
         </div>
@@ -38,9 +37,7 @@
             <div class="single-msg">
                 <div class="img">
                         <img :src="threadDetails.participant.thumb" :alt="threadDetails.participant.thumb_alter" v-if="threadDetails.participant.thumb != null">
-                    <div class="thumb" v-bind:style="{'background' : threadDetails.participant.thumb_color}" v-else>
-                        {{ threadDetails.participant.thumb_alter }}
-                    </div>
+                    <div class="thumb" v-bind:style="{'background' : threadDetails.participant.thumb_color}" v-else>{{ threadDetails.participant.thumb_alter }}</div>
                 </div>
                 <div class="msg-body">
                     <div class="msg-text" style="padding: 13px 35px;">
@@ -65,19 +62,17 @@
 
         <template v-for="(mg,i) in msg">
 
-            <div class="msg" :key="i" v-if="mg.sent_by != user_id">
-                <span class="time">{{ mg.created_at }}</span>
-                <div class="single-msg">
-                    <div class="img">
+            <div class="mt-5" :key="i" v-if="mg.sent_by != user_id">
+                <h6 class="text-dark ml-5"><small>{{ mg.created_at }}</small></h6>
+                <div class="d-flex align-items-center">
+                    <div class="d-flex">
                         <template v-if="!loadingConv && threadDetails.participant.thumb != null">
-                            <img :src="threadDetails.participant.thumb" :alt="threadDetails.participant.thumb_alter" v-if="threadDetails.participant.thumb != null">
+                            <img :src="threadDetails.participant.thumb" :alt="threadDetails.participant.thumb_alter" v-if="threadDetails.participant.thumb != null" width="50" height="50" class="rounded-circle">
                         </template>
-                        <div class="thumb" v-bind:style="{'background' : threadDetails.participant.thumb_color}" v-else>
-                            {{ threadDetails.participant.thumb_alter }}
-                        </div>
+                        <div class="thumb" v-bind:style="{'background' : threadDetails.participant.thumb_color}" v-else>{{ threadDetails.participant.thumb_alter }}</div>
                     </div>
-                    <div class="msg-body">
-                        <div class="msg-text">
+                    <div class="ml-2 card">
+                        <div class="card-body">
                             <div class="file-info" v-if="mg.hasFile == 1 && mg.fileType == 'other'">
                                 <h2><i class="fas fa-file"></i></h2>
                                 <a class="document" href="#">{{ mg.file }}</a>
@@ -93,11 +88,11 @@
                 </div>
             </div>
 
-            <div class="msg sent-by-me" :key="i" v-else>
-                <span class="time">{{ mg.created_at }}</span>
-                <div class="single-msg">
-                    <div class="msg-body">
-                        <div class="msg-text bg-sent">
+            <div class="mt-5 sent-by-me" :key="i" v-else>
+                <h6 class="text-dark d-flex justify-content-end"><small>{{ mg.created_at }}</small></h6>
+                <div class="w-100 d-flex align-items-center justify-content-end">
+                    <div class="card">
+                        <div class="card-body bg-primary">
                             <div class="file-info" v-if="mg.hasFile == 1 && mg.fileType == 'other'">
                                 <h2><i class="fas fa-file"></i></h2>
                                 <a class="document" href="#">{{ mg.file }}</a>
@@ -107,14 +102,14 @@
                                     <img :src="`/uploads/conversation/${$route.params.id}/${mg.file}`" alt="">
                                 </a>
                             </div>
-                            <span>{{ mg.msg }}</span>
+                            <span class="text-light">{{ mg.msg }}</span>
+                            <span v-if="i == 0" class="ml-3 msg-seen" :title="mg.seen=='seen'?`Seen by ${threadDetails.participant.name}`:'Message Delivered'">
+                                <i class="fas fa-check" v-if="!msgForm.busy"></i>
+                                <i v-if="mg.seen=='seen'" class="fas fa-check"></i>
+                            </span>
                         </div>
                     </div>
                 </div>
-                <span v-if="i == 0" class="msg-seen" :title="mg.seen=='seen'?`Seen by ${threadDetails.participant.name}`:'Message Delivered'">
-                    <i class="fas fa-check" v-if="!msgForm.busy"></i>
-                    <i v-if="mg.seen=='seen'" class="fas fa-check"></i>
-                </span>
             </div>
 
             

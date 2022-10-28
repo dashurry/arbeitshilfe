@@ -26,7 +26,7 @@
     <nav id="sidebar">
 
         <div id="dismiss" class="shadow">
-            <i class="fas fa-arrow-left"></i>
+            <i class="material-symbols-outlined">arrow_back</i>
         </div>
 
         <div class="sidebar-header text-center">

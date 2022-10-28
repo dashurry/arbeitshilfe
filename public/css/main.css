@@ -13423,7 +13423,7 @@ content: '\e93f';
 	margin-top: 5px;
 }
 
-.chat-box .title .online-status{
+.online-status{
 	width: 10px;
 	height: 10px;
 	border-radius: 50%;
@@ -13433,7 +13433,7 @@ content: '\e93f';
 	align-self: center;
 }
 
-.chat-box .title .online-status.online{
+.online-status.online{
 	background-color: #0fcd0f;
 }
 
