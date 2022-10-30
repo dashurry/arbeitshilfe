@@ -13655,12 +13655,12 @@ content: '\e93f';
 	color: white !important;
 }
 
-.msg-body .file-info{
+.file-info{
 	display: flex;
 	margin-bottom: -10px;
 	padding-bottom: 20px;
 }
-.msg-body .file-info h2{
+.file-info h2{
 	margin: 0;
 	flex-grow: 0;
 	font-size: 30px;
@@ -13669,20 +13669,20 @@ content: '\e93f';
 	align-self: center;
 }
 
-.msg-body .file-info .document{
+.file-info .document{
 	color: #3352c7;
 	max-width: fit-content;
 }
-.msg-body .file-info .document:hover{
+.file-info .document:hover{
 	text-decoration: underline;
 }
-.msg-body .file-info .file-img img{
+.file-img img{
 	max-width: 200px;
 	height: auto;
 	border-radius: 5px;
 }
 
-.msg.sent-by-me .msg-body .file-info .document{
+.file-info .document{
 	color: #e3e3e3;
 }
 

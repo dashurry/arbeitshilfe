@@ -1,8 +1,8 @@
 <template>
 <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
     <div class="chat-box" :id="`chat-conversation-${this.$route.params.id}`">
-        <div class="card">
-            <div class="title card-body">
+        <div class="alert alert-info">
+            <div>
                 <div class="d-flex align-items-center font-weight-bold h5" v-if="!loadingConv">
                     <a :href="`/profile/${threadDetails.participant.user_slug}`" class="text-dark">{{ threadDetails.participant.name }}</a>
 
@@ -33,14 +33,14 @@
         </div>
 
         <!-- Typing -->
-        <div class="msg" v-if="participantTyping">
-            <div class="single-msg">
-                <div class="img">
-                        <img :src="threadDetails.participant.thumb" :alt="threadDetails.participant.thumb_alter" v-if="threadDetails.participant.thumb != null">
+        <div v-if="participantTyping">
+            <div class="d-flex">
+                <div class="d-flex">
+                        <img :src="threadDetails.participant.thumb" :alt="threadDetails.participant.thumb_alter" v-if="threadDetails.participant.thumb != null" width="50" height="50" class="rounded-circle">
                     <div class="thumb" v-bind:style="{'background' : threadDetails.participant.thumb_color}" v-else>{{ threadDetails.participant.thumb_alter }}</div>
                 </div>
-                <div class="msg-body">
-                    <div class="msg-text" style="padding: 13px 35px;">
+                <div class="ml-3 d-flex align-items-center">
+                    <div class="ml-4">
                         <div class="dot-typing"></div>
                     </div>
                 </div>
@@ -48,11 +48,11 @@
         </div>
         <!-- End -->
 
-        <div class="msg sent-by-me" v-if="msgForm.hasFile && msgForm.busy">
-            <div class="single-msg">
-                <div class="msg-body">
-                    <div class="msg-text bg-sent">
-                        <span>Senden... <span class="ml-3 spinner-border spinner-border-sm" role="status" aria-hidden="true"></span></span>
+        <div v-if="msgForm.hasFile && msgForm.busy">
+            <div class="d-flex justify-content-end">
+                <div>
+                    <div class="text-white bg-primary p-2 badge-pill">
+                        <span class="h6 font-weight-light">Senden... <span class="ml-3 spinner-border spinner-border-sm" role="status" aria-hidden="true"></span></span>
                     </div>
                 </div>
             </div>
@@ -71,94 +71,76 @@
                         </template>
                         <div class="thumb" v-bind:style="{'background' : threadDetails.participant.thumb_color}" v-else>{{ threadDetails.participant.thumb_alter }}</div>
                     </div>
-                    <div class="ml-2 card">
-                        <div class="card-body">
-                            <div class="file-info" v-if="mg.hasFile == 1 && mg.fileType == 'other'">
-                                <h2><i class="fas fa-file"></i></h2>
+                    <div class="ml-2">
+                        <div class="p-2">
+                            <div v-if="mg.hasFile == 1 && mg.fileType == 'other'">
+                                <h2><i class="material-symbols-outlined">draft</i></h2>
                                 <a class="document" href="#">{{ mg.file }}</a>
                             </div>
-                            <div class="file-info" v-if="mg.hasFile == 1 && mg.fileType == 'image'">
-                                <a class="file-img" :href="`/uploads/conversation/${$route.params.id}/${mg.file}`" target="_blank">
+                            <div v-if="mg.hasFile == 1 && mg.fileType == 'image'">
+                                <a :href="`/uploads/conversation/${$route.params.id}/${mg.file}`" target="_blank">
                                     <img :src="`/uploads/conversation/${$route.params.id}/${mg.file}`" alt="">
                                 </a>
                             </div>
-                            <span>{{ mg.msg }}</span>
+                            <h4><span class="badge badge-pills badge-light shadow p-3 font-weight-normal">{{ mg.msg }}</span></h4>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="mt-5 sent-by-me" :key="i" v-else>
+            <div class="mt-5" :key="i" v-else>
                 <h6 class="text-dark d-flex justify-content-end"><small>{{ mg.created_at }}</small></h6>
                 <div class="w-100 d-flex align-items-center justify-content-end">
-                    <div class="card">
-                        <div class="card-body bg-primary">
-                            <div class="file-info" v-if="mg.hasFile == 1 && mg.fileType == 'other'">
-                                <h2><i class="fas fa-file"></i></h2>
+                    <div>
+                        <div class="p-2 d-flex">
+                            <div v-if="mg.hasFile == 1 && mg.fileType == 'other'">
+                                <h2><i class="material-symbols-outlined">draft</i></h2>
                                 <a class="document" href="#">{{ mg.file }}</a>
                             </div>
-                            <div class="file-info" v-if="mg.hasFile == 1 && mg.fileType == 'image'">
-                                <a class="file-img" :href="`/uploads/conversation/${$route.params.id}/${mg.file}`" target="_blank">
-                                    <img :src="`/uploads/conversation/${$route.params.id}/${mg.file}`" alt="">
+                            <div v-if="mg.hasFile == 1 && mg.fileType == 'image'">
+                                <a :href="`/uploads/conversation/${$route.params.id}/${mg.file}`" target="_blank">
+                                    <img :src="`/uploads/conversation/${$route.params.id}/${mg.file}`" alt="" width="200" height="200">
                                 </a>
                             </div>
-                            <span class="text-light">{{ mg.msg }}</span>
+                             <h4><span class="badge badge-pills alert-info p-3 shadow font-weight-normal">{{ mg.msg }}</span></h4>
                             <span v-if="i == 0" class="ml-3 msg-seen" :title="mg.seen=='seen'?`Seen by ${threadDetails.participant.name}`:'Message Delivered'">
-                                <i class="fas fa-check" v-if="!msgForm.busy"></i>
-                                <i v-if="mg.seen=='seen'" class="fas fa-check"></i>
+                                <i class="material-symbols-outlined" v-if="!msgForm.busy">check</i>
+                                <i v-if="mg.seen=='seen'" class="material-symbols-outlined">check</i>
                             </span>
                         </div>
                     </div>
                 </div>
             </div>
-
-            
-        </template>
-
-        
-
-
-        <!-- <div class="msg sent-by-me">
-            <span class="time">Today 2:40 AM</span>
-            <div class="single-msg">
-                <div class="msg-body">
-                    <div class="msg-text bg-sent">
-                        <div class="file-info">
-                            <h2><i class="fas fa-file"></i></h2>
-                            <a class="document" href="#">Project.pdf</a>
-                        </div>
-                        <span>This?
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <span class="msg-seen"><i class="fas fa-check"></i><i class="fas fa-check"></i></span>
-        </div> -->
-
-        
+        </template>  
     </div>
-    <div class="msg-type-area d-flex" v-if="threadDetails.conv_status=='open'">
-        <div class="file-area" v-if="msgForm.hasFile">
-            <p>{{ msgForm.msgFile.name }}</p>
-            <button title="Remove file" @click="removeFile"><i class="fas fa-times"></i></button>
+
+    <div class="d-flex justify-content-between alert alert-warning" v-if="msgForm.hasFile">
+        <div>{{ msgForm.msgFile.name }}</div>
+        <button title="Remove file" @click="removeFile" class="bg-transparent"><i class="material-symbols-outlined">close</i></button>
+    </div>
+        
+    <div class="d-flex flex-wrap align-items-center" v-if="threadDetails.conv_status=='open'">
+        <!-- Buttons -->
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+            <div class="mb-3">
+                <button class="btn btn-outline-info" title="Add photo, video , files" @click="openFileDialogue">
+                    <i class="material-symbols-outlined">image</i>
+                </button>
+                <input type="file" hidden id="msgFile" @change="fileChange">
+                <button title="Send message" @click="sendMessage" class="btn btn-lg btn-outline-success ml-3">
+                    <i class="material-symbols-outlined">check_circle</i>
+                </button>
+            </div>
         </div>
-        <div class="input-area">
-            <button title="Add photo, video , files" @click="openFileDialogue">
-                <i class="material-symbols-outlined">image</i>
-            </button>
-            <input type="file" hidden id="msgFile" @change="fileChange">
-        </div>
-        <div class="type-area">
-            <textarea placeholder="Type here..." v-model="msgText" title="Press shift + enter for new line" id="msg-textarea"
-            @keydown.exact="sendTypingEvent"
-            @keydown.enter.exact.prevent="sendMessage"
-            @keydown.enter.shift.exact.prevent="newLine($event)"
-            ></textarea>
-        </div>
-        <div class="send-area">
-            <button title="Send message" @click="sendMessage">
-                <i class="fas fa-paper-plane"></i>
-            </button>
+        <!-- Textarea -->
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8">  
+            <div class="w-100">
+                <textarea class="form-control" placeholder="Type here..." v-model="msgText" title="Press shift + enter for new line" id="msg-textarea"
+                @keydown.exact="sendTypingEvent"
+                @keydown.enter.exact.prevent="sendMessage"
+                @keydown.enter.shift.exact.prevent="newLine($event)"
+                ></textarea>
+            </div>
         </div>
     </div>
     <div class="msg-type-area" v-else>
