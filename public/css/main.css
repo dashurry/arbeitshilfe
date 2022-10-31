@@ -5997,7 +5997,7 @@ ul.card{
 .la-category-box .wt-dashboardboxcontent .wt-formcategory .wt-btnarea{margin: 10px 0 0;}
 .la-locations-listing .wt-dashboardboxcontent .wt-formcategory .wt-userform .wt-uploadingbox,
 .la-category-box .wt-dashboardboxcontent .wt-formcategory .wt-userform .wt-uploadingbox{margin: 10px 0 0;}
-select.form-control:not([size]):not([multiple]){height: 50px}
+/* select.form-control:not([size]):not([multiple]){height: 50px} */
 table.wt-tablecategories tbody tr td figure{
 	display: -webkit-box;
     display: -webkit-flex;
@@ -13219,7 +13219,7 @@ content: '\e93f';
 /* dropdown-menu */
 
 
-.form-control{
+/* .form-control{
 	display: block;
     width: 100%;
 	height: auto !important;
@@ -13234,7 +13234,7 @@ content: '\e93f';
     border-radius: 0.75rem !important;
     box-shadow: 0 0 0 0 transparent;
     transition: border-color .2s ease-in-out,box-shadow .2s ease-in-out;
-}
+} */
 
 .name-thumb{
 	width: 100px;
@@ -13765,7 +13765,14 @@ content: '\e93f';
     overflow-y: scroll;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
 }
-
+#sidebar::-webkit-scrollbar{
+	width: 5px;
+}
+/* Handle */
+#sidebar::-webkit-scrollbar-thumb {
+	background: gray; 
+	border-radius: 10px;
+  }
 #sidebar.active {
     left: 0;
 }

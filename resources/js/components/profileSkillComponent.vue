@@ -1,56 +1,41 @@
 <template>
     <div>
-        <div class="wt-formtheme wt-skillsform">
+        <div>
             <transition name="fade">
                 <div v-if="isShow" class="sj-jump-messeges">{{ trans('lang.no_record') }}</div>
             </transition>
-            <fieldset>
-                <div class="wt-formgroupwrap align-items-center">
                     <div class="form-group">
-                        <div class="form-group-holder">
-                            <span class="wt-select">
-                                <select id="freelancer_skill" class="form-control">
-                                    <option v-for="(stored_skill, index) in stored_skills" :key="index" :value="stored_skill.id">{{stored_skill.title}}</option>
-                                </select>
-                            </span>
-                            <input type="number" class="form-control" :placeholder="ph_rate_skills" id="selected_rating_value">
-                        </div>
+                            <select id="freelancer_skill" class="form-control">
+                                <option v-for="(stored_skill, index) in stored_skills" :key="index" :value="stored_skill.id">{{stored_skill.title}}</option>
+                            </select>
+                            <input type="number" class="form-control mt-3" :placeholder="ph_rate_skills" id="selected_rating_value">
+                    
+                        <a href="javascript:void(0);" class="btn btn-sm btn-primary mt-3" @click="addSkill">{{trans('lang.add_skills')}}</a>
                     </div>
-                    <div class="form-group wt-btnarea">
-                        <a href="javascript:void(0);" class="btn btn-sm btn-primary" @click="addSkill">{{trans('lang.add_skills')}}</a>
-                    </div>
-                </div>
-            </fieldset>
         </div>
-        <div class="wt-myskills">
-            <ul id="skill_list" class="sortable list">
-                <li v-for="(freelancer_skill, index) in freelancer_skills" :key="index" v-if="freelancer_skills" class="skill-element" :ref="'skill-'+index">
-                    <div class="wt-dragdroptool">
-                        <a href="javascript:void(0)" class="lnr lnr-menu"></a>
-                    </div>
-                    <span class="skill-dynamic-html">
-                        {{freelancer_skill.title}} (<em class="skill-val">{{freelancer_skill.pivot.skill_rating}}</em>%)</span>
-                    <span class="skill-dynamic-field sss">
+        <div>
+            <ul id="skill_list" class="list-group w-100">
+                <li v-for="(freelancer_skill, index) in freelancer_skills" :key="index" v-if="freelancer_skills" class="d-flex justify-content-between w-100 p-3 border bg-light" :ref="'skill-'+index">
+                    <span class="skill-dynamic-html h6 font-weight-light">
+                        {{freelancer_skill.title}} (<em>{{freelancer_skill.pivot.skill_rating}}</em>%)</span>
+                    <span class="skill-dynamic-field d-none">
                         <input type="hidden" v-bind:name="'skills['+index+'][id]'" :value="freelancer_skill.id">
-                        <input type="text" v-bind:name="'skills['+index+'][rating]'" :value="freelancer_skill.pivot.skill_rating">
+                        <input type="text" v-bind:name="'skills['+index+'][rating]'" :value="freelancer_skill.pivot.skill_rating" class="form-control">
                     </span>
-                    <div class="wt-rightarea">
-                        <a href="javascript:void(0);" class="wt-addinfo" @click="editInput(index)"><i class="lnr lnr-pencil"></i></a>
-                        <a href="javascript:void(0);" class="wt-deleteinfo delete-skill" @click="removeStoredSkill(index)"><i class="lnr lnr-trash"></i></a>
+                    <div>
+                        <a href="javascript:void(0);" class="wt-addinfo badge badge-primary shadow-none" @click="editInput(index)"><i class="material-symbols-outlined"></i></a>
+                        <a href="javascript:void(0);" class="badge badge-danger shadow-none" @click="removeStoredSkill(index)"><i class="material-symbols-outlined">delete</i></a>
                     </div>
                 </li>
                 <li v-for="(skill, index) in skills" :key="index+skill.count">
-                    <div class="wt-dragdroptool">
-                        <a href="javascript:void(0)" class="lnr lnr-menu"></a>
-                    </div>
                     <span class="skill-dynamic-html">{{skill.title}} (<em class="skill-val">{{skill.rating}}</em>%)</span>
                     <span class="skill-dynamic-field">
                         <input type="hidden" v-bind:name="'skills['+[skill.count]+'][id]'" :value="skill.id">
                         <input type="text" v-bind:name="'skills['+[skill.count]+'][rating]'" :value="skill.rating">
                     </span>
                     <div class="wt-rightarea">
-                        <a href="javascript:void(0);" class="wt-addinfo"><i class="lnr lnr-pencil"></i></a>
-                        <a href="javascript:void(0);" class="wt-deleteinfo" @click="removeSkill(index)"><i class="lnr lnr-trash"></i></a>
+                        <a href="javascript:void(0);" class="wt-addinfo"><i class="material-symbols-outlined">edit</i></a>
+                        <a href="javascript:void(0);" class="wt-deleteinfo" @click="removeSkill(index)"><i class="material-symbols-outlined">delete</i></a>
                     </div>
                 </li>
             </ul>
@@ -176,8 +161,8 @@
                     type: "warning",
                     showCancelButton: true,
                     confirmButtonClass: "btn-danger",
-                    confirmButtonText: "Yes",
-                    cancelButtonText: "No",
+                    confirmButtonText: "Ja",
+                    cancelButtonText: "Nein",
                     closeOnConfirm: true,
                     closeOnCancel: true,
                     showLoaderOnConfirm: true
@@ -205,6 +190,7 @@
                 var _this = jQuery(this);
                 _this.addClass('wt-skillsactive');
                 _this.parents('li').addClass('wt-skillsaddinfo');
+                 _this.parents('li').find('.skill-dynamic-field').removeClass('d-none');
             });
             jQuery(document).on('click', '.wt-skillsactive', function (e) {
                 e.preventDefault();
@@ -212,6 +198,7 @@
                 _this.removeClass('wt-skillsactive');
                 _this.parents('li').removeClass('wt-skillsaddinfo');
                 var edit_skill_value = _this.parents('li').find('.skill-dynamic-field input:text').val();
+                _this.parents('li').find('.skill-dynamic-field').addClass('d-none');
                 _this.parents('li').find('.skill-dynamic-html em').html(edit_skill_value);
             });
         },

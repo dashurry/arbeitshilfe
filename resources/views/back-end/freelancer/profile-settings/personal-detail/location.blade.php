@@ -1,20 +1,14 @@
-{{-- <div class="wt-tabscontenttitle"> --}}
 <div>
     <h2>{{trans('lang.your_loc')}}</h2>
 
 </div>
 
-<div class="wt-formtheme">
-
     <div class="row">
 
         <div class="col-sm-12 col-md-6 mb-4">
 
-            <span class="wt-select">
                 <label>{{ trans('lang.select_location') }}</label>
                 {!! Form::select('location', $locations, Auth::user()->location_id ,array('class' => 'form-control', 'placeholder' => trans('lang.select_location'))) !!}
-
-            </span>
 
         </div>
 
@@ -24,7 +18,7 @@
 
         </div>
 
-        <div class="col-12 mb-4 wt-formmap">
+        <div class="col-12 mb-4">
 
             @include('includes.map')
 
@@ -43,5 +37,3 @@
         </div>
 
     </div>
-
-</div>

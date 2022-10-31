@@ -29,9 +29,9 @@
 }
 </style>
 
-    <div class="wt-dbsectionspace wt-haslayout la-ps-freelancer">
+    <div class="container">
 
-        <div class="freelancer-profile" id="user_profile">
+        <div id="user_profile">
 
             <div class="preloader-section" v-if="loading" v-cloak>
 
@@ -43,8 +43,7 @@
 
             </div>
 
-            <div class="container-fluid">
-                {!! Form::open(['url' => '', 'class' =>'wt-userform', 'id' => 'freelancer_profile', '@submit.prevent'=>'submitFreelancerProfile']) !!}
+                {!! Form::open(['url' => '', 'id' => 'freelancer_profile', '@submit.prevent'=>'submitFreelancerProfile']) !!}
                     <div class="row justify-content-center">
 
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -59,13 +58,7 @@
                             @endif
                         </div>
 
-                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 wt-insightsitemholder">
-
-                            
-                                    <div class="wt-dashboardbox wt-dashboardtabsholder">
-
-                                    {{-- <div class="wt-tabscontent tab-content"> --}}
-                                    <div class="pt-5">
+                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
 
                                         @if (Session::has('message'))
 
@@ -95,11 +88,11 @@
 
                                         @endif
 
-                                        <div class="wt-personalskillshold tab-pane active fade show" id="wt-skills">
+                                        <div class="pt-5 tab-pane active fade show" id="wt-skills">
 
                                             
 
-                                                <div class="wt-yourdetails wt-tabsinfo">
+                                                <div class="mb-5">
 
                                                     @if (file_exists(resource_path('views/extend/back-end/freelancer/profile-settings/personal-detail/detail.blade.php'))) 
 
@@ -113,7 +106,7 @@
 
                                                 </div>
 
-                                                <div class="wt-location wt-tabsinfo">
+                                                <div class="mb-5">
 
                                                     @if (file_exists(resource_path('views/extend/back-end/freelancer/profile-settings/personal-detail/location.blade.php'))) 
 
@@ -127,7 +120,7 @@
 
                                                 </div>
 
-                                                <div class="wt-skills la-skills-holder wt-tabsinfo">
+                                                <div class="mb-5">
 
                                                     @if (file_exists(resource_path('views/extend/back-end/freelancer/profile-settings/personal-detail/skill.blade.php'))) 
 
@@ -141,7 +134,7 @@
 
                                                 </div>
 
-                                                <div class="wt-videos-holder wt-tabsinfo la-footer-setting">
+                                                <div class="wt-videos-holder wt-tabsinfo la-footer-setting mb-3">
 
                                                     @if (file_exists(resource_path('views/extend/back-end/freelancer/profile-settings/personal-detail/videos.blade.php'))) 
 
@@ -168,11 +161,7 @@
 
                                         </div>
 
-                                    </div>
-
                                 </div>
-                                
-                        </div>
 
                         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 
@@ -217,7 +206,6 @@
                     </div>
                 {!! form::close(); !!}
             </div>
-        </div>
 
     </div>
 

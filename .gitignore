@@ -23,3 +23,6 @@ resources/views/back-end/includes/sidebar.blade.php
 resources/js/components/pages/job/JobFilterBackup.vue
 resources/views/front-end/jobs/indexBlade.blade.php
 public/uploads/conversation/1/1667141717_843591035.svg
+resources/js/components/JobSkillComponentBackup.vue
+resources/views/back-end/freelancer/profile-settings/personal-detail/indexBackup.blade.php
+resources/js/components/profileSkillComponentBackup.vue

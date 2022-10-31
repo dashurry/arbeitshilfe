@@ -25,7 +25,7 @@
     <!-- Sidebar -->
     <nav id="sidebar">
 
-        <div id="dismiss" class="shadow">
+        <div id="dismiss" class="shadow d-flex align-items-center justify-content-center">
             <i class="material-symbols-outlined">arrow_back</i>
         </div>
 

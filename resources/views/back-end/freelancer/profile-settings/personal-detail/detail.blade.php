@@ -1,11 +1,8 @@
-{{-- <div class="wt-tabscontenttitle"> --}}
 <div>
 
     <h2>{{{ trans('lang.your_details') }}}</h2>
 
 </div>
-
-<div class="wt-formtheme">
 
     <div class="row">
 
@@ -54,5 +51,3 @@
         </div>
 
     </div>
-
-</div>

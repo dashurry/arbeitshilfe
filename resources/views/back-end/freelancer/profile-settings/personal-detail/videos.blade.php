@@ -1,51 +1,36 @@
-{{-- <div class="wt-tabscontenttitle"> --}}
 <div>
 
     <h2>{{{ trans('lang.videos') }}}</h2>
 
 </div>
 
-<div class="wt-skillsform">
-
-    <fieldset class="social-icons-content">
+<div>
 
         @if (!empty($videos))
 
             @php $counter = 0 @endphp
 
             @foreach ($videos as $video_key => $mem_value)
+            
+                    <div class="form-group media align-items-center">
 
-                <div class="wrap-social-icons wt-haslayout">
-
-                    <div class="form-group">
-
-                        <div class="form-group-holder">
+                        <div class="media-body">
 
                             {!! Form::text('video['.$counter.'][url]', e($mem_value['url']),['class' => 'form-control', 'placeholder' => trans('lang.video_url')] ) !!}
 
                         </div>
 
-                        <div class="form-group wt-rightarea">
-
                             @if ($video_key == 0 )
 
-                                <span class="wt-addinfobtn" @click="addVideo"><i class="fa fa-plus"></i></span> 
+                                <span class="badge badge-primary shadow-none ml-3" @click="addVideo"><i class="material-symbols-outlined">add</i></span> 
 
                             @else
 
-                                <span class="wt-addinfobtn wt-deleteinfo delete-social" data-check="{{{$counter}}}">
-
-                                    <i class="fa fa-trash"></i>
-
-                                </span>
+                                <span class="badge badge-danger shadow-none ml-3" data-check="{{{$counter}}}"><i class="material-symbols-outlined">delete</i></span>
 
                             @endif
 
-                        </div>
-
                     </div>
-
-                </div>
 
                 @php $counter++; @endphp
 
@@ -53,29 +38,19 @@
 
         @else
 
-            <div class="wrap-social-icons wt-haslayout">
+            <div>
 
-                <div class="form-group">
+                <div class="form-group media align-items-center">
 
-                    <div class="form-group-holder">
+                    <div class="media-body">
 
-                        {!! Form::text('video[0][url]', null, ['class' => 'form-control',
-
-                            'placeholder' => trans('lang.video_url')])
-
-                        !!}
+                        {!! Form::text('video[0][url]', null, ['class' => 'form-control', 'placeholder' => trans('lang.video_url')])!!}
 
                     </div>
 
-                    <div class="form-group wt-rightarea">
-
-                        <span class="wt-addinfobtn" @click="addVideo"><i class="fa fa-plus"></i></span>
-
-                    </div>
+                        <span class="badge badge-primary shadow-none ml-3" @click="addVideo"><i class="material-symbols-outlined">add</i></span>
 
                 </div>
-
-                
 
             </div>
 
@@ -83,31 +58,23 @@
 
             <div v-for="(video, index) in videos" v-cloak>
 
-                <div class="wrap-social-icons wt-haslayout">
+                <div>
 
-                    <div class="form-group">
+                    <div class="form-group media align-items-center">
 
-                        <div class="form-group-holder">
+                        <div class="media-body">
 
-                            <input v-bind:name="'video['+[video.count]+'][url]'" type="text" class="form-control"
-
-                            v-model="video.url" placeholder="{{trans('lang.video_url')}}">
+                            <input v-bind:name="'video['+[video.count]+'][url]'" type="text" class="form-control" v-model="video.url" placeholder="{{trans('lang.video_url')}}">
 
                         </div>
 
-                        <div class="form-group wt-rightarea">
-
-                            <span class="wt-addinfobtn wt-deleteinfo" @click="removeVideo(index)"><i class="fa fa-trash"></i></span>
-
-                        </div>
+                            <span class="badge badge-danger shadow-none ml-3" @click="removeVideo(index)"><i class="material-symbols-outlined">delete</i></span>
 
                     </div>
 
                 </div>
 
             </div>
-
-    </fieldset>
 
 </div>
 

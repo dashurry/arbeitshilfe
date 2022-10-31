@@ -1833,7 +1833,7 @@ body{background: #f7f7f7;}
 
 .wt-myskills li .wt-rightarea a + a{margin-left:10px; }
 
-.wt-addinfo{background: #3fabf3;}
+/* .wt-addinfo{background: #3fabf3;} */
 
 .wt-deleteinfo{background: #ff5851;}
 
@@ -1881,11 +1881,13 @@ body{background: #f7f7f7;}
 
 .wt-myskills li.wt-skillsaddinfo .wt-rightarea a i{font-family: 'FontAwesome';}
 
-.wt-myskills li.wt-skillsaddinfo .wt-rightarea a.wt-addinfo{background: #00cc8d}
+li.wt-skillsaddinfo a.wt-addinfo{background: #00cc8d}
 
 .wt-myskills li.wt-skillsaddinfo .wt-rightarea a.wt-deleteinfo{background: #ddd;}
 
-.wt-myskills li.wt-skillsaddinfo .wt-rightarea a.wt-addinfo :before{content: "\f00c";}
+a.wt-addinfo :before{content: "\e3c9";}
+
+li.wt-skillsaddinfo a.wt-addinfo :before{content: "\e876";}
 
 .wt-myskills li.wt-skillsaddinfo .wt-rightarea a.wt-deleteinfo :before{content: "\f00d";}
 
@@ -2039,19 +2041,19 @@ body{background: #f7f7f7;}
 
 }
 
-.wt-myskills li .skill-dynamic-field,
+/* .wt-myskills li .skill-dynamic-field,
 
-.wt-myskills li.wt-skillsaddinfo .skill-dynamic-html{display: none;}
+.wt-myskills li.wt-skillsaddinfo .skill-dynamic-html{display: none;} */
 
-.wt-myskills li.wt-skillsaddinfo .skill-dynamic-field{
+/* .wt-myskills li.wt-skillsaddinfo .skill-dynamic-field{
 
 	width: 80%;
 
 	display: inline-block;
 
-}
+} */
 
-.skill-dynamic-field input{
+/* .skill-dynamic-field input{
 
 	border: 0;
 
@@ -2063,7 +2065,7 @@ body{background: #f7f7f7;}
 
 	background: transparent;
 
-}
+} */
 
 .wt-updatall{
 
