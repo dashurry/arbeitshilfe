@@ -3,21 +3,6 @@
 @section('content')
 
 <style>
-
-    .wt-header .wt-navigation>ul>.menu-item-has-children:after, .wt-header .wt-navigation > ul > li > a {
-
-    color: #767676 !important;
-
-}
-
-    .wt-header .wt-navigationarea .wt-userlogedin .wt-username span, .wt-header .wt-navigationarea .wt-userlogedin .wt-username h3 {
-
-    color: #767676;
-
-}
-.wt-formbannervtwo {
-        display: none;
-    }
 .wt-uploadingbar em a {
     top: 0px;
     z-index: 2;
@@ -58,7 +43,7 @@
                             @endif
                         </div>
 
-                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9">
 
                                         @if (Session::has('message'))
 
@@ -134,7 +119,7 @@
 
                                                 </div>
 
-                                                <div class="wt-videos-holder wt-tabsinfo la-footer-setting mb-3">
+                                                <div class="mb-3">
 
                                                     @if (file_exists(resource_path('views/extend/back-end/freelancer/profile-settings/personal-detail/videos.blade.php'))) 
 
@@ -148,13 +133,9 @@
 
                                                 </div>
 
-                                                <div class="wt-updatall pb-5 pl-4">
+                                                <div class="mb-5 mt-5">
 
-                                                    {{-- <i class="ti-announcement"></i> --}}
-
-                                                    {{-- <span>{{{ trans('lang.save_changes_note') }}}</span> --}}
-
-                                                    {!! Form::submit(trans('lang.btn_save'), ['class' => 'btn btn-primary lift shadow-none', 'id'=>'submit-profile']) !!}
+                                                    {!! Form::submit(trans('lang.btn_save'), ['class' => 'btn btn-lg btn-primary lift shadow-none', 'id'=>'submit-profile']) !!}
 
                                                 </div>
 
@@ -163,11 +144,11 @@
 
                                 </div>
 
-                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
 
                             <div class="pt-5">
                                 
-                                <div class="wt-profilephoto wt-tabsinfo">
+                                <div class="mb-3">
 
                                     @if (file_exists(resource_path('views/extend/back-end/freelancer/profile-settings/personal-detail/profile_photo.blade.php'))) 
 

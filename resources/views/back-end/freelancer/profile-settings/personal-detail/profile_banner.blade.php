@@ -13,7 +13,7 @@
 
             @php $image = '/uploads/users/'.Auth::user()->id.'/'.$banner; @endphp
 
-            <div class="wt-formtheme wt-userform">
+            <div class="wt-userform">
 
                 <div v-if="this.uploaded_banner">
 
@@ -33,15 +33,15 @@
 
                 </div>
 
-                <div class="wt-uploadingbox" v-else>
+                <div class="card" v-else>
 
-                    <figure><img src="{{{asset($image)}}}" alt="{{{ trans('lang.profile_photo') }}}"></figure>
+                    <img src="{{{asset($image)}}}" alt="{{{ trans('lang.profile_photo') }}}">
 
-                    <div class="wt-uploadingbar">
+                    <div class="card-body">
 
-                        <div class="dz-filename">{{{$banner}}}</div>
+                        <div class="card-title">{{{$banner}}}</div>
 
-                        <em>{{{ trans('lang.file_size') }}}<a href="javascript:void(0);" class="lnr lnr-cross" v-on:click.prevent="removeBanner('hidden_banner')"></a></em>
+                        <p class="card-text d-flex justify-content-between">{{{ trans('lang.file_size') }}}<a href="javascript:void(0);" class="material-symbols-outlined text-decoration-none text-danger" v-on:click.prevent="removeBanner('hidden_banner')">close</a></p>
 
                     </div>
 

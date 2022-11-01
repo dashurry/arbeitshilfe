@@ -6,8 +6,8 @@
             <div class="form-group form-group-label">
                 <div class="wt-labelgroup p-3">
                     <label for="file">
-                        <span class="wt-btn" v-if="btn_text">{{ btn_text }}</span>
-                        <span class="wt-btn lift mb-3" v-else>{{ trans('lang.select_files') }}</span>
+                        <span class="btn" v-if="btn_text">{{ btn_text }}</span>
+                        <span class="btn btn-lg btn-success lift mb-3" v-else>{{ trans('lang.select_files') }}</span>
                     </label>
                     <span v-if="drop_text">{{ drop_text }}</span>
                     <span v-else>{{ trans('lang.drop_files') }}</span>
@@ -80,7 +80,6 @@ export default {
                                 document.getElementById(input_hidden_id).value = ''; 
                             }
                         }
-                        
                     });
                 }
             },
@@ -89,17 +88,18 @@ export default {
     methods:{
         getImageUploadTemplate() {
             return `
-                    <div class="wt-uploadingbox">
-                    <div class="dz-preview dz-file-preview">
-                        <figure><img data-dz-thumbnail /></figure>
-                        <div class="wt-uploadingbar">
-                        <div class="dz-filename"><span data-dz-name></span></div>
-                        <em><div class="dz-size" data-dz-size></div><a class="lnr lnr-cross" href="javascript:;" data-dz-remove=""></a>
-                        <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>
-                        <div class="dz-success-mark"><i class="fa fa-check"></i></div>
-                        </em>
-                        </div>
-                    </div>
+                    <div class="card">
+                            <img data-dz-thumbnail />
+                            <div class="card-body">
+                                <h6 class="card-title" data-dz-name></h6>
+                                <div class="d-flex">
+                                    <p class="card-text" data-dz-size></p>
+                                    <a href="javascript:;" class="material-symbols-outlined text-decoration-none text-danger" data-dz-remove="">close</a>
+                                </div>
+                                <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>
+                                <div class="dz-success-mark"><i class="fa fa-check"></i></div>
+                                </em>
+                            </div>
                     </div>
                 `;
         },

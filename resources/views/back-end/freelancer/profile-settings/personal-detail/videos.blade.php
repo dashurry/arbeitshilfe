@@ -26,9 +26,9 @@
 
                             @else
 
-                                <span class="badge badge-danger shadow-none ml-3" data-check="{{{$counter}}}"><i class="material-symbols-outlined">delete</i></span>
-
-                            @endif
+                                <span class="badge badge-danger shadow-none ml-3" @click="deleteVideo('{{ $mem_value['url'] }}')" data-check="{{{$counter}}}"><i class="material-symbols-outlined">delete</i></span>
+                                
+                            @endif 
 
                     </div>
 

@@ -737,6 +737,8 @@ Route::group(
 
         Route::get('freelancer/profile', 'FreelancerController@index')->name('personalDetail');
 
+        Route::post("/freelancer/delete-video","FreelancerController@deleteVideo");
+
         Route::post('freelancer/upload-temp-image', 'FreelancerController@uploadTempImage');
 
         Route::get('freelancer/dashboard/post-service', 'ServiceController@create')->name('freelancerPostService');

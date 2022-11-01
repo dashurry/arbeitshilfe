@@ -3460,6 +3460,21 @@ if (document.getElementById("user_profile")) {
 
             },
 
+            // Delete Video from Database
+            deleteVideo : function(val) {
+                axios.post("/freelancer/delete-video",{
+                    url: val,
+                }).then(resp=>{
+                    return resp.data;
+                }).then(data=>{
+                    if(data.status == "ok") {
+                        window.location.reload();
+                    }
+                }).catch(err=>{
+                    console.error(err.response.data);
+                })
+            },
+
             removeVideo: function (index) {
 
                 Vue.delete(this.videos, index)

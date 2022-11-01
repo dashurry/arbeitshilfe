@@ -2953,7 +2953,7 @@ table.wt-tablecategories tbody tr td figure img{
 
 }
 
-.wt-settingscontent{
+/* .wt-settingscontent{
 
 	float: left;
 
@@ -2961,7 +2961,7 @@ table.wt-tablecategories tbody tr td figure img{
 
 	padding: 0 20px;
 
-}
+} */
 
 .wt-settingscontent .wt-description p{
 
@@ -6874,13 +6874,13 @@ input[type=submit],
 
 .wt-jobskills-holder .wt-myskills li:first-child{margin-top: 20px;}
 
-.wt-userform{
+/* .wt-userform{
 
 	float: left;
 
 	width: 100%;
 
-}
+} */
 
 .lara-attachment-files .form-group.input-preview{
 

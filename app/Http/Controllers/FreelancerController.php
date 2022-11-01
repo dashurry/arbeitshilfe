@@ -2307,5 +2307,29 @@ class FreelancerController extends Controller
 
     }
 
+    // Delete Video from Database
+    public function deleteVideo(Request $req)
+    {
+        $user = Profile::where("user_id",auth()->user()->id)->first();
+        
+        $videos = unserialize($user->videos);
+
+        $data = array();
+        foreach($videos as $i=>$video)
+        {
+           if($video["url"] == $req->url)
+           {
+                unset($videos[$i]);
+           }
+        }
+
+        $videos = serialize($videos);
+        $user->videos = $videos;
+        $user->save();
+        return [
+            "status" => "ok"
+        ];
+    }
+
 }
 

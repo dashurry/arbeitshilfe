@@ -1,6 +1,4 @@
-<div class="wt-location wt-tabsinfo">
-
-    {{-- <div class="wt-tabscontenttitle"> --}}
+<div>
     <div>
 
         <h2>{{{ trans('lang.profile_photo') }}}</h2>
@@ -13,7 +11,7 @@
 
             @php $image = '/uploads/users/'.Auth::user()->id.'/'.$avater; @endphp
 
-            <div class="wt-formtheme wt-userform">
+            <div class="wt-userform">
 
                 <div v-if="this.uploaded_image">
 
@@ -33,15 +31,15 @@
 
                 </div>
 
-                <div class="wt-uploadingbox" v-else>
+                <div class="card" v-else>
 
-                    <figure><img src="{{{asset($image)}}}" alt="{{{ trans('lang.profile_photo') }}}"></figure>
+                    <img src="{{{asset($image)}}}" alt="{{{ trans('lang.profile_photo') }}}">
 
-                    <div class="wt-uploadingbar">
+                    <div class="card-body">
 
-                        <div class="dz-filename">{{{$avater}}}</div>
+                        <h6 class="card-title">{{{$avater}}}</h6>
 
-                        <em>{{{ trans('lang.file_size') }}}<a href="javascript:void(0);" class="lnr lnr-cross" v-on:click.prevent="removeImage('hidden_avater')"></a></em>
+                        <p class="card-text d-flex justify-content-between">{{{ trans('lang.file_size') }}}<a href="javascript:void(0);" class="material-symbols-outlined text-decoration-none text-danger" v-on:click.prevent="removeImage('hidden_avater')">close</a></p>
 
                     </div>
 
