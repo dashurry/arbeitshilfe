@@ -1306,6 +1306,18 @@ if (document.getElementById("registration")) {
 
                 let form_data = new FormData(register_Form);
 
+                this.form_step1.first_name_error = '';
+
+                this.form_step1.is_first_name_error = false;
+
+                this.form_step1.last_name_error = '';
+
+                this.form_step1.is_last_name_error = false;
+
+                this.form_step1.email_error = '';
+
+                this.form_step1.is_email_error = false;
+
                 this.form_step2.password_error = '';
 
                 this.form_step2.is_password_error = false;
@@ -1333,6 +1345,30 @@ if (document.getElementById("registration")) {
                     })
 
                     .catch(function (error) {
+
+                         if (error.response.data.errors.first_name) {
+
+                            self.form_step1.first_name_error = error.response.data.errors.first_name[0];
+
+                            self.form_step1.is_first_name_error = true;
+
+                        }
+
+                        if (error.response.data.errors.last_name) {
+
+                            self.form_step1.last_name_error = error.response.data.errors.last_name[0];
+
+                            self.form_step1.is_last_name_error = true;
+
+                        }
+
+                        if (error.response.data.errors.email) {
+
+                            self.form_step1.email_error = error.response.data.errors.email[0];
+
+                            self.form_step1.is_email_error = true;
+
+                        }
 
                         if (error.response.data.errors.password) {
 
@@ -3462,13 +3498,20 @@ if (document.getElementById("user_profile")) {
 
             // Delete Video from Database
             deleteVideo : function(val) {
+                var self = this;
+
                 axios.post("/freelancer/delete-video",{
                     url: val,
                 }).then(resp=>{
                     return resp.data;
                 }).then(data=>{
-                    if(data.status == "ok") {
-                        window.location.reload();
+                    if(data.status == "success") {
+                        
+                        self.showInfo(Vue.prototype.trans('Video erfolgreich entfernt'));
+                        document.addEventListener('iziToast-closing', function (){
+                            window.location.reload();
+                        })
+                        
                     }
                 }).catch(err=>{
                     console.error(err.response.data);

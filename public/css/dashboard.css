@@ -1885,7 +1885,7 @@ li.wt-skillsaddinfo a.wt-addinfo{background: #00cc8d}
 
 .wt-myskills li.wt-skillsaddinfo .wt-rightarea a.wt-deleteinfo{background: #ddd;}
 
-a.wt-addinfo :before{content: "\e3c9";}
+/* a.wt-addinfo :before{content: "\e3c9";} */
 
 li.wt-skillsaddinfo a.wt-addinfo :before{content: "\e876";}
 

@@ -1,28 +1,26 @@
-<div class="d-flex flex-row justify-content-center">
+<div class="d-flex justify-content-center">
     
-    <div class="wt-dashboardtabs">
+    <div class="w-100">
 
-        {{-- <ul class="wt-tabstitle nav navbar-nav"> --}}
-        <ul class="wt-tabstitle d-flex">    
+        <ul class="nav nav-tabs"> 
 
-            <li class="nav-item d-inline">
+                <li class="nav-item">
 
-                <a class="{{{ \Request::route()->getName()==='personalDetail'? 'active': '' }}}" href="{{{ route('personalDetail') }}}">{{{ trans('lang.personal_detail') }}}</a>
+                    <a class="{{{ \Request::route()->getName()==='personalDetail'? 'bg-white ': '' }}} nav-link lift" href="{{{ route('personalDetail') }}}">{{{ trans('lang.personal_detail') }}}</a>
 
-            </li>
+                </li>
 
-            <li class="nav-item ml-2">
+                <li class="nav-item">
 
-                <a class="{{{ \Request::route()->getName()==='experienceEducation'? 'active': '' }}}" href="{{{ route('experienceEducation') }}}">{{{ trans('lang.experience_education') }}}</a>
+                    <a class="{{{ \Request::route()->getName()==='experienceEducation'? 'bg-white': '' }}} nav-link lift" href="{{{ route('experienceEducation') }}}">{{{ trans('lang.experience_education') }}}</a>
 
-            </li>
+                </li>
 
-            <li class="nav-item">
+                <li class="nav-item">
 
-                <a class="{{{ \Request::route()->getName()==='projectAwards'? 'active': '' }}}" href="{{{ route('projectAwards') }}}">{{{ trans('lang.project_awards') }}}</a>
+                    <a class="{{{ \Request::route()->getName()==='projectAwards'? 'bg-white': '' }}} nav-link lift" href="{{{ route('projectAwards') }}}">{{{ trans('lang.project_awards') }}}</a>
 
-            </li>
-
+                </li>
         </ul>
 
     </div>

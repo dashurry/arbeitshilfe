@@ -2327,7 +2327,7 @@ class FreelancerController extends Controller
         $user->videos = $videos;
         $user->save();
         return [
-            "status" => "ok"
+            "status" => "success"
         ];
     }
 

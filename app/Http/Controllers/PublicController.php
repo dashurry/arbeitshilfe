@@ -247,10 +247,18 @@ class PublicController extends Controller
             $request,
 
             [
+                'first_name' => 'required',
+
+                'last_name' => 'required',
+
+                'email' => 'required|email|unique:users',
 
                 'password' => 'required|string|min:6|confirmed',
+
                 'password_confirmation' => 'required',
+
                 'termsconditions' => 'required',
+                
                 'role' => 'not_in:admin'
             ]
 

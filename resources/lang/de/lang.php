@@ -472,6 +472,8 @@ return [
 
     'join_for_good' => 'Mach mit für einen guten Start',
 
+    'register' => 'Register',
+
     'join_for_good_reason' => 'Treten Sie aus guten Gründen bei und profitieren Sie selbst!',
 
     '01' => '01 -',
@@ -504,7 +506,7 @@ return [
 
     'verification_code_not_verified' => 'Der Bestätigungscode ist nicht verifiziert oder abgelaufen',
 
-    'why_need_code' => 'Warum brauche ich Code?',
+    'why_need_code' => 'Warum brauch ich ein Bestätigungscode?',
 
     'enter_code' => 'Bestätigungscode eingeben',
 
@@ -524,7 +526,7 @@ return [
 
     'acc_creation_note' => 'Ihr Konto wurde erstellt. Sie gelangen zu Ihrer Dashboard-Seite, indem Sie auf die Schaltfläche "Dashboard" klicken.',
 
-    'signup_as_country' => 'Melden Sie sich als Unternehmen / Dienstsuchende & Stellenangebote an.',
+    'signup_as_employer' => 'Melden Sie sich als Dienstanbieter an.',
 
     'save_changes_note' => 'Speichern Sie die neuesten von Ihnen vorgenommenen Änderungen',
 
@@ -1702,9 +1704,9 @@ return [
 
     'ph_select_gender' => 'Geschlecht wählen* ',
 
-    'ph_first_name' => 'Vorname*',
+    'ph_first_name' => 'Vorname',
 
-    'ph_last_name' => 'Nachname*',
+    'ph_last_name' => 'Nachname',
 
     'ph_service_hoyrly_rate' => 'Ihr Stundensatz (CHF)*',
 
@@ -1714,7 +1716,7 @@ return [
 
     'ph_pass' => 'Passwort',
 
-    'ph_retry_pass' => 'Passwort erneut versuchen',
+    'ph_retry_pass' => 'Passwort erneut eingeben',
 
     'ph_skill_title' => 'Titel der Fähigkeit',
 
