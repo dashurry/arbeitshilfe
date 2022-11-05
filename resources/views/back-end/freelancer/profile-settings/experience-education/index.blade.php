@@ -36,13 +36,13 @@
                                 {{-- Form --}}
                                 {!! Form::open(['url' => url('freelancer/store-experience-settings'), 'class' =>'form', 'id' => 'experience_form', '@submit.prevent'=>'submitExperienceEduction']) !!}
                                 {{-- Profile Experience Component --}}
-                                <fieldset>
+                                <div class="wt-userexperience wt-tabsinfo">
                                     @if (file_exists(resource_path('views/extend/back-end/freelancer/profile-settings/experience-education/experience.blade.php'))) 
                                         @include('extend.back-end.freelancer.profile-settings.experience-education.experience')
                                     @else
                                         @include('back-end.freelancer.profile-settings.experience-education.experience')
                                     @endif
-                                </fieldset>
+                                </div>
                                 {{-- Profile Education Component --}}
                                 <div class="wt-userexperience wt-tabsinfo">
                                     @if (file_exists(resource_path('views/extend/back-end/freelancer/profile-settings/experience-education/education.blade.php')))

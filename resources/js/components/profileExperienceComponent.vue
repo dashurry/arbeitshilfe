@@ -5,15 +5,16 @@
         <div class="media-body">
           <h2>{{ trans('lang.add_your_exp') }}</h2>
         </div>
-      <a href="javascript:void(0);" @click="addExperience" class="btn btn-primary">{{ trans('lang.add_experience') }}</a>
+      <a href="javascript:void(0);" @click="addExperience" class="btn btn-primary add-experience-btn">{{ trans('lang.add_experience') }}</a>
     </div>
     <!-- Accordion -->
-    <ul class="wt-experienceaccordion accordion" id="experience-list">
-      <div v-if="stored_experiences" class="card">
+    <ul class="accordion" id="experience-list">
+      <div v-if="stored_experiences" class="experience-inner-list card">
         <li v-for="(stored_experience, index) in stored_experiences" :key="index" class="experience-element">
-          <div class="card-header d-flex justify-content-between" id="headingOne">
+          <!-- Collapse Head -->
+          <div class="card-header d-flex justify-content-between" :id="'experienceaccordion-'+index+''">
             <h5>
-              <button type="button" class="btn btn-link shadow-none" :id="'experienceaccordion-'+index+''" data-toggle="collapse" :data-target="'#experienceaccordioninner-'+index+''" aria-expanded="true" :aria-controls="'#experienceaccordioninner-'+index+''">
+              <button type="button" class="btn btn-link shadow-none" :id="'experienceaccordion-'+index+''" data-toggle="collapse" :data-target="'#experienceaccordioninner-'+index+''">
                 {{stored_experience.job_title}} ({{stored_experience.start_date}} - {{stored_experience.end_date}})
               </button>
             </h5>
@@ -26,92 +27,80 @@
               </a>
             </div>
           </div>
+          <!-- Collapse Body -->
           <div class="collapse hide" :id="'experienceaccordioninner-'+index+''" :aria-labelledby="'experienceaccordion-'+index+''" data-parent="#accordion">
-            <fieldset>
-              <div class="form-group">
-                <input type="text" :value="stored_experience.job_title" v-bind:name="'experience['+[index]+'][job_title]'" class="form-control" :placeholder="ph_job_title" />
+              <div class="card-body">
+                <!-- Job Title Input -->
+                <div class="form-group">
+                  <input type="text" :value="stored_experience.job_title" v-bind:name="'experience['+[index]+'][job_title]'" class="form-control" :placeholder="ph_job_title" />
+                </div>
+                <!-- Date Picker Input-->
+                <div class="form-group">
+                    <date-pick class="w-100"
+                      v-model="stored_experience.start_date"
+                      :inputAttributes="{placeholder: 'Bitte Zeitraum wählen'}"
+                      :weekdays="weekdayList" 
+                      :months="monthsList" 
+                      :nextMonthCaption="trans('lang.next_month')"
+                      :prevMonthCaption="trans('lang.pre_month')"
+                      :setTimeCaption="trans('lang.set_time')">
+                    </date-pick>
+                  <input type="hidden" v-bind:name="'experience['+[index]+'][start_date]'" :value="stored_experience.start_date" />
+                </div>
+                <!-- Date Picker Input -->
+                <div class="form-group">
+                    <date-pick class="w-100"
+                      v-model="stored_experience.end_date"
+                      :inputAttributes="{placeholder: 'Bitte Zeitraum wählen'}"
+                      :weekdays="weekdayList" 
+                      :months="monthsList" 
+                      :nextMonthCaption="trans('lang.next_month')"
+                      :prevMonthCaption="trans('lang.pre_month')"
+                      :setTimeCaption="trans('lang.set_time')">
+                    </date-pick>
+                  <input type="hidden" v-bind:name="'experience['+[index]+'][end_date]'" :value="stored_experience.end_date" />
+                </div>
+                <!-- Company Name Input -->
+                <div class="form-group">
+                  <input type="text" :value="stored_experience.company_title" v-bind:name="'experience['+[index]+'][company_title]'" class="form-control" :placeholder="ph_company_title" />
+                </div>
+                <!-- Job Description Textarea -->
+                <div class="form-group">
+                  <textarea :value="stored_experience.description" v-bind:name="'experience['+[index]+'][description]'" class="form-control" :placeholder="ph_job_desc" aria-describedby="textareaHelpBlock"></textarea>
+                  <small id="textareaHelpBlock" class="form-text text-muted">{{ trans('lang.date_note') }}</small>
+                </div>
               </div>
-              <div class="form-group">
-                <date-pick class="w-100" 
-                  v-model="stored_experience.start_date"
-                  :inputAttributes="{placeholder: 'Bitte Zeitraum wählen'}"
-                  :weekdays="weekdayList" 
-                  :months="monthsList" 
-                  :nextMonthCaption="trans('lang.next_month')"
-                  :prevMonthCaption="trans('lang.pre_month')"
-                  :setTimeCaption="trans('lang.set_time')">
-                </date-pick>
-                <input type="hidden" v-bind:name="'experience['+[index]+'][start_date]'" :value="stored_experience.start_date" />
-              </div>
-              <div class="form-group">
-                <date-pick class="w-100"
-                  v-model="stored_experience.end_date"
-                  :inputAttributes="{placeholder: 'Bitte Zeitraum wählen'}"
-                  :weekdays="weekdayList" 
-                  :months="monthsList" 
-                  :nextMonthCaption="trans('lang.next_month')"
-                  :prevMonthCaption="trans('lang.pre_month')"
-                  :setTimeCaption="trans('lang.set_time')">
-                </date-pick>
-                <input type="hidden" v-bind:name="'experience['+[index]+'][end_date]'" :value="stored_experience.end_date" />
-              </div>
-              <div class="form-group">
-                <input type="text" :value="stored_experience.company_title" v-bind:name="'experience['+[index]+'][company_title]'" class="form-control" :placeholder="ph_company_title" />
-              </div>
-              <div class="form-group">
-                <textarea :value="stored_experience.description" v-bind:name="'experience['+[index]+'][description]'" class="form-control" :placeholder="ph_job_desc" aria-describedby="textareaHelpBlock"></textarea>
-                <small id="textareaHelpBlock" class="form-text text-muted">{{ trans('lang.date_note') }}</small>
-              </div>
-            </fieldset>
           </div>
         </li>
       </div>
-      <span class="experience-inner-list">
-        <li
-          v-for="(experience, index) in experiences"
-          :key="index"
-          ref="experiencelistelement"
-          class="experience-inner-list-item"
-        >
-          <div class="wt-accordioninnertitle form-control">
-            <span
-              :id="'experienceaccordion-'+experience.count+''"
-              data-toggle="collapse"
-              :data-parent="'#experienceaccordioninner-'+experience.count+''">{{experience.job_title}} ( {{experience.start_date}} - {{experience.end_date}} )</span>
-            <div class="wt-rightarea">
-              <a
-                href="javascript:void(0);"
-                class="wt-addinfo wt-skillsaddinfo"
-                :id="'experienceaccordion-'+experience.count+''"
-                data-toggle="collapse"
-                :data-target="'#experienceaccordioninner-'+experience.count+''"
-                aria-expanded="true"
-              >
-                <i class="lnr lnr-pencil"></i>
-              </a>
-              <a href="javascript:void(0);" class="wt-deleteinfo delete-experience">
-                <i class="lnr lnr-trash"></i>
-              </a>
-            </div>
+      <div class="experience-inner-list">
+        <li v-for="(experience, index) in experiences" :key="index" ref="experiencelistelement" class="experience-inner-list-item">
+          <!-- Collapse Head -->
+          <div class="card-header d-flex justify-content-between">
+              <h5>
+                <button type="button" class="btn btn-link shadow-none" :id="'experienceaccordion-'+experience.count+''" data-toggle="collapse" :data-parent="'#experienceaccordioninner-'+experience.count+''">
+                  {{experience.job_title}} ( {{experience.start_date}} - {{experience.end_date}} )
+                </button>
+              </h5>
+                <div>
+                  <a href="javascript:void(0);" class="wt-addinfo wt-skillsaddinfo badge badge-primary shadow-none" :id="'experienceaccordion-'+experience.count+''" data-toggle="collapse" :data-target="'#experienceaccordioninner-'+experience.count+''" aria-expanded="true">
+                    <i class="material-symbols-outlined">edit</i>
+                  </a>
+                  <a href="javascript:void(0);" class="badge badge-danger shadow-none delete-experience">
+                    <i class="material-symbols-outlined">delete</i>
+                  </a>
+                </div>
           </div>
-          <div
-            class="wt-collapseexp collapse hide"
-            :id="'experienceaccordioninner-'+experience.count+''"
-            :aria-labelledby="'experienceaccordion-'+experience.count+''"
-            data-parent="#accordion"
-          >
-            <fieldset>
-              <div class="form-group form-group-half">
-                <input
-                  type="text"
-                  v-bind:name="'experience['+[experience.count]+'][job_title]'"
-                  class="form-control"
-                  :placeholder="ph_job_title"
-                  v-model="experience.job_title"
-                />
+          <!-- Collapse Body -->
+          <div class="collapse hide" :id="'experienceaccordioninner-'+experience.count+''" :aria-labelledby="'experienceaccordion-'+experience.count+''" data-parent="#accordion">
+            <div class="card-body">
+              <!-- Job Title Input -->
+              <div class="form-group">
+                <input type="text" v-bind:name="'experience['+[experience.count]+'][job_title]'" class="form-control" :placeholder="ph_job_title" v-model="experience.job_title" />
               </div>
-              <div class="form-group form-group-half">
-                <date-pick 
+              <!-- Date Picker Input-->
+              <div class="form-group">
+                <date-pick class="w-100"
                   v-model="experience.start_date"
                   :inputAttributes="{placeholder: 'Bitte Zeitraum wählen'}"
                   :weekdays="weekdayList" 
@@ -120,15 +109,11 @@
                   :prevMonthCaption="trans('lang.pre_month')"
                   :setTimeCaption="trans('lang.set_time')">
                 </date-pick>
-                <input
-                  type="hidden"
-                  v-bind:name="'experience['+[experience.count]+'][start_date]'"
-                  :value="experience.start_date"
-                  :placeholder="ph_start_date"
-                />
+                <input type="hidden" v-bind:name="'experience['+[experience.count]+'][start_date]'" :value="experience.start_date" :placeholder="ph_start_date" />
               </div>
-              <div class="form-group form-group-half">
-                <date-pick
+              <!-- Date Picker Input-->
+              <div class="form-group">
+                <date-pick class="w-100"
                   v-model="experience.end_date"
                   :inputAttributes="{placeholder: 'Bitte Zeitraum wählen'}"
                   :weekdays="weekdayList" 
@@ -137,36 +122,21 @@
                   :prevMonthCaption="trans('lang.pre_month')"
                   :setTimeCaption="trans('lang.set_time')">
                 </date-pick>
-                <input
-                  type="hidden"
-                  id="end_date"
-                  v-bind:name="'experience['+[experience.count]+'][end_date]'"
-                  :value="experience.end_date"
-                  :placeholder="ph_end_date"
-                />
+                <input type="hidden" id="end_date" v-bind:name="'experience['+[experience.count]+'][end_date]'" :value="experience.end_date" :placeholder="ph_end_date" />
               </div>
-              <div class="form-group form-group-half">
-                <input
-                  type="text"
-                  v-bind:name="'experience['+[experience.count]+'][company_title]'"
-                  class="form-control"
-                  :placeholder="ph_company_title"
-                />
-              </div>
+              <!-- Company Name Input -->
               <div class="form-group">
-                <textarea
-                  v-bind:name="'experience['+[experience.count]+'][description]'"
-                  class="form-control"
-                  :placeholder="ph_job_desc"
-                ></textarea>
+                <input type="text" v-bind:name="'experience['+[experience.count]+'][company_title]'" class="form-control" :placeholder="ph_company_title" />
               </div>
+              <!-- Job Description Textarea -->
               <div class="form-group">
-                <span>{{ trans('lang.date_note') }}</span>
+                <textarea v-bind:name="'experience['+[experience.count]+'][description]'" class="form-control" :placeholder="ph_job_desc" aria-describedby="textareaHelpBlock"></textarea>
+                <small id="textareaHelpBlock" class="form-text text-muted">{{ trans('lang.date_note') }}</small>
               </div>
-            </fieldset>
+            </div>
           </div>
         </li>
-      </span>
+      </div>
     </ul>
   </div>
 </template>
@@ -219,9 +189,8 @@ export default {
         });
     },
     addExperience: function() {
-      var expereience_list_count = jQuery(".add-experience-btn")
-        .parents(".wt-tabsinfo")
-        .find("ul#experience-list span.experience-inner-list li").length;
+      var expereience_list_count = jQuery(".add-experience-btn").parents(".wt-tabsinfo").find("ul#experience-list div.experience-inner-list li").length;
+        console.log(expereience_list_count)
       if (this.$refs.experiencelistelement) {
         this.experience.count =
           expereience_list_count + this.$refs.experiencelistelement.length;
