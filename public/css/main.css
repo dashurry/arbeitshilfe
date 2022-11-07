@@ -6389,7 +6389,8 @@ select.is-invalid {border-color: #dc3545;}
 }
 .lara-proposal-attachment{margin: 0 0 20px;}
 .lara-proposal-attachment .vue-dropzone:hover{background:#fff;}
-.lara-proposal-attachment .form-group-label .wt-labelgroup {
+/* .lara-proposal-attachment .form-group-label  */
+.wt-labelgroup {
     float: left;
     width: 100%;
     padding: 10px;
@@ -13103,11 +13104,11 @@ content: '\e93f';
     border: 1px solid rgba(0,0,0,.085);
     border-radius: 1rem;
 }
-.btn-sm, .btn-group-sm>.btn {
+/* .btn-sm, .btn-group-sm>.btn {
     padding: 0.425rem 1rem;
     font-size: 0.875rem;
     border-radius: 0.5rem;
-}
+} */
 .wt-title{
 	display: block;
     color: #323232;

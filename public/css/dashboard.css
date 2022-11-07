@@ -2285,7 +2285,7 @@ li.wt-skillsaddinfo a.wt-addinfo :before{content: "\e876";}
 
 .wt-awardsholder .wt-experienceaccordion li .wt-rightarea{padding: 10px 0;}
 
-.form-group-label .wt-labelgroup{
+.wt-labelgroup{
 
 	float: left;
 

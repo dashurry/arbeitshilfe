@@ -5,14 +5,14 @@
         <div class="media-body">
           <h2>{{ trans('lang.add_your_exp') }}</h2>
         </div>
-      <a href="javascript:void(0);" @click="addExperience" class="btn btn-primary add-experience-btn">{{ trans('lang.add_experience') }}</a>
+      <a href="javascript:void(0);" @click="addExperience" class="btn btn-sm btn-outline-primary add-experience-btn">{{ trans('lang.add_experience') }}</a>
     </div>
     <!-- Accordion -->
-    <ul class="accordion" id="experience-list">
-      <div v-if="stored_experiences" class="experience-inner-list card">
-        <li v-for="(stored_experience, index) in stored_experiences" :key="index" class="experience-element">
+    <ul id="experience-list" class="mt-3">
+      <div v-if="stored_experiences" class="card">
+        <li v-for="(stored_experience, index) in stored_experiences" :key="index">
           <!-- Collapse Head -->
-          <div class="card-header d-flex justify-content-between" :id="'experienceaccordion-'+index+''">
+          <div class="card-header d-flex justify-content-between flex-wrap" :id="'experienceaccordion-'+index+''">
             <h5>
               <button type="button" class="btn btn-link shadow-none" :id="'experienceaccordion-'+index+''" data-toggle="collapse" :data-target="'#experienceaccordioninner-'+index+''">
                 {{stored_experience.job_title}} ({{stored_experience.start_date}} - {{stored_experience.end_date}})
@@ -73,8 +73,8 @@
           </div>
         </li>
       </div>
-      <div class="experience-inner-list">
-        <li v-for="(experience, index) in experiences" :key="index" ref="experiencelistelement" class="experience-inner-list-item">
+      <div class="card">
+        <li v-for="(experience, index) in experiences" :key="index" ref="experiencelistelement" class="experience-list-item">
           <!-- Collapse Head -->
           <div class="card-header d-flex justify-content-between">
               <h5>
@@ -83,7 +83,7 @@
                 </button>
               </h5>
                 <div>
-                  <a href="javascript:void(0);" class="wt-addinfo wt-skillsaddinfo badge badge-primary shadow-none" :id="'experienceaccordion-'+experience.count+''" data-toggle="collapse" :data-target="'#experienceaccordioninner-'+experience.count+''" aria-expanded="true">
+                  <a href="javascript:void(0);" class="wt-addinfo badge badge-primary shadow-none" :id="'experienceaccordion-'+experience.count+''" data-toggle="collapse" :data-target="'#experienceaccordioninner-'+experience.count+''" aria-expanded="true">
                     <i class="material-symbols-outlined">edit</i>
                   </a>
                   <a href="javascript:void(0);" class="badge badge-danger shadow-none delete-experience">
@@ -189,14 +189,18 @@ export default {
         });
     },
     addExperience: function() {
-      var expereience_list_count = jQuery(".add-experience-btn").parents(".wt-tabsinfo").find("ul#experience-list div.experience-inner-list li").length;
-        console.log(expereience_list_count)
+      // count numbers of collapsible items from <ul> element
+      var expereience_list_count = jQuery(".add-experience-btn").parents(".experienceComponent").find("ul#experience-list div.card li").length;
+      console.log(expereience_list_count);
+      // checking if there is any vue component that has referrence name = "experiencelistelement"
       if (this.$refs.experiencelistelement) {
-        this.experience.count =
-          expereience_list_count + this.$refs.experiencelistelement.length;
-      } else {
+        // count all collapsible items inside the referrence element
+        this.experience.count = expereience_list_count + this.$refs.experiencelistelement.length;
+      }
+      else {
         this.experience.count = expereience_list_count - 1;
       }
+      // push new collapsible item into experiences array and increase the total number
       this.experiences.push(
         Vue.util.extend({}, this.experience, this.experience.count++)
       );
@@ -220,7 +224,7 @@ export default {
     jQuery(document).on("click", ".delete-experience", function(e) {
       e.preventDefault();
       var _this = jQuery(this);
-      _this.parents(".experience-inner-list-item").remove();
+      _this.parents(".experience-list-item").remove();
     });
   },
   created: function() {

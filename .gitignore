@@ -316,3 +316,17 @@ resources/views/back-end/freelancer/profile-settings/experience-education/indexB
 resources/js/components/profileExperienceComponentBackup.vue
 resources/views/auth/registerBackup.blade.php
 resources/views/back-end/freelancer/profile-settings/tabsBackup.blade.php
+public/uploads/users/temp/20220710_172820.jpg
+public/uploads/users/26/projects/16678167640-Positive-Vibes-Only3.svg
+public/uploads/users/26/projects/16678280890-Positive-Vibes-Only.svg
+public/uploads/users/26/projects/16678315790-arbeitshilfe.png
+resources/views/back-end/freelancer/profile-settings/projects-awards/indexBackup.blade.php
+public/uploads/users/temp/medium-20220710_172820.jpg
+public/uploads/users/26/projects/medium-16678315790-arbeitshilfe.png
+public/uploads/users/temp/Positive-Vibes-Only.svg
+public/uploads/users/temp/Positive-Vibes-Only2.svg
+public/uploads/users/temp/Positive-Vibes-Only3.svg
+resources/js/components/profileEducationComponentBackup.vue
+resources/js/components/profileProjectComponentBackup.vue
+public/uploads/users/temp/small-20220710_172820.jpg
+public/uploads/users/26/projects/small-16678315790-arbeitshilfe.png

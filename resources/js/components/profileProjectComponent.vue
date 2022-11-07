@@ -1,13 +1,16 @@
 <template>
-    <div>
-        <!-- <div class="wt-tabscontenttitle wt-addnew"> -->
-        <div class="wt-addnew d-flex justify-content-between align-items-center">
-            <h2>{{trans('lang.add_your_project')}}</h2>
-            <a href="javascript:void(0);" @click="addProject" class="add-project-btn">{{trans('lang.add_project')}}</a>
+    <div class="card-body">
+        <!-- Header -->
+        <div class="media flex-wrap">
+            <div class="media-body">
+                <h2>{{trans('lang.add_your_project')}}</h2>
+            </div>
+            <a href="javascript:void(0);" @click="addProject" class="btn btn-sm btn-outline-primary add-project-btn">{{trans('lang.add_project')}}</a>
         </div>
-        <ul class="wt-experienceaccordion accordion" id="project-list">
-            <span v-if="stored_projects" class="project-inner-list">
-                 <li v-for="(stored_project, index) in stored_projects" :key="index" class="project-element project-inner-list-item" :id="'project-element-'+index">
+        <!-- Accordion -->
+        <ul class="mt-3" id="project-list">
+            <div v-if="stored_projects" class="card">
+                 <li v-for="(stored_project, index) in stored_projects" :key="index" class="project-element project-list-item" :id="'project-element-'+index">
                     <updateProject
                         :stored_image_name="stored_project.project_image"
                         :dropzone_id ="project.img_id+'-'+index"
@@ -29,55 +32,61 @@
                     >
                     </updateProject>
                 </li>
-            </span>
-            <span class="project-inner-list">
-                <li v-for="(project, index) in projects" :key="index" ref="projectlistelement" class="project-inner-list-item">
-                    <div class="wt-accordioninnertitle form-control">
-                        <div :id="'projectaccordion['+project.count+']'" class="wt-projecttitle collapsed" data-toggle="collapse" :data-target="'#projectaccordioninner['+project.count+']'">
-                            <figure :class="project.preview_class"></figure>
-                            <h3>{{project.project_title}}<span>{{project.project_url}}</span></h3>
+            </div>
+            <div class="card">
+                <li v-for="(project, index) in projects" :key="index" ref="projectlistelement" class="project-list-item">
+                    <!-- Collapse Head -->
+                    <div class="card-header d-flex justify-content-between">
+                        <div :id="'projectaccordion['+project.count+']'" class="collapsed" data-toggle="collapse" :data-target="'#projectaccordioninner['+project.count+']'">
+                            <h5>{{project.project_title}}</h5>
+                            <button type="button" class="btn btn-link shadow-none p-0">{{project.project_url}}</button>
                         </div>
-                        <div class="wt-rightarea">
-                            <a href="javascript:void(0);" class="wt-addinfo wt-skillsaddinfo" :id="'projectaccordion['+project.count+']'" data-toggle="collapse" :data-target="'#projectaccordioninner['+project.count+']'" aria-expanded="true"><i class="lnr lnr-pencil"></i></a>
-                            <a href="javascript:void(0);" class="wt-deleteinfo delete-project"><i class="lnr lnr-trash"></i></a>
+                        <!-- Edit/Delete Buttons -->
+                        <div>
+                            <a href="javascript:void(0);" class="wt-addinfo badge badge-primary shadow-none" :id="'projectaccordion['+project.count+']'" data-toggle="collapse" :data-target="'#projectaccordioninner['+project.count+']'" aria-expanded="true">
+                                <i class="material-symbols-outlined">edit</i>
+                            </a>
+                            <a href="javascript:void(0);" class="badge badge-danger shadow-none delete-project">
+                                <i class="material-symbols-outlined">delete</i>
+                            </a>
                         </div>
                     </div>
-                    <div class="wt-collapseexp collapse hide" :id="'projectaccordioninner['+project.count+']'" :aria-labelledby="'projectaccordion['+project.count+']'" data-parent="#accordion">
-                        <fieldset>
-                            <div class="form-group form-group-half">
+                    <!-- Display Preview Image Upload -->
+                    <figure :class="project.preview_class"></figure>
+                    <!-- Collapse Body -->
+                    <div class="collapse hide" :id="'projectaccordioninner['+project.count+']'" :aria-labelledby="'projectaccordion['+project.count+']'" data-parent="#accordion">
+                        <div class="card-body">
+                            <!-- Project Title Input -->
+                            <div class="form-group">
                                 <input type="text" v-bind:name="'project['+[project.count]+'][project_title]'" class="form-control" :placeholder="ph_project_title" v-model="project.project_title">
                             </div>
-                            <div class="form-group form-group-half">
+                            <!-- Project Url Input -->
+                            <div class="form-group">
                                 <input type="text" v-bind:name="'project['+[project.count]+'][project_url]'" class="form-control" :placeholder="ph_project_url" v-model="project.project_url">
                             </div>
-                            <div class="form-group image_uploaded_placeholder" style="display:none">
-                            <ul class="wt-attachfile">
-                                <li>
-                                    <span class="uploaded-img-name"></span>
-                                    <em><a class="dz-remove" href="javascript:;" :id="'remove-uploded-image-'+project.count" @click="removeUploadedImage($event)" >
-                                            <span class="lnr lnr-cross"></span>
-                                        </a>
-                                    </em>
-                                </li>
-                            </ul>
+                            <!-- Project Display Image Name / Remove Uploaded Image -->
+                            <div class="form-group form-inline image_uploaded_placeholder d-none">
+                                <div class="uploaded-img-name"></div>
+                                    <a class="dz-remove text-danger" href="javascript:;" :id="'remove-uploded-image-'+project.count" @click="removeUploadedImage($event)" >
+                                        <i class="material-symbols-outlined">close</i>
+                                    </a>
                             </div>
+                            <!-- Project Upload Image Input -->
                             <uploadimage :option="project.option" :id="project.img_id+'-'+project.count" :img_ref="project.img_ref+'_'+project.count"></uploadimage>
                             <input type="hidden" v-bind:name="'project['+project.count+'][project_hidden_image]'" :id="'hidden_banner-'+project.count">
-                        </fieldset>
+                        </div>
                     </div>
                 </li>
-            </span>
+            </div>
         </ul>
     </div>
 </template>
 <script>
 const getImageUploadTemplate = () => `
-<div class="wt-uploadingbox">
-<div class="dz-preview dz-file-preview">
-    <img data-dz-thumbnail />
-</div>
-</div>
-`;
+                                    <div class="dz-preview dz-file-preview">
+                                        <img data-dz-thumbnail class="img-fluid" width="65" height="65"/>
+                                    </div>
+                                    `;
 import dateTime from './DateTimeComponent'
 import uploadimage from './ProjectAwardUploadComponent'
 import updateProject from './EditProjectComponent'
@@ -113,11 +122,12 @@ export default{
                             this.on("addedfile", function(file) {
                                 var fileName = file.name;
                                 // console.log(fileName.replace(/\s/g,''))
+                                // get dropzone hidden input and return its 'id'
                                 var input_hidden_id = jQuery('#'+myDropzone.element.id).next('input[type=hidden]').attr('id');
                                 document.getElementById(input_hidden_id).value = file.name;
                                 jQuery('#'+myDropzone.element.id).css("display","none");
-                                jQuery('#'+myDropzone.element.id).parents('.project-inner-list-item').find('.image_uploaded_placeholder').css("display","block");
-                                jQuery('#'+myDropzone.element.id).parents('.project-inner-list-item').find('.image_uploaded_placeholder ul li span.uploaded-img-name').text(file.name);
+                                jQuery('#'+myDropzone.element.id).parents('.project-list-item').find('.image_uploaded_placeholder').removeClass("d-none");
+                                jQuery('#'+myDropzone.element.id).parents('.project-list-item').find('.image_uploaded_placeholder div.uploaded-img-name').text(file.name);
                             });
                             this.on("removedfile", function(file) {
                                 document.getElementById('hidden_banner').value = '';
@@ -139,8 +149,8 @@ export default{
                 });
             },
             addProject: function () {
-                var expereience_list_count = jQuery('.add-project-btn').parents('.wt-tabsinfo').find('ul#project-list span.project-inner-list li').length;
-                var image_placeholder_count = jQuery('.add-project-btn').parents('.wt-tabsinfo').find('ul#project-list span.project-inner-list li').find('figure.dropzone-previews').length;
+                var expereience_list_count = jQuery('.add-project-btn').parents('.projectsComponent').find('ul#project-list div.card li').length;
+                var image_placeholder_count = jQuery('.add-project-btn').parents('.projectsComponent').find('ul#project-list div.card li').find('figure.dropzone-previews').length;
                 if(this.$refs.projectlistelement) {
                     this.project.count = expereience_list_count + this.$refs.projectlistelement.length;
                 } else {
@@ -158,9 +168,9 @@ export default{
             removeUploadedImage: function (event) {
                 var element = event.currentTarget;
                 var elementID = element.getAttribute('id');
-                jQuery('#'+elementID).parents('.image_uploaded_placeholder').css("display","none");
-                jQuery('#'+elementID).parents('.project-inner-list-item').find('.wt-uploadingbox').remove();
-                jQuery('#'+elementID).parents('.project-inner-list-item').find('.vue-dropzone').css("display","block");
+                jQuery('#'+elementID).parents('.image_uploaded_placeholder').addClass("d-none");
+                jQuery('#'+elementID).parents('.project-list-item').find('.dz-preview').remove();
+                jQuery('#'+elementID).parents('.project-list-item').find('.vue-dropzone').css("display","block");
             }
         },
         mounted: function () {
@@ -175,7 +185,7 @@ export default{
             jQuery(document).on('click', '.delete-project', function (e) {
                 e.preventDefault();
                 var _this = jQuery(this);
-                _this.parents('.project-inner-list-item').remove();
+                _this.parents('.project-list-item').remove();
             });
         },
         created: function() {

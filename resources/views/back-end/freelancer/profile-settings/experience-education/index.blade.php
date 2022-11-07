@@ -32,11 +32,11 @@
                             @else
                                 @include('back-end.freelancer.profile-settings.tabs')
                             @endif
+                            {{-- Form --}}
                             <div class="mt-5" id="wt-education"> 
-                                {{-- Form --}}
                                 {!! Form::open(['url' => url('freelancer/store-experience-settings'), 'class' =>'form', 'id' => 'experience_form', '@submit.prevent'=>'submitExperienceEduction']) !!}
                                 {{-- Profile Experience Component --}}
-                                <div class="wt-userexperience wt-tabsinfo">
+                                <div class="experienceComponent">
                                     @if (file_exists(resource_path('views/extend/back-end/freelancer/profile-settings/experience-education/experience.blade.php'))) 
                                         @include('extend.back-end.freelancer.profile-settings.experience-education.experience')
                                     @else
@@ -44,7 +44,7 @@
                                     @endif
                                 </div>
                                 {{-- Profile Education Component --}}
-                                <div class="wt-userexperience wt-tabsinfo">
+                                <div class="educationComponent">
                                     @if (file_exists(resource_path('views/extend/back-end/freelancer/profile-settings/experience-education/education.blade.php')))
                                         @include('extend.back-end.freelancer.profile-settings.experience-education.education')
                                     @else
