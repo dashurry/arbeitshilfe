@@ -1,74 +1,89 @@
 <template>
     <div>
-        <div class="wt-accordioninnertitle">
-                <div v-if="this.stored_project_img" :id="this.main_accordion_id" class="wt-projecttitle collapsed" data-toggle="collapse" :data-target="'#'+this.inner_accordion_id">
-                    <figure v-if="uploaded_project_image == false">
-                        <img :src="stored_project_img">
-                        <a class="dz-remove" href="javascript:;" @click="removeImage()" >
-                            <span class="lnr lnr-cross"></span>
-                        </a>
-                    </figure>
-                    <div :class="img_hidden_id" v-else></div>
-                    <h3>{{this.stored_project_title}}<span>{{this.stored_project_url}}</span></h3>
-                </div>
-                <div v-else :id="this.main_accordion_id" class="wt-projecttitle collapsed" data-toggle="collapse" :data-target="'#'+this.inner_accordion_id">
-                    <div :class="img_hidden_id"></div>
-                    <h3>{{this.stored_project_title}}<span>{{this.stored_project_url}}</span></h3>
-                </div>
-                <div class="wt-rightarea">
-                    <a href="javascript:void(0);" class="wt-addinfo wt-skillsaddinfo" ref="storedProjectelement" :id="this.main_accordion_id" data-toggle="collapse"  :data-target="'#'+this.inner_accordion_id" aria-expanded="true"><i class="lnr lnr-pencil"></i></a>
-                    <a href="javascript:void(0);" class="wt-deleteinfo" @click="removeElement()"><i class="lnr lnr-trash"></i></a>
-                </div>
+        <!-- Collapse Head -->
+        <div class="card-header d-flex justify-content-between">
+            <!-- Project with Image -->
+            <div v-if="this.stored_project_img" :id="this.main_accordion_id" class="collapsed" data-toggle="collapse" :data-target="'#'+this.inner_accordion_id">
+                <!-- Image and Close Button -->
+                <figure v-if="uploaded_project_image == false">
+                    <img :src="stored_project_img">
+                    <a class="dz-remove text-danger" href="javascript:;" @click="removeImage()" >
+                        <i class="material-symbols-outlined">close</i>
+                    </a>
+                </figure>
+                <div :class="img_hidden_id" v-else></div>
+                <!-- Title -->
+                <h5>{{this.stored_project_title}}</h5>
+                    <!-- Url -->
+                    <button type="button" class="btn btn-link shadow-none p-0">{{this.stored_project_url}}</button>
             </div>
-            <div class="wt-collapseexp collapse hide" :id="this.inner_accordion_id" :aria-labelledby="this.main_accordion_id" data-parent="#accordion">
-                <fieldset>
-                    <div class="form-group form-group-half">
-                        <input type="text" :value="this.stored_project_title" v-bind:name="this.project_title_name" class="form-control" :placeholder="this.project_title">
-                    </div>
-                    <div class="form-group form-group-half">
-                        <input type="text" :value="this.stored_project_url" v-bind:name="this.project_url_name" class="form-control" :placeholder="this.project_url">
-                    </div>
-                    <div class="form-group" v-if="this.stored_project_img">
-                        <div class="wt-labelgroup" v-if="uploaded_project_image">
-                            <vue-dropzone :options="dropzoneOptions" :id="this.dropzone_id" :useCustomSlot=true :ref="this.img_ref" @vdropzone-file-added="vfileAdded" v-on:vdropzone-error="failed">
-                                <div class="form-group form-group-label test">
-                                    <div class="wt-labelgroup">
-                                        <label for="file">
-                                            <span class="wt-btn">Select Files</span>
-                                        </label>
-                                        <span>Drop files here to upload</span>
-                                    </div>
-                                </div>
-                            </vue-dropzone>
-                            <input type="hidden" v-bind:name="this.img_hidden_name" :id="this.img_hidden_id" value="">
-                        </div>
-                        <ul class="wt-attachfile" v-else>
-                            <li>
-                                <span>{{this.stored_image_name}}</span>
-                                <em>
-                                    <a class="dz-remove" href="javascript:;" @click="removeImage(img_hidden_id)" :id="this.uploaded_image_remove_id" >
-                                        <span class="lnr lnr-cross"></span>
-                                    </a>
-                                </em>
-                                <input type="hidden" v-bind:name="this.img_hidden_name" :id="this.img_hidden_id" :value="this.stored_image_name">
-                            </li>
-                        </ul>
-                    </div>
-                    <div v-else>
+            <!-- Project without Image -->
+            <div v-else :id="this.main_accordion_id" class="collapsed" data-toggle="collapse" :data-target="'#'+this.inner_accordion_id">
+                <div :class="img_hidden_id"></div>
+                <h5>{{this.stored_project_title}}</h5>
+                    <button type="button" class="btn btn-link shadow-none p-0">{{this.stored_project_url}}</button>
+            </div>
+            <!-- Edit/Delete Buttons -->
+            <div>
+                <a href="javascript:void(0);" class="wt-addinfo badge badge-primary shadow-none" ref="storedProjectelement" :id="this.main_accordion_id" data-toggle="collapse"  :data-target="'#'+this.inner_accordion_id" aria-expanded="true">
+                    <i class="material-symbols-outlined">edit</i>
+                </a>
+                <a href="javascript:void(0);" class="badge badge-danger shadow-none" @click="removeElement()">
+                    <i class="material-symbols-outlined">delete</i>
+                </a>
+            </div>
+        </div>
+        <!-- Collapse Body -->
+        <div class="collapse hide" :id="this.inner_accordion_id" :aria-labelledby="this.main_accordion_id" data-parent="#accordion">
+            <div class="card-body">
+                <!-- Project Title Input -->
+                <div class="form-group">
+                    <input type="text" :value="this.stored_project_title" v-bind:name="this.project_title_name" class="form-control" :placeholder="this.project_title">
+                </div>
+                <!-- Project Url Input -->
+                <div class="form-group">
+                    <input type="text" :value="this.stored_project_url" v-bind:name="this.project_url_name" class="form-control" :placeholder="this.project_url">
+                </div>
+                <!-- Project Upload Image Dropzone -->
+                <div class="form-group" v-if="this.stored_project_img">
+                    <div v-if="uploaded_project_image">
                         <vue-dropzone :options="dropzoneOptions" :id="this.dropzone_id" :useCustomSlot=true :ref="this.img_ref" @vdropzone-file-added="vfileAdded" v-on:vdropzone-error="failed">
-                            <div class="form-group form-group-label test">
+                            <div class="form-group">
                                 <div class="wt-labelgroup">
                                     <label for="file">
-                                        <span class="wt-btn">Select Files</span>
+                                        <div>Drop files here to upload</div>
+                                        <button type="button" class="btn btn-sm btn-success">Select Files</button>
                                     </label>
-                                    <span>Drop files here to upload</span>
                                 </div>
                             </div>
                         </vue-dropzone>
                         <input type="hidden" v-bind:name="this.img_hidden_name" :id="this.img_hidden_id" value="">
                     </div>
-                </fieldset>
+                    <ul class="wt-attachfile" v-else>
+                        <li>
+                            <span>{{this.stored_image_name}}</span>
+                                <a class="dz-remove text-danger" href="javascript:;" @click="removeImage(img_hidden_id)" :id="this.uploaded_image_remove_id" >
+                                    <i class="material-symbols-outlined">close</i>
+                                </a>
+                            <input type="hidden" v-bind:name="this.img_hidden_name" :id="this.img_hidden_id" :value="this.stored_image_name">
+                        </li>
+                    </ul>
+                </div>
+                <div v-else>
+                    <vue-dropzone :options="dropzoneOptions" :id="this.dropzone_id" :useCustomSlot=true :ref="this.img_ref" @vdropzone-file-added="vfileAdded" v-on:vdropzone-error="failed">
+                        <div class="form-group">
+                            <div class="wt-labelgroup">
+                                <label for="file">
+                                    <div>Drop files here to upload</div>
+                                    <button type="button" class="btn btn-sm btn-success">Select Files</button>
+                                </label>
+                            </div>
+                        </div>
+                    </vue-dropzone>
+                    <input type="hidden" v-bind:name="this.img_hidden_name" :id="this.img_hidden_id" value="">
+                </div>
             </div>
+        </div>
     </div>
 </template>
 
