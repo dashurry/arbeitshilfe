@@ -12,17 +12,17 @@
 
  *
 
- * @category Worketic
+ * @category Arbeitshilfe
 
  *
 
- * @package Worketic
+ * @package Arbeitshilfe
 
- * @author  Amentotech <theamentotech@gmail.com>
+ * @author  Mauro Frappietro <hello@maurofrappietro.com>
 
- * @license http://www.amentotech.com amentotech
+ * @license http://www.arbeitshilfe.website arbeitshilfe
 
- * @link    http://www.amentotech.com
+ * @link    https://maurofrappietro.com/
 
  */
 

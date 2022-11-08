@@ -8,19 +8,19 @@
 
  *
 
- * @category Worketic
+ * @category Arbeitshilfe
 
  *
 
- * @package Worketic
+ * @package Arbeitshilfe
 
- * @author  Amentotech <theamentotech@gmail.com>
+ * @author  Mauro Frappietro <hello@maurofrappietro.com>
 
- * @license http://www.amentotech.com Amentotech
+ * @license https://maurofrappietro.com/ Arbeitshilfe
 
  * @version <1.0.0>
 
- * @link    http://www.amentotech.com
+ * @link    https://maurofrappietro.com/
 
  */
 

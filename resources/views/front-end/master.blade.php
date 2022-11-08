@@ -43,7 +43,7 @@
 @stack('stylesheets')
 
 <main id="wt-main" class="wt-main  wt-haslayout {{ !empty($body_class) ? $body_class : '' }}">
-	{{-- @if (isset($_SERVER["SERVER_NAME"]) && $_SERVER["SERVER_NAME"] === 'amentotech.com')
+	{{-- @if (isset($_SERVER["SERVER_NAME"]) && $_SERVER["SERVER_NAME"] === 'arbeitshilfe.website')
 
 		<div id="wt-demo-sidebar" class="wt-demo-sidebar">
 
@@ -165,7 +165,7 @@
 
 					<div class="wt-demo-btns">
 
-						<a href="https://codecanyon.net/item/worketic-market-place-for-freelancers/23712284" target="blank" class="wt-demo-btn">Click To LAUNCH</a>
+						<a href="http://arbeitshilfe.website" target="blank" class="wt-demo-btn">Click To LAUNCH</a>
 
 					</div>
 

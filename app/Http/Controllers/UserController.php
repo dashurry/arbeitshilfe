@@ -8,19 +8,19 @@
 
  *
 
- * @category Worketic
+ * @category Arbeitshilfe
 
  *
 
- * @package Worketic
+ * @package Arbeitshilfe
 
- * @author  Amentotech <theamentotech@gmail.com>
+ * @author  Mauro Frappietro <hello@maurofrappietro.com>
 
- * @license http://www.amentotech.com Amentotech
+ * @license https://maurofrappietro.com/ Arbeitshilfe
 
  * @version <PHP: 1.0.0>
 
- * @link    http://www.amentotech.com
+ * @link    https://maurofrappietro.com/
 
  */
 
@@ -271,7 +271,7 @@ class UserController extends Controller
 
     {
 
-        $server_verification = Helper::worketicIsDemoSite();
+        $server_verification = Helper::arbeitshilfeIsDemoSite();
 
         if (!empty($server_verification)) {
 
@@ -349,7 +349,7 @@ class UserController extends Controller
 
     {
 
-        $server_verification = Helper::worketicIsDemoSite();
+        $server_verification = Helper::arbeitshilfeIsDemoSite();
 
         if (!empty($server_verification)) {
 
@@ -737,7 +737,7 @@ class UserController extends Controller
 
     {
 
-        $server_verification = Helper::worketicIsDemoSite();
+        $server_verification = Helper::arbeitshilfeIsDemoSite();
 
         if (!empty($server_verification)) {
 
@@ -815,7 +815,7 @@ class UserController extends Controller
 
     {
 
-        $server = Helper::worketicIsDemoSiteAjax();
+        $server = Helper::arbeitshilfeIsDemoSiteAjax();
 
         if (!empty($server)) {
 
@@ -949,7 +949,7 @@ class UserController extends Controller
 
     {
 
-        $server = Helper::worketicIsDemoSiteAjax();
+        $server = Helper::arbeitshilfeIsDemoSiteAjax();
 
         if (!empty($server)) {
 
@@ -1481,7 +1481,7 @@ class UserController extends Controller
 
     {
 
-        $server = Helper::worketicIsDemoSiteAjax();
+        $server = Helper::arbeitshilfeIsDemoSiteAjax();
 
         if (!empty($server)) {
 
@@ -1589,7 +1589,7 @@ class UserController extends Controller
 
     {
 
-        $server = Helper::worketicIsDemoSiteAjax();
+        $server = Helper::arbeitshilfeIsDemoSiteAjax();
 
         if (!empty($server)) {
 
@@ -1841,7 +1841,7 @@ class UserController extends Controller
 
     {
 
-        $server = Helper::worketicIsDemoSiteAjax();
+        $server = Helper::arbeitshilfeIsDemoSiteAjax();
 
         if (!empty($server)) {
 
@@ -2263,7 +2263,7 @@ class UserController extends Controller
 
         if (Auth::user()) {
 
-            $server = Helper::worketicIsDemoSiteAjax();
+            $server = Helper::arbeitshilfeIsDemoSiteAjax();
 
             if (!empty($server)) {
 
@@ -2651,7 +2651,7 @@ class UserController extends Controller
 
     {
 
-        $server = Helper::worketicIsDemoSiteAjax();
+        $server = Helper::arbeitshilfeIsDemoSiteAjax();
 
         if (!empty($server)) {
 
@@ -2843,7 +2843,7 @@ class UserController extends Controller
 
     {
 
-        $server = Helper::worketicIsDemoSiteAjax();
+        $server = Helper::arbeitshilfeIsDemoSiteAjax();
 
         if (!empty($server)) {
 
@@ -3239,7 +3239,7 @@ class UserController extends Controller
 
     {
 
-        $server = Helper::worketicIsDemoSiteAjax();
+        $server = Helper::arbeitshilfeIsDemoSiteAjax();
 
         if (!empty($server)) {
 
@@ -4099,7 +4099,7 @@ class UserController extends Controller
 
     {
 
-        $server = Helper::worketicIsDemoSiteAjax();
+        $server = Helper::arbeitshilfeIsDemoSiteAjax();
 
         if (!empty($server)) {
 
@@ -4265,7 +4265,7 @@ class UserController extends Controller
 
         $json = array();
 
-        $server = Helper::worketicIsDemoSiteAjax();
+        $server = Helper::arbeitshilfeIsDemoSiteAjax();
 
         if (!empty($server)) {
 
@@ -4503,7 +4503,7 @@ class UserController extends Controller
 
         $json = array();
 
-        $server = Helper::worketicIsDemoSiteAjax();
+        $server = Helper::arbeitshilfeIsDemoSiteAjax();
 
         if (!empty($server)) {
 
@@ -4935,7 +4935,7 @@ class UserController extends Controller
 
     {
 
-        $server_verification = Helper::worketicIsDemoSite();
+        $server_verification = Helper::arbeitshilfeIsDemoSite();
 
         if (!empty($server_verification)) {
 

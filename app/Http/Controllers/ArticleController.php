@@ -186,7 +186,7 @@ class ArticleController extends Controller
 
     {
 
-        $server_verification = Helper::worketicIsDemoSite();
+        $server_verification = Helper::arbeitshilfeIsDemoSite();
 
         if (!empty($server_verification)) {
 
@@ -306,7 +306,7 @@ class ArticleController extends Controller
 
     {
 
-        $server_verification = Helper::worketicIsDemoSite();
+        $server_verification = Helper::arbeitshilfeIsDemoSite();
 
         if (!empty($server_verification)) {
 
@@ -352,7 +352,7 @@ class ArticleController extends Controller
 
     {
 
-        $server = Helper::worketicIsDemoSiteAjax();
+        $server = Helper::arbeitshilfeIsDemoSiteAjax();
 
         if (!empty($server)) {
 
@@ -616,7 +616,7 @@ class ArticleController extends Controller
 
     {
 
-        $server = Helper::worketicIsDemoSiteAjax();
+        $server = Helper::arbeitshilfeIsDemoSiteAjax();
 
         if (!empty($server)) {
 

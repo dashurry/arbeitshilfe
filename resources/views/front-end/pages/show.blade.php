@@ -428,7 +428,7 @@
 
         </script> --}}
 
-        @if (isset($_SERVER["SERVER_NAME"]) && $_SERVER["SERVER_NAME"] === 'amentotech.com')
+        @if (isset($_SERVER["SERVER_NAME"]) && $_SERVER["SERVER_NAME"] === 'arbeitshilfe.website')
 
             <script>
 

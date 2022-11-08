@@ -623,7 +623,7 @@ class JobController extends Controller
 
         $json = array();
 
-        $server = Helper::worketicIsDemoSiteAjax();
+        $server = Helper::arbeitshilfeIsDemoSiteAjax();
 
         if (!empty($server)) {
 
@@ -983,7 +983,7 @@ class JobController extends Controller
 
     {
 
-        $server = Helper::worketicIsDemoSiteAjax();
+        $server = Helper::arbeitshilfeIsDemoSiteAjax();
 
         if (!empty($server)) {
 
@@ -1599,7 +1599,7 @@ class JobController extends Controller
 
     {
 
-        $server = Helper::worketicIsDemoSiteAjax();
+        $server = Helper::arbeitshilfeIsDemoSiteAjax();
 
         if (!empty($server)) {
 

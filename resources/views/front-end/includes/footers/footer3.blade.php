@@ -126,7 +126,7 @@
 
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-                    <p class="wt-copyrights">{{{ !empty($footer['copyright']) ? $footer['copyright'] : 'Worketic. All Rights Reserved. Amentotech.'  }}}</p>
+                    <p class="wt-copyrights">{{{ !empty($footer['copyright']) ? $footer['copyright'] : 'Arbeitshilfe. All Rights Reserved. Arbeitshilfe.'  }}}</p>
 
                     @if(!empty($footer['pages']))
 

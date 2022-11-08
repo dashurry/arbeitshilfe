@@ -612,7 +612,7 @@ return [
 
     'amount_note' => 'Gesamtbetrag, den der Kunde in Ihrem Angebot sehen wird',
 
-    'worketic' => 'Arbeits-hilfe',
+    'worketic' => 'Worketic',
 
     'service_fee' => 'Servicegebühr',
 

@@ -7321,7 +7321,7 @@ class Helper extends Model
 
      */
 
-    public static function worketicIsDemoSite($message = '')
+    public static function arbeitshilfeIsDemoSite($message = '')
 
     {
 
@@ -7357,7 +7357,7 @@ class Helper extends Model
 
      */
 
-    public static function worketicIsDemoSiteAjax($message = '')
+    public static function arbeitshilfeIsDemoSiteAjax($message = '')
 
     {
 

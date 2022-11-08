@@ -324,7 +324,7 @@ class ServiceController extends Controller
 
         $json = array();
 
-        $server = Helper::worketicIsDemoSiteAjax();
+        $server = Helper::arbeitshilfeIsDemoSiteAjax();
 
         if (!empty($server)) {
 
@@ -960,7 +960,7 @@ class ServiceController extends Controller
 
     {
 
-        $server = Helper::worketicIsDemoSiteAjax();
+        $server = Helper::arbeitshilfeIsDemoSiteAjax();
 
         if (!empty($server)) {
 

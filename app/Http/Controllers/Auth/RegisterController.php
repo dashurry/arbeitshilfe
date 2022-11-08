@@ -6,19 +6,19 @@
 
  *
 
- * @category Worketic
+ * @category Arbeitshilfe
 
  *
 
- * @package Worketic
+ * @package Arbeitshilfe
 
- * @author  Amentotech <theamentotech@gmail.com>
+ * @author  Mauro Frappietro <hello@maurofrappietro.com>
 
- * @license http://www.amentotech.com Amentotech
+ * @license https://maurofrappietro.com/ Arbeitshilfe
 
  * @version <PHP: 1.0.0>
 
- * @link    http://www.amentotech.com
+ * @link    https://maurofrappietro.com/
 
  */
 
@@ -154,7 +154,7 @@ class RegisterController extends Controller
 
         $validator = $this->validator($request->all());
 
-        $server = Helper::worketicIsDemoSiteAjax();
+        $server = Helper::arbeitshilfeIsDemoSiteAjax();
 
         if (!empty($server)) {
 

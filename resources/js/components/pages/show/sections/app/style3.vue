@@ -2,13 +2,13 @@
   <section class="pt-10 pb-10">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-md-10 col-lg-8 text-center">
+        <div class="col-md-10 col-lg-8 text-center" data-aos="fade-left">
           <!-- Divider -->
-          <hr class="hr-sm bg-warning mx-auto mb-10 mb-md-12" data-aos="fade-down">
+          <hr class="hr-sm bg-warning mx-auto mb-10 mb-md-12">
           <!-- Preheading -->
-          <h6 class="text-uppercase text-primary mb-5" data-aos="fade-in"> Useful at all Tiers </h6>
+          <h6 class="text-uppercase text-primary mb-5"> Useful at all Tiers </h6>
           <!-- Heading -->
-          <h2 class="display-4 mb-10" data-aos="fade-left"> All plans include a full suite of functional features. </h2>
+          <h2 class="display-4 mb-10"> All plans include a full suite of functional features. </h2>
         </div>
       </div>
       <div class="row mt-n8 mt-md-n9">

@@ -122,7 +122,7 @@ class EmailHelper extends Model
 
         $setting = SiteManagement::getMetaValue('footer_settings');
 
-        $copyright = !empty($setting) && !empty($setting['copyright']) ? $setting['copyright'] : 'Copyright Worketic All Rights Reserved';
+        $copyright = !empty($setting) && !empty($setting['copyright']) ? $setting['copyright'] : 'Copyright Arbeitshilfe All Rights Reserved';
 
         ?>
 
@@ -172,7 +172,7 @@ class EmailHelper extends Model
 
         $settings = SiteManagement::getMetaValue('settings');
 
-        $title = !empty($settings) && !empty($settings[0]['title']) ? $settings[0]['title'] : 'Worketic';
+        $title = !empty($settings) && !empty($settings[0]['title']) ? $settings[0]['title'] : 'Arbeitshilfe';
 
         return $title;
 
@@ -298,9 +298,9 @@ class EmailHelper extends Model
 
         $setting = SiteManagement::getMetaValue('email_data');
 
-        $sender_name = !empty($setting) && !empty($setting[0]['sender_name']) ? $setting[0]['sender_name'] : 'Worketic';
+        $sender_name = !empty($setting) && !empty($setting[0]['sender_name']) ? $setting[0]['sender_name'] : 'Arbeitshilfe';
 
-        $sender_tagline = !empty($setting) && !empty($setting[0]['sender_tagline']) ? $setting[0]['sender_tagline'] : 'Worketic A Better Workplace for Employers and Freelancers';
+        $sender_tagline = !empty($setting) && !empty($setting[0]['sender_tagline']) ? $setting[0]['sender_tagline'] : 'Arbeitshilfe A Better Workplace for Employers and Freelancers';
 
         $sender_url = !empty($setting) && !empty($setting[0]['sender_url']) ? $setting[0]['sender_url'] : 'URL';
 

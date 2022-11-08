@@ -6,17 +6,17 @@
 
  *
 
- * @category Worketic
+ * @category Arbeitshilfe
 
  *
 
- * @package Worketic
+ * @package Arbeitshilfe
 
- * @author  Amentotech <theamentotech@gmail.com>
+ * @author  Mauro Frappietro <hello@maurofrappietro.com>
 
- * @license http://www.amentotech.com Amentotech
+ * @license https://maurofrappietro.com/ Arbeitshilfe
 
- * @link    http://www.amentotech.com
+ * @link    https://maurofrappietro.com/
 
  */
 
@@ -311,7 +311,7 @@ class ProposalController extends Controller
 
         if (Auth::user()) {
 
-            $server = Helper::worketicIsDemoSiteAjax();
+            $server = Helper::arbeitshilfeIsDemoSiteAjax();
 
             if (!empty($server)) {
 
@@ -834,7 +834,7 @@ class ProposalController extends Controller
 
         $json = array();
 
-        $server = Helper::worketicIsDemoSiteAjax();
+        $server = Helper::arbeitshilfeIsDemoSiteAjax();
 
         if (!empty($server)) {
 
