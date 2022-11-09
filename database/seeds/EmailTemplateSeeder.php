@@ -210,7 +210,7 @@ class EmailTemplateSeeder extends Seeder
 
                 [
 
-                    'admin_email' => 'info@yourdomain.com',
+                    'admin_email' => 'info@arbeitshilfe.website',
 
                     'email_type_id' => '7',
 
@@ -232,7 +232,7 @@ class EmailTemplateSeeder extends Seeder
 
                 [
 
-                    'admin_email' => 'info@yourdomain.com',
+                    'admin_email' => 'info@arbeitshilfe.website',
 
                     'email_type_id' => '8',
 
@@ -254,7 +254,7 @@ class EmailTemplateSeeder extends Seeder
 
                 [
 
-                    'admin_email' => 'info@yourdomain.com',
+                    'admin_email' => 'info@arbeitshilfe.website',
 
                     'email_type_id' => '9',
 
@@ -280,7 +280,7 @@ class EmailTemplateSeeder extends Seeder
 
                 [
 
-                    'admin_email' => 'info@yourdomain.com',
+                    'admin_email' => 'info@arbeitshilfe.website',
 
                     'email_type_id' => '10',
 
@@ -306,7 +306,7 @@ class EmailTemplateSeeder extends Seeder
 
                 [
 
-                    'admin_email' => 'info@yourdomain.com',
+                    'admin_email' => 'info@arbeitshilfe.website',
 
                     'email_type_id' => '11',
 
@@ -332,7 +332,7 @@ class EmailTemplateSeeder extends Seeder
 
                 [
 
-                    'admin_email' => 'info@yourdomain.com',
+                    'admin_email' => 'info@arbeitshilfe.website',
 
                     'email_type_id' => '12',
 
@@ -358,7 +358,7 @@ class EmailTemplateSeeder extends Seeder
 
                 [
 
-                    'admin_email' => 'info@yourdomain.com',
+                    'admin_email' => 'info@arbeitshilfe.website',
 
                     'email_type_id' => '13',
 
@@ -676,7 +676,7 @@ class EmailTemplateSeeder extends Seeder
 
                 [
 
-                    'admin_email' => 'info@yourdomain.com',
+                    'admin_email' => 'info@arbeitshilfe.website',
 
                     'email_type_id' => '25',
 
@@ -732,7 +732,7 @@ class EmailTemplateSeeder extends Seeder
 
                 [
 
-                    'admin_email' => 'info@yourdomain.com',
+                    'admin_email' => 'info@arbeitshilfe.website',
 
                     'email_type_id' => '27',
 

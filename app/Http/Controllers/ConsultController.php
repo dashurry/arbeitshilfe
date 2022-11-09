@@ -20,7 +20,7 @@ class ConsultController extends Controller
             "phone" => $req->phone
         );
 
-        Mail::to('info@arbeits-hilfe.ch')->send(new \App\Mail\Consultation($data));
+        Mail::to('info@arbeitshilfe.website')->send(new \App\Mail\Consultation($data));
         return 0;
     }
 }

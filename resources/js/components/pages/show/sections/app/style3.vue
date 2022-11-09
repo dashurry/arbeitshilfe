@@ -30,7 +30,7 @@
             <!-- Body -->
             <div>
               <!-- Title -->
-              <p class="h1 mb-1">Sicher</p>
+              <p class="h1 mb-1 fw-bold">Sicher</p>
               <!-- Text -->
               <p class="fs-sm text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In urna lectus, mattis non accumsan in, tempor dictum neque. In hac habitasse platea dictumst. </p>
             </div>
@@ -51,7 +51,7 @@
             <!-- Body -->
             <div>
               <!-- Title -->
-              <p class="h1 mb-1">Cross-platform</p>
+              <p class="h1 mb-1 fw-bold">Cross-platform</p>
               <!-- Text -->
               <p class="fs-sm text-muted mb-0"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In urna lectus, mattis non accumsan in, tempor dictum neque. In hac habitasse platea dictumst. </p>
             </div>
@@ -73,7 +73,7 @@
             <!-- Body -->
             <div>
               <!-- Title -->
-              <p class="h1 mb-1">Durchsuchbar</p>
+              <p class="h1 mb-1 fw-bold">Durchsuchbar</p>
               <!-- Text -->
               <p class="fs-sm text-muted mb-0"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In urna lectus, mattis non accumsan in, tempor dictum neque. In hac habitasse platea dictumst. </p>
             </div>
@@ -95,7 +95,7 @@
             <!-- Body -->
             <div>
               <!-- Title -->
-              <p class="h1 mb-1">Dokument Geschichte</p>
+              <p class="h1 mb-1 fw-bold">Dokument Geschichte</p>
               <!-- Text -->
               <p class="fs-sm text-muted mb-0"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In urna lectus, mattis non accumsan in, tempor dictum neque. In hac habitasse platea dictumst. </p>
             </div>
@@ -117,7 +117,7 @@
             <!-- Body -->
             <div>
               <!-- Title -->
-              <p class="h1 mb-1">100% Free</p>
+              <p class="h1 mb-1 fw-bold">100% Free</p>
               <!-- Text -->
               <p class="fs-sm text-muted mb-0"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In urna lectus, mattis non accumsan in, tempor dictum neque. In hac habitasse platea dictumst. </p>
             </div>
@@ -139,7 +139,7 @@
             <!-- Body -->
             <div>
               <!-- Title -->
-              <p class="h1 mb-1">Group Sync</p>
+              <p class="h1 mb-1 fw-bold">Group Sync</p>
               <!-- Text -->
               <p class="fs-sm text-muted mb-0"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In urna lectus, mattis non accumsan in, tempor dictum neque. In hac habitasse platea dictumst. </p>
             </div>
