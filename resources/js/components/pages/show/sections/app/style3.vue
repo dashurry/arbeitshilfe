@@ -2,21 +2,23 @@
   <section class="pt-10 pb-10">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-md-10 col-lg-8 text-center" data-aos="fade-left">
-          <!-- Divider -->
-          <hr class="hr-sm bg-warning mx-auto mb-10 mb-md-12">
-          <!-- Preheading -->
-          <h6 class="text-uppercase text-primary mb-5"> Useful at all Tiers </h6>
-          <!-- Heading -->
-          <h2 class="display-4 mb-10"> All plans include a full suite of functional features. </h2>
+        <!-- Header -->
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+            <!-- Divider -->
+            <hr class="hr-sm bg-warning mx-auto mb-10" data-aos="fade-left">
+            <!-- Preheading -->
+            <h6 class="text-uppercase text-primary mb-5" data-aos="fade-left">Useful at all Tiers</h6>
+            <!-- Heading -->
+            <h2 class="display-4 mb-10" data-aos="fade-left">All plans include a full suite of functional features.</h2>
         </div>
       </div>
+      <!-- Features -->
       <div class="row mt-n8 mt-md-n9">
-        <div class="col-md-6 col-lg-4">
+        <div class="col-xs-12 col-sm-12 col-xs-12 col-sm-12 col-md-6 col-lg-4">
           <!-- Item -->
-          <div class="d-flex mt-8 mt-md-9">
+          <div class="d-flex mt-8">
             <!-- Icon -->
-            <div class="icon text-primary-light">
+            <div>
               <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <g fill="none" fill-rule="evenodd">
                   <path d="M0 0h24v24H0z"></path>
@@ -26,19 +28,19 @@
               </svg>
             </div>
             <!-- Body -->
-            <div class="ms-5">
+            <div>
               <!-- Title -->
-              <p class="fs-lg fw-bold mb-1"> Secure </p>
+              <p class="h1 mb-1">Sicher</p>
               <!-- Text -->
-              <p class="fs-sm text-muted mb-0"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In urna lectus, mattis non accumsan in, tempor dictum neque. In hac habitasse platea dictumst. </p>
+              <p class="fs-sm text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In urna lectus, mattis non accumsan in, tempor dictum neque. In hac habitasse platea dictumst. </p>
             </div>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4">
+        <div class="col-xs-12 col-sm-12 col-xs-12 col-sm-12 col-md-6 col-lg-4">
           <!-- Item -->
-          <div class="d-flex mt-8 mt-md-9">
+          <div class="d-flex mt-8">
             <!-- Icon -->
-            <div class="icon text-primary-light">
+            <div>
               <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <g fill="none" fill-rule="evenodd">
                   <path d="M0 0h24v24H0z"></path>
@@ -47,19 +49,19 @@
               </svg>
             </div>
             <!-- Body -->
-            <div class="ms-5">
+            <div>
               <!-- Title -->
-              <p class="fs-lg fw-bold mb-1"> Cross-platform </p>
+              <p class="h1 mb-1">Cross-platform</p>
               <!-- Text -->
               <p class="fs-sm text-muted mb-0"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In urna lectus, mattis non accumsan in, tempor dictum neque. In hac habitasse platea dictumst. </p>
             </div>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
           <!-- Item -->
-          <div class="d-flex mt-8 mt-md-9">
+          <div class="d-flex mt-8">
             <!-- Icon -->
-            <div class="icon text-primary-light">
+            <div>
               <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <g fill="none" fill-rule="evenodd">
                   <path d="M0 0h24v24H0z"></path>
@@ -69,19 +71,19 @@
               </svg>
             </div>
             <!-- Body -->
-            <div class="ms-5">
+            <div>
               <!-- Title -->
-              <p class="fs-lg fw-bold mb-1"> Searchable </p>
+              <p class="h1 mb-1">Durchsuchbar</p>
               <!-- Text -->
               <p class="fs-sm text-muted mb-0"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In urna lectus, mattis non accumsan in, tempor dictum neque. In hac habitasse platea dictumst. </p>
             </div>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
           <!-- Item -->
-          <div class="d-flex mt-8 mt-md-9">
+          <div class="d-flex mt-8">
             <!-- Icon -->
-            <div class="icon text-primary-light">
+            <div>
               <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <g fill="none" fill-rule="evenodd">
                   <path d="M0 0h24v24H0z"></path>
@@ -91,19 +93,19 @@
               </svg>
             </div>
             <!-- Body -->
-            <div class="ms-5">
+            <div>
               <!-- Title -->
-              <p class="fs-lg fw-bold mb-1"> Document History </p>
+              <p class="h1 mb-1">Dokument Geschichte</p>
               <!-- Text -->
               <p class="fs-sm text-muted mb-0"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In urna lectus, mattis non accumsan in, tempor dictum neque. In hac habitasse platea dictumst. </p>
             </div>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
           <!-- Item -->
-          <div class="d-flex mt-8 mt-md-9">
+          <div class="d-flex mt-8">
             <!-- Icon -->
-            <div class="icon text-primary-light">
+            <div>
               <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <g fill="none" fill-rule="evenodd">
                   <path d="M0 0h24v24H0z"></path>
@@ -113,19 +115,19 @@
               </svg>
             </div>
             <!-- Body -->
-            <div class="ms-5">
+            <div>
               <!-- Title -->
-              <p class="fs-lg fw-bold mb-1"> 100% Free </p>
+              <p class="h1 mb-1">100% Free</p>
               <!-- Text -->
               <p class="fs-sm text-muted mb-0"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In urna lectus, mattis non accumsan in, tempor dictum neque. In hac habitasse platea dictumst. </p>
             </div>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
           <!-- Item -->
-          <div class="d-flex mt-8 mt-md-9">
+          <div class="d-flex mt-8">
             <!-- Icon -->
-            <div class="icon text-primary-light">
+            <div>
               <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <g fill="none" fill-rule="evenodd">
                   <path d="M0 0h24v24H0z"></path>
@@ -135,9 +137,9 @@
               </svg>
             </div>
             <!-- Body -->
-            <div class="ms-5">
+            <div>
               <!-- Title -->
-              <p class="fs-lg fw-bold mb-1"> Group Sync </p>
+              <p class="h1 mb-1">Group Sync</p>
               <!-- Text -->
               <p class="fs-sm text-muted mb-0"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In urna lectus, mattis non accumsan in, tempor dictum neque. In hac habitasse platea dictumst. </p>
             </div>
@@ -163,6 +165,7 @@
       Event.$on('new-app-image', (data) => {
         this.newAppImage = true
       })
+      AOS.refreshHard();
     }
   };
 </script>

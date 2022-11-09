@@ -374,7 +374,7 @@ return [
 
         Collective\Html\HtmlServiceProvider::class,
 
-        App\Providers\AmentotechServiceProvider::class,
+        App\Providers\ArbeitshilfeServiceProvider::class,
 
         Cartalyst\Stripe\Laravel\StripeServiceProvider::class,
 
