@@ -1,24 +1,5 @@
 @extends(file_exists(resource_path('views/extend/front-end/master.blade.php')) ? 'extend.front-end.master' : 'front-end.master')
 @section('content')
-<style>
-/* .wt-formbannervtwo {
-    display:none !important;
-}
-.wt-header{
-    display: none;
-}
-body {
-    background-image: url(../images/background5.svg);
-    position: relative;
-    background-repeat: no-repeat;
-    top: 0rem;
-    background-size: 101rem;
-    background-position-x: -1rem;
-}
-.js-main-footer-wrapper{
-    display: none;
-} */
-</style>
 @php
     $employees      = Helper::getEmployeesList();
     $departments    = App\Department::all();
