@@ -41,12 +41,12 @@
                     <input type="checkbox" class="custom-control-input" id="remember-me" v-model="form.remember">
                     <label for="remember-me" class="custom-control-label">Remember me</label>
                 </div>
-                <a href="https://arbeits-hilfe.ch/password/reset" class="font-size-sm text-decoration-none">Passwort vergessen?</a>
+                <a href="https://arbeitshilfe.website/password/reset" class="font-size-sm text-decoration-none">Passwort vergessen?</a>
                 </div>
                 <button :disabled="form.busy" type="submit" class="btn btn-primary btn-hover-shadow btn-block">Sign in</button>
                 <p class="font-size-sm pt-4 mb-0 text-muted">
                     Sie haben noch kein Konto?
-                    <a href="https://arbeits-hilfe.ch/register" class="font-weight-bold text-decoration-none" data-view="#modal-signup-view">Benutzerkonto anlegen</a>
+                    <a href="https://arbeitshilfe.website/register" class="font-weight-bold text-decoration-none" data-view="#modal-signup-view">Benutzerkonto anlegen</a>
                   </p>
             </form>
             </div>

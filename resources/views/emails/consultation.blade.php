@@ -16,7 +16,7 @@
             <div style="width: 100%; float: left; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;"
                 class="tg-banner" id="tg-banner">
                 <img alt="Arbeits-Hilfe"
-                    src="https://arbeits-hilfe.ch/uploads/settings/email/1611438677-4095-1555743744-banner.jpg"
+                    src="https://arbeitshilfe.website/uploads/settings/email/1611438677-4095-1555743744-banner.jpg"
                     style="width: 100%; height: auto; display: block;">
             </div>
             <div
@@ -36,7 +36,7 @@
                             <div
                                 style="float: left; border-radius: 5px; overflow: hidden; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;">
                                 <img alt="Arbeits-Hilfe"
-                                    src="https://arbeits-hilfe.ch/uploads/settings/email/1611438677-3213-favicon-32x32.png"
+                                    src="https://arbeitshilfe.website/uploads/settings/email/1611438677-3213-favicon-32x32.png"
                                     style="display: block;">
                             </div>
                             <div
@@ -52,9 +52,9 @@
                                     Ihr Arbeitspartner</p>
                                 <p
                                     style="margin: 0; font-size: 14px; line-height: 14px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;">
-                                    <a target="_blank" href="https://arbeits-hilfe.ch/"
+                                    <a target="_blank" href="https://arbeitshilfe.website/"
                                         style="color: #55acee; text-decoration: none;"
-                                        rel="noopener">https://arbeits-hilfe.ch/</a></p>
+                                        rel="noopener">https://arbeitshilfe.website/</a></p>
                             </div>
                         </div>
                         <p></p>

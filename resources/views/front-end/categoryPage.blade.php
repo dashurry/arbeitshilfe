@@ -328,7 +328,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><strong class="wt-logo"><a
-                                href="https://arbeits-hilfe.ch">
+                                href="https://arbeitshilfe.website">
                                 <img width="120px" src="{{ asset("images/arbeitshilfetext.svg") }}" alt="Logo"></a></strong>
                         <div class="wt-rightarea">
                             <nav id="wt-nav" class="wt-nav navbar-expand-xl"><button type="button" data-toggle="collapse"
@@ -344,14 +344,14 @@
                                                 href="{{ route('main.about') }}">Über uns</a>
                                         </li>
                                         <li style="order: 2;"><a
-                                                href="https://arbeits-hilfe.ch/search-results?type=freelancer">
+                                                href="https://arbeitshilfe.website/search-results?type=freelancer">
                                                 Freelancer anzeigen
                                             </a></li>
-                                        {{-- <li style="order: 4;"><a href="https://arbeits-hilfe.ch/search-results?type=job">
+                                        {{-- <li style="order: 4;"><a href="https://arbeitshilfe.website/search-results?type=job">
                                                 Jobs durchsuchen
                                             </a></li> --}}
                                         <li style="order: 5;"><a
-                                                href="https://arbeits-hilfe.ch/search-results?type=service">
+                                                href="https://arbeitshilfe.website/search-results?type=service">
                                                 Dienste durchsuchen
                                             </a></li>
                                     </ul>
@@ -407,12 +407,12 @@
                                                         name="remember"> <label for="remember">Lass mich angemeldet</label></span></div>
                                         </fieldset>
                                         <div class="wt-loginfooterinfo"><a
-                                                href="https://arbeits-hilfe.ch/password/reset"
+                                                href="https://arbeitshilfe.website/password/reset"
                                                 class="wt-forgot-password">Passwort vergessen?</a> <a
-                                                href="https://arbeits-hilfe.ch/register">Benutzerkonto anlegen</a></div>
+                                                href="https://arbeitshilfe.website/register">Benutzerkonto anlegen</a></div>
                                     </form>
                                 </div>
-                            </div> <a href="https://arbeits-hilfe.ch/register" class="wt-btn">Jetzt beitreten</a>
+                            </div> <a href="https://arbeitshilfe.website/register" class="wt-btn">Jetzt beitreten</a>
                         </div>   
                         @endguest
                         </div>
@@ -434,7 +434,7 @@
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb breadcrumb-alt breadcrumb-light justify-content-center mb-sm-4">
                       <li class="breadcrumb-item">
-                          <a href="https://arbeits-hilfe.ch/">
+                          <a href="https://arbeitshilfe.website/">
                               <i class="cxi-home text-dark"></i>
                           </a>
                       </li>
@@ -501,7 +501,7 @@
                     <div class="row mx-n2 hidden-overflow">
                         @foreach ($ctgs as $ctg)
                             <div class="col-sm-6 mb-3 px-2">
-                                <a href="https://arbeits-hilfe.ch/search-results?type={{ $ctg->title }}" class="card card-hover cs-heading-highlight align-items-center h-100 p-4 text-decoration-0">
+                                <a href="https://arbeitshilfe.website/search-results?type={{ $ctg->title }}" class="card card-hover cs-heading-highlight align-items-center h-100 p-4 text-decoration-0">
                                 <img width="40" height="40" src="{{ asset("uploads/categories/$ctg->image") }}" alt="{{ $ctg->title }}" class="mx-auto my-3">
                                 <div class="card-body p-0 text-center">
                                     <h3 class="h6 mb-3">{{ $ctg->title }}</h3>

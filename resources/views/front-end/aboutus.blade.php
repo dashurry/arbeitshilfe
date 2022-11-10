@@ -288,7 +288,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><strong class="wt-logo"><a
-                            href="https://arbeits-hilfe.ch">
+                            href="https://arbeitshilfe.website">
                             <img width="120px" src="{{ asset("images/arbeitshilfetext.svg") }}" alt="Logo"></a></strong>
                     <div class="wt-rightarea">
                         <nav id="wt-nav" class="wt-nav navbar-expand-xl"><button type="button" data-toggle="collapse"
@@ -305,14 +305,14 @@
                                     </li>
                                     @auth
                                     <li style="order: 2;"><a
-                                            href="https://arbeits-hilfe.ch/search-results?type=freelancer">
+                                            href="https://arbeitshilfe.website/search-results?type=freelancer">
                                             Freelancer anzeigen
                                         </a></li>
-                                    <li style="order: 4;"><a href="https://arbeits-hilfe.ch/search-results?type=job">
+                                    <li style="order: 4;"><a href="https://arbeitshilfe.website/search-results?type=job">
                                             Jobs durchsuchen
                                         </a></li>
                                     <li style="order: 5;"><a
-                                            href="https://arbeits-hilfe.ch/search-results?type=service">
+                                            href="https://arbeitshilfe.website/search-results?type=service">
                                             Dienste durchsuchen
                                         </a></li>
                                         @endauth
@@ -369,12 +369,12 @@
                                                         name="remember"> <label for="remember">Lass mich angemeldet</label></span></div>
                                         </fieldset>
                                         <div class="wt-loginfooterinfo"><a
-                                                href="https://arbeits-hilfe.ch/password/reset"
+                                                href="https://arbeitshilfe.website/password/reset"
                                                 class="wt-forgot-password">Passwort vergessen?</a> <a
-                                                href="https://arbeits-hilfe.ch/register">Benutzerkonto anlegen</a></div>
+                                                href="https://arbeitshilfe.website/register">Benutzerkonto anlegen</a></div>
                                     </form>
                                 </div>
-                            </div> <a href="https://arbeits-hilfe.ch/register" class="wt-btn">Jetzt beitreten</a>
+                            </div> <a href="https://arbeitshilfe.website/register" class="wt-btn">Jetzt beitreten</a>
                         </div>   
                         @endguest
                     </div>
@@ -394,7 +394,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-alt breadcrumb-light justify-content-center mb-sm-4">
                     <li class="breadcrumb-item">
-                        <a href="https://arbeits-hilfe.ch/">
+                        <a href="https://arbeitshilfe.website/">
                             <i class="cxi-home text-dark"></i>
                         </a>
                     </li>
@@ -954,7 +954,7 @@
                     <p class="mb-lg-5 lead">Sind Sie bereit, uns bei unserer Mission zu unterstützen,
                         die digitale Wende in der Schweiz voranzutreiben? Wir stellen
                         ein!</p>
-                        <p class=" pb-md-3 lead">Schick uns deine Bewerbungsunterlagen an <a href="">job@arbeits-hilfe.com</a></p>
+                        <p class=" pb-md-3 lead">Schick uns deine Bewerbungsunterlagen an <a href="">info@arbeitshilfe.website</a></p>
                     <a href="careers.html" class="btn btn-lg btn-primary">
                         Siehe Karrieren
                         <i class="cxi-arrow-right ml-2"></i>
@@ -977,13 +977,13 @@
                             <div>
                                 <ul id="menu-footer-navigation" class="d-flex align-items-center justify-content-center flex-wrap list-unstyled mb-0">
                                     <li id="menu-item-113">
-                                        <a href="https://arbeits-hilfe.ch/" aria-current="page" style="color: #5ad9ac;padding-left: 0!important;padding-right: 1.5rem!important;">Home</a>
+                                        <a href="https://arbeitshilfe.website/" aria-current="page" style="color: #5ad9ac;padding-left: 0!important;padding-right: 1.5rem!important;">Home</a>
                                     </li>
                                     <li id="menu-item-112">
-                                        <a href="https://arbeits-hilfe.ch/page/uber-uns">Über uns</a>
+                                        <a href="https://arbeitshilfe.website/page/uber-uns">Über uns</a>
                                     </li>
                                     <li id="menu-item-110">
-                                        <a href="https://arbeits-hilfe.ch/page/kontakt">Kontakt</a>
+                                        <a href="https://arbeitshilfe.website/page/kontakt">Kontakt</a>
                                     </li>
                                 </ul>
                             </div>
@@ -995,13 +995,13 @@
                                 <div class="menu-legal-navigation-container">
                                     <ul id="menu-legal-navigation" class="list-unstyled d-flex align-items-center justify-content-center flex-wrap">
                                         <li id="menu-item-104">
-                                            <a href="https://arbeits-hilfe.ch/terms-conditions">Terms and Conditions</a>
+                                            <a href="https://arbeitshilfe.website/terms-conditions">Terms and Conditions</a>
                                         </li>
                                         <li id="menu-item-105">
-                                            <a href="https://arbeits-hilfe.ch/privacy-policy">Privacy Policy</a>
+                                            <a href="https://arbeitshilfe.website/privacy-policy">Privacy Policy</a>
                                         </li>
                                         <li id="menu-item-288">
-                                            <a href="https://arbeits-hilfe.ch/short-code-policies">Short Code Policies</a>
+                                            <a href="https://arbeitshilfe.website/short-code-policies">Short Code Policies</a>
                                         </li>
                                     </ul>
                                 </div>

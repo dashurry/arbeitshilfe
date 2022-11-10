@@ -247,13 +247,13 @@
 						<div>
 							<ul class="d-flex align-items-center justify-content-center flex-wrap">
 								<li class="p-3 text-uppercase">
-									<a href="https://arbeits-hilfe.ch/" class="text-dark">Home</a>
+									<a href="https://arbeitshilfe.website/" class="text-dark">Home</a>
 								</li>
 								<li class="p-3 text-uppercase">
-									<a href="https://arbeits-hilfe.ch/page/uber-uns" class="text-dark">Über uns</a>
+									<a href="https://arbeitshilfe.website/page/uber-uns" class="text-dark">Über uns</a>
 								</li>
 								<li class="p-3 text-uppercase">
-									<a href="https://arbeits-hilfe.ch/page/kontakt" class="text-dark">Kontakt</a>
+									<a href="https://arbeitshilfe.website/page/kontakt" class="text-dark">Kontakt</a>
 								</li>
 							</ul>
 						</div>
@@ -270,13 +270,13 @@
 							
 								<ul class="d-flex align-items-center justify-content-center flex-wrap">
 									<li class="p-3">
-										<a href="https://arbeits-hilfe.ch/terms-conditions" class="text-muted">Terms and Conditions</a>
+										<a href="https://arbeitshilfe.website/terms-conditions" class="text-muted">Terms and Conditions</a>
 									</li>
 									<li class="p-3">
-										<a href="https://arbeits-hilfe.ch/privacy-policy" class="text-muted">Privacy Policy</a>
+										<a href="https://arbeitshilfe.website/privacy-policy" class="text-muted">Privacy Policy</a>
 									</li>
 									<li class="p-3">
-										<a href="https://arbeits-hilfe.ch/short-code-policies" class="text-muted">Short Code Policies</a>
+										<a href="https://arbeitshilfe.website/short-code-policies" class="text-muted">Short Code Policies</a>
 									</li>
 								</ul>
 						</div>
