@@ -44,6 +44,8 @@ use Illuminate\Support\Facades\Broadcast;
 //     return $data;
 
 // });
+
+// Test Access Env File
 Route::get("/test",function(){
     return ((env('MAIL_FROM_ADDRESS')));
 }
