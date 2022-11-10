@@ -44,6 +44,10 @@ use Illuminate\Support\Facades\Broadcast;
 //     return $data;
 
 // });
+Route::get("/test",function(){
+    return ((env('MAIL_FROM_ADDRESS')));
+}
+);
 
 Route::fallback(
 
