@@ -1,7 +1,5 @@
 /public/irarovag_gig (4).sql
-/public/storage/
 /storage/*.key
-/vendor
 .env
 .phpunit.result.cache
 Homestead.json
