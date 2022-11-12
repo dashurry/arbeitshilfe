@@ -33,8 +33,9 @@
                                 
                 <div class="row" v-if="isLoggedIn == 'false'">
                     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center">
+                        <!-- HTML5 Video --->
                         <div id="video-gallery">
-                            <a class="cs-video-btn cs-video-btn my-3 mr-3" href="https://www.youtube.com/embed/I7yVBOrqqW0?autoplay=1&mute=1"></a>
+                            <div class="cs-video-btn my-3 mr-3" data-video='{"source": [{"src":"images/howitworksvideo.mp4", "type":"video/mp4"}], "attributes": {"preload": false, "controls": true}}' data-sub-html="<h4>'Arbeitshilfe | Online-Auftragsbörse</h4>"></div>
                         </div>
                     </div>
                     <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 text-center">
@@ -50,10 +51,13 @@
     </section>
 </template>
 
-<script>
-import "lightgallery.js";
-import "lightgallery.js/dist/css/lightgallery.css";
-import "/public/js/lg-video.min.js";
+
+<script scoped>
+// lightGallery
+import lightGallery from 'lightgallery';
+import "lightgallery/css/lightgallery-bundle.css"
+//Plugins
+import lgVideo from 'lightgallery/plugins/video'
 
 // import carousel from 'vue-owl-carousel'
 
@@ -75,9 +79,12 @@ export default {
         var self =this
         
         // Light gallery - Video module
-        lightGallery(document.getElementById('video-gallery'));
-    },
+        lightGallery(document.getElementById('video-gallery'), {
+            speed: 500,
+            plugins: [lgVideo],
+        });
 
+},
     computed: {
         sectionStyle() {
             return {

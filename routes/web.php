@@ -46,10 +46,10 @@ use Illuminate\Support\Facades\Broadcast;
 // });
 
 // Test Access Env File
-Route::get("/test",function(){
-    return ((env('MAIL_FROM_ADDRESS')));
-}
-);
+// Route::get("/test",function(){
+//     return ((env('MAIL_HOST')));
+// }
+// );
 
 Route::fallback(
 

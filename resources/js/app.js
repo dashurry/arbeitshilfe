@@ -67,8 +67,6 @@ import VueTypedJs from 'vue-typed-js'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-
-
 import moment from "moment";
 
 window.moment = moment;

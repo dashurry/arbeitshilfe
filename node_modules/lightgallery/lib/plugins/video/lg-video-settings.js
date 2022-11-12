@@ -9,6 +9,7 @@ exports.videoSettings = {
     gotoNextSlideOnVideoEnd: true,
     autoplayVideoOnSlide: false,
     videojs: false,
+    videojsTheme: '',
     videojsOptions: {},
 };
 //# sourceMappingURL=lg-video-settings.js.map
