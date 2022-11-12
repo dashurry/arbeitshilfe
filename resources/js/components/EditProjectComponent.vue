@@ -26,7 +26,7 @@
             <!-- Edit/Delete Buttons -->
             <div>
                 <a href="javascript:void(0);" class="wt-addinfo badge badge-primary shadow-none" ref="storedProjectelement" :id="this.main_accordion_id" data-toggle="collapse"  :data-target="'#'+this.inner_accordion_id" aria-expanded="true">
-                    <i class="material-symbols-outlined">edit</i>
+                    <i class="material-symbols-outlined"></i>
                 </a>
                 <a href="javascript:void(0);" class="badge badge-danger shadow-none" @click="removeElement()">
                     <i class="material-symbols-outlined">delete</i>
@@ -131,7 +131,7 @@ export default {
                 init: function() {
                     var myDropzone = this;
                     this.on("addedfile", function(file) {
-                        var input_hidden_id = jQuery('#'+myDropzone.element.id).parents('.project-inner-list-item').find('fieldset input[type=hidden]').attr('id');
+                        var input_hidden_id = jQuery('#'+myDropzone.element.id).parents('.project-list-item').find('div.card-body input[type=hidden]').attr('id');
                         document.getElementById(input_hidden_id).value = file.name;
                     });
                     this.on("removedfile", function(file) {
