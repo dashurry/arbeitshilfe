@@ -1,5 +1,5 @@
 <template>
-    <div class="card-body">
+    <div class="container">
         <!-- Header -->
         <div class="media flex-wrap">
             <div class="media-body">
@@ -44,7 +44,7 @@
                         <!-- Edit/Delete Buttons -->
                         <div>
                             <a href="javascript:void(0);" class="wt-addinfo badge badge-primary shadow-none" :id="'projectaccordion['+project.count+']'" data-toggle="collapse" :data-target="'#projectaccordioninner['+project.count+']'" aria-expanded="true">
-                                <i class="material-symbols-outlined">edit</i>
+                                <i class="material-symbols-outlined"></i>
                             </a>
                             <a href="javascript:void(0);" class="badge badge-danger shadow-none delete-project">
                                 <i class="material-symbols-outlined">delete</i>
@@ -54,7 +54,7 @@
                     <!-- Display Preview Image Upload -->
                     <figure :class="project.preview_class"></figure>
                     <!-- Collapse Body -->
-                    <div class="collapse hide" :id="'projectaccordioninner['+project.count+']'" :aria-labelledby="'projectaccordion['+project.count+']'" data-parent="#accordion">
+                    <div class="collapse show" :id="'projectaccordioninner['+project.count+']'" :aria-labelledby="'projectaccordion['+project.count+']'" data-parent="#accordion">
                         <div class="card-body">
                             <!-- Project Title Input -->
                             <div class="form-group">
@@ -65,8 +65,8 @@
                                 <input type="text" v-bind:name="'project['+[project.count]+'][project_url]'" class="form-control" :placeholder="ph_project_url" v-model="project.project_url">
                             </div>
                             <!-- Project Display Image Name / Remove Uploaded Image -->
-                            <div class="form-group form-inline image_uploaded_placeholder d-none">
-                                <div class="uploaded-img-name"></div>
+                            <div class="form-group form-inline d-none">
+                                <small class="form-text text-muted"></small>
                                     <a class="dz-remove text-danger" href="javascript:;" :id="'remove-uploded-image-'+project.count" @click="removeUploadedImage($event)" >
                                         <i class="material-symbols-outlined">close</i>
                                     </a>
@@ -126,8 +126,8 @@ export default{
                                 var input_hidden_id = jQuery('#'+myDropzone.element.id).next('input[type=hidden]').attr('id');
                                 document.getElementById(input_hidden_id).value = file.name;
                                 jQuery('#'+myDropzone.element.id).css("display","none");
-                                jQuery('#'+myDropzone.element.id).parents('.project-list-item').find('.image_uploaded_placeholder').removeClass("d-none");
-                                jQuery('#'+myDropzone.element.id).parents('.project-list-item').find('.image_uploaded_placeholder div.uploaded-img-name').text(file.name);
+                                jQuery('#'+myDropzone.element.id).parents('.project-list-item').find('.form-inline').removeClass("d-none");
+                                jQuery('#'+myDropzone.element.id).parents('.project-list-item').find('.form-inline small').text(file.name);
                             });
                             this.on("removedfile", function(file) {
                                 document.getElementById('hidden_banner').value = '';
@@ -168,7 +168,7 @@ export default{
             removeUploadedImage: function (event) {
                 var element = event.currentTarget;
                 var elementID = element.getAttribute('id');
-                jQuery('#'+elementID).parents('.image_uploaded_placeholder').addClass("d-none");
+                jQuery('#'+elementID).parents('.form-inline').addClass("d-none");
                 jQuery('#'+elementID).parents('.project-list-item').find('.dz-preview').remove();
                 jQuery('#'+elementID).parents('.project-list-item').find('.vue-dropzone').css("display","block");
             }

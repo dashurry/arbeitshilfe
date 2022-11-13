@@ -6,7 +6,7 @@
               <i class="material-symbols-outlined fa-3x">file_upload</i>
               <div class="mt-4">{{ trans('lang.drop_files') }}</div>
                 <label for="file" class="mt-4">
-                    <span class="wt-btn shadow-none lift">{{ trans('lang.select_files') }}</span>
+                    <button class="btn btn-sm btn-success lift">{{ trans('lang.select_files') }}</button>
                     <p class="mt-3 text-muted"><small>Unterstützte Formate: JPEG, JPG, PNG, PDF, MP4 und MOV</small></p>
                 </label>
                 <!-- <span>{{ trans('lang.drop_files') }}</span> -->

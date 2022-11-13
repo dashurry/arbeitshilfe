@@ -1,9 +1,9 @@
 <template>
     <vue-dropzone :options="this.option" id="upload" :useCustomSlot=true>
-        <div class="form-group form-group-label">
+        <div class="form-group">
             <div class="wt-labelgroup">
                 <label for="file">
-                    <span class="wt-btn">{{ trans('lang.select_files') }}</span>
+                    <button class="btn btn-sm btn-success">{{ trans('lang.select_files') }}</button>
                 </label>
                 <span>{{ trans('lang.drop_files') }}</span>
             </div>

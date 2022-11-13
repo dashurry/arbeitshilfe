@@ -1,12 +1,9 @@
 <template>
     <vue-dropzone :options="this.option" :id="this.id" :useCustomSlot=true :ref="this.img_ref">
-        <div class="form-group form-group-label">
+        <div class="form-group">
             <div class="wt-labelgroup">
-                <div class="mt-4">{{ trans('lang.drop_files') }}</div>
-                <label for="file" class="mt-4 mb-2">
-                    <span class="wt-btn shadow-none lift">{{ trans('lang.select_files') }}</span>
-                </label>
-                <!-- <span>{{ trans('lang.drop_files') }}</span> -->
+                <label for="file">{{ trans('lang.drop_files') }}</label>
+                    <button type="button" class="btn btn-sm btn-success">{{ trans('lang.select_files') }}</button>
             </div>
         </div>
     </vue-dropzone> 

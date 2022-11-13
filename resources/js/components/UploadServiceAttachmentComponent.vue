@@ -1,12 +1,12 @@
 <template>
   <div class="multile-file-attachments wt-haslayout">
     <vue-dropzone :options="this.dropzoneOptions" id="upload" ref="success_ref" :useCustomSlot=true v-on:vdropzone-error="failed">
-        <div class="form-group form-group-label">
+        <div class="form-group">
             <div class="wt-labelgroup">
                <i class="material-symbols-outlined fa-3x">file_upload</i>
               <div class="mt-4">{{ trans('lang.drop_files') }}</div>
                 <label for="file" class="mt-4">
-                    <span class="wt-btn shadow-none lift">{{ trans('lang.select_files') }}</span>
+                    <button class="btn btn-sm btn-success lift">{{ trans('lang.select_files') }}</button>
                 </label>
             </div>
         </div>
