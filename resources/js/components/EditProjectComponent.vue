@@ -9,7 +9,7 @@
                     <!-- Url -->
                     <button type="button" class="btn btn-link shadow-none p-0">{{this.stored_project_url}}</button>
                 <!-- Image and Close Button -->
-                <div v-if="uploaded_project_image == false">
+                <div v-if="uploaded_project_image == false" class="d-flex align-items-center">
                     <img class="img-fluid" :src="stored_project_img" width="65" height="65">
                     <a class="dz-remove text-danger" href="javascript:;" @click="removeImage()" >
                         <i class="material-symbols-outlined">close</i>

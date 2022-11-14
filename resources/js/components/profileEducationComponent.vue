@@ -20,7 +20,7 @@
             </h5>
             <div>
               <a href="javascript:void(0);" class="wt-addinfo badge badge-primary shadow-none" :id="'educationaccordion-'+index+''" data-toggle="collapse" :data-target="'#educationaccordioninner-'+index+''" aria-expanded="true">
-                <i class="material-symbols-outlined">edit</i>
+                <i class="material-symbols-outlined"></i>
               </a>
               <a href="javascript:void(0);" class="badge badge-danger shadow-none" @click="removeStoredEducation(index)">
                 <i class="material-symbols-outlined">delete</i>
@@ -84,7 +84,7 @@
               <!-- Edit/Delete Buttons -->
               <div>
                 <a href="javascript:void(0);" class="wt-addinfo badge badge-primary shadow-none" :id="'educationaccordion-'+education.count+''" data-toggle="collapse" :data-target="'#educationaccordioninner-'+education.count+''" aria-expanded="true">
-                  <i class="material-symbols-outlined">edit</i>
+                  <i class="material-symbols-outlined"></i>
                 </a>
                 <a href="javascript:void(0);" class="badge badge-danger shadow-none delete-education">
                   <i class="material-symbols-outlined">delete</i>

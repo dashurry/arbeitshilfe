@@ -84,7 +84,7 @@
               </h5>
                 <div>
                   <a href="javascript:void(0);" class="wt-addinfo badge badge-primary shadow-none" :id="'experienceaccordion-'+experience.count+''" data-toggle="collapse" :data-target="'#experienceaccordioninner-'+experience.count+''" aria-expanded="true">
-                    <i class="material-symbols-outlined">edit</i>
+                    <i class="material-symbols-outlined"></i>
                   </a>
                   <a href="javascript:void(0);" class="badge badge-danger shadow-none delete-experience">
                     <i class="material-symbols-outlined">delete</i>

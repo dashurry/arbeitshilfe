@@ -72,8 +72,10 @@
                                     </a>
                             </div>
                             <!-- Project Upload Image Input -->
-                            <uploadimage :option="project.option" :id="project.img_id+'-'+project.count" :img_ref="project.img_ref+'_'+project.count"></uploadimage>
-                            <input type="hidden" v-bind:name="'project['+project.count+'][project_hidden_image]'" :id="'hidden_banner-'+project.count">
+                            <div class="form-group">
+                                <uploadimage :option="project.option" :id="project.img_id+'-'+project.count" :img_ref="project.img_ref+'_'+project.count"></uploadimage>
+                                <input type="hidden" v-bind:name="'project['+project.count+'][project_hidden_image]'" :id="'hidden_banner-'+project.count">
+                            </div>
                         </div>
                     </div>
                 </li>
