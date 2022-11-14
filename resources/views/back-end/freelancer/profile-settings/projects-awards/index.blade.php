@@ -42,7 +42,7 @@
                                 @include('back-end.freelancer.profile-settings.projects-awards.projects')
                             @endif
                         </div>
-                        <div class="wt-addprojectsholder wt-tabsinfo la-awards">
+                        <div class="awardsComponent">
                             @if (file_exists(resource_path('views/extend/back-end/freelancer/profile-settings/projects-awards/awards.blade.php')))
                                 @include('extend.back-end.freelancer.profile-settings.projects-awards.awards')
                             @else

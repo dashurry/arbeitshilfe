@@ -1,12 +1,15 @@
 <template>
     <div :server_error_message="server_errors">
-        <!-- <div class="wt-tabscontenttitle wt-addnew"> -->
-            <div class="wt-addnew d-flex justify-content-between align-items-center">
-            <h2>{{ trans('lang.add_your_awards')}}</h2>
-            <a href="javascript:void(0);" @click="addAward" class="add-award-btn">{{ trans('lang.add_awards') }}</a>
+        <!-- Header -->
+        <div class="media flex-wrap">
+            <div class="media-body">
+                <h2>{{ trans('lang.add_your_awards')}}</h2>
+            </div>
+            <a href="javascript:void(0);" @click="addAward" class="btn btn-sm btn-outline-primary add-award-btn">{{ trans('lang.add_awards') }}</a>
         </div>
-        <ul class="wt-experienceaccordion accordion" id="award-list">
-            <span v-if="stored_awards" class="award-inner-list">
+        <!-- Accordion -->
+        <ul class="accordion" id="award-list">
+            <div v-if="stored_awards" class="card">
                  <li v-for="(stored_award, index) in stored_awards" :key="index" class="award-element" :id="'award-element-'+index">
                     <updateaward
                         :stored_image_name="stored_award.award_image"
@@ -28,19 +31,28 @@
                     >
                     </updateaward>   
                 </li>
-            </span>
-            <span class="award-inner-list">
-                <li v-for="(award, index) in awards" :key="index" ref="awardlistelement" class="award-inner-list-item">
-                    <div class="wt-accordioninnertitle form-control">
-                        <div :id="'awardaccordion['+award.count+']'" class="wt-projecttitle collapsed" data-toggle="collapse" :data-target="'#awardaccordioninner['+award.count+']'">
-                            <figure :class="award.preview_class"></figure>
-                            <h3>{{award.award_title}}<span>{{award.date}}</span></h3>
+            </div>
+            <!-- Accordion -->
+            <div class="card">
+                <li v-for="(award, index) in awards" :key="index" ref="awardlistelement" class="award-list-item">
+                    <!-- Collapse Head -->
+                    <div class="card-header d-flex justify-content-between">
+                        <div :id="'awardaccordion['+award.count+']'" class="collapsed" data-toggle="collapse" :data-target="'#awardaccordioninner['+award.count+']'">
+                            <h5>{{award.award_title}}</h5>
+                            <button type="button" class="btn btn-link shadow-none p-0">{{award.date}}</button>
                         </div>
+                         <!-- Edit/Delete Buttons -->
                         <div class="wt-rightarea">
-                            <a href="javascript:void(0);" class="wt-addinfo wt-skillsaddinfo" :id="'awardaccordion['+award.count+']'" data-toggle="collapse" :data-target="'#awardaccordioninner['+award.count+']'" aria-expanded="true"><i class="lnr lnr-pencil"></i></a>
-                            <a href="javascript:void(0);" class="wt-deleteinfo delete-award"><i class="lnr lnr-trash"></i></a>
+                            <a href="javascript:void(0);" class="wt-addinfo badge badge-primary shadow-none" :id="'awardaccordion['+award.count+']'" data-toggle="collapse" :data-target="'#awardaccordioninner['+award.count+']'" aria-expanded="true">
+                                <i class="material-symbols-outlined"></i>
+                            </a>
+                            <a href="javascript:void(0);" class="badge badge-danger shadow-none delete-award">
+                                <i class="material-symbols-outlined">close</i>
+                            </a>
                         </div>
                     </div>
+                    <!-- Display Preview Image Upload -->
+                    <figure :class="award.preview_class"></figure>
                     <div class="wt-collapseexp collapse hide" :id="'awardaccordioninner['+award.count+']'" :aria-labelledby="'awardaccordion['+award.count+']'" data-parent="#accordion">
                         <fieldset>
                             <div class="form-group form-group-half">
@@ -74,7 +86,7 @@
                         </fieldset>
                     </div>
                 </li>
-            </span>
+            </div>
         </ul>
     </div>
 </template>
@@ -125,8 +137,8 @@ export default{
                                 var input_hidden_id = jQuery('#'+myDropzone.element.id).next('input[type=hidden]').attr('id');
                                 document.getElementById(input_hidden_id).value = file.name;
                                 jQuery('#'+myDropzone.element.id).css("display","none");
-                                jQuery('#'+myDropzone.element.id).parents('.award-inner-list-item').find('.award_image_uploaded_placeholder').css("display","block");
-                                jQuery('#'+myDropzone.element.id).parents('.award-inner-list-item').find('.award_image_uploaded_placeholder ul li span.uploaded-img-name').text(file.name);
+                                jQuery('#'+myDropzone.element.id).parents('.award-list-item').find('.award_image_uploaded_placeholder').css("display","block");
+                                jQuery('#'+myDropzone.element.id).parents('.award-list-item').find('.award_image_uploaded_placeholder ul li span.uploaded-img-name').text(file.name);
 
                             });
                             this.on("removedfile", function(file) { 
@@ -149,8 +161,8 @@ export default{
                 });
             },
             addAward: function () {
-                var expereience_list_count = jQuery('.add-award-btn').parents('.wt-tabsinfo').find('ul#award-list span.award-inner-list li').length;
-                var image_placeholder_count = jQuery('.add-award-btn').parents('.wt-tabsinfo').find('ul#award-list span.award-inner-list li').find('figure.dropzone-previews').length;
+                var expereience_list_count = jQuery('.add-award-btn').parents('.awardsComponent').find('ul#award-list div.card li').length;
+                var image_placeholder_count = jQuery('.add-award-btn').parents('.awardsComponent').find('ul#award-list div.card li').find('figure.dropzone-previews').length;
                 if(this.$refs.awardlistelement) {
                     this.award.count = expereience_list_count + this.$refs.awardlistelement.length;
                 } else {
@@ -169,8 +181,8 @@ export default{
                 var element = event.currentTarget;
                 var elementID = element.getAttribute('id');
                 jQuery('#'+elementID).parents('.award_image_uploaded_placeholder').css("display","none");
-                jQuery('#'+elementID).parents('.award-inner-list-item').find('.wt-uploadingbox').remove();
-                jQuery('#'+elementID).parents('.award-inner-list-item').find('.vue-dropzone').css("display","block");
+                jQuery('#'+elementID).parents('.award-list-item').find('.wt-uploadingbox').remove();
+                jQuery('#'+elementID).parents('.award-list-item').find('.vue-dropzone').css("display","block");
             }
         },
         mounted: function () {
@@ -178,7 +190,7 @@ export default{
             jQuery(document).on('click', '.delete-award', function (e) {
                 e.preventDefault();
                 var _this = jQuery(this);
-                _this.parents('.award-inner-list-item').remove();
+                _this.parents('.award-list-item').remove();
             });
         },
         created: function() {

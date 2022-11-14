@@ -33,6 +33,7 @@
                     </updateProject>
                 </li>
             </div>
+            <!-- Accordion -->
             <div class="card">
                 <li v-for="(project, index) in projects" :key="index" ref="projectlistelement" class="project-list-item">
                     <!-- Collapse Head -->
