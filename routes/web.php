@@ -47,7 +47,7 @@ use Illuminate\Support\Facades\Broadcast;
 
 // Test Access Env File
 // Route::get("/test",function(){
-//     return ((env('MAIL_HOST')));
+//     return ((env('PUSHER_APP_ID')));
 // }
 // );
 

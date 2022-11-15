@@ -7,28 +7,31 @@
             <h1 data-aos="fade-up" class="display-4" v-if="category.subtitle">{{category.subtitle}}</h1>
             <h2 data-aos="fade-up" :style="{color:category.titleTwoColor}">{{category.title}} {{category.titleTwo}}</h2>
             <div data-aos="fade-up" v-html="category.description" class="text-muted h5 font-weight-light mt-4 mb-4"></div>
-            <div class="wt-btnarea" data-aos="fade-up">
+            <div data-aos="fade-up">
               <a v-if="isLoggedIn == 'true'" :href="baseUrl+'/page/dienstleistungen'" class="btn btn-primary btn-lg shadow-none lift">{{ trans('lang.show_all') }}</a>
               <a v-else href="#" data-target="#modalSignIn" data-toggle="modal" class="btn btn-primary btn-lg shadow-none lift">{{ trans('lang.show_all') }}</a>
             </div>
           </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 pt-5">
-          <ul class="wt-categoryvtwo" data-aos="fade-up" data-aos-delay="550" data-aos-offset="300">
+          <div class="row" data-aos="fade-right" data-aos-delay="550" data-aos-offset="300">
             <template v-for="(cat, index) in categoryList">
-              <li @mouseover="mouseOver" class="transform" :key="index" v-if="cat.has_3d_icon=='1'">
-                <div class="d-flex float-left flex-column justify-content-center align-items-center iusqHF p-3">
-                  <figure>
-                    <img :src="baseUrl+'/uploads/categories/'+ cat.image" :alt="cat.title">
-                  </figure>
-                  <h4 class="font-weight-light">
-                    <a class="text-dark" :href="baseUrl+'/search-results?type='+ type+'&category%5B%5D='+cat.slug">{{ cat.title }}</a>
-                  </h4>
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" :key="index" v-if="cat.has_3d_icon=='1'">
+                <div class="card border-0 mb-4 shadow">
+                  <div class="card-body text-center" @mouseover="mouseOver">
+                    <div class="media align-items-center flex-lg-column">
+                        <img class="rounded-circle bg-white h-50" :src="baseUrl+'/uploads/categories/'+ cat.image" :alt="cat.title" width="100" height="100">
+                      <div class="media-body">
+                        <h4>
+                          <a class="text-dark" :href="baseUrl+'/search-results?type='+ type+'&category%5B%5D='+cat.slug">{{ cat.title }}</a>
+                        </h4>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="lcvTnr hoyCxl"></div>
-              </li>
+              </div>
             </template>
-          </ul>
+          </div>
         </div>
       </div>
     </div>
