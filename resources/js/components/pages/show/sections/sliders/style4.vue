@@ -29,8 +29,7 @@
                             <a class="text-white" v-else :href="'/employer/dashboard/post-job'" target="_blank">Job inserieren</a>
                         </button>
                     </div>
-                </div>
-                                
+                </div>            
                 <div class="row" v-if="isLoggedIn == 'false'">
                     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 text-center">
                         <!-- HTML5 Video --->
