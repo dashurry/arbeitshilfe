@@ -12,12 +12,12 @@
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div class="wt-bannerthree-content justify-content-center" data-aos="fade-up" data-aos-duration="1000">
                                 <!-- SEARCH FORM -->
-                                    <search-form-v2
-                                        :placeholder="trans('ich suche nach')"
-                                        :no_record_message="trans('Kein Eintrag gefunden')"
-                                        :slider="slider"
-                                        :symbol="symbol"
-                                        v-if="slider.enable_search_form && isLoggedIn =='true'"/>
+                                <search-form-v2
+                                :placeholder="trans('ich suche nach')"
+                                :no_record_message="trans('Kein Eintrag gefunden')"
+                                :slider="slider"
+                                :symbol="symbol"
+                                v-if="slider.enable_search_form && isLoggedIn =='true'"/>
                             </div>
                     </div>
                 </div>
@@ -42,7 +42,7 @@
                         <vue-typed-js :strings="['mit uns.', 'wir haben Sie alle.']" :typeSpeed="60" :backSpeed="60" :cursorChar="'|'" :loop="true" :backDelay="1700" :showCursor="true" class="justify-content-center">
                             <h1 class="display-3 text-wrap" data-aos="fade-down" data-aos-easing="ease-in-sine" data-aos-duration="600">Teilen Sie Ihren Bedarf <br>
                                 <span class="typing text-underline-warning d-inline display-3" style="background-image: linear-gradient(90deg,rgba(245,192,112,.4),rgba(245,192,112,.4));"></span>
-                                <p class="text-muted h5 font-weight-light mt-4" data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-duration="1000">
+                                <p class="text-muted h5 fs-sm mt-4" data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-duration="1000">
                                     Jetzt kostenlos registriere und Profitieren Sie von allen Vorzügen kostenlos.
                                 </p>
                             </h1>
@@ -51,7 +51,9 @@
                 </div>
                 <div class="row mt-8">
                     <div class="col-12">
-                        <hr data-aos="fade-left" class="hr-sm bg-warning mx-auto">
+                        <hr data-aos="fade-left" class="hr-sm bg-warning mx-auto mb-10">
+                        <!-- Preheading -->
+                        <h6 class="text-uppercase text-primary mb-5 text-center" data-aos="fade-up">START TODAY</h6>
                     </div>
                 </div>
             </div>

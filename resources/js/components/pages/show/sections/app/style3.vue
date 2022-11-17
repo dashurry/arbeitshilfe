@@ -9,7 +9,7 @@
             <!-- Preheading -->
             <h6 class="text-uppercase text-primary mb-5" data-aos="fade-left">Useful at all Tiers</h6>
             <!-- Heading -->
-            <h2 class="display-4 mb-10 text-break" data-aos="fade-left">Erkunden Sie unsere Dienstleistungen, um das Richtige für Sie zu finden.</h2>
+            <h2 class="display-4 mb-10 text-break" data-aos="fade-left">Erkunden Sie unsere Leistungen, um das Richtige für Sie zu finden.</h2>
         </div>
       </div>
       <!-- Features -->
