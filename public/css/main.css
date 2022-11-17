@@ -13047,7 +13047,9 @@ Listing Show More
   }
 }
 
-
+#app > div > div:nth-child(4) > div.col-xs-12.col-sm-12.col-md-10.col-lg-10.text-center > div > h1{
+	height: 32rem;	
+}
 /* Header */
 .nav-item{
 	margin: 10px 20px;

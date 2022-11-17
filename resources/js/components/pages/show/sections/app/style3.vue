@@ -19,7 +19,7 @@
           <div class="d-flex mt-8">
             <!-- Icon -->
             <div>
-              <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg width="40" height="40" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <g fill="none" fill-rule="evenodd">
                   <path d="M0 0h24v24H0z"></path>
                   <path d="M4 4l7.631-1.43a2 2 0 01.738 0L20 4v9.283a8.51 8.51 0 01-4 7.217l-3.47 2.169a1 1 0 01-1.06 0L8 20.5a8.51 8.51 0 01-4-7.217V4z" fill="#335EEA" opacity=".3"></path>
@@ -30,7 +30,7 @@
             <!-- Body -->
             <div>
               <!-- Title -->
-              <p class="h1 mb-1 fw-bold">Sicher</p>
+              <p class="h2 mb-1">Sicher</p>
               <!-- Text -->
               <p class="fs-sm text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In urna lectus, mattis non accumsan in, tempor dictum neque. In hac habitasse platea dictumst. </p>
             </div>
@@ -41,7 +41,7 @@
           <div class="d-flex mt-8">
             <!-- Icon -->
             <div>
-              <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg width="40" height="40" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <g fill="none" fill-rule="evenodd">
                   <path d="M0 0h24v24H0z"></path>
                   <path d="M22 15.01l.025-.01v4.586a1 1 0 01-1.707.707L18.025 18H5a3 3 0 01-3-3V6a3 3 0 013-3h14a3 3 0 013 3v9.01zM6.168 10.555C7.678 12.819 9.646 14 12 14c2.354 0 4.322-1.18 5.832-3.445a1 1 0 10-1.664-1.11C15.01 11.181 13.646 12 12 12c-1.646 0-3.01-.82-4.168-2.555a1 1 0 00-1.664 1.11z" fill="#335EEA"></path>
@@ -51,7 +51,7 @@
             <!-- Body -->
             <div>
               <!-- Title -->
-              <p class="h1 mb-1 fw-bold">Cross-platform</p>
+              <p class="h2 mb-1">Cross-platform</p>
               <!-- Text -->
               <p class="fs-sm text-muted mb-0"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In urna lectus, mattis non accumsan in, tempor dictum neque. In hac habitasse platea dictumst. </p>
             </div>
@@ -62,7 +62,7 @@
           <div class="d-flex mt-8">
             <!-- Icon -->
             <div>
-              <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg width="40" height="40" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <g fill="none" fill-rule="evenodd">
                   <path d="M0 0h24v24H0z"></path>
                   <path d="M14.293 16.707a1 1 0 011.414-1.414l4 4a1 1 0 01-1.414 1.414l-4-4z" fill="#335EEA" opacity=".3"></path>
@@ -73,7 +73,7 @@
             <!-- Body -->
             <div>
               <!-- Title -->
-              <p class="h1 mb-1 fw-bold">Durchsuchbar</p>
+              <p class="h2 mb-1">Durchsuchbar</p>
               <!-- Text -->
               <p class="fs-sm text-muted mb-0"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In urna lectus, mattis non accumsan in, tempor dictum neque. In hac habitasse platea dictumst. </p>
             </div>
@@ -84,7 +84,7 @@
           <div class="d-flex mt-8">
             <!-- Icon -->
             <div>
-              <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg width="40" height="40" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <g fill="none" fill-rule="evenodd">
                   <path d="M0 0h24v24H0z"></path>
                   <path d="M7 11h8a2 2 0 002-2V8h2v1a4 4 0 01-4 4H7v2a1 1 0 01-2 0V9a1 1 0 112 0v2z" fill="#335EEA" opacity=".3"></path>
@@ -95,7 +95,7 @@
             <!-- Body -->
             <div>
               <!-- Title -->
-              <p class="h1 mb-1 fw-bold">Dokument Geschichte</p>
+              <p class="h2 mb-1">Dokument Geschichte</p>
               <!-- Text -->
               <p class="fs-sm text-muted mb-0"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In urna lectus, mattis non accumsan in, tempor dictum neque. In hac habitasse platea dictumst. </p>
             </div>
@@ -106,7 +106,7 @@
           <div class="d-flex mt-8">
             <!-- Icon -->
             <div>
-              <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg width="40" height="40" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <g fill="none" fill-rule="evenodd">
                   <path d="M0 0h24v24H0z"></path>
                   <path d="M4 4h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2z" fill="#335EEA" opacity=".3"></path>
@@ -117,7 +117,7 @@
             <!-- Body -->
             <div>
               <!-- Title -->
-              <p class="h1 mb-1 fw-bold">100% Free</p>
+              <p class="h2 mb-1">100% Free</p>
               <!-- Text -->
               <p class="fs-sm text-muted mb-0"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In urna lectus, mattis non accumsan in, tempor dictum neque. In hac habitasse platea dictumst. </p>
             </div>
@@ -128,7 +128,7 @@
           <div class="d-flex mt-8">
             <!-- Icon -->
             <div>
-              <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg width="40" height="40" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <g fill="none" fill-rule="evenodd">
                   <path d="M0 0h24v24H0z"></path>
                   <path d="M16.374 19.939l5.849-8.773A.75.75 0 0021.599 10H17V4.477a.75.75 0 00-1.374-.416l-5.849 8.773A.75.75 0 0010.401 14H15v5.523a.75.75 0 001.374.416z" fill="#335EEA"></path>
@@ -139,7 +139,7 @@
             <!-- Body -->
             <div>
               <!-- Title -->
-              <p class="h1 mb-1 fw-bold">Group Sync</p>
+              <p class="h2 mb-1">Group Sync</p>
               <!-- Text -->
               <p class="fs-sm text-muted mb-0"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In urna lectus, mattis non accumsan in, tempor dictum neque. In hac habitasse platea dictumst. </p>
             </div>

@@ -32,19 +32,26 @@
                 </div>
                                 
                 <div class="row" v-if="isLoggedIn == 'false'">
-                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center">
+                    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 text-center">
                         <!-- HTML5 Video --->
                         <div id="video-gallery" data-aos="fade-left" data-aos-easing="ease-in-sine" data-aos-duration="800">
                             <div class="cs-video-btn my-3 mr-3" data-video='{"source": [{"src":"images/howitworksvideo.mp4", "type":"video/mp4"}], "attributes": {"preload": false, "controls": true}}' data-sub-html="<h4>'Arbeitshilfe | Online-Auftragsbörse</h4>"></div>
                         </div>
                     </div>
-                    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 text-center">
+                    <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 text-center">
                         <vue-typed-js :strings="['mit uns.', 'wir haben Sie alle.']" :typeSpeed="60" :backSpeed="60" :cursorChar="'|'" :loop="true" :backDelay="1700" :showCursor="true" class="justify-content-center">
-                            <h1 class="display-3" data-aos="fade-down" data-aos-easing="ease-in-sine" data-aos-duration="600">Teilen Sie Ihren Bedarf <br> <span class="typing text-underline-warning d-inline display-3" style="background-image: linear-gradient(90deg,rgba(245,192,112,.4),rgba(245,192,112,.4));"></span></h1>
+                            <h1 class="display-3 text-wrap" data-aos="fade-down" data-aos-easing="ease-in-sine" data-aos-duration="600">Teilen Sie Ihren Bedarf <br>
+                                <span class="typing text-underline-warning d-inline display-3" style="background-image: linear-gradient(90deg,rgba(245,192,112,.4),rgba(245,192,112,.4));"></span>
+                                <p class="text-muted h5 font-weight-light mt-4" data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-duration="1000">
+                                    Jetzt kostenlos registriere und Profitieren Sie von allen Vorzügen kostenlos.
+                                </p>
+                            </h1>
                         </vue-typed-js>
-                        <p class="text-muted h5 font-weight-light mt-4" data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-duration="1000">
-                            Jetzt kostenlos registriere und Profitieren Sie von allen Vorzügen kostenlos.
-                        </p>
+                    </div>
+                </div>
+                <div class="row mt-8">
+                    <div class="col-12">
+                        <hr data-aos="fade-left" class="hr-sm bg-warning mx-auto">
                     </div>
                 </div>
             </div>
