@@ -29,7 +29,8 @@
                             <a class="text-white" v-else :href="'/employer/dashboard/post-job'" target="_blank">Job inserieren</a>
                         </button>
                     </div>
-                </div>            
+                </div>  
+                <!-- Not Logged in -->
                 <div class="row" v-if="isLoggedIn == 'false'">
                     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 text-center">
                         <!-- HTML5 Video --->
@@ -41,11 +42,11 @@
                         <vue-typed-js :strings="['mit uns.', 'wir haben Sie alle.']" :typeSpeed="60" :backSpeed="60" :cursorChar="'|'" :loop="true" :backDelay="1700" :showCursor="true" class="justify-content-center">
                             <h1 class="display-3 text-wrap" data-aos="fade-down" data-aos-easing="ease-in-sine" data-aos-duration="600">Teilen Sie Ihren Bedarf <br>
                                 <span class="typing text-underline-warning d-inline display-3" style="background-image: linear-gradient(90deg,rgba(245,192,112,.4),rgba(245,192,112,.4));"></span>
-                                <p class="text-muted h5 fs-sm mt-4" data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-duration="1000">
-                                    Jetzt kostenlos registriere und Profitieren Sie von allen Vorzügen kostenlos.
-                                </p>
                             </h1>
                         </vue-typed-js>
+                        <p class="text-muted h5 fs-sm mt-4" data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-duration="1000">
+                            Jetzt kostenlos registriere und Profitieren Sie von allen Vorzügen kostenlos.
+                        </p>
                     </div>
                 </div>
             </div>
