@@ -9,14 +9,14 @@
             <!-- Preheading -->
             <h6 class="text-uppercase text-primary mb-5" data-aos="fade-left">Useful at all Tiers</h6>
             <!-- Heading -->
-            <h2 class="display-4 mb-10" data-aos="fade-left">All plans include a full suite of functional features.</h2>
+            <h2 class="display-4 mb-10 text-break" data-aos="fade-left">Erkunden Sie unsere Dienstleistungen, um das Richtige für Sie zu finden.</h2>
         </div>
       </div>
       <!-- Features -->
       <div class="row mt-n8 mt-md-n9">
         <div class="col-xs-12 col-sm-12 col-xs-12 col-sm-12 col-md-6 col-lg-4">
           <!-- Item -->
-          <div class="d-flex mt-8">
+          <div class="d-flex mt-8" data-aos="fade-up" data-aos-delay="100">
             <!-- Icon -->
             <div>
               <svg width="40" height="40" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -38,7 +38,7 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-xs-12 col-sm-12 col-md-6 col-lg-4">
           <!-- Item -->
-          <div class="d-flex mt-8">
+          <div class="d-flex mt-8" data-aos="fade-up" data-aos-delay="200">
             <!-- Icon -->
             <div>
               <svg width="40" height="40" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -59,7 +59,7 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
           <!-- Item -->
-          <div class="d-flex mt-8">
+          <div class="d-flex mt-8" data-aos="fade-up" data-aos-delay="300">
             <!-- Icon -->
             <div>
               <svg width="40" height="40" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -81,7 +81,7 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
           <!-- Item -->
-          <div class="d-flex mt-8">
+          <div class="d-flex mt-8" data-aos="fade-up" data-aos-delay="400">
             <!-- Icon -->
             <div>
               <svg width="40" height="40" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -103,7 +103,7 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
           <!-- Item -->
-          <div class="d-flex mt-8">
+          <div class="d-flex mt-8" data-aos="fade-up" data-aos-delay="500">
             <!-- Icon -->
             <div>
               <svg width="40" height="40" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -125,7 +125,7 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
           <!-- Item -->
-          <div class="d-flex mt-8">
+          <div class="d-flex mt-8" data-aos="fade-up" data-aos-delay="600">
             <!-- Icon -->
             <div>
               <svg width="40" height="40" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
