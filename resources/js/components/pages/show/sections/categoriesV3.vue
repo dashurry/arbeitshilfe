@@ -1,5 +1,5 @@
 <template>
-  <section class="d-flex flex-wrap align-items-center pt-10 pb-10">
+  <section class="d-flex flex-wrap align-items-center pb-10">
     <div v-if="isLoggedIn == 'false'" class="container">
       <div class="row align-items-center">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
