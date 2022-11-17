@@ -48,7 +48,7 @@
                         </vue-typed-js>
                     </div>
                 </div>
-                <div class="row mt-8">
+                <div class="row mt-8" v-if="isLoggedIn == 'false'">
                     <div class="col-12">
                         <hr data-aos="fade-left" class="hr-sm bg-warning mx-auto mb-10">
                         <!-- Preheading -->
