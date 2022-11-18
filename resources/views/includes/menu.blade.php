@@ -1,19 +1,20 @@
-<nav class="navbar navbar-expand-lg navbar-light">
-  <div class="container-fluid">
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+    {{-- Logo on mobile Screens --}}
     @if (!empty($logo) || Schema::hasTable('site_managements'))
         <a class="navbar-brand d-lg-none" href="{{ route('home') }}"><img src="{{{ asset($logo) }}}" alt="{{{ trans('Logo') }}}"></a>
     @endif
-    
+    {{-- Navigation on mobile Screens --}}
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse flex-on-mobile" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-        <ul class="navbar-nav justify-content-end justify-content-start-mobile w-100">
+        <ul class="navbar-nav justify-content-end align-items-center w-100">
 
             <li class="nav-item dropdown">
-                <a class="nav-link" href id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
+                <a class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
                 <div class="dropdown-menu p-4" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item mt-0 pb-2 bg-transparent" href="{{ route("main.about") }}">About Us</a>
                     <a class="dropdown-item pb-2 bg-transparent" href="{{ route("main.howitworks") }}">How it works ?</a>
@@ -21,37 +22,34 @@
                     <a class="dropdown-item pb-2 bg-transparent" href>FAQ</a>
                 </div>
             </li>
-            
-        </ul>
-        @if (!empty($logo) || Schema::hasTable('site_managements'))
-            <img class="d-lg-block px-lg-6" src="{{{ asset($logo) }}}" alt="{{{ trans('Logo') }}}" style="cursor: pointer;" onclick="window.location.href='/'">
-        @endif
-        
-
-        <ul class="navbar-nav justify-content-start flex-direction-mobile w-100">
+            {{-- Logo on large Screens --}}
+            @if (!empty($logo) || Schema::hasTable('site_managements'))
+                <a href="{{ route('home') }}" class="navbar-brand">
+                    <img class="d-lg-block px-lg-6" src="{{{ asset($logo) }}}" alt="{{{ trans('Logo') }}}">
+                </a>
+            @endif
+            {{-- User not logged in --}}
             @guest
-            
-            <li class="nav-item dropdown">
-                <a class="nav-link" href id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
-                <div class="dropdown-menu p-4" aria-labelledby="navbarDropdown">
-                {{-- Sign in --}}
-                <a href class="dropdown-item mt-0 d-flex align-items-center pb-2 bg-transparent" data-toggle="modal" data-target="#modalSignIn">
-                    <div class="d-flex text-primary mr-3">
-                        <span class="material-symbols-outlined">group</span>
-                      </div>Sign In</a>
-                {{-- Register --}}
-                <a href="{{ route("register") }}" class="d-flex align-items-center dropdown-item pb-2 bg-transparent">
-                    <div class="d-flex text-primary mr-3">
-                        <span class="material-symbols-outlined">key</span>
-                      </div>Register</a>
-                </div>
-            </li>
-
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
+                    <div class="dropdown-menu p-4" aria-labelledby="navbarDropdown">
+                    {{-- Sign in --}}
+                    <a href class="dropdown-item mt-0 d-flex align-items-center pb-2 bg-transparent" data-toggle="modal" data-target="#modalSignIn">
+                        <div class="d-flex text-primary mr-3">
+                            <span class="material-symbols-outlined">group</span>
+                        </div>Sign In</a>
+                    {{-- Register --}}
+                    <a href="{{ route("register") }}" class="d-flex align-items-center dropdown-item pb-2 bg-transparent">
+                        <div class="d-flex text-primary mr-3">
+                            <span class="material-symbols-outlined">key</span>
+                        </div>Register</a>
+                    </div>
+                </li>
             @endguest
-
+            {{-- User logged in --}}
             @auth
-                <li class="nav-item mr-5 navigation-more">
-                    <a href class="nav-link">.....</a>
+                <li class="nav-item mr-5">
+                    <a href="javascript:;" class="nav-link">.....</a>
                 </li>
                 @php
                     $nameColor = new \App\NameThumbColor();
@@ -77,14 +75,11 @@
                 @endphp
 
                 <li class="nav-item wt-userlogedin">
-
+                    {{-- Profile Image --}}
                     @if(!empty($profile) && $profile->avater != "")
-                        <figure class="wt-userimg">
-
-                            <img src="{{{ asset(Helper::getImage('uploads/users/' . Auth::user()->id, $profile->avater, '' , 'user.jpg')) }}}" alt="{{{ trans('lang.user_avatar') }}}">
-
-                        </figure>
+                        <img width="36" height="36" class="rounded-circle" src="{{{ asset(Helper::getImage('uploads/users/' . Auth::user()->id, $profile->avater, '' , 'user.jpg')) }}}" alt="{{{ trans('lang.user_avatar') }}}">
                     @else
+                        {{-- Profile Initials --}}
                         <figure class="wt-userimg">
                             <div class="name-thumb-sm" style="background-color: {{ $nameColor->getColor(ucfirst(substr(Auth::user()->first_name,0,1))) }} !important">
                                 {{ ucfirst(substr(Auth::user()->first_name,0,1)). ucfirst(substr(Auth::user()->last_name,0,1)) }}
@@ -217,5 +212,5 @@
         </ul>
 
     </div>
-  </div>
-</nav>
+    </nav>
+</div>

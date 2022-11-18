@@ -335,6 +335,8 @@ jQuery(document).ready(function () {
     const navLinks = document.querySelectorAll('#sidebar ul li a').forEach(link => {
         if(link.href.includes(`${activePage}`)){
             link.parentElement.classList.add('active');
+            // link.parentElement.parentElement.parentElement.classList.add('active');
+            console.log(link);
         }
     })
 
