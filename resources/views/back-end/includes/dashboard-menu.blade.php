@@ -41,7 +41,7 @@
                     </div>
                 </figure>
             @endif
-            <h3>👋 Hallo!</h3>
+            <h3 class="text-dark">👋 Hallo!</h3>
                 <h3>
                     <a href="{{{ url(route('showUserProfile', ['slug' => Auth::user()->slug])) }}}">
                         {{{ !empty(Auth::user()) ? Helper::getUserName(Auth::user()->id) : 'No Name' }}}
