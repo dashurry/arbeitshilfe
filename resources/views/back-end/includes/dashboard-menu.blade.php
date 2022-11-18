@@ -80,7 +80,7 @@
             {{-- Admin Dashboard --}}
             @if ($role === 'admin')
                 <p>Dummy Heading</p>
-                <li class="active">
+                <li>
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">{{ trans('lang.manage_articles') }}</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
@@ -185,14 +185,14 @@
             {{-- End of Admin Dashboard --}}
             {{-- Employer/Freelancer Dashboard --}}
             @if ($role === 'employer' || $role === 'freelancer' )
-                <li class="active">
+                <li>
                     <a href="{{{ url($role.'/dashboard') }}}"><i class="material-symbols-outlined">dashboard</i>{{ trans('lang.dashboard') }}</a>
                 </li>
                 <li>
                     <a href="{{{ route('message') }}}"><i class="material-symbols-outlined">textsms</i>{{ trans('lang.msg_center') }}</a>
                 </li>
                 <li>
-                    <a href="#profileSubmenu" data-toggle="collapse" aria-expanded="false">
+                    <a data-target="#profileSubmenu" data-toggle="collapse" aria-expanded="false">
                         <i class="material-symbols-outlined">settings</i>{{ trans('lang.settings') }}
                     </a>
                     <ul class="collapse list-unstyled" id="profileSubmenu">
@@ -265,7 +265,7 @@
                     {{-- Freelancer --}}
                     @elseif ($role === 'freelancer')
                         <li>
-                            <a href="#freelancerProjectsSubmenu" data-toggle="collapse" aria-expanded="false">
+                            <a data-target="#freelancerProjectsSubmenu" data-toggle="collapse" aria-expanded="false">
                                 <i class="material-symbols-outlined">receipt_long</i>{{ trans('lang.all_projects') }}
                             </a>
                             <ul class="collapse list-unstyled" id="freelancerProjectsSubmenu">
@@ -282,7 +282,7 @@
                         </li>
                         @if (Helper::getAccessType() == 'both' || Helper::getAccessType() == 'services')
                             <li>
-                                <a href="#freelancerServiceSubmenu" data-toggle="collapse" aria-expanded="false">
+                                <a data-target="#freelancerServiceSubmenu" data-toggle="collapse" aria-expanded="false">
                                     <i class="material-symbols-outlined">receipt_long</i>{{ trans('lang.manage_services') }}
                                 </a>
                                 <ul class="collapse list-unstyled" id="freelancerServiceSubmenu">

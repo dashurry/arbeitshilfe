@@ -312,7 +312,7 @@ jQuery(document).ready(function () {
         jQuery(this).next().next().slideToggle(300);
 
     });
-
+    // Sidebar display and hide function
     $(document).ready(function () {
 
         $('#dismiss, .overlay').on('click', function () {
@@ -328,6 +328,15 @@ jQuery(document).ready(function () {
         });
     });
 
+    // Sidebar active tab function
+    // current Page
+    const activePage = window.location.pathname;
+    
+    const navLinks = document.querySelectorAll('#sidebar ul li a').forEach(link => {
+        if(link.href.includes(`${activePage}`)){
+            link.parentElement.classList.add('active');
+        }
+    })
 
 
     jQuery('.wt-navigation ul li.menu-item-has-children > a, .wt-navigation ul li.page_item_has_children > a').on('click', function () {
