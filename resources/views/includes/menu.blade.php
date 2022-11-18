@@ -13,12 +13,12 @@
         <ul class="navbar-nav justify-content-end justify-content-start-mobile w-100">
 
             <li class="nav-item dropdown">
-                <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
+                <a class="nav-link" href id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
                 <div class="dropdown-menu p-4" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item mt-0 pb-2 bg-transparent" href="{{ route("main.about") }}">About Us</a>
                     <a class="dropdown-item pb-2 bg-transparent" href="{{ route("main.howitworks") }}">How it works ?</a>
-                    <a class="dropdown-item pb-2 bg-transparent" href="#">Contact</a>
-                    <a class="dropdown-item pb-2 bg-transparent" href="#">FAQ</a>
+                    <a class="dropdown-item pb-2 bg-transparent" href>Contact</a>
+                    <a class="dropdown-item pb-2 bg-transparent" href>FAQ</a>
                 </div>
             </li>
             
@@ -32,18 +32,16 @@
             @guest
             
             <li class="nav-item dropdown">
-                <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
+                <a class="nav-link" href id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
                 <div class="dropdown-menu p-4" aria-labelledby="navbarDropdown">
-
-                <a href="" class="dropdown-item mt-0 d-flex align-items-center pb-2 bg-transparent" data-toggle="modal" data-target="#modalSignIn">
+                {{-- Sign in --}}
+                <a href class="dropdown-item mt-0 d-flex align-items-center pb-2 bg-transparent" data-toggle="modal" data-target="#modalSignIn">
                     <div class="d-flex text-primary mr-3">
-                        {{-- <img src="{{ asset('images/user.svg') }}" alt="" style="width: 1.5rem; height: 1.5em;"> --}}
                         <span class="material-symbols-outlined">group</span>
                       </div>Sign In</a>
-
+                {{-- Register --}}
                 <a href="{{ route("register") }}" class="d-flex align-items-center dropdown-item pb-2 bg-transparent">
                     <div class="d-flex text-primary mr-3">
-                        {{-- <img src="{{ asset('images/key.svg') }}" alt="" style="width: 1.5rem; height: 1.5em;"> --}}
                         <span class="material-symbols-outlined">key</span>
                       </div>Register</a>
                 </div>
@@ -53,7 +51,7 @@
 
             @auth
                 <li class="nav-item mr-5 navigation-more">
-                    <a href="#" class="nav-link">.....</a>
+                    <a href class="nav-link">.....</a>
                 </li>
                 @php
                     $nameColor = new \App\NameThumbColor();
@@ -122,7 +120,7 @@
 
                 <li class="nav-item dropdown bell-notification">
                     <span v-if="unseenNotification > 0" class="badge badge-danger badge-pill notify-badge">@{{ unseenNotification }}</span>
-                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link" href id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="material-symbols-outlined">notifications</i>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -182,7 +180,7 @@
 
                 <li class="nav-item dropdown">
                     <span v-if="unseenMsg > 0" class="badge badge-danger badge-pill notify-badge">@{{ unseenMsg }}</span>
-                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link" href id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="material-symbols-outlined">textsms</i>
                     </a>
 
