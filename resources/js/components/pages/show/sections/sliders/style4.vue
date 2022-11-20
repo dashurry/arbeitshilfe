@@ -4,7 +4,7 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <div v-if="isLoggedIn == 'true'" class="text-center">
-                            <h1 class="display-3" data-aos="fade-down" data-aos-easing="ease-in-sine" data-aos-duration="600">{{slider.search_form_subtitle}}</h1>
+                            <h1 class="display-3 text-break" data-aos="fade-down" data-aos-easing="ease-in-sine" data-aos-duration="600">{{slider.search_form_subtitle}}</h1>
                         </div>
                     </div>
                 </div>

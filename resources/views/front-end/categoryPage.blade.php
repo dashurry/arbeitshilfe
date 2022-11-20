@@ -10,9 +10,9 @@
     <title>Arbeits-hilfe | Kategorien</title>
 
     <!-- SEO Meta Tags-->
-    <meta name="description" content="Arbeits-hilfe - Such- & Angebotsportal">
+    <meta name="description" content="Arbeitshilfe - Such- & Angebotsportal">
     <meta name="keywords" content="bootstrap, business, creative agency, construction, services, e-commerce, mobile app showcase, multipurpose, shop, ui kit, marketing, seo, landing, html5, css3, javascript, gallery, slider, touch, creative">
-    <meta name="author" content="Arbeits-hilfe">
+    <meta name="author" content="Arbeitshilfe">
 
     <!-- Viewport-->
     <meta name="viewport" content="width=device-width, initial-scale=1">

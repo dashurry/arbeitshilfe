@@ -11,7 +11,7 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-        <ul class="navbar-nav justify-content-end align-items-center w-100">
+        <ul class="navbar-nav justify-content-center align-items-center w-100">
 
             <li class="nav-item dropdown">
                 <a class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
