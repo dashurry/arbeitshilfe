@@ -74,8 +74,14 @@ export default {
             baseUrl: APP_URL,
             isLoggedIn:isLoggedIn,
             locoScroll: null,
-            userType: this.$userType,
+            userType: this.$userType
         }
+    },
+    methods: {
+        // Alert iziToast
+      function() {
+        this.$toast.warning();
+    }
     },
     mounted () {
         var self =this
@@ -85,7 +91,8 @@ export default {
             speed: 500,
             plugins: [lgVideo],
         });
-
+        // Alert iziToast
+         this.$toast.warning('Website noch in Entwicklung', '');
 },
     computed: {
         sectionStyle() {
