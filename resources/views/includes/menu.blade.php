@@ -15,8 +15,8 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
                     <div class="dropdown-menu p-4" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item mt-0 pb-2 bg-transparent" href="{{ route("main.about") }}">About Us</a>
-                        <a class="dropdown-item pb-2 bg-transparent" href="{{ route("main.howitworks") }}">How it works ?</a>
+                        <a class="dropdown-item mt-0 pb-2 bg-transparent" href>About Us</a>
+                        <a class="dropdown-item pb-2 bg-transparent" href>How it works ?</a>
                         <a class="dropdown-item pb-2 bg-transparent" href>Contact</a>
                         <a class="dropdown-item pb-2 bg-transparent" href>FAQ</a>
                     </div>
