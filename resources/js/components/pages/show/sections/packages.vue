@@ -13,7 +13,7 @@
       </div>
       <div class="row mt-n6">
         <template v-for="(pkgItem, index) in topPackages">
-          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4" :key="index">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4" :key="index" data-aos="fade-in" data-aos-delay="400">
             <!-- Card -->
             <div class="card rounded-top-start-3 rounded-bottom-end-3 mt-6">
               <div class="card-body text-center">
