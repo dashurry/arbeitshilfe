@@ -2,7 +2,9 @@
     <nav class="navbar navbar-expand-lg navbar-light">
         {{-- Logo on mobile Screens --}}
         @if (!empty($logo) || Schema::hasTable('site_managements'))
-            <a class="navbar-brand d-lg-none" href="{{ route('home') }}"><img src="{{{ asset($logo) }}}" alt="{{{ trans('Logo') }}}"></a>
+            <a class="navbar-brand" href="{{ route('home') }}">
+                <img src="{{{ asset($logo) }}}" alt="{{{ trans('Logo') }}}">
+            </a>
         @endif
         {{-- Navigation on mobile Screens --}}
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,28 +12,20 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-            <ul class="navbar-nav justify-content-end align-items-center w-100">
-                <li class="nav-item dropdown">
+            {{-- Navigation --}}
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown m-3">
                     <a class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
                     <div class="dropdown-menu p-4" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item mt-0 pb-2 bg-transparent" href>About Us</a>
-                        <a class="dropdown-item pb-2 bg-transparent" href>How it works ?</a>
-                        <a class="dropdown-item pb-2 bg-transparent" href>Contact</a>
+                        <a class="dropdown-item mt-0 pb-2 bg-transparent" href>Über uns</a>
+                        <a class="dropdown-item pb-2 bg-transparent" href>Wie funktioniert es?</a>
+                        <a class="dropdown-item pb-2 bg-transparent" href>Kontakt</a>
                         <a class="dropdown-item pb-2 bg-transparent" href>FAQ</a>
                     </div>
                 </li>
-            </ul>
-            {{-- Logo on large Screens --}}
-            @if (!empty($logo) || Schema::hasTable('site_managements'))
-                <a href="{{ route('home') }}" class="navbar-brand m-0">
-                    <img class="d-lg-block px-lg-6" src="{{{ asset($logo) }}}" alt="{{{ trans('Logo') }}}">
-                </a>
-            @endif
-            {{-- User not logged in --}}
-            <ul class="navbar-nav justify-content-start align-items-center w-100">
+                {{-- User not logged in - Navigation --}}
                 @guest
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown m-3">
                         <a class="nav-link" href id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
                         <div class="dropdown-menu p-4" aria-labelledby="navbarDropdown">
                         {{-- Sign in --}}
