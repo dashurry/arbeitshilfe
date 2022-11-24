@@ -22,9 +22,7 @@
                     <div class="media align-items-center flex-lg-column">
                         <img class="rounded-circle bg-white" :src="baseUrl+'/uploads/categories/'+ cat.image" :alt="cat.title" width="100" height="100">
                       <div class="media-body">
-                        <h4>
-                          <a class="text-dark" :href="baseUrl+'/search-results?type='+ type+'&category%5B%5D='+cat.slug">{{ cat.title }}</a>
-                        </h4>
+                        <h4>{{ cat.title }}</h4>
                       </div>
                     </div>
                   </div>

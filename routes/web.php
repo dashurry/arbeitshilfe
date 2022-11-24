@@ -207,7 +207,7 @@ Route::post('register/form-step2-custom-errors', 'PublicController@RegisterStep2
 
 Route::post('register/single-form-custom-errors', 'PublicController@singleFormValidation');
 
-Route::get('search-results', 'PublicController@getSearchResult')->name('searchResults');
+Route::get('search-results', 'PublicController@getSearchResult')->name('searchResults')->middleware("role:employer|admin|freelancer");
 
 Route::post('user/add-wishlist', 'UserController@addWishlist');
 
