@@ -923,6 +923,7 @@ if (document.getElementById("modalSignIn")){
                     email: this.loginForm.email,
                     password: this.loginForm.password,
                     remember: this.loginForm.remember,
+                    redirect: $('#loginRedirect').val(),
                 }).then(resp=>{
                     return resp.data;
                 }).then(data=>{

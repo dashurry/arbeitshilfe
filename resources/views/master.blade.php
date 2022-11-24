@@ -253,11 +253,13 @@
 						<!-- Form -->
 						<form class="mb-6 text-center" @submit.prevent="signIn">
 							@csrf
+							<input type="hidden" name="redirect" id="loginRedirect">
 							<div v-if="!needVerify">
 								<!-- Email -->
 								<div class="form-group">
 									<div class="input-group signinform">
-										<input id="email" type="email" name="email" class="form-control" :class="{'is-invalid' : errEmail.error==true}" placeholder="Email" autofocus v-model="loginForm.email">
+										<input id="email" type="email" name="email" class="form-control" 
+										:class="{'is-invalid' : errEmail.error==true}" placeholder="Email" autofocus v-model="loginForm.email">
 									</div>
 									<div class="invalid-feedback d-block" role="alert" v-if="errEmail.error">
 										@{{ errEmail.msg }}

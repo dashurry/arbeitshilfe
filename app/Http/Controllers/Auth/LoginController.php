@@ -245,12 +245,22 @@ class LoginController extends Controller
 
                     $redirectTo = "";
 
-                    if (
-                        $user_role === 'freelancer'
-                    ) {
-                        $redirectTo = '/freelancer/dashboard';
+                    if ($user_role === 'freelancer') {
+                        if($req->redirect == "search") {
+                            $redirectTo = '/search-results?type=job'; //custome redirect url
+                        }
+                        else {
+                            $redirectTo = '/freelancer/dashboard';
+                        }
                     } elseif ($user_role === 'employer') {
-                        $redirectTo = '/employer/dashboard';
+                    
+                        if($req->redirect == "search") {
+                            $redirectTo = '/search-results?type=job'; //custome redirect url
+                        }
+                        else {
+                            $redirectTo = '/employer/dashboard';
+                        }
+                        
                     } else {
                         $redirectTo = "/";
                     }
