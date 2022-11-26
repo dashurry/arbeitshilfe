@@ -354,10 +354,9 @@
 
 	<script src="{{ asset("js/chosen.min.js") }}"></script>
     @stack('scripts')
-
-		<script src="{{ asset('js/aos.js') }}"></script>
-
+	<script src="{{ asset('js/aos.js') }}"></script>
 	<script>
+		// AOS Plugin
 		$(window).on("load", function() {
 				AOS.init();
 				setTimeout(() => {AOS.refresh();}, 500);
@@ -366,37 +365,31 @@
 		});
 		$(window).on("scroll", function() {
 				AOS.refresh();
-		});	
-
-				// $("body,html").animate({
-				// scrollTop: 5
-				// }, 3000);
-				// $(function() {
-				// 	AOS.init();
-				// });
-				// let scrollRef = 0;
-				// window.addEventListener('scroll', function() {
-				// // increase value up to 10, then refresh AOS
-				// scrollRef >= 0.1 ? scrollRef++ : AOS.refresh();
-				// });
-
+		});
+		// Chosen Select Plugin
 		if($('.chosen-select').length){
             $(".chosen-select").chosen();
-        }
-
-        jQuery(window).load(function () {
-			
-			jQuery(".preloader-outer").delay(500).fadeOut();
-			
-            jQuery(".pins").delay(500).fadeOut("slow");
-			
+        };
+		// Loader
+        jQuery(window).load(function () {			
+			jQuery(".preloader-outer").delay(500).fadeOut();			
+            jQuery(".pins").delay(500).fadeOut("slow");			
         });
-		
+		// Authenticate user
 		@if (auth()->check())
 				window.authUser = {!! json_encode(auth()->user()->id) !!}; 
 		@else
 				window.authUser = null;
 		@endif
+		// multi-level dropdown 
+		$(document).ready(function(){
+		$('.dropright > div').on("click", function(e){
+			$(this).next('div').toggle();
+			e.stopPropagation();
+			e.preventDefault();
+		});
+		});
+
 	</script>
 </body>
 

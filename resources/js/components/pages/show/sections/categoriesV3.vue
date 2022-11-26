@@ -9,6 +9,7 @@
             <div data-aos="fade-up" v-html="category.description" class="text-muted h5 font-weight-light mt-4 mb-4"></div>
             <div data-aos="fade-up">
               <a v-if="isLoggedIn == 'true'" :href="baseUrl+'/page/dienstleistungen'" class="btn btn-primary btn-lg shadow-none lift">{{ trans('lang.show_all') }}</a>
+              <!-- Modal and redirect to job page -->
               <a v-else data-target="#modalSignIn" data-redirect="search" data-toggle="modal" class="btn btn-primary btn-lg shadow-none lift">{{ trans('lang.show_all') }}</a>
             </div>
           </div>
@@ -223,6 +224,7 @@
       this.getCategories();
     },
     mounted() {
+      // pass value "search" from data-attribute to the input with the id #loginRedirect inside the form
       $(document).on("click",'[data-redirect="search"]',function(){
         $('#loginRedirect').val("search");
       })

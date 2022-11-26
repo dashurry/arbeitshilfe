@@ -247,7 +247,7 @@ class LoginController extends Controller
 
                     if ($user_role === 'freelancer') {
                         if($req->redirect == "search") {
-                            $redirectTo = '/search-results?type=job'; //custome redirect url
+                            $redirectTo = '/search-results?type=job'; //custom redirect url
                         }
                         else {
                             $redirectTo = '/freelancer/dashboard';
@@ -255,7 +255,7 @@ class LoginController extends Controller
                     } elseif ($user_role === 'employer') {
                     
                         if($req->redirect == "search") {
-                            $redirectTo = '/search-results?type=job'; //custome redirect url
+                            $redirectTo = '/search-results?type=job'; //custom redirect url
                         }
                         else {
                             $redirectTo = '/employer/dashboard';

@@ -923,6 +923,8 @@ if (document.getElementById("modalSignIn")){
                     email: this.loginForm.email,
                     password: this.loginForm.password,
                     remember: this.loginForm.remember,
+                    // target input name=redirect from the form
+                    // get its value and ajax
                     redirect: $('#loginRedirect').val(),
                 }).then(resp=>{
                     return resp.data;

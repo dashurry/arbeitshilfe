@@ -13,39 +13,38 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             {{-- Navigation --}}
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item dropdown m-3">
+            <ul class="navbar-nav ml-auto align-items-center">
+                <li class="nav-item dropdown">
                     <a class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
-                    <div class="dropdown-menu p-4" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item mt-0 pb-2 bg-transparent" href>Über uns</a>
-                        <a class="dropdown-item pb-2 bg-transparent" href>Wie funktioniert es?</a>
-                        <a class="dropdown-item pb-2 bg-transparent" href>Kontakt</a>
-                        <a class="dropdown-item pb-2 bg-transparent" href>FAQ</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href>Über uns</a>
+                        <a class="dropdown-item" href>Wie funktioniert es?</a>
+                        <a class="dropdown-item" href>Kontakt</a>
+                        <a class="dropdown-item" href>FAQ</a>
                     </div>
                 </li>
                 {{-- User not logged in - Navigation --}}
                 @guest
-                    <li class="nav-item dropdown m-3">
+                    <li class="nav-item dropdown">
                         <a class="nav-link" href id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
-                        <div class="dropdown-menu p-4" aria-labelledby="navbarDropdown">
-                        {{-- Sign in --}}
-                        <a href class="dropdown-item mt-0 d-flex align-items-center pb-2 bg-transparent" data-toggle="modal" data-target="#modalSignIn">
-                            <div class="d-flex text-primary mr-3">
-                                <span class="material-symbols-outlined">group</span>
-                            </div>Sign In</a>
-                        {{-- Register --}}
-                        <a href="{{ route("register") }}" class="d-flex align-items-center dropdown-item pb-2 bg-transparent">
-                            <div class="d-flex text-primary mr-3">
-                                <span class="material-symbols-outlined">key</span>
-                            </div>Register</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            {{-- Sign in --}}
+                            <a href class="dropdown-item d-flex align-items-center" data-toggle="modal" data-target="#modalSignIn">
+                                <div class="d-flex text-primary mr-3">
+                                    <span class="material-symbols-outlined">group</span>
+                                </div>Sign In
+                            </a>
+                            {{-- Register --}}
+                            <a href="{{ route("register") }}" class="dropdown-item d-flex align-items-center">
+                                <div class="d-flex text-primary mr-3">
+                                    <span class="material-symbols-outlined">key</span>
+                                </div>Register
+                            </a>
                         </div>
                     </li>
                 @endguest
                 {{-- User logged in --}}
                 @auth
-                    <li class="nav-item mr-5">
-                        <a href="javascript:;" class="nav-link">.....</a>
-                    </li>
                     @php
                         $nameColor = new \App\NameThumbColor();
                         
@@ -69,23 +68,20 @@
 
                     @endphp
 
-                    <li class="nav-item wt-userlogedin">
-                        {{-- Profile Image --}}
-                        @if(!empty($profile) && $profile->avater != "")
-                            <img width="36" height="36" class="rounded-circle" src="{{{ asset(Helper::getImage('uploads/users/' . Auth::user()->id, $profile->avater, '' , 'user.jpg')) }}}" alt="{{{ trans('lang.user_avatar') }}}">
-                        @else
-                            {{-- Profile Initials --}}
-                            <figure class="wt-userimg">
-                                <div class="name-thumb-sm" style="background-color: {{ $nameColor->getColor(ucfirst(substr(Auth::user()->first_name,0,1))) }} !important">
-                                    {{ ucfirst(substr(Auth::user()->first_name,0,1)). ucfirst(substr(Auth::user()->last_name,0,1)) }}
-                                </div>
-                            </figure>
-                        @endif
-                        {{-- <figure class="wt-userimg">
-                            <div class="name-thumb-sm" style="background-color: {{ $nameColor->getColor(ucfirst(substr(Auth::user()->first_name,0,1))) }} !important">
-                                {{ ucfirst(substr(Auth::user()->first_name,0,1)). ucfirst(substr(Auth::user()->last_name,0,1)) }}
-                            </div>
-                        </figure> --}}
+                    <li class="nav-item wt-userlogedin dropdown">
+                        <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{-- Profile Image --}}
+                            @if(!empty($profile) && $profile->avater != "")
+                                <img width="36" height="36" class="rounded-circle" src="{{{ asset(Helper::getImage('uploads/users/' . Auth::user()->id, $profile->avater, '' , 'user.jpg')) }}}" alt="{{{ trans('lang.user_avatar') }}}">
+                            @else
+                                {{-- Profile Initials --}}
+                                <figure class="wt-userimg">
+                                    <div class="name-thumb-sm" style="background-color: {{ $nameColor->getColor(ucfirst(substr(Auth::user()->first_name,0,1))) }} !important">
+                                        {{ ucfirst(substr(Auth::user()->first_name,0,1)). ucfirst(substr(Auth::user()->last_name,0,1)) }}
+                                    </div>
+                                </figure>
+                            @endif
+                        </a>
 
                         <div class="wt-username">
 
