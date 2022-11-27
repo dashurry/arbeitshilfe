@@ -148,19 +148,6 @@
             </a>
 
         </li>
-
-        {{-- <li>
-
-            <a href="{{{ route('adminPayouts') }}}">
-
-                <i class="ti-money"></i>
-
-                <span>{{ trans('lang.payouts') }}</span>
-
-            </a>
-
-        </li> --}}
-
         @if (empty(\App\SiteManagement::getMetaValue('homepage')))
 
             <li>
@@ -236,7 +223,7 @@
         </li>
 
     @endif
-    {{-- Dropdown --}}
+    {{-- Both Roles --}}
     @if ($role === 'employer' || $role === 'freelancer' )
             {{-- Dashboard --}}
             <a href="{{{ url($role.'/dashboard') }}}" class="dropdown-item d-flex align-items-center">
@@ -256,6 +243,7 @@
                     <a href="{{{ route('manageAccount') }}}" class="dropdown-item">{{ trans('lang.acc_settings') }}</a>
                 </div>
             </div>
+        {{-- Employer Menu --}}
         @if ($role === 'employer')
             @if (Helper::getAccessType() == 'both' || Helper::getAccessType() == 'jobs')
                 {{-- create Job --}}
@@ -288,188 +276,77 @@
                 </div>
             @endif
             {{-- Invoice --}}
-            <li class="menu-item-has-children">
-
-                <a href="javascript:void(0);">
-
-                    <i class="material-symbols-outlined">receipt_long</i>
-
-                    <span>{{ trans('lang.invoices') }}</span>
-
-                </a>
-
-                <ul class="sub-menu">
-
+            <div class="dropright">
+                <div class="dropdown-toggle dropdown-item d-flex align-items-center" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="material-symbols-outlined text-primary mr-3">receipt_long</i>{{ trans('lang.invoices') }}
+                </div>
+                <div class="dropdown-menu">
                     @if ($employer_payment_module === 'true' )
-
-                        <li><a href="{{{ url('employer/package/invoice') }}}">{{ trans('lang.pkg_inv') }}</a></li>
-
-                    @endif    
-
-                    <li><a href="{{{ url('employer/project/invoice') }}}">{{ trans('lang.project_inv') }}</a></li>
-
-                </ul>
-
-            </li>
-
+                        <a href="{{{ url('employer/package/invoice') }}}" class="dropdown-item">{{ trans('lang.pkg_inv') }}</a>
+                    @endif
+                    <a href="{{{ url('employer/project/invoice') }}}" class="dropdown-item">{{ trans('lang.project_inv') }}</a>
+                </div>
+            </div>
             @if ($employer_payment_module === 'true' )
-
-                <li>
-
-                    <a href="{{{ url('dashboard/packages/'.$role) }}}">
-
-                        <i class="ti-package"></i>
-
-                        <span>{{ trans('lang.packages') }}</span>
-
-                    </a>
-
-                </li>
-
+                {{-- Packages --}}
+                <a href="{{{ url('dashboard/packages/'.$role) }}}" class="dropdown-item d-flex align-items-center">
+                    <i class="material-symbols-outlined text-primary mr-3">storefront</i>{{ trans('lang.packages') }}
+                </a>
             @endif
-
+        {{-- Freelancer Menu --}}
         @elseif ($role === 'freelancer')
-
-            <li class="menu-item-has-children page_item_has_children">
-
-                <a href="javascript:void(0)">
-
-                    <i class="material-symbols-outlined">work</i>
-
-                    <span>{{ trans('lang.all_projects') }}</span>
-
-                </a>
-
-                <ul class="sub-menu">
-
-                    <li><a href="{{{ url('freelancer/jobs/completed') }}}">{{ trans('lang.completed_projects') }}</a></li>
-
-                    <li><a href="{{{ url('freelancer/jobs/cancelled') }}}">{{ trans('lang.cancelled_projects') }}</a></li>
-
-                    <li><a href="{{{ url('freelancer/jobs/hired') }}}">{{ trans('lang.ongoing_projects') }}</a></li>
-
-                </ul>
-
-            </li>
-
+            <div class="dropright">
+                <div class="dropdown-toggle dropdown-item d-flex align-items-center" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="material-symbols-outlined text-primary mr-3">work</i>{{ trans('lang.all_projects') }}
+                </div>
+                <div class="dropdown-menu">
+                    <a href="{{{ url('freelancer/jobs/completed') }}}" class="dropdown-item">{{ trans('lang.completed_projects') }}</a>
+                    <a href="{{{ url('freelancer/jobs/cancelled') }}}" class="dropdown-item">{{ trans('lang.cancelled_projects') }}</a>
+                    <a href="{{{ url('freelancer/jobs/hired') }}}" class="dropdown-item">{{ trans('lang.ongoing_projects') }}</a>
+                </div>
+            </div>
             @if (Helper::getAccessType() == 'both' || Helper::getAccessType() == 'services')
-
-                <li class="menu-item-has-children">
-
-                    <span class="wt-dropdowarrow"><i class="material-symbols-outlined"></i></span>
-
-                    <a href="javascript:void(0)">
-
-                        <i class="material-symbols-outlined">work</i>
-
-                        <span>{{ trans('lang.manage_services') }}</span>
-
-                    </a>
-
-                    <ul class="sub-menu">
-
-                        <li><a href="{{{ route('ServiceListing', ['status'=>'posted']) }}}">{{ trans('lang.posted_services') }}</a></li>
-
-                        <li><a href="{{{ route('ServiceListing', ['status'=>'hired']) }}}">{{ trans('lang.ongoing_services') }}</a></li>
-
-                        <li><a href="{{{ route('ServiceListing', ['status'=>'completed']) }}}">{{ trans('lang.completed_services') }}</a></li>
-
-                        <li><a href="{{{ route('ServiceListing', ['status'=>'cancelled']) }}}">{{ trans('lang.cancelled_services') }}</a></li>
-
-                    </ul>
-
-                </li>
-
+                <div class="dropright">
+                    <div class="dropdown-toggle dropdown-item d-flex align-items-center" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="material-symbols-outlined text-primary mr-3">work</i>{{ trans('lang.manage_services') }}
+                    </div>
+                    <div class="dropdown-menu">
+                        <a href="{{{ route('ServiceListing', ['status'=>'posted']) }}}" class="dropdown-item">{{ trans('lang.posted_services') }}</a>
+                        <a href="{{{ route('ServiceListing', ['status'=>'hired']) }}}" class="dropdown-item">{{ trans('lang.ongoing_services') }}</a>
+                        <a href="{{{ route('ServiceListing', ['status'=>'completed']) }}}" class="dropdown-item">{{ trans('lang.completed_services') }}</a>
+                        <a href="{{{ route('ServiceListing', ['status'=>'cancelled']) }}}" class="dropdown-item">{{ trans('lang.cancelled_services') }}</a>
+                    </div>
+                </div>
             @endif
-
-            <li>
-
-                <a href="{{{ route('showFreelancerProposals') }}}">
-
-                    <i class="material-symbols-outlined">science</i>
-
-                    <span>{{ trans('lang.proposals') }}</span>
-
-                </a>
-
-            </li>
-
-            {{-- <li>
-
-                <a href="{{{ route('FreelancerPayoutsSettings') }}}">
-
-                    <i class="ti-money"></i>
-
-                    <span>{{ trans('lang.payouts') }}</span>
-
-                </a>
-
-            </li> --}}
-
-            @if ($payment_module === 'true' )
-
-                <li class="menu-item-has-children">
-
-                    <a href="javascript:void(0);">
-
-                        <i class="material-symbols-outlined">receipt_long</i>
-
-                        <span>{{ trans('lang.invoices') }}</span>
-
-                    </a>
-
-                    <ul class="sub-menu">
-
-                            <li><a href="{{{ url('freelancer/package/invoice') }}}">{{ trans('lang.pkg_inv') }}</a></li>
-
-                    </ul>
-
-                </li>
-
-                <li>
-
-                    <a href="{{{ url('dashboard/packages/'.$role) }}}">
-
-                        <i class="ti-package"></i>
-
-                        <span>{{ trans('lang.packages') }}</span>
-
-                    </a>
-
-                </li>
-
-            @endif
-
-        @endif
-
-        <li>
-
-            <a href="{{{ url($role.'/saved-items') }}}">
-
-                <i class="material-symbols-outlined">favorite_border</i>
-
-                <span>{{ trans('lang.saved_items') }}</span>
-
+            {{-- Proposals --}}
+            <a href="{{{ route('showFreelancerProposals') }}}" class="dropdown-item d-flex align-items-center">
+                <i class="material-symbols-outlined text-primary mr-3">science</i>{{ trans('lang.proposals') }}
             </a>
-
-        </li>
-
-    @endif
-
-    <li>
-
-        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('profile-logout-form').submit();">
-
-            <i class="material-symbols-outlined">logout</i>
-
-            {{{trans('lang.logout')}}}
-
+            @if ($payment_module === 'true' )
+                <div class="dropright">
+                    <div class="dropdown-toggle dropdown-item d-flex align-items-center" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="material-symbols-outlined">receipt_long</i>{{ trans('lang.invoices') }}
+                    </div>
+                    <div class="dropdown-menu">
+                        <a href="{{{ url('freelancer/package/invoice') }}}" class="dropdown-item">{{ trans('lang.pkg_inv') }}</a>
+                    </div>
+                </div>
+                {{-- Packages --}}
+                <a href="{{{ url('dashboard/packages/'.$role) }}}" class="dropdown-item d-flex align-items-center">
+                    <i class="material-symbols-outlined text-primary mr-3">storefront</i>{{ trans('lang.packages') }}
+                </a>
+            @endif
+        @endif
+        {{-- Favorite --}}
+        <a href="{{{ url($role.'/saved-items') }}}" class="dropdown-item d-flex align-items-center">
+            <i class="material-symbols-outlined text-primary mr-3">favorite_border</i>{{ trans('lang.saved_items') }}
         </a>
-
-        <form id="profile-logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-
-            {{ csrf_field() }}
-
-        </form>
-    </li>
+    @endif
+    {{-- Logout --}}
+    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('profile-logout-form').submit();" class="dropdown-item d-flex align-items-center">
+        <i class="material-symbols-outlined text-primary mr-3">logout</i>{{{trans('lang.logout')}}}
+    </a>
+    <form id="profile-logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+        {{ csrf_field() }}
+    </form>
 </div>
