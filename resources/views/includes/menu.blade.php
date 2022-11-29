@@ -43,6 +43,8 @@
                         </div>
                     </li>
                 @endguest
+            </ul>
+            <ul class="navbar-nav ml-auto align-items-center">
                 {{-- User logged in --}}
                 @auth
                     @php
@@ -67,12 +69,12 @@
                         $employer_payment_module = !empty($payment_settings) && !empty($payment_settings[0]['employer_package']) ? $payment_settings[0]['employer_package'] : 'true';
 
                     @endphp
-
-                    <li class="nav-item wt-userlogedin dropdown">
-                        <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{-- Profile Avatar --}}
+                    <li class="nav-item dropdown d-flex align-items-center">
+                        <div class="nav-link media" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{-- Profile Image --}}
                             @if(!empty($profile) && $profile->avater != "")
-                                <img width="36" height="36" class="rounded-circle" src="{{{ asset(Helper::getImage('uploads/users/' . Auth::user()->id, $profile->avater, '' , 'user.jpg')) }}}" alt="{{{ trans('lang.user_avatar') }}}">
+                                <img width="36" height="36" class="rounded-circle mr-3" src="{{{ asset(Helper::getImage('uploads/users/' . Auth::user()->id, $profile->avater, '' , 'user.jpg')) }}}" alt="{{{ trans('lang.user_avatar') }}}">
                             @else
                                 {{-- Profile Initials --}}
                                 <figure class="wt-userimg">
@@ -81,44 +83,32 @@
                                     </div>
                                 </figure>
                             @endif
-                        </a>
-
-                        <div class="wt-username">
-
-                            <h3>{{{ Helper::getUserName(Auth::user()->id) }}}</h3>
-
-                            <span>{{{ Helper::getAuthRoleName(Auth::user()->id) }}}</span>
-                            {{-- <span>{{{ !empty(Auth::user()->profile->tagline) ? str_limit(Auth::user()->profile->tagline, 26, '') : Helper::getAuthRoleName() }}}</span> --}}
-
+                            {{-- Profile Name and Role --}}
+                            <div class="media-body">
+                                <h6 class="m-0">{{{ Helper::getUserName(Auth::user()->id) }}}</h6>
+                                <p class="m-0"><small>{{{ Helper::getAuthRoleName(Auth::user()->id) }}}</small></p>
+                            </div>
                         </div>
-
+                        {{-- Profile Dropdown Menu --}}
                         @if (file_exists(resource_path('views/extend/back-end/includes/profile-menu.blade.php'))) 
-
                             @include('extend.back-end.includes.profile-menu')
-
                         @else 
-
                             @include('back-end.includes.profile-menu')
-
                         @endif
-
                     </li>
-
+                    {{-- Message Notification --}}
                     <li class="nav-item dropdown bell-notification">
-                        <span v-if="unseenNotification > 0" class="badge badge-danger badge-pill notify-badge">@{{ unseenNotification }}</span>
-                        <a class="nav-link" href id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link d-flex align-items-start" href id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="material-symbols-outlined">notifications</i>
+                            <span v-if="unseenNotification > 0" class="badge badge-danger badge-pill">@{{ unseenNotification }}</span>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <template v-if="userNotifications.length > 0">
                                 <template v-for="(not,i) in userNotifications">
                                     {{-- Job hired notification --}}
-                                    <a v-if="not.type=='job_hired'" class="dropdown-item notify-item" :key="i" :class="{'unseen' : not.seen==0}" :href="not.url!=null?not.url:'#'" @click="notificationOpen(not.id,i)">
+                                    <a v-if="not.type=='job_hired'" :key="i" class="dropdown-item" :class="{'bg-info' : not.seen==0}" :href="not.url!=null?not.url:'#'" @click="notificationOpen(not.id,i)">
                                         <div class="d-flex justify-content-around">
-                                            <span class="icon">
-                                                <i class="material-symbols-outlined">notifications</i>
-                                            </span>
-                                            <span>@{{ not.body }}</span>
+                                            <p>@{{ not.body }}</p>
                                         </div>
                                         <div class="d-flex justify-content-end">
                                             <vue-moments-ago class="timer" prefix="" suffix="ago" :date="not.created_at" lang="en"></vue-moments-ago>
@@ -126,25 +116,15 @@
                                     </a>
 
                                     {{-- Proposal Sent Notification --}}
-                                    <a class="dropdown-item notify-item" :key="i" v-if="not.type=='job_proposal'" :class="{'unseen' : not.seen==0}" :href="not.url!=null?not.url:'#'" @click="notificationOpen(not.id,i)">
-                                        <div class="msg-item d-flex justify-content-start">
-                                            {{-- <span class="icon"><i class="material-symbols-outlined">notifications</i></span> --}}
-
-                                            <div class="msg-img">
-                                                <div class="user-thumb-alt" >
-                                                <img v-if="not.sender.avater!=null" :src="`/uploads/users/${not.sender.user_id}/${not.sender.avater}`" alt="">
-                                                {{-- use Name Initials --}}
-                                                <div v-else class="user-thumb-alt" :style="`background-color: ${not.user_init_color} !important`">
-                                                    @{{ not.user_init }}
-                                                </div>
+                                    <a v-if="not.type=='job_proposal'" :key="i" class="dropdown-item" :class="{'bg-info' : not.seen==0}" :href="not.url!=null?not.url:'#'" @click="notificationOpen(not.id,i)">
+                                        <div class="media">
+                                            <img v-if="not.sender.avater!=null" class="mr-3 rounded-circle" :src="`/uploads/users/${not.sender.user_id}/${not.sender.avater}`" alt="" width="40" height="40">
+                                            {{-- use Name Initials --}}
+                                            <div v-else class="user-thumb-alt" :style="`background-color: ${not.user_init_color} !important`">
+                                                @{{ not.user_init }}
                                             </div>
+                                            <div class="media-body" v-html="not.body">
                                             </div>
-
-                                            <div class="msg-body" v-html="not.body">
-                                            </div>
-
-                                            {{-- <div v-html="not.body">
-                                            </div> --}}
                                         </div>
                                         <div class="d-flex justify-content-end">
                                             <vue-moments-ago class="timer" prefix="" suffix="ago" :date="not.created_at" lang="en"></vue-moments-ago>
@@ -153,7 +133,7 @@
                                 </template>
                             </template>
                             <template v-else>
-                                <div class="no-notification">
+                                <div class="p-3 text-center">
                                     <span class="material-symbols-outlined">highlight_off</span>
                                     <p>Sie haben im Moment keine Benachrichtigung</p>
                                 </div>
@@ -179,7 +159,7 @@
                                         <img v-else :src="conv.participant.thumb" :alt="conv.participant.thumb_alter">
                                     </div>
                                     <div class="msg-body">
-                                        <p class="user-name">@{{ conv.participant.name }}</p>
+                                        <h6>@{{ conv.participant.name }}</h6>
                                         <p class="msg-details">@{{ conv.last_msg.msg }}</p>
                                         <vue-moments-ago class="msg-timer" prefix="" suffix="ago" :date="conv.last_msg.created_at" lang="en"></vue-moments-ago>
                                     </div>
@@ -187,7 +167,7 @@
                             </template>
 
                             <template v-else>
-                                <div class="no-notification">
+                                <div class="p-3 text-center">
                                     <span class="material-symbols-outlined">highlight_off</span>
                                     <p>Sie haben derzeit keine Nachrichten</p>
                                 </div>

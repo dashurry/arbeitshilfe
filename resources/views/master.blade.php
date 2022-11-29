@@ -389,7 +389,10 @@
 			e.preventDefault();
 		});
 		});
-
+		// To keep URLs intact with link inside multi-level dropdown
+		$('.dropright > .dropdown-menu > a').click(function () {
+			window.location = $(this).attr('href');
+		});
 	</script>
 </body>
 

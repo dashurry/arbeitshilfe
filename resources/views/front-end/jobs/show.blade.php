@@ -11,14 +11,6 @@
 @section('content')
 
 <style>
-
-    .wt-header .wt-navigation>ul>.menu-item-has-children:after, .wt-header .wt-navigation > ul > li > a {
-    color: #767676 !important;
-}
-
-    .wt-header .wt-navigationarea .wt-userlogedin .wt-username span, .wt-header .wt-navigationarea .wt-userlogedin .wt-username h3 {
-    color: #767676;
-}
 .wt-userlisting-breadcrumb li + li {
     border-left: 1px solid #767676;
 }
@@ -45,7 +37,7 @@
 
     @endif --}}
 
-    <div class="wt-haslayout wt-main-section" id="jobs">
+    <div class="pt-10" id="jobs">
 
         <div class="container-fluid">
 
@@ -54,7 +46,7 @@
                 </div>
 
                 <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 col-xl-7">
-                    <h3>Auftrag</h3>
+                    <h1>Auftrag</h1>
                 </div>
 
                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 float-left">
@@ -96,7 +88,7 @@
 
                             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                                 <div class="card">
-                                    <div class="wt-proposalholder card-body">
+                                    <div class="card-body">
 
                                         @if (!empty($job->is_featured) && $job->is_featured === 'true')
 
