@@ -2617,6 +2617,7 @@ class UserController extends Controller
 
             $mode = !empty($payout_settings) && !empty($payout_settings[0]['payment_mode']) ? $payout_settings[0]['payment_mode'] : 'true';
 
+
             if (file_exists(resource_path('views/extend/back-end/package/checkout.blade.php'))) {
 
                 return view::make('extend.back-end.package.checkout', compact('stripe_img', 'package', 'package_options', 'payment_gateway', 'symbol', 'mode'));

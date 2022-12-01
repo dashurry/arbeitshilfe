@@ -1,227 +1,94 @@
-<div id="wt-profiledashboard" class="dropdown-menu" aria-labelledby="navbarDropdown">
+<div class="dropdown-menu" aria-labelledby="navbarDropdown">
     @if ($role === 'admin')
-
-        <li class="menu-item-has-children">
-
-            <span class="wt-dropdowarrow"><i class="material-symbols-outlined"></i></span>
-
-            <a href="javascript:void(0)">
-
-                <i class="ti-layers"></i>
-
-                <span>{{ trans('lang.manage_articles') }}</span>
-
-            </a>
-
-            <ul class="sub-menu">
-
-                <li><a href="{{{ route('articles') }}}">{{ trans('lang.articles') }}</a></li>
-
-                <li><a href="{{{ route('articleCategories') }}}">{{ trans('lang.categories') }}</a></li>
-
-            </ul>
-
-        </li>
-
-        <li>
-
-            <a href="{{{ route('orderList') }}}">
-
-                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-
-                <span>{{ trans('lang.orders') }}</span>
-
-            </a>
-
-        </li>
-
+        {{-- Dashboard --}}
+        <div class="dropright">
+            <div class="dropdown-toggle dropdown-item d-flex align-items-center" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="material-symbols-outlined text-primary mr-3">dashboard</i>{{ trans('lang.manage_articles') }}
+            </div>
+            <div class="dropdown-menu">
+                <a href="{{{ route('articles') }}}" class="dropdown-item">{{ trans('lang.articles') }}</a>
+                <a href="{{{ route('articleCategories') }}}" class="dropdown-item">{{ trans('lang.categories') }}</a>
+            </div>
+        </div>
+        {{-- Assignments --}}
+        <a href="{{{ route('orderList') }}}" class="dropdown-item d-flex align-items-center">
+            <i class="material-symbols-outlined text-primary mr-3">shopping_cart</i>{{ trans('lang.orders') }}
+        </a>
         @if (Helper::getAccessType() == 'both' || Helper::getAccessType() == 'jobs')
-
-            <li>
-
-                <a href="{{{ route('allJobs') }}}">
-
-                    <i class="material-symbols-outlined">work</i>
-
-                    <span>{{ trans('lang.all_jobs') }}</span>
-
-                </a>
-
-            </li>
-
+            {{-- All Jobs --}}
+            <a href="{{{ route('allJobs') }}}" class="dropdown-item d-flex align-items-center">
+                <i class="material-symbols-outlined text-primary mr-3">work</i>{{ trans('lang.all_jobs') }}
+            </a>
         @endif
-
         @if (Helper::getAccessType() == 'both' || Helper::getAccessType() == 'services')
-
-            <li>
-
-                <a href="{{{ route('allServices') }}}">
-
-                    <i class="material-symbols-outlined">work</i>
-
-                    <span>{{ trans('lang.services') }}</span>
-
-                </a>
-
-            </li>
-
-            <li>
-
-                <a href="{{{ route('ServiceOrders') }}}">
-
-                    <i class="material-symbols-outlined">work</i>
-
-                    <span>{{ trans('lang.service_orders') }}</span>
-
-                </a>
-
-            </li>
-
+            {{-- All Services --}}
+            <a href="{{{ route('allServices') }}}" class="dropdown-item d-flex align-items-center">
+                <i class="material-symbols-outlined text-primary mr-3">work</i>{{ trans('lang.services') }}
+            </a>
+            {{-- All Service Assignments --}}
+            <a href="{{{ route('ServiceOrders') }}}" class="dropdown-item d-flex align-items-center">
+                <i class="material-symbols-outlined text-primary mr-3">assignment</i>{{ trans('lang.service_orders') }}
+            </a>
         @endif
-
-        <li>
-
-            <a href="{{{ route('reviewOptions') }}}">
-
-                <i class="ti-check-box"></i>
-
-                <span>{{ trans('lang.review_options') }}</span>
-
-            </a>
-
-        </li>
-
-        <li>
-
-            <a href="{{{ route('userListing') }}}">
-
-                <i class="ti-user"></i>
-
-                <span>{{ trans('lang.manage_users') }}</span>
-
-            </a>
-
-        </li>
-
-        <li>
-
-            <a href="{{{ route('emailTemplates') }}}">
-
-                <i class="ti-email"></i>
-
-                <span>{{ trans('lang.email_templates') }}</span>
-
-            </a>
-
-        </li>
-
-        <li class="menu-item-has-children">
-
-            <span class="wt-dropdowarrow"><i class="material-symbols-outlined"></i></span>
-
-            <a href="{{{ route('pages') }}}">
-
-                <i class="ti-layers"></i>
-
-                <span>{{ trans('lang.pages') }}</span>
-
-            </a>
-
-            <ul class="sub-menu">
-
-                <li><a href="{{{ route('pages') }}}">{{ trans('lang.all_pages') }}</a></li>
-
-                <li><a href="{{{ route('createPage') }}}">{{ trans('lang.add_pages') }}</a></li>
-
-            </ul>
-
-        </li>
-
-        <li>
-
-            <a href="{{{ route('createPackage') }}}">
-
-                <i class="ti-package"></i>
-
-                <span>{{ trans('lang.packages') }}</span>
-
-            </a>
-
-        </li>
+        {{-- Review Options --}}
+        <a href="{{{ route('reviewOptions') }}}" class="dropdown-item d-flex align-items-center">
+            <i class="material-symbols-outlined text-primary mr-3">tune</i>{{ trans('lang.review_options') }}
+        </a>
+        {{-- Users Listing --}}
+        <a href="{{{ route('userListing') }}}" class="dropdown-item d-flex align-items-center">
+            <i class="material-symbols-outlined text-primary mr-3">group</i>{{ trans('lang.manage_users') }}
+        </a>
+        {{-- Email Templates --}}
+        <a href="{{{ route('emailTemplates') }}}" class="dropdown-item d-flex align-items-center">
+            <i class="material-symbols-outlined text-primary mr-3">mail</i>{{ trans('lang.email_templates') }}
+        </a>
+        {{-- Website Pages and create new Page --}}
+        <div class="dropright">
+            <div class="dropdown-toggle dropdown-item d-flex align-items-center" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="material-symbols-outlined text-primary mr-3">Web</i>{{ trans('lang.pages') }}
+            </div>
+            <div class="dropdown-menu">
+                <a href="{{{ route('pages') }}}" class="dropdown-item">{{ trans('lang.all_pages') }}</a>
+                <a href="{{{ route('createPage') }}}" class="dropdown-item">{{ trans('lang.add_pages') }}</a>
+            </div>
+        </div>
+        {{-- Packages --}}
+        <a href="{{{ route('createPackage') }}}" class="dropdown-item d-flex align-items-center">
+            <i class="material-symbols-outlined text-primary mr-3">inventory_2</i>{{ trans('lang.packages') }}
+        </a>
         @if (empty(\App\SiteManagement::getMetaValue('homepage')))
-
-            <li>
-
-                <a href="{{{ route('homePageSettings') }}}">
-
-                    <i class="material-symbols-outlined">dashboard</i>
-
-                    <span>{{ trans('lang.home_page_settings') }}</span>
-
-                </a>
-
-            </li>
-
+            {{-- Home Page Settings --}}
+            <a href="{{{ route('homePageSettings') }}}" class="dropdown-item d-flex align-items-center">
+                <i class="material-symbols-outlined text-primary mr-3">settings</i>{{ trans('lang.home_page_settings') }}
+            </a>
         @endif
-
-        <li class="menu-item-has-children">
-
-            <span class="wt-dropdowarrow"><i class="material-symbols-outlined"></i></span>
-
-            <a href="{{{ route('adminProfile') }}}">
-
-                <i class="material-symbols-outlined">settings</i>
-
-                <span>{{ trans('lang.settings') }}</span>
-
-            </a>
-
-            <ul class="sub-menu">
-
-                <li><a href="{{{ route('adminProfile') }}}">{{ trans('lang.acc_settings') }}</a></li>
-
-                <li><a href="{{{ route('settings') }}}">{{ trans('lang.general_settings') }}</a></li>
-
-                <li><a href="{{{ route('resetPassword') }}}">{{ trans('lang.reset_pass') }}</a></li>
-
-            </ul>
-
-        </li>
-
-        <li class="menu-item-has-children">
-
-            <span class="wt-dropdowarrow"><i class="ti-layers"></i></span>
-
-            <a href="{{{ route('categories') }}}">
-
-                <i class="ti-layers"></i>
-
-                <span>{{ trans('lang.taxonomies') }}</span>
-
-            </a>
-
-            <ul class="sub-menu">
-
-                <li><a href="{{{ route('skills') }}}">{{ trans('lang.skills') }}</a></li>
-
-                <li><a href="{{{ route('categories') }}}">{{ trans('lang.job_cats') }}</a></li>
-
-                <li><a href="{{{ route('departments') }}}">{{ trans('lang.dpts') }}</a></li>
-
-                <li><a href="{{{ route('languages') }}}">{{ trans('lang.langs') }}</a></li>
-
-                <li><a href="{{{ route('locations') }}}">{{ trans('lang.locations') }}</a></li>
-
-                <li><a href="{{{ route('badges') }}}">{{ trans('lang.badges') }}</a></li>
-
-                <li><a href="{{{ route('deliveryTime') }}}">{{ trans('lang.delivery_time') }}</a></li>
-
-                <li><a href="{{{ route('ResponseTime') }}}">{{ trans('lang.response_time') }}</a></li>
-
-            </ul>
-
-        </li>
-
+        {{-- Settings --}}
+        <div class="dropright">
+            <div class="dropdown-toggle dropdown-item d-flex align-items-center" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="material-symbols-outlined text-primary mr-3">settings</i>{{ trans('lang.settings') }}
+            </div>
+            <div class="dropdown-menu">
+                <a href="{{{ route('adminProfile') }}}" class="dropdown-item">{{ trans('lang.acc_settings') }}</a>
+                <a href="{{{ route('settings') }}}" class="dropdown-item">{{ trans('lang.general_settings') }}</a>
+                <a href="{{{ route('resetPassword') }}}" class="dropdown-item">{{ trans('lang.reset_pass') }}</a>
+            </div>
+        </div>
+        {{-- Categories --}}
+        <div class="dropright">
+            <div class="dropdown-toggle dropdown-item d-flex align-items-center" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="material-symbols-outlined text-primary mr-3">memory</i>{{ trans('lang.taxonomies') }}
+            </div>
+            <div class="dropdown-menu">
+                <a href="{{{ route('skills') }}}" class="dropdown-item">{{ trans('lang.skills') }}</a>
+                <a href="{{{ route('categories') }}}" class="dropdown-item">{{ trans('lang.job_cats') }}</a>
+                <a href="{{{ route('departments') }}}" class="dropdown-item">{{ trans('lang.dpts') }}</a>
+                <a href="{{{ route('languages') }}}" class="dropdown-item">{{ trans('lang.langs') }}</a>
+                <a href="{{{ route('locations') }}}" class="dropdown-item">{{ trans('lang.locations') }}</a>
+                <a href="{{{ route('badges') }}}" class="dropdown-item">{{ trans('lang.badges') }}</a>
+                <a href="{{{ route('deliveryTime') }}}" class="dropdown-item">{{ trans('lang.delivery_time') }}</a>
+                <a href="{{{ route('ResponseTime') }}}" class="dropdown-item">{{ trans('lang.response_time') }}</a>
+            </div>
+        </div>
     @endif
     {{-- Both Roles --}}
     @if ($role === 'employer' || $role === 'freelancer' )

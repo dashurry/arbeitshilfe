@@ -116,7 +116,7 @@
                                     </a>
 
                                     {{-- Proposal Sent Notification --}}
-                                    <a v-if="not.type=='job_proposal'" :key="i" class="dropdown-item" :class="{'bg-info' : not.seen==0}" :href="not.url!=null?not.url:'#'" @click="notificationOpen(not.id,i)">
+                                    <a v-if="not.type=='job_proposal'" :key="i" class="dropdown-item text-wrap" :class="{'bg-info' : not.seen==0}" :href="not.url!=null?not.url:'#'" @click="notificationOpen(not.id,i)">
                                         <div class="media">
                                             <img v-if="not.sender.avater!=null" class="mr-3 rounded-circle" :src="`/uploads/users/${not.sender.user_id}/${not.sender.avater}`" alt="" width="40" height="40">
                                             {{-- use Name Initials --}}

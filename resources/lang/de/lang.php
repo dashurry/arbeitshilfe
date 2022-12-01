@@ -10,7 +10,7 @@ return [
 
     'disbable_account_temp' => 'Konto vorübergehend sperren',
 
-    'taxonomies' => 'Taxonomies',
+    'taxonomies' => 'Komponenten',
 
     'save_update_note' => 'Import the lastest updates.',
 
@@ -278,7 +278,7 @@ return [
 
     'add_skill' => 'Neue Fähigkeit hinzufügen',
 
-    'skills' => 'Kompetenzen',
+    'skills' => 'Fähigkeiten',
 
     'login_from_different_user' => 'Sie müssen sich von einem anderen Benutzer anmelden.',
 

@@ -1916,7 +1916,7 @@ class Helper extends Model
 
             '30' => trans('lang.pckge_duration.30'),
 
-            '360' => trans('lang.pckge_duration.360'),
+            '365' => trans('lang.pckge_duration.360'),
 
         );
 

@@ -22,7 +22,7 @@
 
         @endif
 
-        <section class="wt-haslayout wt-dbsectionspace la-addpackages">
+        <section class="pb-10">
 
             <div class="row">
 
@@ -252,7 +252,9 @@
 
                                                     @foreach ($durations as $key => $duration)
 
+                                                    @if ($key != "no_data")
                                                         <option value="{{$key}}">{{ Helper::getPackageDurationList($key) }}</option>
+                                                    @endif
 
                                                     @endforeach
 

@@ -384,7 +384,18 @@
 		// multi-level dropdown 
 		$(document).ready(function(){
 		$('.dropright > div').on("click", function(e){
-			$(this).next('div').toggle();
+			// open and close same dropdown
+			if($(this).next('div').hasClass('show')){
+					$(this).removeClass('show');
+				}
+			else{
+				// remove from all dropdown-menu the class show
+				$('.dropright >.dropdown-menu').each(function(){
+					$(this).removeClass('show');    
+				});
+			};
+			// toggle dropdown on this element
+			$(this).next('div').toggleClass("show");
 			e.stopPropagation();
 			e.preventDefault();
 		});

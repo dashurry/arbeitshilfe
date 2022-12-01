@@ -142,9 +142,18 @@ class ProposalController extends Controller
                 $settings = SiteManagement::getMetaValue('settings');
 
                 $required_connects = !empty($settings) && !empty($settings[0]['connects_per_job']) ? $settings[0]['connects_per_job'] : 2;
-
-                $remaining_proposals = !empty($options) && !empty($options['no_of_connects']) ? $options['no_of_connects'] / $required_connects : 0;
-
+                
+                // if optionvalue is a number than continue with math
+                if(is_int($options["no_of_connects"]))
+                {
+                    $remaining_proposals = !empty($options) && !empty($options['no_of_connects']) ? $options['no_of_connects'] / $required_connects : 0;
+                }
+                // if not a number convert to a number
+                else
+                {
+                    $remaining_proposals = 0;
+                }
+                
                 $submitted_proposals = $this->proposal::where('freelancer_id', Auth::user()->id)->count();
 
                 $duration =  Helper::getJobDurationList($job->duration);
@@ -433,9 +442,9 @@ class ProposalController extends Controller
 
                     } else {
 
-                        $submit_propsal = $this->proposal->storeProposal($request, $request['id']);
+                        $submit_proposal = $this->proposal->storeProposal($request, $request['id']);
 
-                        if ($submit_propsal = 'success') {
+                        if ($submit_proposal = 'success') {
 
                             $json['type'] = 'success';
 
@@ -550,9 +559,9 @@ class ProposalController extends Controller
 
                 } else {
 
-                    $submit_propsal = $this->proposal->storeProposal($request, $request['id']);
+                    $submit_proposal = $this->proposal->storeProposal($request, $request['id']);
 
-                    if ($submit_propsal = 'success') {
+                    if ($submit_proposal = 'success') {
 
                         $json['type'] = 'success';
 
@@ -566,8 +575,8 @@ class ProposalController extends Controller
                         $notification->from_id = auth()->user()->id;
                         $notification->type = "job_proposal";
                         $notification->body = '<h6 class="m-0">' . Auth::user()->first_name . " " . Auth::user()->last_name . '</h6>
-                                                <p class="m-0"> hat ein Angebot für den Auftrag ' . $job->title . ' eingereicht</p>
-                                                <p class="m-0"><strong>Vorschlag Betrag : </strong>CHF ' . $request["amount"] . '</p>';
+                                                <p class="m-0"><small> hat ein Angebot für den Auftrag: ' . $job->title . ' eingereicht</small></p>
+                                                <p class="m-0"><h6>Vorschlag Betrag : </h6>CHF ' . $request["amount"] . '</p>';
                         $notification->url = route("getProposals", $job->slug);
                         $notification->save();
 

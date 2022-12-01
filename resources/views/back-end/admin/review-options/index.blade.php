@@ -31,7 +31,7 @@
 
         @endif
 
-        <section class="wt-haslayout wt-dbsectionspace la-review-holder">
+        <section class="pb-10">
 
             <div class="row">
 

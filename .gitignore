@@ -521,3 +521,7 @@ node_modules/.cache/babel-loader/dab0f73b78175cd6f12fd10fdd2e5046.json.gz
 resources/views/back-end/includes/profile-menu.bladeBackup.php
 resources/views/front-end/jobs/showBackup.blade.php
 resources/views/front-end/jobs/indexBackup.blade.php
+node_modules/.cache/babel-loader/07c8962423f06abbb42b7677bb1af408.json.gz
+resources/views/back-end/package/checkoutBackup.blade.php
+node_modules/.cache/babel-loader/fb09996be16f713458c4373bc1f557a9.json.gz
+resources/views/back-end/admin/packages/indexBackup.blade.php
