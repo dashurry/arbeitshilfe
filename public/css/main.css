@@ -11230,7 +11230,7 @@ a:hover {
 .mt-6 {
     margin-top: 2rem!important;
 }
-.btn-primary {
+/* .btn-primary {
     background-color: #6658ea !important;
     border-color: #6658ea;
     box-shadow: 0 0 6px rgb(27 22 66 / 3%), 0 14px 24px rgb(27 22 66 / 6%);
@@ -11238,7 +11238,7 @@ a:hover {
 }
 .btn-primary:hover {
     background-color: #5546e8;
-}
+} */
 /* Tab Style */
 /*.wt-articletwo-wrap .wt-navarticletab li{}*/
 .wt-searcharea{
@@ -13875,4 +13875,4 @@ a.article,
 a.article:hover {
     background: #6d7fcc !important;
     color: #fff !important;
-}
+

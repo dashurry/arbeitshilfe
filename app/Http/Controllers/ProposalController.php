@@ -575,7 +575,8 @@ class ProposalController extends Controller
                         $notification->from_id = auth()->user()->id;
                         $notification->type = "job_proposal";
                         $notification->body = '<h6 class="m-0">' . Auth::user()->first_name . " " . Auth::user()->last_name . '</h6>
-                                                <p class="m-0"><small>hat ein Angebot für den Auftrag: ' . $job->code . ' eingereicht</small></p>';
+                                                <p class="m-0"><small>hat ein Angebot für den Auftrag: ' . $job->code . ' eingereicht</small></p>
+                                                <p class="m-0">Vorschlag Betrag : CHF ' . $request["amount"] . '</p>';
                         $notification->url = route("getProposals", $job->slug);
                         $notification->save();
 

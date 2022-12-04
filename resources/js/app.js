@@ -12,6 +12,9 @@ import Vue from 'vue';
 
 import BootstrapVue from 'bootstrap-vue'
 
+// Import Bootstrap and BootstrapVue CSS files (order is important)
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
 import Pusher from "pusher-js";
 
 import _Store from "./store/backend/index";
