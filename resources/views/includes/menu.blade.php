@@ -96,72 +96,110 @@
                             @include('back-end.includes.profile-menu')
                         @endif
                     </li>
-                    {{-- Message Notification --}}
-                    <li class="nav-item dropdown bell-notification">
-                        <a class="nav-link d-flex align-items-start" href id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="material-symbols-outlined">notifications</i>
-                            <span v-if="unseenNotification > 0" class="badge badge-danger badge-pill">@{{ unseenNotification }}</span>
-                        </a>
+                    <template>
+                        <div>
+                          <b-button @click="$bvToast.show('my-toast')">Show toast</b-button>
+                      
+                          <b-toast id="my-toast" variant="warning" solid>
+                            <template #toast-title>
+                              <div class="d-flex flex-grow-1 align-items-baseline">
+                                <b-img blank blank-color="#ff5555" class="mr-2" width="12" height="12"></b-img>
+                                <strong class="mr-auto">Notice!</strong>
+                                <small class="text-muted mr-2">42 seconds ago</small>
+                              </div>
+                            </template>
+                            This is the content of the toast.
+                            It is short and to the point.
+                          </b-toast>
+                        </div>
+                      </template>
+                    {{-- Job Notification --}}
+                        <b-button @click="$bvToast.show('notification-toast')"><i class="material-symbols-outlined">notifications</i></b-button>
+                        <span v-if="unseenNotification > 0" class="badge badge-danger badge-pill">@{{ unseenNotification }}</span>
+                    
+                        <template v-if="userNotifications.length > 0">
+                            <template v-for="(notification,index) in userNotifications">
+                                {{-- Toast Proposals Notification --}}
+                                    <div v-if="notification.type=='job_proposal' && notification.seen==0">
+                                        <b-toast id="notification-toast" variant="warning" solid no-auto-hide>
+                                            <template #toast-title>
+                                                <a :key="notification.key" :href="notification.url!=null?notification.url:'#'" @click="notificationOpen(notification.id,index)">
+                                                    <div class="d-flex flex-grow-1 align-items-baseline">
+                                                        <b-img v-if="notification.sender.avater!=null" class="rounded-circle" :src="`/uploads/users/${notification.sender.user_id}/${notification.sender.avater}`" :alt="notification.user_init" width="20" height="20">></b-img>
+                                                        <b-img v-else class="rounded-circle" :style="`background-color: ${notification.user_init_color} !important`">@{{ notification.user_init }}</b-img>
+                                                        <strong class="mr-auto">New Proposal</strong>
+                                                        <small class="text-muted mr-2">
+                                                            <vue-moments-ago prefix="" suffix="ago" :date="notification.created_at" lang="en"></vue-moments-ago>
+                                                        </small>
+                                                    </div>
+                                                </a>
+                                            </template>
+                                            <div v-html="notification.body"></div>
+                                        </b-toast>
+                                    </div>
+                            </template>
+                        </template>
+                    <template v-else="notification.type=='job_proposal'">
+                        <div class="p-3 text-center">
+                            <span class="material-symbols-outlined">highlight_off</span>
+                            <p>Sie haben im Moment keine Benachrichtigung</p>
+                        </div>
+                    </template>
+                    <li class="nav-item dropdown">
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <template v-if="userNotifications.length > 0">
-                                <template v-for="(not,i) in userNotifications">
+                                <template v-for="(notification,index) in userNotifications">
                                     {{-- Job hired notification --}}
-                                    <a v-if="not.type=='job_hired'" :key="i" class="dropdown-item" :class="{'bg-info' : not.seen==0}" :href="not.url!=null?not.url:'#'" @click="notificationOpen(not.id,i)">
+                                    <a v-if="notification.type=='job_hired'" :key="notification.key" class="dropdown-item" :class="{'bg-light' : notification.seen==0}" :href="notification.url!=null?notification.url:'#'" @click="notificationOpen(notification.id,index)">
                                         <div class="d-flex justify-content-around">
-                                            <p>@{{ not.body }}</p>
+                                            <p>@{{ notification.body }}</p>
                                         </div>
-                                        <div class="d-flex justify-content-end">
-                                            <vue-moments-ago class="timer" prefix="" suffix="ago" :date="not.created_at" lang="en"></vue-moments-ago>
+                                        <div class="d-flex">
+                                            <vue-moments-ago prefix="" suffix="ago" :date="notification.created_at" lang="en"></vue-moments-ago>
                                         </div>
                                     </a>
-
-                                    {{-- Proposal Sent Notification --}}
-                                    <a v-if="not.type=='job_proposal'" :key="i" class="dropdown-item text-wrap" :class="{'bg-info' : not.seen==0}" :href="not.url!=null?not.url:'#'" @click="notificationOpen(not.id,i)">
-                                        <div class="media">
-                                            <img v-if="not.sender.avater!=null" class="mr-3 rounded-circle" :src="`/uploads/users/${not.sender.user_id}/${not.sender.avater}`" alt="" width="40" height="40">
+                                    {{-- Proposals Notification --}}
+                                    <a v-if="notification.type=='job_proposal' && notification.seen==0" :key="notification.key" class="dropdown-item text-wrap" :class="{'bg-light' : notification.seen==0}" :href="notification.url!=null?notification.url:'#'" @click="notificationOpen(notification.id,index)">
+                                        <div class="flex-column">
+                                            <img v-if="notification.sender.avater!=null" class="rounded-circle" :src="`/uploads/users/${notification.sender.user_id}/${notification.sender.avater}`" :alt="notification.user_init" width="40" height="40">
                                             {{-- use Name Initials --}}
-                                            <div v-else class="user-thumb-alt" :style="`background-color: ${not.user_init_color} !important`">
-                                                @{{ not.user_init }}
+                                            <div v-else class="rounded-circle" :style="`background-color: ${notification.user_init_color} !important`">
+                                                @{{ notification.user_init }}
                                             </div>
-                                            <div class="media-body" v-html="not.body">
+                                            <div class="media-body" v-html="notification.body">
                                             </div>
                                         </div>
-                                        <div class="d-flex justify-content-end">
-                                            <vue-moments-ago class="timer" prefix="" suffix="ago" :date="not.created_at" lang="en"></vue-moments-ago>
+                                        <div class="d-flex">
+                                            <vue-moments-ago prefix="" suffix="ago" :date="notification.created_at" lang="en"></vue-moments-ago>
                                         </div>
                                     </a>
                                 </template>
                             </template>
-                            <template v-else>
+                            <template v-else="notification.type=='job_proposal'">
                                 <div class="p-3 text-center">
                                     <span class="material-symbols-outlined">highlight_off</span>
                                     <p>Sie haben im Moment keine Benachrichtigung</p>
                                 </div>
                             </template>
-                            
                         </div>
                     </li>
-
+                    {{-- Message Notification --}}
                     <li class="nav-item dropdown">
-                        <span v-if="unseenMsg > 0" class="badge badge-danger badge-pill notify-badge">@{{ unseenMsg }}</span>
-                        <a class="nav-link" href id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link d-flex align-items-start" href id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="material-symbols-outlined">textsms</i>
+                            <span v-if="unseenMsg > 0" class="badge badge-danger badge-pill">@{{ unseenMsg }}</span>
                         </a>
-
-                        <div class="dropdown-menu p-2" aria-labelledby="navbarDropdown">
-
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <template v-if="conversations.length > 0">
-                                <div class="msg-item d-flex justify-content-start" v-for="(conv,i) in conversations" :key="i"
-                                :class="conv.last_msg.seen =='unseen'?'unseen':''" @click="openMsg(conv.id)">
-                                    <div class="msg-img">
-                                        <div v-if="conv.participant.thumb == null" 
-                                        class="user-thumb-alt" :style="{'background-color' : conv.participant.thumb_color}">@{{ conv.participant.thumb_alter }}</div>
-                                        <img v-else :src="conv.participant.thumb" :alt="conv.participant.thumb_alter">
+                                <div class="dropdown-item" v-for="(conversation,index) in conversations" :key="conversation.key" :class="conversation.last_msg.seen =='unseen'?'unseen':''" @click="openMsg(conversation.id)">
+                                    <div class="d-flex">
+                                        <div v-if="conversation.participant.thumb == null" class="rounded-circle" :style="{'background-color' : conversation.participant.thumb_color}">@{{ conversation.participant.thumb_alter }}</div>
+                                        <img class="rounded-circle" v-else :src="conversation.participant.thumb" :alt="conversation.participant.thumb_alter" width="40" height="40">
                                     </div>
-                                    <div class="msg-body">
-                                        <h6>@{{ conv.participant.name }}</h6>
-                                        <p class="msg-details">@{{ conv.last_msg.msg }}</p>
-                                        <vue-moments-ago class="msg-timer" prefix="" suffix="ago" :date="conv.last_msg.created_at" lang="en"></vue-moments-ago>
+                                    <div>
+                                        <h6 class="m-0">@{{ conversation.participant.name }}</h6>
+                                        <p class="m-0"><small>@{{ conversation.last_msg.msg }}</small></p>
+                                        <vue-moments-ago prefix="" suffix="ago" :date="conversation.last_msg.created_at" lang="en"></vue-moments-ago>
                                     </div>
                                 </div>
                             </template>

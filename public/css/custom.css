@@ -14,3 +14,8 @@ You can add your custom styling here
 
 */
 
+.toast{
+    position: fixed;
+    right: 0;
+    opacity: 1;
+}
