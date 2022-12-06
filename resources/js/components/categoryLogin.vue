@@ -113,20 +113,20 @@ $(".toggle-password").click(function() {
 </script>
 
 <style>
-.btn-primary {
+/* .btn-primary {
     color: #fff;
     background-color: #ff3f3a;
     border-color: #ff3f3a;
     box-shadow: none;
-}
+} */
 .btn-hover-shadow:hover.btn-primary {
     box-shadow: 0 0.5rem 1.125rem -0.5rem rgb(255 63 58 / 92%);
 }
-.btn-primary:hover {
+/* .btn-primary:hover {
     color: #fff;
     background-color: #ff1a14;
     border-color: #ff0d07;
-}
+} */
 .custom-control-input:checked ~ .custom-control-label::before {
     color: #fff;
     border-color: #ff3f3a;

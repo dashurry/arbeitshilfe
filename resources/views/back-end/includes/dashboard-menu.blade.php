@@ -1,34 +1,21 @@
 @auth
-
 @php
-
     $nameColor = new \App\NameThumbColor();
-
     $user = !empty(Auth::user()) ? Auth::user() : '';
-
     $role = !empty($user) ? $user->getRoleNames()->first() : array();
-
     $profile = \App\User::find($user->id)->profile;
-
     $setting = \App\SiteManagement::getMetaValue('footer_settings');
-
     $payment_settings = \App\SiteManagement::getMetaValue('commision');
-
     $payment_module = !empty($payment_settings) && !empty($payment_settings[0]['enable_packages']) ? $payment_settings[0]['enable_packages'] : 'true';
-
     $employer_payment_module = !empty($payment_settings) && !empty($payment_settings[0]['employer_package']) ? $payment_settings[0]['employer_package'] : 'true';
-
     $copyright = !empty($setting) ? $setting['copyright'] : 'Arbeitshilfe All Rights Reserved';
-
 @endphp
 <div class="wrapper">
     <!-- Sidebar -->
     <nav id="sidebar">
-
         <div id="dismiss" class="shadow d-flex align-items-center justify-content-center">
             <i class="material-symbols-outlined">arrow_back</i>
         </div>
-
         <div class="sidebar-header text-center">
             @if($profile->avater != "")
                 <figure>
@@ -208,7 +195,7 @@
                 @if ($role === 'employer')
                     @if (Helper::getAccessType() == 'both' || Helper::getAccessType() == 'jobs')
                         <li>
-                            <a href="#jobsSubmenu" data-toggle="collapse" aria-expanded="false">
+                            <a data-target="#jobsSubmenu" data-toggle="collapse" aria-expanded="false">
                                 <i class="material-symbols-outlined">work_outline</i>{{ trans('lang.jobs') }}
                             </a>
                             <ul class="collapse list-unstyled" id="jobsSubmenu">
@@ -226,7 +213,7 @@
                     @endif
                     @if (Helper::getAccessType() == 'both' || Helper::getAccessType() == 'services')
                         <li>
-                            <a href="#manageServiceSubmenu" data-toggle="collapse" aria-expanded="false">
+                            <a data-target="#manageServiceSubmenu" data-toggle="collapse" aria-expanded="false">
                                 <i class="material-symbols-outlined">work</i>{{ trans('lang.manage_services') }}
                             </a>
                             <ul class="collapse list-unstyled" id="manageServiceSubmenu">
@@ -243,7 +230,7 @@
                         </li>
                     @endif
                     <li>
-                        <a href="#invoiceSubmenu" data-toggle="collapse" aria-expanded="false">
+                        <a data-target="#invoiceSubmenu" data-toggle="collapse" aria-expanded="false">
                             <i class="material-symbols-outlined">receipt_long</i>{{ trans('lang.invoices') }}
                         </a>
                         <ul class="collapse list-unstyled" id="invoiceSubmenu">
@@ -343,9 +330,8 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
 
-                <button type="button" id="sidebarCollapse" class="btn btn-primary d-flex align-items-center">
-                    <i class="material-symbols-outlined">menu</i>
-                    <span>Toggle Sidebar</span>
+                <button variant="outline-primary" type="button" id="sidebarCollapse" class="btn btn-primary d-flex align-items-center">
+                    <i class="material-symbols-outlined">menu</i>Toggle Sidebar
                 </button>
             </div>
         </nav>
