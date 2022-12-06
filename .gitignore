@@ -527,3 +527,4 @@ node_modules/.cache/babel-loader/fb09996be16f713458c4373bc1f557a9.json.gz
 resources/views/back-end/admin/packages/indexBackup.blade.php
 node_modules/.cache/babel-loader/26d3fe12397da8ce214be7af4d5a8c8c.json.gz
 node_modules/.cache/babel-loader/465a639087ffee3905b98fdd29c43700.json.gz
+resources/views/back-end/employer/dashboardBackup.blade.php

@@ -1,28 +1,5 @@
-@extends(file_exists(resource_path('views/extend/back-end/master.blade.php')) ? 'extend.back-end.master' : 'back-end.master') @section('content') <style>
-    .wt-header .wt-navigation>ul>.menu-item-has-children:after,
-    .wt-header .wt-navigation>ul>li>a {
-      color: #767676 !important;
-    }
-  
-    .wt-header .wt-navigationarea .wt-userlogedin .wt-username span,
-    .wt-header .wt-navigationarea .wt-userlogedin .wt-username h3 {
-      color: #767676;
-    }
-  
-    .wt-formbannervtwo {
-      display: none;
-    }
-  
-    body h2 {
-      font-family: 'Poppins', Arial, Helvetica, sans-serif !important;
-      color: #313889;
-    }
-  
-    .wt-main {
-      background: #ffffff;
-      margin-bottom: 0rem;
-    }
-  </style>
+@extends(file_exists(resource_path('views/extend/back-end/master.blade.php')) ? 'extend.back-end.master' : 'back-end.master') 
+@section('content')
   <!-- Page Content -->
   <section class="wt-haslayout wt-dbsectionspace wt-insightuser" id="dashboard">
     @if (Session::has('message')) 
