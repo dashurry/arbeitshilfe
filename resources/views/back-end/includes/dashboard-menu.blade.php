@@ -330,7 +330,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
 
-                <button variant="outline-primary" type="button" id="sidebarCollapse" class="btn btn-primary d-flex align-items-center">
+                <button type="button" id="sidebarCollapse" class="btn btn-primary d-flex align-items-center">
                     <i class="material-symbols-outlined">menu</i>Toggle Sidebar
                 </button>
             </div>

@@ -72,8 +72,7 @@
           <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
               <button type="button" id="sidebarCollapse" class="btn btn-info">
-                <i class="fas fa-align-left"></i>
-                <span>Toggle Sidebar</span>
+                <i class="material-symbols-outlined">menu</i>Toggle Sidebar
               </button>
             </div>
           </nav>
