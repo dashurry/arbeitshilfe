@@ -44,8 +44,8 @@
                   </li>
                 </ul>
                 <!-- Button -->
-                <a v-if="role !== 'admin' && isLoggedIn =='true'" class="btn w-50 btn-primary btn-lg shadow-none lift" :href="baseUrl+'/user/package/checkout/' + pkgItem.id" target="_blank"> Purchase </a>
-                <a v-else class="btn w-50 btn-lg btn-primary shadow-none lift" href='#' data-target="#modalSignIn" data-toggle="modal"> Purchase </a>
+                <b-button v-if="role !== 'admin' && isLoggedIn =='true'" variant="outline-dark" class="w-50  lift" :href="baseUrl+'/user/package/checkout/' + pkgItem.id" target="_blank"> Purchase </b-button>
+                <b-button v-else class="w-50 lift" variant="outline-dark" href='#' data-target="#modalSignIn" data-toggle="modal"> Purchase </b-button>
               </div>
             </div>
           </div>

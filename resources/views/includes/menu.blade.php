@@ -72,16 +72,14 @@
                     {{-- Profile Avatar --}}
                     <li class="nav-item dropdown d-flex align-items-center">
                         <div class="nav-link media" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{-- Profile Image --}}
                             @if(!empty($profile) && $profile->avater != "")
-                                <img width="36" height="36" class="rounded-circle mr-3" src="{{{ asset(Helper::getImage('uploads/users/' . Auth::user()->id, $profile->avater, '' , 'user.jpg')) }}}" alt="{{{ trans('lang.user_avatar') }}}">
+                                {{-- Profile Image --}}
+                                <b-avatar class="mr-3" variant="info" src="{{{ asset(Helper::getImage('uploads/users/' . Auth::user()->id, $profile->avater, '' , 'user.jpg')) }}}" alt="{{{ trans('lang.user_avatar') }}}"></b-avatar>
                             @else
                                 {{-- Profile Initials --}}
-                                <figure class="wt-userimg">
-                                    <div class="name-thumb-sm" style="background-color: {{ $nameColor->getColor(ucfirst(substr(Auth::user()->first_name,0,1))) }} !important">
-                                        {{ ucfirst(substr(Auth::user()->first_name,0,1)). ucfirst(substr(Auth::user()->last_name,0,1)) }}
-                                    </div>
-                                </figure>
+                                <b-avatar class="mr-3" style="background-color: {{ $nameColor->getColor(ucfirst(substr(Auth::user()->first_name,0,1))) }} !important" src="{{{ asset(Helper::getImage('uploads/users/' . Auth::user()->id, $profile->avater, '' , 'user.jpg')) }}}" alt="{{{ trans('lang.user_avatar') }}}">
+                                    {{ ucfirst(substr(Auth::user()->first_name,0,1)). ucfirst(substr(Auth::user()->last_name,0,1)) }}
+                                </b-avatar>
                             @endif
                             {{-- Profile Name and Role --}}
                             <div class="media-body">
@@ -98,10 +96,9 @@
                     </li>
                     <li>
                         {{-- Job Notification --}}
-                        <b-button size="sm" variant="light" class="bg-transparent shadow-none" @click="$bvToast.show('notification-toast')">
+                        <b-avatar variant="light" class="bg-transparent shadow-none" button v-if="unseenNotification > 0" :badge="unseenNotification" badge-variant="danger" badge-top alt="notification bell" @click="$bvToast.show('notification-toast')">
                             <i class="material-symbols-outlined">notifications</i>
-                            <b-badge variant="danger" pill v-if="unseenNotification > 0">@{{ unseenNotification }}</b-badge>
-                        </b-button>
+                        </b-avatar>
                         <template v-if="userNotifications.length > 0">
                             <template v-for="(notification,index) in userNotifications">
                                     {{-- Toast Proposals Notification --}}

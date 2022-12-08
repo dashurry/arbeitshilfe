@@ -24,10 +24,10 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-4 d-flex justify-content-center flex-wrap" v-if="isLoggedIn =='true'" data-aos="fade-in" data-aos-easing="ease-in-out" data-aos-delay="500">
                         <!-- Buttons -->
-                        <button class="btn btn-primary btn-lg lift shadow">
-                            <a class="text-white" v-if="userType == 'Freiberufler'" :href="'/freelancer/dashboard/post-service'" target="_blank">Job inserieren</a>
-                            <a class="text-white" v-else :href="'/employer/dashboard/post-job'" target="_blank">Job inserieren</a>
-                        </button>
+                        <b-button variant="outline-dark" size="lg" class="lift" v-if="userType == 'Freiberufler'" :href="'/freelancer/dashboard/post-service'" target="_blank">Job inserieren
+                        </b-button>
+                        <b-button variant="outline-dark" size="lg" class="lift" v-else :href="'/employer/dashboard/post-job'" target="_blank">Job inserieren
+                        </b-button>
                     </div>
                 </div>  
                 <!-- Not Logged in -->

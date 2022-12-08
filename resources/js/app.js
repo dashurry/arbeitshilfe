@@ -258,105 +258,45 @@ if(document.getElementById("easin-chat"))
 }
 // End
 
-if (document.getElementById("jobFilter"))
-{
-    var jobFilter = new Vue({
-        el: "#jobFilter"
-    })
+if(document.getElementById("jobFilter")) {
+    var jobFilter=new Vue({el:"#jobFilter"});
 }
 
 jQuery(document).ready(function () {
-
-    jQuery(document).on('click', '.wt-back', function (e) {
-
-        e.preventDefault();
-
-        jQuery('.wt-back').parents('.wt-messages-holder').removeClass('wt-openmsg');
-
-    });
-
-
-
-    jQuery(document).on('click', '.wt-respsonsive-search', function (e) {
-
-        e.preventDefault();
-
-        jQuery('.wt-headervtwo').addClass('wt-search-have show-sform');
-
-    });
-
-
-
-    jQuery(document).on('click', '.wt-search-remove', function (e) {
-
-        e.preventDefault();
-
-        jQuery('.wt-search-have').removeClass('show-sform');
-
-    })
-
-
-
-    jQuery(document).on('click', '.wt-ad', function (e) {
-
-        e.preventDefault();
-
-        jQuery('.wt-ad').parents('.wt-messages-holder').addClass('wt-openmsg');
-
-    });
-
-    // jQuery('.wt-navigation ul li.menu-item-has-children, .wt-navdashboard ul li.menu-item-has-children')
-    // .prepend('<span class="wt-dropdowarrow"><i class="material-symbols-outlined"></i></span>');
-    // <i class="lnr lnr-chevron-right"></i>
-    jQuery('.wt-navigation ul li.menu-item-has-children span').on('click', function () {
-
-        jQuery(this).parent('li').toggleClass('wt-open');
-
-        jQuery(this).next().next().slideToggle(300);
-
-    });
+    jQuery(document).on("click",".wt-back",(function(e){e.preventDefault(),jQuery(".wt-back").parents(".wt-messages-holder").removeClass("wt-openmsg")}));
+    jQuery(document).on("click",".wt-respsonsive-search",(function(e){e.preventDefault(),jQuery(".wt-headervtwo").addClass("wt-search-have show-sform")}));
+    jQuery(document).on("click",".wt-search-remove",(function(e){e.preventDefault(),jQuery(".wt-search-have").removeClass("show-sform")}));
+    jQuery(document).on("click",".wt-ad",(function(e){e.preventDefault(),jQuery(".wt-ad").parents(".wt-messages-holder").addClass("wt-openmsg")}));
+    jQuery(".wt-navigation ul li.menu-item-has-children span").on("click",(function(){
+    jQuery(this).parent("li").toggleClass("wt-open"),jQuery(this).next().next().slideToggle(300)}));
     // Sidebar display and hide function
     $(document).ready(function () {
-
         $('#dismiss, .overlay').on('click', function () {
-            $('#sidebar').removeClass('active');
-            $('.overlay').removeClass('active');
+          $('#sidebar').removeClass('active');
+          $('.overlay').removeClass('active');
         });
-
         $('#sidebarCollapse').on('click', function () {
-            $('#sidebar').addClass('active');
-            $('.overlay').addClass('active');
-            $('.collapse.in').toggleClass('in');
-            $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+          $('#sidebar').addClass('active');
+          $('.overlay').addClass('active');
+          $('.collapse.in').toggleClass('in');
+          $('a[aria-expanded=true]').attr('aria-expanded', 'false');
         });
-    });
-
+      });
     // Sidebar active tab function
     // current Page
     const activePage = window.location.pathname;
-    
-    const navLinks = document.querySelectorAll('#sidebar ul li a').forEach(link => {
-        if(link.href.includes(`${activePage}`)){
-            link.parentElement.classList.add('active');
-        }
-    })
-
-
-    jQuery('.wt-navigation ul li.menu-item-has-children > a, .wt-navigation ul li.page_item_has_children > a').on('click', function () {
-
-        if (location.href.indexOf("#") != -1) {
-
-            jQuery(this).parent('li').toggleClass('wt-open');
-
-            jQuery(this).next().slideToggle(300);
-
-        } else {
-
-            //do nothing
-
-        }
-
+    const navLinks = document.querySelectorAll('#sidebar ul li a');
+    navLinks.forEach((e) => {
+    e.href.includes(`${activePage}`) && e.parentElement.classList.add('active');
     });
+
+
+    jQuery(".wt-navigation ul li.menu-item-has-children > a, .wt-navigation ul li.page_item_has_children > a").on("click",(function(){
+    if (-1!=location.href.indexOf("#")) {
+        jQuery(this).parent("li").toggleClass("wt-open");
+        jQuery(this).next().slideToggle(300);
+    }
+}));
 
 
 

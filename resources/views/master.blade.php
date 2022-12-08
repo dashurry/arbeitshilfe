@@ -382,23 +382,15 @@
 				window.authUser = null;
 		@endif
 		// multi-level dropdown 
-		$(document).ready(function(){
-		$('.dropright > div').on("click", function(e){
-			// open and close same dropdown
-			if($(this).next('div').hasClass('show')){
-					$(this).removeClass('show');
-				}
-			else{
+		$(document).ready(function() {
+			$(".dropright > div").on("click", function(o) {
+				// open and close same dropdown
 				// remove from all dropdown-menu the class show
-				$('.dropright >.dropdown-menu').each(function(){
-					$(this).removeClass('show');    
-				});
-			};
-			// toggle dropdown on this element
-			$(this).next('div').toggleClass("show");
-			e.stopPropagation();
-			e.preventDefault();
-		});
+				$(this).next("div").hasClass("show") ? $(this).removeClass("show") : $(".dropright >.dropdown-menu").each(function() {
+				$(this).removeClass("show")
+				// toggle dropdown on this element
+				}), $(this).next("div").toggleClass("show"), o.stopPropagation(), o.preventDefault()
+			})
 		});
 		// To keep URLs intact with link inside multi-level dropdown
 		$('.dropright > .dropdown-menu > a').click(function () {
@@ -406,6 +398,5 @@
 		});
 	</script>
 </body>
-
 </html>
 
