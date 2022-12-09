@@ -201,9 +201,6 @@
                                             @if (!empty($freelancer))
                                                 <b-td data-th="Hired freelancer text-center">
                                                     <a href="{{{url('profile/'.$freelancer->slug)}}}" class="text-dark">
-                                                        @if ($freelancer->user_verified)
-                                                            <i class="material-symbols-outlined">verified</i>
-                                                        @endif
                                                         {{{$user_name}}}
                                                     </a>
                                                 </b-td>
