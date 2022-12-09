@@ -138,10 +138,9 @@
                     </li>
                     <li>
                         {{-- Message Notification --}}
-                        <b-button size="sm" variant="light" class="bg-transparent shadow-none" @click="$bvToast.show('conversations-toast')">
+                        <b-avatar variant="light" class="bg-transparent shadow-none" button v-if="unseenMsg > 0" :badge="unseenMsg" badge-variant="danger" badge-top alt="notification message" @click="$bvToast.show('conversations-toast')">
                             <i class="material-symbols-outlined">textsms</i>
-                            <b-badge variant="danger" pill v-if="unseenMsg > 0">@{{ unseenMsg }}</b-badge>
-                        </b-button>
+                        </b-avatar>
                         <template v-if="conversations.length > 0">
                             <template v-for="(conversation,index) in conversations">
                                 {{-- Toast Message Notification --}}
