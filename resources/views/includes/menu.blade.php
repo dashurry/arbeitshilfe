@@ -136,13 +136,24 @@
                     </li>
                     <li>
                         {{-- Message Notification --}}
-                        <b-avatar variant="light" class="bg-transparent shadow-none" button v-if="unseenMsg > 0" :badge="unseenMsg" badge-variant="danger" badge-top alt="notification message" @click="$bvToast.show('conversations-toast')">
+                        <b-avatar
+                            variant="light"
+                            class="bg-transparent shadow-none"
+                            button
+                            type="notification"
+                            v-if="unseenMsg > 0"
+                            v-bind:badge="unseenMsg"
+                            badge-variant="danger"
+                            badge-top
+                            alt="notification message"
+                            @click="$bvToast.show('conversations-toast')"
+                            >
                             <i class="material-symbols-outlined">textsms</i>
                         </b-avatar>
                         <template v-if="conversations.length > 0">
                             <template v-for="(conversation,index) in conversations">
                                 {{-- Toast Message Notification --}}
-                                <div v-if="unseenMsg > 0">
+                                <div v-if="unseenMsg > 0 && conversation.last_msg.seen != 'seen'">
                                     <b-toast id="conversations-toast" variant="warning" solid>
                                         <template #toast-title>
                                             <a class="d-flex flex-grow-1 align-items-baseline" :key="conversation.key" href="#" :class="conversation.last_msg.seen =='unseen'?'unseen':''" @click="openMsg(conversation.id)">
