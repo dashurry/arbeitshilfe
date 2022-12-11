@@ -13,7 +13,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             {{-- Navigation --}}
-            <ul class="navbar-nav ml-auto align-items-center">
+            <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -44,7 +44,7 @@
                     </li>
                 @endguest
             </ul>
-            <ul class="navbar-nav ml-auto align-items-center">
+            <ul class="navbar-nav ml-auto">
                 {{-- User logged in --}}
                 @auth
                     @php
@@ -94,7 +94,7 @@
                             @include('back-end.includes.profile-menu')
                         @endif
                     </li>
-                    <li>
+                    <li class="d-flex align-items-center">
                         {{-- Job Notification --}}
                         <b-avatar variant="light" class="bg-transparent shadow-none" button v-if="unseenNotification > 0" :badge="unseenNotification" badge-variant="danger" badge-top alt="notification bell" @click="$bvToast.show('notification-toast')">
                             <i class="material-symbols-outlined">notifications</i>
@@ -134,7 +134,7 @@
                             </template>
                         </template>
                     </li>
-                    <li>
+                    <li class="d-flex align-items-center">
                         {{-- Message Notification --}}
                         <b-avatar
                             variant="light"
