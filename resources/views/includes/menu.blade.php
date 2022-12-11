@@ -106,8 +106,7 @@
                                         <b-toast id="notification-toast" variant="warning" solid>
                                             <template #toast-title>
                                                 <a class="d-flex flex-grow-1 align-items-baseline" :key="notification.key" :href="notification.url!=null?notification.url:'#'" @click="notificationOpen(notification.id,index)">
-                                                    <b-img v-if="notification.sender.avater!=null" class="mr-2" :src="`/uploads/users/${notification.sender.user_id}/${notification.sender.avater}`" :alt="notification.user_init" width="20" height="20" rounded></b-img>
-                                                    <b-img v-else class="rounded-circle" :style="`background-color: ${notification.user_init_color} !important`">@{{ notification.user_init }}</b-img>
+                                                    <b-img blank blank-color="#ff5555" class="mr-2" width="12" height="12"></b-img>
                                                     <strong class="mr-auto">Neuer Vorschlag</strong>
                                                     <small class="text-muted mr-2">
                                                         <vue-moments-ago prefix="" suffix="ago" :date="notification.created_at" lang="en"></vue-moments-ago>
@@ -122,8 +121,7 @@
                                         <b-toast id="notification-toast" variant="warning" solid>
                                             <template #toast-title>
                                                 <b-link class="d-flex flex-grow-1 align-items-baseline" :key="notification.key" :href="notification.url!=null?notification.url:'#'" @click="notificationOpen(notification.id,index)">
-                                                    <b-img v-if="notification.sender.avater!=null" class="mr-2" :src="`/uploads/users/${notification.sender.user_id}/${notification.sender.avater}`" :alt="notification.user_init" width="20" height="20" rounded></b-img>
-                                                    <b-img v-else class="rounded-circle" :style="`background-color: ${notification.user_init_color} !important`">@{{ notification.user_init }}</b-img>
+                                                    <b-img blank blank-color="#ff5555" class="mr-2" width="12" height="12"></b-img>
                                                     <strong class="mr-auto">Neuer Vorschlag</strong>
                                                     <small class="text-muted mr-2">
                                                         <vue-moments-ago prefix="" suffix="ago" :date="notification.created_at" lang="en"></vue-moments-ago>
@@ -148,10 +146,7 @@
                                     <b-toast id="conversations-toast" variant="warning" solid>
                                         <template #toast-title>
                                             <a class="d-flex flex-grow-1 align-items-baseline" :key="conversation.key" href="#" :class="conversation.last_msg.seen =='unseen'?'unseen':''" @click="openMsg(conversation.id)">
-                                                {{-- image --}}
-                                                <b-img v-if="conversation.participant.thumb != null" class="mr-2" :src="conversation.participant.thumb" :alt="conversation.participant.thumb_alter" width="20" height="20" rounded></b-img>
-                                                {{-- if empty image --}}
-                                                <b-img v-else :style="{'background-color' : conversation.participant.thumb_color}" width="20" height="20" rounded>@{{ conversation.participant.thumb_alter }}</b-img>
+                                                <b-img blank blank-color="#ff5555" class="mr-2" width="12" height="12"></b-img>
                                                 {{-- header --}}
                                                 <strong class="mr-auto">Neue Nachricht</strong>
                                                 <small class="text-muted mr-2">

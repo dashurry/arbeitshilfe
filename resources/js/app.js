@@ -553,7 +553,7 @@ if(document.getElementById("wt-header"))
                     return this.$store.getters["Conversation/convs"];
                 },
                 unseenMsg(){
-                    return this.$store.state.Conversation.unseen;
+                    return this.$store.state.Conversation.unseen.toString();
                 }
             },
         });
