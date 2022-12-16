@@ -1,5 +1,5 @@
 # <a href="https://arbeitshilfe.website/" target="_blank" rel="noreferrer">Arbeitshilfe</a>
-In Bearbeitung befindliche Website für einen Kunden, der zusammen mit Personalentwicklungsorganisationen, Arbeitsuchende ein Portal zur Verfügung stellt, um ihre Karriere zu steuern. Die Nutzer können leicht erkennen, welche Schritte sie ergreifen müssen, um eine sinnvolle Beschäftigung zu finden.
+Die Website, an der ich derzeit arbeite, soll Arbeitssuchenden bei der Orientierung in ihrer beruflichen Laufbahn helfen. Das Portal wird den Nutzern eine Plattform bieten, auf der sie die Schritte, die sie unternehmen müssen, um eine sinnvolle Beschäftigung zu finden, leicht erkennen können. Es wird eine Reihe von Funktionen und Ressourcen zur Unterstützung von Arbeitssuchenden bieten, darunter Stellenanzeigen, Berufsberatung und Vernetzungsmöglichkeiten. Die Nutzer können ein Profil erstellen, nach Stellen suchen und mit potenziellen Arbeitgebern in Kontakt treten. Ziel der Website ist es, Arbeitssuchenden dabei zu helfen, die für sie richtige Stelle zu finden und in ihrem Beruf erfolgreich zu sein.
 <br>
 # Tech Stack
 <p align="left">
