@@ -10,7 +10,7 @@
             <div data-aos="fade-up">
               <a v-if="isLoggedIn == 'true'" :href="baseUrl+'/page/dienstleistungen'" class="btn btn-primary btn-lg shadow-none lift">{{ trans('lang.show_all') }}</a>
               <!-- Modal and redirect to job page -->
-              <a v-else data-target="#modalSignIn" data-redirect="search" data-toggle="modal" class="btn btn-primary btn-lg shadow-none lift">{{ trans('lang.show_all') }}</a>
+              <a v-else data-target="#modalSignIn" data-redirect="search" data-toggle="modal" href="javascript:void(0)" class="btn btn-primary btn-lg shadow-none lift">{{ trans('lang.show_all') }}</a>
             </div>
           </div>
         </div>

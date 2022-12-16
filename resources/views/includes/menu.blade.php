@@ -49,28 +49,18 @@
                 @auth
                     @php
                         $nameColor = new \App\NameThumbColor();
-                        
                         $user = !empty(Auth::user()) ? Auth::user() : '';
-
                         $role = !empty($user) ? $user->getRoleNames()->first() : array();
-
                         $profile = \App\User::find(Auth::user()->id)->profile;
-
                         $user_image = !empty($profile) ? $profile->avater : '';
-
                         $employer_job = \App\Job::select('status')->where('user_id', Auth::user()->id)->first();
-
                         $profile_image = !empty($user_image) ? '/uploads/users/'.$user->id.'/'.$user_image : 'images/user-login.png';
-
                         $payment_settings = \App\SiteManagement::getMetaValue('commision');
-
                         $payment_module = !empty($payment_settings) && !empty($payment_settings[0]['enable_packages']) ? $payment_settings[0]['enable_packages'] : 'true';
-
                         $employer_payment_module = !empty($payment_settings) && !empty($payment_settings[0]['employer_package']) ? $payment_settings[0]['employer_package'] : 'true';
-
                     @endphp
                     {{-- Profile Avatar --}}
-                    <li class="nav-item dropdown d-flex align-items-center">
+                    <li class="nav-item dropdown">
                         <div class="nav-link media" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             @if(!empty($profile) && $profile->avater != "")
                                 {{-- Profile Image --}}

@@ -13,7 +13,7 @@
 <div class="wrapper">
     <!-- Sidebar -->
     <nav id="sidebar">
-        <div id="dismiss" class="shadow d-flex align-items-center justify-content-center">
+        <div id="dismiss" class="shadow d-flex align-items-center justify-content-center rounded-circle bg-primary">
             <i class="material-symbols-outlined">arrow_back</i>
         </div>
         <div class="sidebar-header text-center">

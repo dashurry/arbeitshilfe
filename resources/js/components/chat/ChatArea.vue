@@ -4,19 +4,17 @@
         <div class="alert alert-info">
             <div>
                 <div class="d-flex align-items-center font-weight-bold h5" v-if="!loadingConv">
-                    <a :href="`/profile/${threadDetails.participant.user_slug}`" class="text-dark">{{ threadDetails.participant.name }}</a>
-
+                    <a :href="`/profile/${threadDetails.participant.user_slug}`" class="text-dark"><b>{{ threadDetails.participant.name }}</b></a>
                     <div v-if="participantOnline">
                         <span class="online-status online"></span><small class="ml-2">Online</small>
                     </div>
                     <div v-else>
                         <span class="online-status"></span>
                     </div>
-
                 </div>
-                <a v-if="!loadingConv" :href="`/job/${threadDetails.project.slug}`" class="text-dark">@ {{ threadDetails.project.name }}</a>
+                <a v-if="!loadingConv" :href="`/job/${threadDetails.project.slug}`" class="text-dark"><i>@ {{ threadDetails.project.name }}</i></a>
+                </div>
             </div>
-        </div>
     <!-- Chat Box -->
     <div class="d-flex flex-column-reverse">
         <!-- Loader -->
