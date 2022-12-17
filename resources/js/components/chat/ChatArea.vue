@@ -1,153 +1,272 @@
 <template>
-<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
-    <div class="chat-box" :id="`chat-conversation-${this.$route.params.id}`">
-        <div class="alert alert-info">
-            <div>
-                <div class="d-flex align-items-center font-weight-bold h5" v-if="!loadingConv">
-                    <a :href="`/profile/${threadDetails.participant.user_slug}`" class="text-dark"><b>{{ threadDetails.participant.name }}</b></a>
-                    <div v-if="participantOnline">
-                        <span class="online-status online"></span><small class="ml-2">Online</small>
-                    </div>
-                    <div v-else>
-                        <span class="online-status"></span>
-                    </div>
-                </div>
-                <a v-if="!loadingConv" :href="`/job/${threadDetails.project.slug}`" class="text-dark"><i>@ {{ threadDetails.project.name }}</i></a>
-                </div>
-            </div>
-    <!-- Chat Box -->
-    <div class="d-flex flex-column-reverse">
-        <!-- Loader -->
-        <div class="text-center" v-if="loadingMsg">
-            <div class="spinner-border" role="status">
-                <span class="sr-only">Laden...</span>
-            </div>
-        </div> 
-        <!-- Welcome Msg -->
-        <div class="text-center" v-if="!loadingMsg && msg.length < 1">
-            <h1 class="text-success"><i class="material-symbols-outlined">check_circle</i></h1>
-            <h4>Willkommen</h4>
-            <h3>Senden Sie eine Nachricht, um loszulegen</h3>
-        </div>
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-lg-12">
+                <div class="chat-box" :id="`chat-conversation-${this.$route.params.id}`">
+                    <div class="alert alert-info">
+                        <div>
+                            <div class="d-flex align-items-center font-weight-bold h5" v-if="!loadingConv">
+                                <a :href="`/profile/${threadDetails.participant.user_slug}`" class="text-dark">{{ threadDetails.participant.name }}</a>
 
-        <!-- Typing -->
-        <div v-if="participantTyping">
-            <div class="d-flex">
-                <div class="d-flex">
-                        <img :src="threadDetails.participant.thumb" :alt="threadDetails.participant.thumb_alter" v-if="threadDetails.participant.thumb != null" width="50" height="50" class="rounded-circle">
-                    <div class="thumb" v-bind:style="{'background' : threadDetails.participant.thumb_color}" v-else>{{ threadDetails.participant.thumb_alter }}</div>
-                </div>
-                <div class="ml-3 d-flex align-items-center">
-                    <div class="ml-4">
-                        <div class="dot-typing"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End -->
+                                <div v-if="participantOnline">
+                                    <span class="online-status online"></span><small class="ml-2">Online</small>
+                                </div>
+                                <div v-else>
+                                    <span class="online-status"></span>
+                                </div>
 
-        <div v-if="msgForm.hasFile && msgForm.busy">
-            <div class="d-flex justify-content-end">
-                <div>
-                    <div class="text-white bg-primary p-2 badge-pill">
-                        <span class="h6 font-weight-light">Senden... <span class="ml-3 spinner-border spinner-border-sm" role="status" aria-hidden="true"></span></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-        <template v-for="(mg,i) in msg">
-
-            <div class="mt-5" :key="i" v-if="mg.sent_by != user_id">
-                <h6 class="text-dark ml-5"><small>{{ mg.created_at }}</small></h6>
-                <div class="d-flex align-items-center">
-                    <div class="d-flex">
-                        <template v-if="!loadingConv && threadDetails.participant.thumb != null">
-                            <img :src="threadDetails.participant.thumb" :alt="threadDetails.participant.thumb_alter" v-if="threadDetails.participant.thumb != null" width="50" height="50" class="rounded-circle">
-                        </template>
-                        <div class="thumb" v-bind:style="{'background' : threadDetails.participant.thumb_color}" v-else>{{ threadDetails.participant.thumb_alter }}</div>
-                    </div>
-                    <div class="ml-2">
-                        <div class="p-2">
-                            <div v-if="mg.hasFile == 1 && mg.fileType == 'other'">
-                                <h2><i class="material-symbols-outlined">draft</i></h2>
-                                <a class="document" href="#">{{ mg.file }}</a>
                             </div>
-                            <div v-if="mg.hasFile == 1 && mg.fileType == 'image'">
-                                <a :href="`/uploads/conversation/${$route.params.id}/${mg.file}`" target="_blank">
-                                    <img :src="`/uploads/conversation/${$route.params.id}/${mg.file}`" alt="">
-                                </a>
+                            <a v-if="!loadingConv" :href="`/job/${threadDetails.project.slug}`" class="text-dark">@ {{ threadDetails.project.name }}</a>
+                        </div>
+                    </div>
+                <!-- Chat Box -->
+                <div class="d-flex flex-column-reverse">
+                    <!-- Loader -->
+                    <div class="text-center" v-if="loadingMsg">
+                        <div class="spinner-border" role="status">
+                            <span class="sr-only">Laden...</span>
+                        </div>
+                    </div> 
+                    <!-- Welcome Msg -->
+                    <div class="text-center" v-if="!loadingMsg && msg.length < 1">
+                        <h1 class="text-success"><i class="material-symbols-outlined">check_circle</i></h1>
+                        <h4>Willkommen</h4>
+                        <h3>Senden Sie eine Nachricht, um loszulegen</h3>
+                    </div>
+
+                    <!-- Typing -->
+                    <div v-if="participantTyping">
+                        <div class="d-flex">
+                            <div class="d-flex">
+                                    <img :src="threadDetails.participant.thumb" :alt="threadDetails.participant.thumb_alter" v-if="threadDetails.participant.thumb != null" width="50" height="50" class="rounded-circle">
+                                <div class="thumb" v-bind:style="{'background' : threadDetails.participant.thumb_color}" v-else>{{ threadDetails.participant.thumb_alter }}</div>
                             </div>
-                            <h4><span class="badge badge-pills badge-light shadow p-3 font-weight-normal">{{ mg.msg }}</span></h4>
+                            <div class="ml-3 d-flex align-items-center">
+                                <div class="ml-4">
+                                    <div class="dot-typing"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End -->
+
+                    <div v-if="msgForm.hasFile && msgForm.busy">
+                        <div class="d-flex justify-content-end">
+                            <div>
+                                <div class="text-white bg-primary p-2 badge-pill">
+                                    <span class="h6 font-weight-light">Senden... <span class="ml-3 spinner-border spinner-border-sm" role="status" aria-hidden="true"></span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <template v-for="(mg,i) in msg">
+
+                        <div class="mt-5" :key="i" v-if="mg.sent_by != user_id">
+                            <h6 class="text-dark ml-5"><small>{{ mg.created_at }}</small></h6>
+                            <div class="d-flex align-items-center">
+                                <div class="d-flex">
+                                    <template v-if="!loadingConv && threadDetails.participant.thumb != null">
+                                        <img :src="threadDetails.participant.thumb" :alt="threadDetails.participant.thumb_alter" v-if="threadDetails.participant.thumb != null" width="50" height="50" class="rounded-circle">
+                                    </template>
+                                    <div class="thumb" v-bind:style="{'background' : threadDetails.participant.thumb_color}" v-else>{{ threadDetails.participant.thumb_alter }}</div>
+                                </div>
+                                <div class="ml-2">
+                                    <div class="p-2">
+                                        <div v-if="mg.hasFile == 1 && mg.fileType == 'other'">
+                                            <h2><i class="material-symbols-outlined">draft</i></h2>
+                                            <a class="document" href="#">{{ mg.file }}</a>
+                                        </div>
+                                        <div v-if="mg.hasFile == 1 && mg.fileType == 'image'">
+                                            <a :href="`/uploads/conversation/${$route.params.id}/${mg.file}`" target="_blank">
+                                                <img :src="`/uploads/conversation/${$route.params.id}/${mg.file}`" alt="">
+                                            </a>
+                                        </div>
+                                        <h4><span class="badge badge-pills badge-light shadow p-3 font-weight-normal">{{ mg.msg }}</span></h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-5" :key="i" v-else>
+                            <h6 class="text-dark d-flex justify-content-end"><small>{{ mg.created_at }}</small></h6>
+                            <div class="w-100 d-flex align-items-center justify-content-end">
+                                <div>
+                                    <div class="p-2 d-flex">
+                                        <div v-if="mg.hasFile == 1 && mg.fileType == 'other'">
+                                            <h2><i class="material-symbols-outlined">draft</i></h2>
+                                            <a class="document" href="#">{{ mg.file }}</a>
+                                        </div>
+                                        <div v-if="mg.hasFile == 1 && mg.fileType == 'image'">
+                                            <a :href="`/uploads/conversation/${$route.params.id}/${mg.file}`" target="_blank">
+                                                <img :src="`/uploads/conversation/${$route.params.id}/${mg.file}`" alt="" width="200" height="200">
+                                            </a>
+                                        </div>
+                                        <h4><span class="badge badge-pills alert-info p-3 shadow font-weight-normal">{{ mg.msg }}</span></h4>
+                                        <span v-if="i == 0" class="ml-3 msg-seen" :title="mg.seen=='seen'?`Seen by ${threadDetails.participant.name}`:'Message Delivered'">
+                                            <i class="material-symbols-outlined" v-if="!msgForm.busy">check</i>
+                                            <i v-if="mg.seen=='seen'" class="material-symbols-outlined">check</i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>  
+                </div>
+
+                <div class="d-flex justify-content-between alert alert-warning" v-if="msgForm.hasFile">
+                    <div>{{ msgForm.msgFile.name }}</div>
+                    <button title="Remove file" @click="removeFile" class="bg-transparent"><i class="material-symbols-outlined">close</i></button>
+                </div>
+                    
+                <div class="d-flex flex-wrap align-items-center" v-if="threadDetails.conv_status=='open'">
+                    <!-- Buttons -->
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                        <div class="mb-3">
+                            <button class="btn btn-outline-info" title="Add photo, video , files" @click="openFileDialogue">
+                                <i class="material-symbols-outlined">image</i>
+                            </button>
+                            <input type="file" hidden id="msgFile" @change="fileChange">
+                            <button title="Send message" @click="sendMessage" class="btn btn-lg btn-outline-success ml-3">
+                                <i class="material-symbols-outlined">check_circle</i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Textarea -->
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8">  
+                        <div class="w-100">
+                            <textarea class="form-control" placeholder="Type here..." v-model="msgText" title="Press shift + enter for new line" id="msg-textarea"
+                            @keydown.exact="sendTypingEvent"
+                            @keydown.enter.exact.prevent="sendMessage"
+                            @keydown.enter.shift.exact.prevent="newLine($event)"
+                            ></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="msg-type-area" v-else>
+                    <p class="text-center text-muted">You can't reply to this conversation</p>
+                </div>
+
+            
+                    <div class="card chat-app">
+                        <div id="plist" class="people-list">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-search"></i></span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Search...">
+                            </div>
+                            <ul class="list-unstyled chat-list mt-2 mb-0">
+                                <li class="clearfix">
+                                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="avatar">
+                                    <div class="about">
+                                        <div class="name">Vincent Porter</div>
+                                        <div class="status"> <i class="fa fa-circle offline"></i> left 7 mins ago </div>                                            
+                                    </div>
+                                </li>
+                                <li class="clearfix active">
+                                    <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="avatar">
+                                    <div class="about">
+                                        <div class="name">Aiden Chavez</div>
+                                        <div class="status"> <i class="fa fa-circle online"></i> online </div>
+                                    </div>
+                                </li>
+                                <li class="clearfix">
+                                    <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="avatar">
+                                    <div class="about">
+                                        <div class="name">Mike Thomas</div>
+                                        <div class="status"> <i class="fa fa-circle online"></i> online </div>
+                                    </div>
+                                </li>                                    
+                                <li class="clearfix">
+                                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="avatar">
+                                    <div class="about">
+                                        <div class="name">Christian Kelly</div>
+                                        <div class="status"> <i class="fa fa-circle offline"></i> left 10 hours ago </div>
+                                    </div>
+                                </li>
+                                <li class="clearfix">
+                                    <img src="https://bootdey.com/img/Content/avatar/avatar8.png" alt="avatar">
+                                    <div class="about">
+                                        <div class="name">Monica Ward</div>
+                                        <div class="status"> <i class="fa fa-circle online"></i> online </div>
+                                    </div>
+                                </li>
+                                <li class="clearfix">
+                                    <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="avatar">
+                                    <div class="about">
+                                        <div class="name">Dean Henry</div>
+                                        <div class="status"> <i class="fa fa-circle offline"></i> offline since Oct 28 </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="chat">
+                            <div class="chat-header clearfix">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <a :href="`/profile/${threadDetails.participant.user_slug}`">
+                                            <img v-if="threadDetails.participant.thumb != null" :src="threadDetails.participant.thumb" :alt="threadDetails.participant.thumb_alter">
+                                            <img v-else :src="threadDetails.participant.thumb_alter" v-bind:style="{'background' : threadDetails.participant.thumb_color}">
+                                        </a>
+                                        <div class="chat-about">
+                                            <h6 class="m-b-0">{{ threadDetails.participant.name }}</h6>
+                                            <small>Last seen: 2 hours ago</small><br>
+                                            <small>
+                                                <a v-if="!loadingConv" :href="`/job/${threadDetails.project.slug}`" class="text-dark"> @ {{ threadDetails.project.name.substring(0, 30) }}...</a>
+                                            </small>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 hidden-sm text-right">
+                                        <a href="javascript:void(0);" class="btn btn-outline-secondary"><i class="fa fa-camera"></i></a>
+                                        <a href="javascript:void(0);" class="btn btn-outline-primary"><i class="fa fa-image"></i></a>
+                                        <a href="javascript:void(0);" class="btn btn-outline-info"><i class="fa fa-cogs"></i></a>
+                                        <a href="javascript:void(0);" class="btn btn-outline-warning"><i class="fa fa-question"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                                <div class="chat-history">
+                                    <ul class="m-b-0">
+                                        <template v-for="(mg,i) in msg">
+                                            <li v-if="mg.sent_by != user_id" :key="i" class="clearfix" >
+                                                <div class="message-data text-right">
+                                                    <span class="message-data-time">{{ mg.created_at }}</span>
+                                                    <img v-if="threadDetails.participant.thumb != null" :src="threadDetails.participant.thumb" :alt="threadDetails.participant.thumb_alter">
+                                                    <img v-else :src="threadDetails.participant.thumb_alter" v-bind:style="{'background' : threadDetails.participant.thumb_color}">
+                                                </div>
+                                                <div class="message other-message float-right">{{ mg.msg }}</div>
+                                            </li>
+                                            <li v-else :key="i" class="clearfix">
+                                                <div class="message-data">
+                                                    <span class="message-data-time">{{ mg.created_at }}</span>
+                                                </div>
+                                                <div class="message my-message">{{ mg.msg }}</div>                                    
+                                            </li>
+                                        </template>
+                                    </ul>
+                                </div>
+                            <div class="chat-message clearfix">
+                                <div class="input-group mb-0">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"  @click="sendMessage"><i class="fa fa-send"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Enter text here..." v-model="msgText" title="Press shift + enter for new line" id="msg-textarea"
+                                    @keydown.exact="sendTypingEvent"
+                                    @keydown.enter.exact.prevent="sendMessage"
+                                    @keydown.enter.shift.exact.prevent="newLine($event)">                                    
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="mt-5" :key="i" v-else>
-                <h6 class="text-dark d-flex justify-content-end"><small>{{ mg.created_at }}</small></h6>
-                <div class="w-100 d-flex align-items-center justify-content-end">
-                    <div>
-                        <div class="p-2 d-flex">
-                            <div v-if="mg.hasFile == 1 && mg.fileType == 'other'">
-                                <h2><i class="material-symbols-outlined">draft</i></h2>
-                                <a class="document" href="#">{{ mg.file }}</a>
-                            </div>
-                            <div v-if="mg.hasFile == 1 && mg.fileType == 'image'">
-                                <a :href="`/uploads/conversation/${$route.params.id}/${mg.file}`" target="_blank">
-                                    <img :src="`/uploads/conversation/${$route.params.id}/${mg.file}`" alt="" width="200" height="200">
-                                </a>
-                            </div>
-                             <h4><span class="badge badge-pills alert-info p-3 shadow font-weight-normal">{{ mg.msg }}</span></h4>
-                            <span v-if="i == 0" class="ml-3 msg-seen" :title="mg.seen=='seen'?`Seen by ${threadDetails.participant.name}`:'Message Delivered'">
-                                <i class="material-symbols-outlined" v-if="!msgForm.busy">check</i>
-                                <i v-if="mg.seen=='seen'" class="material-symbols-outlined">check</i>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </template>  
-    </div>
-
-    <div class="d-flex justify-content-between alert alert-warning" v-if="msgForm.hasFile">
-        <div>{{ msgForm.msgFile.name }}</div>
-        <button title="Remove file" @click="removeFile" class="bg-transparent"><i class="material-symbols-outlined">close</i></button>
-    </div>
-        
-    <div class="d-flex flex-wrap align-items-center" v-if="threadDetails.conv_status=='open'">
-        <!-- Buttons -->
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-            <div class="mb-3">
-                <button class="btn btn-outline-info" title="Add photo, video , files" @click="openFileDialogue">
-                    <i class="material-symbols-outlined">image</i>
-                </button>
-                <input type="file" hidden id="msgFile" @change="fileChange">
-                <button title="Send message" @click="sendMessage" class="btn btn-lg btn-outline-success ml-3">
-                    <i class="material-symbols-outlined">check_circle</i>
-                </button>
-            </div>
-        </div>
-        <!-- Textarea -->
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8">  
-            <div class="w-100">
-                <textarea class="form-control" placeholder="Type here..." v-model="msgText" title="Press shift + enter for new line" id="msg-textarea"
-                @keydown.exact="sendTypingEvent"
-                @keydown.enter.exact.prevent="sendMessage"
-                @keydown.enter.shift.exact.prevent="newLine($event)"
-                ></textarea>
-            </div>
         </div>
     </div>
-    <div class="msg-type-area" v-else>
-        <p class="text-center text-muted">You can't reply to this conversation</p>
-    </div>
-
-    </div>
-</div>
 </template>
+
 
 <script>
 export default {
@@ -221,40 +340,53 @@ export default {
             })
         },
         async sendMessage(){
+            // Check if the msgText property is an empty string
+            if (this.msgText === "") {
+                // Show an error message or alert to inform the user that the message cannot be empty
+                this.$toast.warning('Die Nachricht kann nicht leer sein', '');
+                return;
+            }
+             // Update the msgForm object with the current msgText and participantOnline status
             this.msgForm.msgText = this.msgText;
             this.msgForm.userOnline = this.participantOnline,
+            // Reset the msgText to an empty string
             this.msgText = "";
-            if(this.msgForm.hasFile != true)
-            {
-                // Create new message on client side
-                var newMsg = {
-                    id: null,
-                    conversation_id: this.$route.params.id,
-                    msg: this.msgForm.msgText,
-                    hasFile: this.msgForm.file!=null?1:0,
-                    file: null,
-                    fileType: null,
-                    sent_by: this.user_id,
-                    seen: 'unseen',
-                    created_at: "Today - "+moment().format("hh:mm A"),
-                    updated_at: moment(),
+            
+            // Check if the msgForm has a file attached
+            if (this.msgForm.hasFile != true) {
+                // Create a new message object for the client side
+                var newMessage  = {
+                id: null, // placeholder for the message ID (to be assigned by the server)
+                conversation_id: this.$route.params.id, // ID of the current conversation
+                msg: this.msgForm.msgText, // message text
+                hasFile: this.msgForm.file != null ? 1 : 0, // flag indicating if the message has a file attached (1 = yes, 0 = no)
+                file: null, // placeholder for the file object (if present)
+                fileType: null, // placeholder for the file type (if present)
+                sent_by: this.user_id, // ID of the user who sent the message
+                seen: 'unseen', // flag indicating if the message has been seen by the recipient (unseen, seen)
+                created_at: "Today - " + moment().format("hh:mm A"), // timestamp for when the message was created (formatted as "Today - hh:mm A")
+                updated_at: moment(), // timestamp for when the message was last updated
                 }
-                this.msg.unshift(newMsg);
+                // Add the new message object to the beginning of the msg array
+                this.msg.unshift(newMessage );
+                // Play the sentAudio file
                 this.sentAudio.play();
-
-                var newMsg2 = {
-                    id: null,
-                    conversation_id: this.$route.params.id,
-                    msg: this.limitedMsgString(this.msgForm.msgText),
-                    hasFile: this.msgForm.file!=null?1:0,
-                    file: null,
-                    fileType: null,
-                    sent_by: this.user_id,
-                    seen: this.participantOnline==true?'seen':'unseen',
-                    created_at: moment().format("YYYY-MM-DD HH:mm:ss"),
-                    updated_at: moment(),
+                
+                // Create a new message object for the server side
+                var formattedMessage = {
+                id: null, // placeholder for the message ID (to be assigned by the server)
+                conversation_id: this.$route.params.id, // ID of the current conversation
+                msg: this.limitedMsgString(this.msgForm.msgText), // message text (truncated if necessary)
+                hasFile: this.msgForm.file != null ? 1 : 0, // flag indicating if the message has a file attached (1 = yes, 0 = no)
+                file: null, // placeholder for the file object (if present)
+                fileType: null, // placeholder for the file type (if present)
+                sent_by: this.user_id, // ID of the user who sent the message
+                seen: this.participantOnline == true ? 'seen' : 'unseen', // flag indicating if the message has been seen by the recipient (unseen, seen) based on the participantOnline status
+                created_at: moment().format("YYYY-MM-DD HH:mm:ss"), // timestamp for when the message was created (formatted as "YYYY-MM-DD HH:mm:ss")
+                updated_at: moment(), // timestamp for when the message was last updated
                 }
-                this.$store.commit("Conversation/UPDATE_MESSAGE_FOR_SENDER",newMsg2);
+                // Commit the UPDATE_MESSAGE_FOR_SENDER mutation to the Vuex store, passing in the new message object as an argument
+                this.$store.commit("Conversation/UPDATE_MESSAGE_FOR_SENDER",formattedMessage);
                 // Stop typing event after sending one message
                 this.chatChannel
                 .whisper("typing",{
@@ -392,6 +524,10 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.chat-history{
+    height: 75vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
 </style>
