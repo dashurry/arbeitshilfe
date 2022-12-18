@@ -170,7 +170,8 @@
                                                 <div class="about">
                                                     <!-- Display the conversation's participant's name -->
                                                     <div class="name">{{ conv.participant.name }}</div>
-                                                    <div class="status"> <i class="fa fa-circle offline"></i>
+                                                    <div v-if="participantOnline" class="status"> <i class="fa fa-circle online"></i> online </div>
+                                                    <div v-else class="status"> <i class="fa fa-circle offline"></i>
                                                     <!-- Display the time that the conversation's last message was created using the vue-moments-ago component -->
                                                     <vue-moments-ago :key="i" prefix="" suffix="ago" :date="conv.last_msg.created_at" lang="en"></vue-moments-ago>
                                                     </div>                                            
