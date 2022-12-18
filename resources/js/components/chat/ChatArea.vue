@@ -151,58 +151,70 @@
 
             
                     <div class="card chat-app">
-                        <div id="plist" class="people-list">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fa fa-search"></i></span>
+                        <template v-if="conversations.length > 0">
+                                <div id="plist" class="people-list">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fa fa-search"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="Search...">
+                                    </div>
+                                    <ul class="list-unstyled chat-list mt-2 mb-0">
+                                        <!-- Iterate over each conversation in the conversations array -->
+                                        <router-link v-for="(conv, i) in conversations" :key="i" :to="{name: 'conv-thread', params: {id: conv.id}}">
+                                            <li class="clearfix">
+                                                <!-- If the conversation's participant has a thumbnail image, display it. Otherwise, display a div element
+                                                with a class of "user-thumb-alt" and a background color specified by conv.participant.thumb_color -->
+                                                <div v-if="conv.participant.thumb == null" class="user-thumb-alt" :style="{'background-color' : conv.participant.thumb_color}">{{ conv.participant.thumb_alter }}</div>
+                                                <img :src="conv.participant.thumb" :alt="conv.participant.thumb_alter">
+                                                <div class="about">
+                                                    <!-- Display the conversation's participant's name -->
+                                                    <div class="name">{{ conv.participant.name }}</div>
+                                                    <div class="status"> <i class="fa fa-circle offline"></i>
+                                                    <!-- Display the time that the conversation's last message was created using the vue-moments-ago component -->
+                                                    <vue-moments-ago :key="i" prefix="" suffix="ago" :date="conv.last_msg.created_at" lang="en"></vue-moments-ago>
+                                                    </div>                                            
+                                                </div>
+                                            </li>
+                                            <li class="clearfix active">
+                                                <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="avatar">
+                                                <div class="about">
+                                                    <div class="name">Aiden Chavez</div>
+                                                    <div class="status"> <i class="fa fa-circle online"></i> online </div>
+                                                </div>
+                                            </li>
+                                            <li class="clearfix">
+                                                <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="avatar">
+                                                <div class="about">
+                                                    <div class="name">Mike Thomas</div>
+                                                    <div class="status"> <i class="fa fa-circle online"></i> online </div>
+                                                </div>
+                                            </li>                                    
+                                            <li class="clearfix">
+                                                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="avatar">
+                                                <div class="about">
+                                                    <div class="name">Christian Kelly</div>
+                                                    <div class="status"> <i class="fa fa-circle offline"></i> left 10 hours ago </div>
+                                                </div>
+                                            </li>
+                                            <li class="clearfix">
+                                                <img src="https://bootdey.com/img/Content/avatar/avatar8.png" alt="avatar">
+                                                <div class="about">
+                                                    <div class="name">Monica Ward</div>
+                                                    <div class="status"> <i class="fa fa-circle online"></i> online </div>
+                                                </div>
+                                            </li>
+                                            <li class="clearfix">
+                                                <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="avatar">
+                                                <div class="about">
+                                                    <div class="name">Dean Henry</div>
+                                                    <div class="status"> <i class="fa fa-circle offline"></i> offline since Oct 28 </div>
+                                                </div>
+                                            </li>
+                                        </router-link>
+                                    </ul>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Search...">
-                            </div>
-                            <ul class="list-unstyled chat-list mt-2 mb-0">
-                                <li class="clearfix">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="avatar">
-                                    <div class="about">
-                                        <div class="name">Vincent Porter</div>
-                                        <div class="status"> <i class="fa fa-circle offline"></i> left 7 mins ago </div>                                            
-                                    </div>
-                                </li>
-                                <li class="clearfix active">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="avatar">
-                                    <div class="about">
-                                        <div class="name">Aiden Chavez</div>
-                                        <div class="status"> <i class="fa fa-circle online"></i> online </div>
-                                    </div>
-                                </li>
-                                <li class="clearfix">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="avatar">
-                                    <div class="about">
-                                        <div class="name">Mike Thomas</div>
-                                        <div class="status"> <i class="fa fa-circle online"></i> online </div>
-                                    </div>
-                                </li>                                    
-                                <li class="clearfix">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="avatar">
-                                    <div class="about">
-                                        <div class="name">Christian Kelly</div>
-                                        <div class="status"> <i class="fa fa-circle offline"></i> left 10 hours ago </div>
-                                    </div>
-                                </li>
-                                <li class="clearfix">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar8.png" alt="avatar">
-                                    <div class="about">
-                                        <div class="name">Monica Ward</div>
-                                        <div class="status"> <i class="fa fa-circle online"></i> online </div>
-                                    </div>
-                                </li>
-                                <li class="clearfix">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="avatar">
-                                    <div class="about">
-                                        <div class="name">Dean Henry</div>
-                                        <div class="status"> <i class="fa fa-circle offline"></i> offline since Oct 28 </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                        </template>
                         <div class="chat">
                             <div class="chat-header clearfix">
                                 <div class="row">
@@ -214,40 +226,86 @@
                                         <div class="chat-about">
                                             <h6 class="m-b-0">{{ threadDetails.participant.name }}</h6>
                                             <small>Last seen: 2 hours ago</small><br>
-                                            <small>
+                                            <!-- <small>
                                                 <a v-if="!loadingConv" :href="`/job/${threadDetails.project.slug}`" class="text-dark"> @ {{ threadDetails.project.name.substring(0, 30) }}...</a>
-                                            </small>
+                                            </small> -->
                                         </div>
                                     </div>
                                     <div class="col-lg-6 hidden-sm text-right">
                                         <a href="javascript:void(0);" class="btn btn-outline-secondary"><i class="fa fa-camera"></i></a>
-                                        <a href="javascript:void(0);" class="btn btn-outline-primary"><i class="fa fa-image"></i></a>
+                                        <a href="javascript:void(0);" class="btn btn-outline-primary" @click="openFileDialogue"><i class="fa fa-image"></i></a>
                                         <a href="javascript:void(0);" class="btn btn-outline-info"><i class="fa fa-cogs"></i></a>
                                         <a href="javascript:void(0);" class="btn btn-outline-warning"><i class="fa fa-question"></i></a>
                                     </div>
                                 </div>
                             </div>
                             
-                                <div class="chat-history">
-                                    <ul class="m-b-0">
-                                        <template v-for="(mg,i) in msg">
-                                            <li v-if="mg.sent_by != user_id" :key="i" class="clearfix" >
-                                                <div class="message-data text-right">
-                                                    <span class="message-data-time">{{ mg.created_at }}</span>
-                                                    <img v-if="threadDetails.participant.thumb != null" :src="threadDetails.participant.thumb" :alt="threadDetails.participant.thumb_alter">
-                                                    <img v-else :src="threadDetails.participant.thumb_alter" v-bind:style="{'background' : threadDetails.participant.thumb_color}">
-                                                </div>
-                                                <div class="message other-message float-right">{{ mg.msg }}</div>
-                                            </li>
-                                            <li v-else :key="i" class="clearfix">
-                                                <div class="message-data">
-                                                    <span class="message-data-time">{{ mg.created_at }}</span>
-                                                </div>
-                                                <div class="message my-message">{{ mg.msg }}</div>                                    
-                                            </li>
-                                        </template>
-                                    </ul>
-                                </div>
+                            <div class="chat-history">
+                                <ul class="m-b-0">
+                                    <template v-for="(mg,i) in msg">
+                                        <li v-if="mg.sent_by != user_id" :key="i" class="clearfix" >
+                                            <div class="message-data text-right">
+                                                <span class="message-data-time">{{ mg.created_at }}</span>
+                                                <img v-if="threadDetails.participant.thumb != null" :src="threadDetails.participant.thumb" :alt="threadDetails.participant.thumb_alter">
+                                                <img v-else :src="threadDetails.participant.thumb_alter" v-bind:style="{'background' : threadDetails.participant.thumb_color}">
+                                            </div>
+                                            <!-- Display a message div if the message object (mg) has no file attached -->
+                                            <div v-if="mg.hasFile == 0" class="message other-message float-right">{{ mg.msg }}</div>
+                                            <!-- Display a message div if the message object has a file attached and the file type is "other" -->
+                                            <div v-else-if="mg.hasFile == 1 && mg.fileType == 'other'" class="message other-message float-right">
+                                                {{ mg.msg }}
+                                                <hr>
+                                                <!-- Display a link to the file with an icon and the file name -->
+                                                <a href="#">
+                                                    <i class="material-symbols-outlined">draft</i><br>
+                                                    <!-- Display the file name -->
+                                                    <small>{{ mg.file }}</small>
+                                                </a> 
+                                            </div>
+                                            <!-- Display a div if the message object has a file attached and the file type is "image" -->
+                                            <div v-else-if="mg.hasFile == 1 && mg.fileType == 'image'" class="message other-message float-right">
+                                                {{ mg.msg }}
+                                                <hr>
+                                                <!-- Display a link to the file with an icon and the file name -->
+                                                <a :href="`/uploads/conversation/${$route.params.id}/${mg.file}`" target="_blank">
+                                                    <i class="material-symbols-outlined">draft</i><br>
+                                                    <!-- Display the file name -->
+                                                    <small>{{ mg.file }}</small>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li v-else :key="i" class="clearfix">
+                                            <div class="message-data">
+                                                <span class="message-data-time">{{ mg.created_at }}</span>
+                                            </div>
+                                            <!-- Display a message div if the message object (mg) has no file attached -->
+                                            <div v-if="mg.hasFile == 0" class="message my-message">{{ mg.msg }}</div> 
+                                            <!-- Display a message div if the message object has a file attached and the file type is "other" -->
+                                            <div v-else-if="mg.hasFile == 1 && mg.fileType == 'other'" class="message my-message">
+                                                {{ mg.msg }}
+                                                <hr>
+                                                <!-- Display a link to the file with an icon and the file name -->
+                                                <a href="#">
+                                                    <i class="material-symbols-outlined">draft</i><br>
+                                                    <!-- Display the file name -->
+                                                    <small>{{ mg.file }}</small>
+                                                </a> 
+                                            </div>
+                                            <!-- Display a div if the message object has a file attached and the file type is "image" -->
+                                            <div v-else-if="mg.hasFile == 1 && mg.fileType == 'image'" class="message my-message">
+                                                {{ mg.msg }}
+                                                <hr>
+                                                <!-- Display a link to the file with an icon and the file name -->
+                                                <a :href="`/uploads/conversation/${$route.params.id}/${mg.file}`" target="_blank">
+                                                    <i class="material-symbols-outlined">draft</i><br>
+                                                    <!-- Display the file name -->
+                                                    <small>{{ mg.file }}</small>
+                                                </a>
+                                            </div>                                  
+                                        </li>
+                                    </template>
+                                </ul>
+                            </div>
                             <div class="chat-message clearfix">
                                 <div class="input-group mb-0">
                                     <div class="input-group-prepend">
@@ -261,6 +319,11 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Container for uploaded Files -->
+                    <div class="d-flex justify-content-between alert alert-warning" v-if="msgForm.hasFile">
+                    <div>{{ msgForm.msgFile.name }}</div>
+                    <button title="Remove file" @click="removeFile" class="bg-transparent"><i class="material-symbols-outlined">close</i></button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -269,7 +332,11 @@
 
 
 <script>
+import VueMomentsAgo from "vue-moments-ago";
 export default {
+    components: {
+        VueMomentsAgo
+    },
     data(){
         return {
             threadDetails: {},
@@ -292,6 +359,11 @@ export default {
             chatChannel: Echo.join(`Conversation.${this.$route.params.id}`),
             typingTimer: false,
         }
+    },
+    computed : {
+        conversations(){
+            return this.$store.getters["Conversation/convs"];
+        },
     },
     methods: {
         limitedMsgString(text){
@@ -341,7 +413,7 @@ export default {
         },
         async sendMessage(){
             // Check if the msgText property is an empty string
-            if (this.msgText === "") {
+            if (this.msgText === "" && this.msgForm.hasFile != true) {
                 // Show an error message or alert to inform the user that the message cannot be empty
                 this.$toast.warning('Die Nachricht kann nicht leer sein', '');
                 return;

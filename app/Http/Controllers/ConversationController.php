@@ -68,24 +68,25 @@ class ConversationController extends Controller
                 );
             }
 
+            // Get the last message in the conversation by ordering the messages by the ID in descending order and taking the first one
             $last_msg = AllMessages::where("conversation_id", $conv->id)->orderBy("id", "desc")->first();
-            if(!empty($last_msg))
-            {
-                $data["last_msg"] = array(
-                    "id" => $last_msg->id,
-                    "conversation_id" => $conv->id,
-                    "msg" => str_limit($last_msg->msg,16,"..."),
-                    "hasFile" => $last_msg->hasFile,
-                    "file" => $last_msg->file,
-                    "sent_by" => $last_msg->sent_by,
-                    "seen" => $last_msg->sent_by==$userId?"seen":$last_msg->seen,
-                    "created_at" => $last_msg->created_at->format("Y-m-d H:i:s"),
-                    "updated_at" => $last_msg->updated_at->format("Y-m-d H:i:s"),
-                );
-                if($last_msg->seen == "unseen" && $last_msg->sent_by != $userId)
-                {
-                    $totalUnseen += 1;    
-                }
+            // If the last message is not empty
+            if(!empty($last_msg)) {
+            // Create an array with the data for the last message
+            $data["last_msg"] = array(
+            "id" => $last_msg->id,
+            "conversation_id" => $conv->id,
+            "msg" => str_limit($last_msg->msg,40,"..."), // Limit the message to 40 characters and add "..." at the end if it was truncated
+            "hasFile" => $last_msg->hasFile,
+            "file" => $last_msg->file,
+            "sent_by" => $last_msg->sent_by,
+            // If the message was sent by the current user, mark it as "seen". Otherwise, use the value of the "seen" field of the message
+            "seen" => $last_msg->sent_by==$userId?"seen":$last_msg->seen,
+            "created_at" => $last_msg->created_at->format("Y-m-d H:i:s"),
+            "updated_at" => $last_msg->updated_at->format("Y-m-d H:i:s"),
+            );
+            // If the message has not been seen and it was not sent by the current user, increment the total number of unseen messages
+            if($last_msg->seen == "unseen" && $last_msg->sent_by != $userId) {$totalUnseen += 1;}
             }
             else
             {
@@ -260,32 +261,48 @@ class ConversationController extends Controller
                 $msg->seen = "unseen";
             }
 
+            // Check if the request contains a file input named "msgFile"
             if($req->hasFile("msgFile"))
             {
+                // Get the uploaded file from the request
                 $file = $req->file("msgFile");
+
+                // Generate a new name for the file using the current time and a random number
                 $new_name = time()."_".rand().".".$file->getClientOriginalExtension();
 
+                // Move the uploaded file to the "uploads/conversation/$conv->id/" directory with the new name
                 $file->move(public_path("uploads/conversation/$conv->id/"),$new_name);
 
+                // Set hasFile and file properties of the $msg object to 1 and the new file name, respectively
                 $msg->hasFile = 1;
                 $msg->file = $new_name;
+
+                // Get the file type of the uploaded file
                 $file_type = $file->getClientOriginalExtension();
-                $image_ext = ["JPG","jpg","jpeg","JPEG","png","PNG","gif","GIF"];
+
+                // Set an array of image file extensions
+                $image_ext = ["JPG","jpg","jpeg","JPEG","png","PNG","gif","GIF","svg","SVG"];
+
+                // Check if the file type is an image file
                 if(in_array($file_type,$image_ext))
                 {
+                    // Set the fileType property of the $msg object to "image"
                     $msg->fileType = "image";
                 }
                 else
                 {
+                    // Set the fileType property of the $msg object to "other"
                     $msg->fileType = "other";
                 }
             }
             else
             {
+                // If no file was uploaded, set hasFile, file, and fileType properties of the $msg object to 0, null, and null, respectively
                 $msg->hasFile = 0;
                 $msg->file = null;
                 $msg->fileType = null;
             }
+
 
 
             $conv->updated_at = Carbon::now();
