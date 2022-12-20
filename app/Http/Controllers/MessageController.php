@@ -26,8 +26,7 @@
 
 namespace App\Http\Controllers;
 
-
-
+use App\Conversation;
 use Illuminate\Http\Request;
 
 use App\Message;
@@ -96,7 +95,37 @@ class MessageController extends Controller
 
      */
 
-    public function index()
+    public function index(){
+        // Check if the user is authenticated
+        if (Auth::user()) {
+            // Get the authenticated user
+            $user = Auth::user();
+            // Get the last conversation the user had, if any
+            $lastConversation = Conversation::where("employer_id", $user->id)->orWhere("freelancer_id", $user->id)
+                ->orderBy("created_at", "desc")->first();
+            // If the user has a conversation, redirect to the conversation page
+            if(!empty($lastConversation)) {
+                return redirect("/message-center/thread/$lastConversation->id");
+            } 
+            // If the user does not have a conversation
+            else {
+                // Check if the extended chat room view file exists
+                if (file_exists(resource_path('views/extend/back-end/chat-room/index.blade.php'))) {
+                    // If the extended view file exists, use it
+                    return View('extend.back-end.chat-room.index');
+                } 
+                // If the extended view file does not exist, use the default view file
+                else {
+                    return View('back-end.chat-room.index');
+                }    
+            }
+        } 
+        else {
+            abort(404);
+        }
+    }
+
+    public function openChat()
 
     {
 

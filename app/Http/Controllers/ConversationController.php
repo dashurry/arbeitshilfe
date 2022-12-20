@@ -47,26 +47,44 @@ class ConversationController extends Controller
             $data["id"] = $conv->id;
 
             
-            if($roleName == "employer")
-            {
+            // Check if the roleName is "employer"
+            if ($roleName == "employer") {
+                // Create the participant array with several key-value pairs
                 $data["participant"] = array(
-                    "id" => $conv->freelancer_id,
-                    "name" => Helper::getUserName($conv->freelancer_id),
-                    "thumb" => Helper::getProfileImage($conv->freelancer_id,"medium"),
-                    "thumb_alter" => ucfirst(substr(User::find($conv->freelancer_id)->first_name,0,1)). ucfirst(substr(User::find($conv->freelancer_id)->last_name,0,1)),
-                    "thumb_color" => $nameColor->getColor(ucfirst(substr(User::find($conv->freelancer_id)->first_name, 0, 1))),
+                // The id of the freelancer
+                "id" => $conv->freelancer_id,
+                // The name of the freelancer, obtained using the Helper::getUserName() function
+                "name" => Helper::getUserName($conv->freelancer_id),
+                // The profile image of the freelancer, obtained using the Helper::getProfileImage() function
+                "thumb" => Helper::getProfileImage($conv->freelancer_id, "medium"),
+                // The initials of the freelancer's first and last name, with the first letter capitalized
+                "thumb_alter" => ucfirst(substr(User::find($conv->freelancer_id)->first_name, 0, 1)) . ucfirst(substr(User::find($conv->freelancer_id)->last_name, 0, 1)),
+                // The color associated with the first letter of the freelancer's first name, obtained using the $nameColor->getColor() function
+                "thumb_color" => $nameColor->getColor(ucfirst(substr(User::find($conv->freelancer_id)->first_name, 0, 1))),
+                // Whether the freelancer is currently online or not (assumed to be false in this case)
+                "is_online" => false,
                 );
             }
-            elseif($roleName == "freelancer")
-            {
+  
+            // Check if the roleName is "freelancer"
+            elseif ($roleName == "freelancer") {
+                // Create the participant array with several key-value pairs
                 $data["participant"] = array(
-                    "id" => $conv->employer_id,
-                    "name" => Helper::getUserName($conv->employer_id),
-                    "thumb" => Helper::getProfileImage($conv->employer_id),"medium",
-                    "thumb_alter" => ucfirst(substr(User::find($conv->employer_id)->first_name,0,1)). ucfirst(substr(User::find($conv->employer_id)->last_name,0,1)),
-                    "thumb_color" => $nameColor->getColor(ucfirst(substr(User::find($conv->employer_id)->first_name, 0, 1))),
+                // The id of the employer
+                "id" => $conv->employer_id,
+                // The name of the employer, obtained using the Helper::getUserName() function
+                "name" => Helper::getUserName($conv->employer_id),
+                // The profile image of the employer, obtained using the Helper::getProfileImage() function
+                "thumb" => Helper::getProfileImage($conv->employer_id, "medium"),
+                // The initials of the employer's first and last name, with the first letter capitalized
+                "thumb_alter" => ucfirst(substr(User::find($conv->employer_id)->first_name, 0, 1)) . ucfirst(substr(User::find($conv->employer_id)->last_name, 0, 1)),
+                // The color associated with the first letter of the employer's first name, obtained using the $nameColor->getColor() function
+                "thumb_color" => $nameColor->getColor(ucfirst(substr(User::find($conv->employer_id)->first_name, 0, 1))),
+                // Whether the employer is currently online or not (assumed to be false in this case)
+                "is_online" => false,
                 );
             }
+  
 
             // Get the last message in the conversation by ordering the messages by the ID in descending order and taking the first one
             $last_msg = AllMessages::where("conversation_id", $conv->id)->orderBy("id", "desc")->first();
@@ -186,7 +204,7 @@ class ConversationController extends Controller
                     } else if (Carbon::parse($msg->created_at)->isYesterday()) {
                         $date = "Yesterday - " . $msg->created_at->format("h:i A");
                     } else {
-                        $date = $msg->created_at->format("d F y - h:i A");
+                        $date = $msg->created_at->format("d M y - h:i A");
                     }
                     array_push($msgData, array(
                         "id" => $msg->id,

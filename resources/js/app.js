@@ -245,18 +245,21 @@ Vue.component('slider-skeleton', require('./components/pages/show/skeleton/slide
 
 
 // end new page builder
+// Import the ChatRouter object from the "./chat-route/index" module
 import ChatRouter from "./chat-route/index";
 
-// Chat
-if(document.getElementById("easin-chat"))
-{
-    const easinChat = new Vue({
-        el: "#easin-chat",
-        store: _Store,
-        router: ChatRouter,
-    })
+// Check if the element with the ID "easin-chat" exists in the DOM
+if (document.getElementById("easin-chat")) {
+  // If the element exists, create a new Vue instance
+  const easinChat = new Vue({
+    // Specify the element that the Vue instance should be mounted to
+    el: "#easin-chat",
+    // Provide the Vuex store object to the Vue instance
+    store: _Store,
+    // Provide the router object to the Vue instance
+    router: ChatRouter,
+  });
 }
-// End
 
 if(document.getElementById("jobFilter")) {
     var jobFilter=new Vue({el:"#jobFilter"});
@@ -541,8 +544,9 @@ if(document.getElementById("wt-header"))
                         }
                     }
                 },
-                openMsg(convId){
-                    window.location.href = "/message-center/t/"+convId;
+                // Navigate to the message center page for the specified conversation
+                openMsg(convId) {
+                window.location.href = "/message-center/t/" + convId;
                 }
             },
             created(){

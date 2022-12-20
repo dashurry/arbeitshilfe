@@ -146,7 +146,7 @@
                                 <div v-if="unseenMsg > 0 && conversation.last_msg.seen != 'seen'">
                                     <b-toast id="conversations-toast" variant="warning" solid>
                                         <template #toast-title>
-                                            <a class="d-flex flex-grow-1 align-items-baseline" :key="conversation.key" href="#" :class="conversation.last_msg.seen =='unseen'?'unseen':''" @click="openMsg(conversation.id)">
+                                            <a class="d-flex flex-grow-1 align-items-baseline" href="#" :key="conversation.key" href="#" :class="conversation.last_msg.seen =='unseen'?'unseen':''" @click="openMsg(conversation.id)">
                                                 <b-img blank blank-color="#ff5555" class="mr-2" width="12" height="12"></b-img>
                                                 {{-- header --}}
                                                 <strong class="mr-auto">Neue Nachricht</strong>

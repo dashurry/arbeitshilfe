@@ -48,20 +48,30 @@ import Event from '../event.js';
             }
         },
         methods: {
-            getUsers(){
+            // Fetch a list of users from the server
+            getUsers() {
+                // Save a reference to the current Vue instance (`this`) in a variable called `self`
                 let self = this;
+
+                // Make an HTTP GET request to the specified URL using the Axios library
                 axios.get(APP_URL + '/message-center/get-users')
+                // When the response is received, execute the following code
                 .then(function (response) {
+                    // Check the type of the response data
                     if (response.data.type == 'error') {
-                        self.users = false;
-                        Event.$emit('chat-users', { users:self.chat_users });
+                    // If the response is an error, set the `users` property of the current Vue instance to `false`
+                    self.users = false;
+                    // Emit an event called 'chat-users' with the current list of users (stored in the `chat_users` property) as an argument
+                    Event.$emit('chat-users', { users:self.chat_users });
                     } else {
-                        Event.$emit('chat-users', { users:response.data });
+                    // If the response is not an error, emit an event called 'chat-users' with the list of users from the response as an argument
+                    Event.$emit('chat-users', { users:response.data });
                     }
                 });
-
             },
         },
+
+
         mounted() {
             Event.$on('active-user', (data) => {
                 this.id = data.id;
