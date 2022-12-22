@@ -292,8 +292,7 @@ jQuery(document).ready(function () {
     navLinks.forEach((e) => {
     e.href.includes(`${activePage}`) && e.parentElement.classList.add('active');
     });
-
-
+      
     jQuery(".wt-navigation ul li.menu-item-has-children > a, .wt-navigation ul li.page_item_has_children > a").on("click",(function(){
     if (-1!=location.href.indexOf("#")) {
         jQuery(this).parent("li").toggleClass("wt-open");

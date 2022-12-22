@@ -13884,7 +13884,8 @@ a.article:hover {
     left: 0;
     top: 0;
     padding: 20px;
-    z-index: 7
+    z-index: 7;
+	transition: all 0.5s ease-in-out;
 }
 
 .chat-app .chat {
@@ -14119,4 +14120,9 @@ a.article:hover {
         height: calc(100vh - 350px);
         overflow-x: auto
     }
+}
+/* Chat App People List Sidebar */
+.chat-app .people-list.active{
+	left: 0;
+	display: block;
 }

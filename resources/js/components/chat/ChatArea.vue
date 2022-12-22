@@ -18,7 +18,7 @@
                 <div class="col-lg-6 hidden-sm text-right">
                     <a href="javascript:void(0);" class="btn btn-outline-secondary"><i class="fa fa-camera"></i></a>
                     <a href="javascript:void(0);" class="btn btn-outline-primary" @click="openFileDialogue"><i class="fa fa-image"></i></a>
-                    <a href="javascript:void(0);" class="btn btn-outline-info"><i class="fa fa-cogs"></i></a>
+                    <a href="javascript:void(0);" class="btn btn-outline-info" @click="togglePeopleList"><i class="fa fa-cogs"></i></a>
                     <a href="javascript:void(0);" class="btn btn-outline-warning"><i class="fa fa-question"></i></a>
                 </div>
             </div>
@@ -159,6 +159,10 @@ export default {
         }
     },
     methods: {
+        togglePeopleList() {
+        // this.showPeopleList = !this.showPeopleList; // Toggle the value of showPeopleList when the button is clicked
+            this.$root.$refs.CHAT_CONTAINER.toggleActive();
+        },
         limitedMsgString(text){
             if(text.length > 16){
                 text = text.substring(0,16)+"...";

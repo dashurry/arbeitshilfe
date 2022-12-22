@@ -4,7 +4,7 @@
             <div class="col-lg-12">
                 <div class="chat-box" :id="`chat-conversation-${this.$route.params.id}`">
                     <div class="card chat-app">
-                        <div id="plist" class="people-list">
+                        <div id="plist" class="people-list" v-bind:class="{ 'active': showPeopleList }">
                             <template v-if="conversations.length > 0">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
@@ -57,7 +57,11 @@ export default {
             loadingMsg: true,
             loadingConv: true,
             user_id: USERID,
+            showPeopleList: true,
         }
+    },
+    created() {
+        this.$root.$refs.CHAT_CONTAINER = this;
     },
     computed : {
         conversations(){
@@ -69,6 +73,16 @@ export default {
         setActive(id) {
         // Use the $router.push method to update the active route
         this.$router.push({ name: 'conv-thread', params: { id } });
+        this.showPeopleList = false;
+        },
+        toggleActive() {
+            this.showPeopleList = !this.showPeopleList;
+            // if(this.showPeopleList == true) {
+            //     this.showPeopleList = false;
+            // }
+            // else {
+            //     this.showPeopleList = true;
+            // }
         }
     }
 }
