@@ -14083,7 +14083,6 @@ a.article:hover {
         overflow-x: auto;
         background: #fff;
         left: -400px;
-        display: none
     }
     .chat-app .people-list.open {
         left: 0
@@ -14124,5 +14123,4 @@ a.article:hover {
 /* Chat App People List Sidebar */
 .chat-app .people-list.active{
 	left: 0;
-	display: block;
 }

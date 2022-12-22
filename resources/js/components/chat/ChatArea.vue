@@ -160,7 +160,6 @@ export default {
     },
     methods: {
         togglePeopleList() {
-        // this.showPeopleList = !this.showPeopleList; // Toggle the value of showPeopleList when the button is clicked
             this.$root.$refs.CHAT_CONTAINER.toggleActive();
         },
         limitedMsgString(text){

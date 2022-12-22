@@ -76,13 +76,7 @@ export default {
         this.showPeopleList = false;
         },
         toggleActive() {
-            this.showPeopleList = !this.showPeopleList;
-            // if(this.showPeopleList == true) {
-            //     this.showPeopleList = false;
-            // }
-            // else {
-            //     this.showPeopleList = true;
-            // }
+            this.showPeopleList = !this.showPeopleList; // Toggle the value of showPeopleList when the button is clicked
         }
     }
 }
