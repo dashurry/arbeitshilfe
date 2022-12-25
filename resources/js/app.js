@@ -286,12 +286,19 @@ jQuery(document).ready(function () {
         });
       });
     // Sidebar active tab function
-    // current Page
+    // Get the current active page from the window location
     const activePage = window.location.pathname;
+
+    // Select all the links in the sidebar
     const navLinks = document.querySelectorAll('#sidebar ul li a');
+
+    // Loop through each link in the sidebar
     navLinks.forEach((e) => {
+    // Check if the link's href includes the current active page
+    // If it does, add the "active" class to the link's parent element (the list item)
     e.href.includes(`${activePage}`) && e.parentElement.classList.add('active');
     });
+
       
     jQuery(".wt-navigation ul li.menu-item-has-children > a, .wt-navigation ul li.page_item_has_children > a").on("click",(function(){
     if (-1!=location.href.indexOf("#")) {

@@ -911,7 +911,7 @@ Route::post('search/get-searchable-data-v2', 'PublicController@getSearchableData
 // #####################
 // Custom messages
 Route::get("/message-center", "MessageController@index")->name("message");
-Route::get("/message-center/thread/{any}","MessageController@openChat")->where("any",".*");
+Route::get("/message-center/thread/{any}","MessageController@openChat")->where("any",".*")->name("messageLastConversation");
 Route::get("/get-conversation-details","ConversationController@detail");
 Route::get("/get-messages","ConversationController@getMessage");
 Route::post("/make-last-msg-seen","ConversationController@seeLastMsg");

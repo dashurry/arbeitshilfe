@@ -14120,7 +14120,7 @@ a.article:hover {
         overflow-x: auto
     }
 }
-/* Chat App People List Sidebar */
+/* Chat App People List Toggle Sidebar */
 .chat-app .people-list.active{
 	left: 0;
 }

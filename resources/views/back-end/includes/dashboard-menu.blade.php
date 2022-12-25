@@ -170,12 +170,17 @@
                 </li>
             @endif
             {{-- End of Admin Dashboard --}}
+            <?php
+                // Get the current route's name
+                $routeName = request()->route()->getName();
+            ?>
             {{-- Employer/Freelancer Dashboard --}}
             @if ($role === 'employer' || $role === 'freelancer' )
                 <li>
                     <a href="{{{ url($role.'/dashboard') }}}"><i class="material-symbols-outlined">dashboard</i>{{ trans('lang.dashboard') }}</a>
                 </li>
-                <li>
+                <!-- Check if the current route is "messageLastConversation" -->
+                <li class="@if($routeName == "messageLastConversation") active @endif">
                     <a href="{{{ route('message') }}}"><i class="material-symbols-outlined">textsms</i>{{ trans('lang.msg_center') }}</a>
                 </li>
                 <li>
