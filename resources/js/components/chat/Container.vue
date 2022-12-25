@@ -4,8 +4,8 @@
             <div class="col-lg-12">
                 <div class="chat-box" :id="`chat-conversation-${this.$route.params.id}`">
                     <div class="card chat-app">
-                        <div id="plist" class="people-list" v-bind:class="{ 'active': showPeopleList }">
-                            <template v-if="conversations.length > 0">
+                        <template v-if="conversations.length > 0">
+                            <div id="plist" class="people-list" v-bind:class="{ 'active': showPeopleList }">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fa fa-search"></i></span>
@@ -34,8 +34,8 @@
                                         </li>
                                     </router-link>
                                 </ul>
-                            </template>
-                        </div>
+                            </div>
+                        </template>
                         <router-view :key="$route.fullPath"></router-view>                     
                     </div>
                 </div>

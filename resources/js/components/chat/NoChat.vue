@@ -1,13 +1,17 @@
 <template>
         <div class="card chat-app">
-            <div id="plist" class="people-list">
+            <div id="plist" class="people-list" v-bind:class="{ 'active': showPeopleList }">
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-search"></i></span>
                     </div>
-                    <input type="text" class="form-control" placeholder="Search...">
+                    <input type="text" class="form-control" placeholder="Search..." readonly disabled>
                 </div>
                 <ul class="list-unstyled chat-list mt-2 mb-0">
+                    <li class="clearfix active" @click="setActive()">
+                        <b-avatar class="mr-3"></b-avatar>
+                        <span class="mr-auto">Bot</span>
+                    </li>
                 </ul>
             </div>
             <div class="chat">
@@ -24,7 +28,7 @@
                         </div>
                         <div class="col-lg-6 hidden-sm text-right">
                             <a href="javascript:void(0);" class="btn btn-outline-primary"><i class="fa fa-image"></i></a>
-                            <a href="javascript:void(0);" class="btn btn-outline-info"><i class="fa fa-cogs"></i></a>
+                            <a href="javascript:void(0);" class="btn btn-outline-info" @click="togglePeopleList"><i class="fa fa-cogs"></i></a>
                         </div>
                     </div>
                 </div>
@@ -44,7 +48,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-send"></i></span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Enter text here..." readonly>                                    
+                        <input type="text" class="form-control" placeholder="Enter text here..." readonly disabled>                                    
                     </div>
                 </div>
             </div>
@@ -53,7 +57,19 @@
 
 <script>
 export default {
-
+    data(){
+        return {
+            showPeopleList: true,
+        }
+    },
+    methods: {
+        setActive() {
+        this.showPeopleList = false;
+        },
+        togglePeopleList() {
+            this.showPeopleList = true;
+        },
+    }
 }
 </script>
 
