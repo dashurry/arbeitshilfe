@@ -39,7 +39,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 text-center">
-                        <vue-typed-js :strings="['mit uns.', 'wir haben Sie alle.']" :typeSpeed="60" :backSpeed="60" :cursorChar="'|'" :loop="true" :backDelay="1700" :showCursor="true" class="justify-content-center">
+                        <vue-typed-js v-bind:strings="strings" :typeSpeed="60" :backSpeed="60" :cursorChar="'|'" :loop="true" :backDelay="1700" :showCursor="true" class="justify-content-center">
                             <h1 class="display-3 text-wrap" data-aos="fade-down" data-aos-easing="ease-in-sine" data-aos-duration="600">Teilen Sie Ihren Bedarf <br>
                                 <span class="typing text-underline-warning d-inline display-3" style="background-image: linear-gradient(90deg,rgba(245,192,112,.4),rgba(245,192,112,.4));"></span>
                             </h1>
@@ -65,6 +65,7 @@ import lgVideo from 'lightgallery/plugins/video'
 
 export default {
     props:['slider', 'page_id', 'element_id', 'symbol'],
+    
     // components:{carousel},
     data () {
         const isLoggedIn = this.$isLoggedIn;
@@ -74,7 +75,7 @@ export default {
             baseUrl: APP_URL,
             isLoggedIn:isLoggedIn,
             locoScroll: null,
-            userType: this.$userType
+            userType: this.$userType,
         }
     },
     methods: {
@@ -83,16 +84,15 @@ export default {
         this.$toast.warning();
     }
     },
-    mounted () {
-        var self =this
-        
-        // Light gallery - Video module
-        lightGallery(document.getElementById('video-gallery'), {
-            speed: 500,
-            plugins: [lgVideo],
-        });
-        // Alert iziToast
-         this.$toast.warning('Website noch in Entwicklung', '');
+    mounted() {
+  // Light gallery - Video module
+  lightGallery(document.getElementById('video-gallery'), {
+    speed: 500,
+    plugins: [lgVideo],
+  });
+
+  // Alert iziToast
+  this.$toast.warning('Website noch in Entwicklung', '');
 },
     computed: {
         sectionStyle() {
@@ -103,6 +103,18 @@ export default {
                 background: this.slider.sectionColor
             }
         },
+        strings() {
+    // Typed.js
+    const mediaQuery = window.matchMedia('(min-width: 320px) and (max-width: 1024px)');
+
+    if (mediaQuery.matches) {
+      // Set shorter strings for mobile devices
+      return ['mit uns.', 'wir haben Sie.'];
+    } else {
+      // Set longer strings for desktop devices
+      return ['mit uns.', 'wir haben Sie alle.'];
+    }
+  },
     },
 
 };
