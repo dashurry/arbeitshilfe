@@ -16,7 +16,7 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 pt-5">
           <div class="row" data-aos="fade-right" data-aos-delay="250">
-            <template v-for="(cat, index) in categoryList">
+            <!-- <template v-for="(cat, index) in categoryList">
               <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" :key="index" v-if="cat.has_3d_icon=='1'">
                 <div class="card border-0 mb-4 shadow rounded-top-start-3 rounded-bottom-end-3">
                   <div class="card-body text-center" @mouseover="mouseOver">
@@ -29,7 +29,8 @@
                   </div>
                 </div>
               </div>
-            </template>
+            </template> -->
+            <img src="../../../../../../public/images/illustrations/Midjourney_Google_Style_Illustration.png" alt="image" class="img-fluid">
           </div>
         </div>
       </div>
