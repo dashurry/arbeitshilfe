@@ -104,18 +104,17 @@ export default {
             }
         },
         strings() {
-    // Typed.js
-    const mediaQuery = window.matchMedia('(min-width: 320px) and (max-width: 1024px)');
+        // Typed.js
+        const mediaQuery = window.matchMedia('(min-width: 320px) and (max-width: 1024px)');
 
-    if (mediaQuery.matches) {
-      // Set shorter strings for mobile devices
-      return ['mit uns.', 'wir haben Sie.'];
-    } else {
-      // Set longer strings for desktop devices
-      return ['mit uns.', 'wir haben Sie alle.'];
-    }
-  },
+        if (mediaQuery.matches) {
+        // Set shorter strings for mobile devices
+        return ['mit uns.', 'jetzt.'];
+        } else {
+        // Set longer strings for desktop devices
+        return ['mit uns.', 'wir haben Sie alle.'];
+        }
     },
-
+    },
 };
 </script>
