@@ -14120,6 +14120,20 @@ a.article:hover {
         overflow-x: auto
     }
 }
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+	#navbarSupportedContent > ul > li > .dropdown-menu{
+		border: 0;
+		background-color: transparent;
+	}
+	#navbarSupportedContent > ul > li{
+		border-top: 1px solid #dee2e6;
+		padding-bottom: 0.75rem;
+		padding-top: 0.75rem;
+	}
+	#navbarSupportedContent > ul > li > .dropdown-menu > a{
+		padding-left: 0;
+	}
+}
 /* Chat App People List Toggle Sidebar */
 .chat-app .people-list.active{
 	left: 0;
