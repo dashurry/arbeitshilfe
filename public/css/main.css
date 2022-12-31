@@ -14133,6 +14133,13 @@ a.article:hover {
 	#navbarSupportedContent > ul > li > .dropdown-menu > a{
 		padding-left: 0;
 	}
+	#navbarSupportedContent > ul > li > div.dropdown-menu > div.dropright > div{
+		padding-left: 0;
+	}
+	#navbarSupportedContent > ul > li > div.dropdown-menu > div > div.dropdown-menu > a{
+		border: 0;
+		background-color: transparent;
+	}
 }
 /* Chat App People List Toggle Sidebar */
 .chat-app .people-list.active{

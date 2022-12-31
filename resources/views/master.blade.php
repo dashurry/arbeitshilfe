@@ -396,6 +396,36 @@
 		$('.dropright > .dropdown-menu > a').click(function () {
 			window.location = $(this).attr('href');
 		});
+		/**
+		 * This function adds or removes the class "dropdown-toggle justify-content-between align-items-center"
+		 * from the `a` element with the class "nav-link" based on the screen size.
+		 * If the screen size is less than 1024px, the class is added.
+		 * If the screen size is greater than or equal to 1024px, the class is removed.
+		 */
+		function addDropdownToggleClass() {
+		// Get the screen width
+		var screenWidth = window.innerWidth;
+
+		// Get all nav link elements
+		var navLinks = document.querySelectorAll('.nav-link');
+
+		// If the screen width is less than 1024px
+		if (screenWidth < 1024) {
+			// Add the dropdown toggle class to all nav link elements
+			navLinks.forEach(function(navLink) {
+			navLink.classList.add('dropdown-toggle', 'd-flex', 'justify-content-between', 'align-items-center');
+			});
+		} else {
+			// Remove the dropdown toggle class from all nav link elements
+			navLinks.forEach(function(navLink) {
+			navLink.classList.remove('dropdown-toggle', 'd-flex', 'justify-content-between', 'align-items-center');
+			});
+		}
+		}
+		// call the function on page load
+		window.addEventListener('load', addDropdownToggleClass);
+		// call the function when the screen size changes
+		window.addEventListener('resize', addDropdownToggleClass);
 	</script>
 </body>
 </html>
