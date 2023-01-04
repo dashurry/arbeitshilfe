@@ -1,7 +1,7 @@
 @extends(file_exists(resource_path('views/extend/back-end/master.blade.php')) ? 'extend.back-end.master' : 'back-end.master') 
 @section('content')
   <!-- Page Content -->
-  <section class="wt-haslayout wt-dbsectionspace wt-insightuser" id="dashboard">
+  <section id="dashboard">
     @if (Session::has('message')) 
         <div class="flash_msg">
             <flash_messages :message_class="'success'" :time='5' :message="'{{{ Session::get('message') }}}'" v-cloak></flash_messages>
@@ -9,27 +9,25 @@
         @php session()->forget('message'); @endphp 
     @endif
     <div class="row">
-      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-        <div class="wt-insightsitemholder">
-          <div class="row">
+      
+      <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 mb-3">
+        <div class="card {{ $notify_class }}">
+          <div class="card-body text-center">
+            <figure class="m-2">
+              <a href="{{{ route('message') }}}">
+                <i class="material-symbols-outlined text-white p-2 rounded-circle bg-primary">sms</i>
+                <p class="h6 font-semibold text-muted text-sm mt-2">{{ trans('lang.new_msgs') }}</p>
+              </a>
+            </figure>
+          </div>
+        </div>
+      </div>
             <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 mb-3">
               <div class="card {{ $notify_class }}">
                 <div class="card-body text-center">
-                  <figure class="wt-userlistingimg">
-                    <a href="{{{ route('message') }}}">
-                      <i class="material-symbols-outlined fa-2x text-white p-2 rounded-circle bg-primary">sms</i>
-                      <p class="h6 font-semibold text-muted text-sm mt-2">{{ trans('lang.new_msgs') }}</p>
-                    </a>
-                  </figure>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 mb-3">
-              <div class="card {{ $notify_class }}">
-                <div class="card-body text-center">
-                  <figure class="wt-userlistingimg">
+                  <figure class="m-2">
                     <a href="{{url('freelancer/saved-items')}}">
-                      <i class="material-symbols-outlined fa-2x text-white p-2 rounded-circle bg-warning">favorite</i>
+                      <i class="material-symbols-outlined text-white p-2 rounded-circle bg-warning">favorite</i>
                       <p class="h6 font-semibold text-muted text-sm mt-2">{{ trans('lang.view_saved_items') }}</p>
                     </a>
                   </figure>
@@ -40,9 +38,9 @@
                 <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 mb-3">
                 <div class="card {{ $notify_class }}">
                     <div class="card-body text-center">
-                    <figure class="wt-userlistingimg">
+                    <figure class="m-2">
                         <a href="{{{ url('freelancer/jobs/hired') }}}">
-                        <i class="material-symbols-outlined fa-2x text-white p-2 rounded-circle bg-info">settings</i>
+                        <i class="material-symbols-outlined text-white p-2 rounded-circle bg-info">settings</i>
                         <p class="h6 font-semibold text-muted text-sm mt-2">{{ trans('lang.total_ongoing_projects') }}</p>
                         </a>
                     </figure>
@@ -54,9 +52,9 @@
                 <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 mb-3">
                 <div class="card {{ $notify_class }}">
                     <div class="card-body text-center">
-                    <figure class="wt-userlistingimg">
+                    <figure class="m-2">
                         <a href="{{{ url('freelancer/services/hired') }}}">
-                        <i class="material-symbols-outlined fa-2x text-white p-2 rounded-circle bg-info">history</i>
+                        <i class="material-symbols-outlined text-white p-2 rounded-circle bg-info">history</i>
                         <p class="h6 font-semibold text-muted text-sm mt-2">{{ trans('lang.total_ongoing_services') }}</p>
                         </a>
                     </figure>
@@ -66,9 +64,9 @@
                 <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 mb-3">
                 <div class="card {{ $notify_class }}">
                     <div class="card-body text-center">
-                    <figure class="wt-userlistingimg">
+                    <figure class="m-2">
                         <a href="{{{ url('freelancer/services/posted') }}}">
-                        <i class="material-symbols-outlined fa-2x text-white p-2 rounded-circle bg-primary">work_outline</i>
+                        <i class="material-symbols-outlined text-white p-2 rounded-circle bg-primary">work_outline</i>
                         <p class="h6 font-semibold text-muted text-sm mt-2">{{ trans('lang.total_published_services') }}</p>
                         </a>
                     </figure>
@@ -76,9 +74,6 @@
                 </div>
                 </div> 
             @endif
-          </div>
-        </div>
-      </div>
     </div>
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 wt-insightsitemholder">

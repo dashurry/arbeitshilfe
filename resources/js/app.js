@@ -552,7 +552,7 @@ if(document.getElementById("wt-header"))
                 },
                 // Navigate to the message center page for the specified conversation
                 openMsg(convId) {
-                window.location.href = "/message-center/t/" + convId;
+                window.location.href = "/message-center/thread/" + convId;
                 }
             },
             created(){
