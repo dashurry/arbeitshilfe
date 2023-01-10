@@ -1684,9 +1684,11 @@ class FreelancerController extends Controller
             $expiry_date = !empty($expiry) ? Carbon::parse($expiry)->toDateTimeString() : '';
 
             $message_status = Message::where('status', 0)->where('receiver_id', $freelancer_id)->count();
-
+            // This code is defining a variable $notify_class and setting its value based on the value of $message_status.
+            // The ? symbol is called the ternary operator, and it is a shorthand way of writing an if statement. The syntax of the ternary operator is: condition ? value_if_true : value_if_false.
+            // So, this code is essentially saying: "If $message_status is greater than 0, set $notify_class to 'wt-insightnoticon', otherwise set it to an empty string."
             $notify_class = $message_status > 0 ? 'wt-insightnoticon' : '';
-
+            
             $completed_projects = Proposal::getProposalsByStatus($freelancer_id, 'completed');
 
             $completed_projects_history = Proposal::getProposalsByStatus($freelancer_id, 'completed', 'completed');
