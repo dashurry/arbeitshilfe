@@ -3,10 +3,16 @@ Die Website, an der ich derzeit arbeite, soll Arbeitssuchenden bei der Orientier
 <br>
 
 # System Funktionen
-- Anmelde- und Registrierungsfunktion für Benutzer
-- Auswahl der Benutzerrolle (Freiberufler, Arbeitgeber, Admin)
-- "Like"-System für Inhalte oder Profile
+- Anmelde- und Registrierungsfunktion für Benutzer<br>
+- Auswahl der Benutzerrolle (Freiberufler, Arbeitgeber, Admin)<br>
+- "Like"-System für Inhalte oder Profile<br>
 - Benutzerdashboard zur Ansicht und Verwaltung von Kontoinformationen und Aktionen wie dem Einreichen von Jobangeboten.
+- Live-Chatraum mit Pusher, VueJS und Laravel<br>
+- Benachrichtigungssystem für neue Nachrichten und Job Angebote<br>
+- Job-Board mit Suchfunktion und Filtern<br>
+- Laravel Framework zur Verwaltung von Benutzerdaten, Authentifizierung, Datenbankzugriff, etc.<br>
+- MySQL-Datenbank zur Verwaltung von Benutzerdaten, Stellenausschreibungen, Angeboten, Kategorien, Paketen und mehr<br> 
+- Admin Dashboard mit Statistiken, Benutzerverwaltung und Job-Verwaltung<br>
 <br>
 
 # Tech Stack
