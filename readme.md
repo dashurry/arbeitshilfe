@@ -1,6 +1,20 @@
 # <a href="https://arbeitshilfe.website/" target="_blank" rel="noreferrer">Arbeitshilfe</a>
 Die Website, an der ich derzeit arbeite, soll Arbeitssuchenden bei der Orientierung in ihrer beruflichen Laufbahn helfen. Das Portal wird den Nutzern eine Plattform bieten, auf der sie die Schritte, die sie unternehmen müssen, um eine sinnvolle Beschäftigung zu finden, leicht erkennen können. Es wird eine Reihe von Funktionen und Ressourcen zur Unterstützung von Arbeitssuchenden bieten, darunter Stellenanzeigen, Berufsberatung und Vernetzungsmöglichkeiten. Die Nutzer können ein Profil erstellen, nach Stellen suchen und mit potenziellen Arbeitgebern in Kontakt treten. Ziel der Website ist es, Arbeitssuchenden dabei zu helfen, die für sie richtige Stelle zu finden und in ihrem Beruf erfolgreich zu sein.
 <br>
+
+# System Funktionen
+- Anmelde- und Registrierungsfunktion für Benutzer<br>
+- Auswahl der Benutzerrolle (Freiberufler, Arbeitgeber, Admin)<br>
+- "Like"-System für Inhalte oder Profile<br>
+- Benutzerdashboard zur Ansicht und Verwaltung von Kontoinformationen und Aktionen wie dem Einreichen von Jobangeboten.
+- Live-Chatraum mit Pusher, VueJS und Laravel<br>
+- Benachrichtigungssystem für neue Nachrichten und Job Angebote<br>
+- Job-Board mit Suchfunktion und Filtern<br>
+- Laravel Framework zur Verwaltung von Benutzerdaten, Authentifizierung, Datenbankzugriff, etc.<br>
+- MySQL-Datenbank zur Verwaltung von Benutzerdaten, Stellenausschreibungen, Angeboten, Kategorien, Paketen und mehr<br> 
+- Admin Dashboard mit Statistiken, Benutzerverwaltung und Job-Verwaltung<br>
+<br>
+
 # Tech Stack
 <p align="left">
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/javascript-colored.svg" width="36" height="36" alt="JavaScript" /></a>
