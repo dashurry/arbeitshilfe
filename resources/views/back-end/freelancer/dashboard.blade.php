@@ -9,55 +9,65 @@
         @php session()->forget('message'); @endphp 
     @endif
     <div class="row">
-      <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 mb-3">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-3">
         <div class="card">
           <div class="card-body text-center">
             <a href="{{{ route('message') }}}">
-              <i class="material-symbols-outlined text-white p-2 rounded-circle bg-primary">sms</i>
-              <p class="h6 font-semibold text-muted text-sm mt-2">{{ trans('lang.new_msgs') }}</p>
+              <figure class="m-2">
+                <i class="material-symbols-outlined text-white p-2 rounded-circle bg-primary">sms</i>
+                <p class="h6 font-semibold text-muted text-sm mt-2">{{ trans('lang.new_msgs') }}</p>
+              </figure>
             </a>
           </div>
         </div>
       </div>
-      <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 mb-3">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-3">
         <div class="card">
           <div class="card-body text-center">
             <a href="{{url('freelancer/saved-items')}}">
-              <i class="material-symbols-outlined text-white p-2 rounded-circle bg-warning">favorite</i>
-              <p class="h6 font-semibold text-muted text-sm mt-2">{{ trans('lang.view_saved_items') }}</p>
+              <figure class="m-2">
+                <i class="material-symbols-outlined text-white p-2 rounded-circle bg-warning">favorite</i>
+                <p class="h6 font-semibold text-muted text-sm mt-2">{{ trans('lang.view_saved_items') }}</p>
+              </figure>
             </a>
           </div>
         </div>
       </div>
       @if ($access_type == 'jobs' || $access_type== 'both')
-      <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 mb-3">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-3">
         <div class="card">
           <div class="card-body text-center">
             <a href="{{{ url('freelancer/jobs/hired') }}}">
-              <i class="material-symbols-outlined text-white p-2 rounded-circle bg-info">settings</i>
-              <p class="h6 font-semibold text-muted text-sm mt-2">{{ trans('lang.total_ongoing_projects') }}</p>
+              <figure class="m-2">
+                <i class="material-symbols-outlined text-white p-2 rounded-circle bg-info">settings</i>
+                <p class="h6 font-semibold text-muted text-sm mt-2">{{ trans('lang.total_ongoing_projects') }}</p>
+              </figure>
             </a>
           </div>
         </div>
       </div>
       @endif
       @if ($access_type == 'services' || $access_type== 'both')
-      <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 mb-3">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-3">
         <div class="card">
           <div class="card-body text-center">
             <a href="{{{ url('freelancer/services/hired') }}}">
-              <i class="material-symbols-outlined text-white p-2 rounded-circle bg-info">history</i>
-              <p class="h6 font-semibold text-muted text-sm mt-2">{{ trans('lang.total_ongoing_services') }}</p>
+              <figure class="m-2">
+                <i class="material-symbols-outlined text-white p-2 rounded-circle bg-info">history</i>
+                <p class="h6 font-semibold text-muted text-sm mt-2">{{ trans('lang.total_ongoing_services') }}</p>
+              </figure>
             </a>
           </div>
         </div>
       </div>
-      <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 mb-3">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-3">
         <div class="card">
           <div class="card-body text-center">
             <a href="{{{ url('freelancer/services/posted') }}}">
-              <i class="material-symbols-outlined text-white p-2 rounded-circle bg-primary">work_outline</i>
-              <p class="h6 font-semibold text-muted text-sm mt-2">{{ trans('lang.total_published_services') }}</p>
+              <figure class="m-2">
+                <i class="material-symbols-outlined text-white p-2 rounded-circle bg-primary">work_outline</i>
+                <p class="h6 font-semibold text-muted text-sm mt-2">{{ trans('lang.total_published_services') }}</p>
+              </figure>
             </a>
           </div>
         </div>
