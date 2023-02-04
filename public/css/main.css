@@ -4807,6 +4807,10 @@ body.wt-login .wt-userlogedin{display: block;}
 	font-style: normal;
 	color: #313889;
   }
+  /* hiding the placeholder being used as option */
+  select[name="delivery_time"] option[value=""]{
+	display: none;
+  }
   /* Custom Select Element Time Range for Freelancer */
   .wt-userformvtwo .form-group select[data-chosen='1'] {
 	font-style: normal;

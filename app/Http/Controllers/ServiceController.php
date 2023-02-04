@@ -244,7 +244,10 @@ class ServiceController extends Controller
 
         $response_time = ResponseTime::pluck('title', 'id');
 
-        $delivery_time = DeliveryTime::select('title', 'id')->get();
+        // this is if i want to keep customize the options inside the select box
+        // $delivery_time = DeliveryTime::select('title', 'id')->get();
+
+        $delivery_time = DeliveryTime::pluck('title', 'id');
 
         $english_levels = Helper::getEnglishLevelList();
 
