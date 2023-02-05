@@ -1,34 +1,43 @@
-# <a href="https://arbeitshilfe.website/" target="_blank" rel="noreferrer">Arbeitshilfe</a>
-Die Website, an der ich derzeit arbeite, soll Arbeitssuchenden bei der Orientierung in ihrer beruflichen Laufbahn helfen. Das Portal wird den Nutzern eine Plattform bieten, auf der sie die Schritte, die sie unternehmen müssen, um eine sinnvolle Beschäftigung zu finden, leicht erkennen können. Es wird eine Reihe von Funktionen und Ressourcen zur Unterstützung von Arbeitssuchenden bieten, darunter Stellenanzeigen, Berufsberatung und Vernetzungsmöglichkeiten. Die Nutzer können ein Profil erstellen, nach Stellen suchen und mit potenziellen Arbeitgebern in Kontakt treten. Ziel der Website ist es, Arbeitssuchenden dabei zu helfen, die für sie richtige Stelle zu finden und in ihrem Beruf erfolgreich zu sein.
-<br>
 
-# System Funktionen
-- Anmelde- und Registrierungsfunktion für Benutzer<br>
-- Auswahl der Benutzerrolle (Freiberufler, Arbeitgeber, Admin)<br>
-- "Like"-System für Inhalte oder Profile<br>
+# Arbeitshilfe
+
+Das Ziel des Projekts, an dem ich gerade arbeite ist es, den Arbeitssuchenden zu helfen ihre berufliche Laufbahn zu navigieren. 
+
+Es wird Funktionen und Ressourcen geben, einschliesslich Stellenanzeigen, Beratung und Vernetzungsmöglichkeiten, damit Nutzer ein Profil erstellen, Jobangebote suchen und mit potenziellen Arbeitgebern in Kontakt treten können, um die für sie richtige Stelle zu finden.
+
+
+## Demo
+
+[![Arbeitshilfe Website](https://img.shields.io/badge/Arbeitshilfe-Website-blue.svg)](https://arbeitshilfe.website/)
+
+
+
+## Features
+
+- Anmelde- und Registrierungsfunktion für Benutzer
+- Auswahl der Benutzerrolle (Freiberufler, Arbeitgeber, Admin)
+- "Like"-System für Inhalte oder Profile
 - Benutzerdashboard zur Ansicht und Verwaltung von Kontoinformationen und Aktionen wie dem Einreichen von Jobangeboten.
-- Live-Chatraum mit Pusher, VueJS und Laravel<br>
-- Benachrichtigungssystem für neue Nachrichten und Job Angebote<br>
-- Job-Board mit Suchfunktion und Filtern<br>
-- Laravel Framework zur Verwaltung von Benutzerdaten, Authentifizierung, Datenbankzugriff, etc.<br>
-- MySQL-Datenbank zur Verwaltung von Benutzerdaten, Stellenausschreibungen, Angeboten, Kategorien, Paketen und mehr<br> 
-- Admin Dashboard mit Statistiken, Benutzerverwaltung und Job-Verwaltung<br>
-<br>
+- Live-Chatraum mit Pusher, VueJS und Laravel
+- Benachrichtigungssystem für neue Nachrichten und Job Angebote
+- Job-Board mit Suchfunktion und Filtern
+- Laravel Framework zur Verwaltung von Benutzerdaten, Authentifizierung, Datenbankzugriff, etc.
+- MySQL-Datenbank zur Verwaltung von Benutzerdaten, Stellenausschreibungen, Angeboten, Kategorien, Paketen und mehr
+- Admin Dashboard mit Statistiken, Benutzerverwaltung und Job-Verwaltung
+- Cross platform
 
-# Tech Stack
-<p align="left">
-<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/javascript-colored.svg" width="36" height="36" alt="JavaScript" /></a>
-<a href="https://www.php.net/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/php-colored.svg" width="36" height="36" alt="PHP" /></a>
-<a href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/html5-colored.svg" width="36" height="36" alt="HTML5" /></a>
-<a href="https://vuejs.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/vuejs-colored.svg" width="36" height="36" alt="Vue" /></a>
-<a href="https://jquery.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/jquery-colored.svg" width="36" height="36" alt="JQuery" /></a>
-<a href="https://www.w3.org/TR/CSS/#css" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/css3-colored.svg" width="36" height="36" alt="CSS3" /></a>
-<a href="https://getbootstrap.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/bootstrap-colored.svg" width="36" height="36" alt="Bootstrap" /></a>
-<a href="https://www.mysql.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/mysql-colored.svg" width="36" height="36" alt="MySQL" /></a>
-<a href="https://laravel.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/laravel-colored.svg" width="36" height="36" alt="Laravel" /></a>
-<a href="https://pusher.com/" target="_blank" rel="noreferrer"><img src="https://github.com/dashurry/dashurry/blob/main/pusher-seeklogo.com.svg" width="36" height="36" alt="Pusher" /></a>
 
-<div align="center">
-<img width="100%" alt="GIF" src="https://github.com/dashurry/dashurry/blob/main/Arbeitshilfe_4.webp">
-</div>
-<br>
+## Tech Stack
+
+![Vue.js](https://img.shields.io/badge/vuejs-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D)![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white)![Laravel](https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white) ![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white) ![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white) [![Pusher](https://img.shields.io/badge/Pusher-API-brightgreen.svg?logo=pusher&style=for-the-badge)](https://pusher.com/docs/platform)
+
+
+## Lessons Learned
+
+What did you learn while building this project? What challenges did you face and how did you overcome them?
+
+
+## Screenshots
+
+![App Screenshot](https://github.com/dashurry/dashurry/blob/main/Arbeitshilfe_4.webp)
+
