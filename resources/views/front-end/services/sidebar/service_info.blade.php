@@ -35,15 +35,15 @@
                <strong>{{{Helper::getServiceCount($service->id, 'completed')}}}</strong>&nbsp;{{ trans('lang.sales') }}</span>
 
           </li>
+          {{-- Return Response Time for the given Job ID --}}
+            {{-- <li>
 
-          {{-- <li>
-
-             <span class="d-flex align-items-center">
-               <i class="material-symbols-outlined iconcolor4">schedule</i>
-               <strong>{{{$response_time->title}}}</strong>&nbsp;{{ trans('lang.response_time') }}
-            </span>
-            
-          </li> --}}
+               <span class="d-flex align-items-center">
+                  <i class="material-symbols-outlined iconcolor4">schedule</i>
+                  <strong>{{{$response_time->title}}}</strong>&nbsp;{{ trans('lang.response_time') }}
+               </span>
+               
+            </li> --}}
 
        </ul>
 

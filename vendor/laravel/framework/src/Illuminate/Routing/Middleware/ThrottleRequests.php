@@ -43,25 +43,34 @@ class ThrottleRequests
      *
      * @throws \Illuminate\Http\Exceptions\ThrottleRequestsException
      */
+    // Handle method for the rate limiting middleware
     public function handle($request, Closure $next, $maxAttempts = 60, $decayMinutes = 1)
     {
+        // Create a unique key for the request using the resolveRequestSignature method
         $key = $this->resolveRequestSignature($request);
 
+        // Get the maximum number of attempts from the resolveMaxAttempts method
         $maxAttempts = $this->resolveMaxAttempts($request, $maxAttempts);
 
+        // Check if the user has already exceeded the maximum number of attempts
         if ($this->limiter->tooManyAttempts($key, $maxAttempts)) {
+            // If they have, throw an exception
             throw $this->buildException($key, $maxAttempts);
         }
 
+        // Increment the number of attempts for the user
         $this->limiter->hit($key, $decayMinutes);
 
+        // Pass the request to the next middleware or controller
         $response = $next($request);
 
+        // Add headers to the response indicating the number of remaining attempts
         return $this->addHeaders(
             $response, $maxAttempts,
             $this->calculateRemainingAttempts($key, $maxAttempts)
         );
     }
+
 
     /**
      * Resolve the number of attempts if the user is authenticated or not.

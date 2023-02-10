@@ -244,9 +244,13 @@ class ServiceController extends Controller
 
         $response_time = ResponseTime::pluck('title', 'id');
 
-        // this is if i want to keep customize the options inside the select box
-        // $delivery_time = DeliveryTime::select('title', 'id')->get();
+        // this is if, i want to customize each <option> inside the <select> tag
+        // This line of code retrieves the title and id columns from the DeliveryTime model
+        // and stores the results in the variable $delivery_time.
+        // The get() method is used to retrieve the data from the database and return it as a collection.
+            // $delivery_time = DeliveryTime::select('title', 'id')->get();
 
+        // Get all delivery times
         $delivery_time = DeliveryTime::pluck('title', 'id');
 
         $english_levels = Helper::getEnglishLevelList();
