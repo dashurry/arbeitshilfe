@@ -176,7 +176,11 @@ class PublicController extends Controller
 
     }
 
-
+    public function __construct()
+    {
+        // The middleware throttle will limit the number of requests to 1 per minute.
+        $this->middleware('throttle:registerStep1Validation,1,1');
+    }
 
     /**
 
