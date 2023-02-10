@@ -176,12 +176,6 @@ class PublicController extends Controller
 
     }
 
-    public function __construct()
-    {
-        // The middleware throttle will limit the number of requests to 2 per minute.
-        $this->middleware('throttle:registerStep1Validation,1,2');
-    }
-
     /**
 
      * Step1 Registeration Validation
@@ -264,39 +258,6 @@ class PublicController extends Controller
                 'termsconditions' => 'required',
                 
                 'role' => 'not_in:admin',
-
-                'g-recaptcha-response' => function ($attribute, $value, $fail) {
-                        
-                        // Check if the captcha response is not empty
-                        if (!empty($value)) {
-    
-                            // Get the secret key from the .env file
-                            $secret = env('GOOGLE_RECAPTCHA_SECRET_KEY');
-
-                            // Get the user IP address
-                            $userIP = $_SERVER['REMOTE_ADDR'];
-    
-                            // Verify the captcha response
-                            $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . $secret . "&response=" . $value . "&remoteip=" . $userIP);
-    
-                            // Decode the response
-                            $response = json_decode($response, true);
-    
-                            // Check if the captcha response is false
-                            if ($response["success"] == false) {
-    
-                                // If so, return the error message
-                                $fail('The reCAPTCHA is not valid.');
-    
-                            }
-    
-                        } else {
-    
-                            // If the captcha response is empty, return the error message
-                            $fail('The reCAPTCHA field is required.');
-    
-                        }
-                }, 
             ]
 
         );

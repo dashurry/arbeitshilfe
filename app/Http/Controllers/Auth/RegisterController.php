@@ -152,47 +152,75 @@ class RegisterController extends Controller
 
     {
 
-        $validator = $this->validator($request->all());
 
-        $server = Helper::arbeitshilfeIsDemoSiteAjax();
+        $ch = curl_init();
 
-        if (!empty($server)) {
+        curl_setopt($ch, CURLOPT_URL,"https://www.google.com/recaptcha/api/siteverify");
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS,"secret=".env("GOOGLE_RECAPTCHA_SECRET_KEY")."&response=".$request["g-recaptcha-response"]."&remoteip=$request->ip()");
 
-            $response['type'] = 'server_error';
 
-            $response['message'] = $server->getData()->message;
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-            return $response;
+        $reCAPTCHAValidation = json_decode(curl_exec($ch));
 
-        }
+        curl_close($ch);
 
-        if ($validator->fails()) {
+        // return $cpatchaValidation;
 
-            return redirect()
+        if($reCAPTCHAValidation->success == true)
+        {
+            $validator = $this->validator($request->all());
 
-                ->back()
+            $server = Helper::arbeitshilfeIsDemoSiteAjax();
 
-                ->withInput()
+            if (!empty($server)) {
 
-                ->withErrors($validator, 'register');
+                $response['type'] = 'server_error';
 
-        } else {
+                $response['message'] = $server->getData()->message;
 
-            event(new Registered($user = $this->create($request->all())));
-
-            if (empty(config('mail.username')) && empty(config('mail.password'))) {
-
-                $json['email'] = $user['email'];
-
-                $json['url'] = $user['url'];
+                return $response;
 
             }
 
-            $json['type'] = 'success';
+            if ($validator->fails()) {
 
-            return $json;
+                return redirect()
 
+                    ->back()
+
+                    ->withInput()
+
+                    ->withErrors($validator, 'register');
+
+            } else {
+
+                event(new Registered($user = $this->create($request->all())));
+
+                if (empty(config('mail.username')) && empty(config('mail.password'))) {
+
+                    $json['email'] = $user['email'];
+
+                    $json['url'] = $user['url'];
+
+                }
+
+                $json['type'] = 'success';
+
+                return $json;
+
+            }
         }
+        else
+        {
+            $response['type'] = 'server_error';
+
+            $response['message'] = "Recaptcha is not correct";
+
+            return $response;
+        }
+        
 
     }
 

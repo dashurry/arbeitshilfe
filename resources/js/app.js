@@ -1393,7 +1393,7 @@ if (document.getElementById("registration")) {
 
                     .then(function (response) {
 
-                        console.log(response.data.type);
+                        console.log(response);
 
                         self.loading = false;
 

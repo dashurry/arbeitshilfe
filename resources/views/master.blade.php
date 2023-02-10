@@ -171,6 +171,8 @@
 		?>;
 
 	</script>
+	// reCAPTCHA API
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 </head>
 
@@ -344,9 +346,7 @@
 	<script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
 	
 	<script src="{{ asset('js/tinymce/tinymce.min.js') }}"></script>
-	// reCAPTCHA API
-	<script src="https://www.google.com/recaptcha/api.js"></script>
-	
+
 	@yield('bootstrap_script')
 	<script src="{{ asset('js/app.js') }}"></script>
 	
