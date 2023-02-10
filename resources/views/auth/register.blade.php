@@ -159,7 +159,7 @@
 
                         <div class="col-sm-12 mb-3 text-center">
                             <button type="button" @click.prevent="checkStep2('{{ trans('lang.email_not_config') }}')" class="btn btn-lg btn-primary lift g-recaptcha" 
-                            data-sitekey="6LftemwkAAAAAGsLN_0kD1yqi_7Crt0Fv9HLxwWA" 
+                            data-sitekey="{{ env('GOOGLE_RECAPTCHA_SITE_KEY') }}"
                             data-callback='onSubmit'
                             data-action='submit'
                             type="submit">Sign up</button>
