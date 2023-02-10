@@ -344,7 +344,7 @@
 	<script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
 	
 	<script src="{{ asset('js/tinymce/tinymce.min.js') }}"></script>
-	
+	<script src="https://www.google.com/recaptcha/api.js"></script>
 	@yield('bootstrap_script')
 	<script src="{{ asset('js/app.js') }}"></script>
 	
@@ -426,6 +426,11 @@
 		window.addEventListener('load', addDropdownToggleClass);
 		// call the function when the screen size changes
 		window.addEventListener('resize', addDropdownToggleClass);
+
+		// reCAPTCHA callback function to handle the token
+		function onSubmit(token) {
+			document.getElementById("register_form").submit();
+		}
 	</script>
 </body>
 </html>
