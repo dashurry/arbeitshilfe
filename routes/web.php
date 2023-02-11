@@ -621,6 +621,7 @@ Route::group(
 
     function () {
 
+        // Show services for Freelancer
         if (Helper::getAccessType() == 'both' || Helper::getAccessType() == 'services') {
 
             Route::get('freelancer/services/{status}', 'FreelancerController@showServices')->name('ServiceListing');
@@ -629,18 +630,25 @@ Route::group(
 
         }
 
+        // Change service status
         Route::post('services/change-status', 'ServiceController@changeStatus');
 
+        // Edit service
         Route::get('freelancer/dashboard/edit-service/{id}', 'ServiceController@edit')->name('edit_service');
 
+        // Store service
         Route::post('services/post-service', 'ServiceController@store');
 
+        // Upload temp image
         Route::post('service/upload-temp-image', 'ServiceController@uploadTempImage');
 
+        // Delete service
         Route::post('freelancer/dashboard/delete-service', 'ServiceController@destroy');
 
+        // Get service settings
         Route::post('service/get-service-settings', 'ServiceController@getServiceSettings');
 
+        // Update service
         Route::post('service/update-service', 'ServiceController@update');
 
     }

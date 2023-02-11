@@ -329,28 +329,37 @@ class ServiceController extends Controller
 
     {
 
+        // Define an empty array called $json
         $json = array();
 
+        // Call the arbeitshilfeIsDemoSiteAjax method from the Helper class and store the result in the $server variable
         $server = Helper::arbeitshilfeIsDemoSiteAjax();
 
+        // Check if the $server variable is not empty
         if (!empty($server)) {
+            
+        // Set the message key in the $response array to the message data returned from the $server object
+        $response['message'] = $server->getData()->message;
 
-            $response['message'] = $server->getData()->message;
-
-            return $response;
-
+        // Return the $response array as a JSON response
+        return $response;
         }
 
+
+        // Check if the access type returned by the Helper class is equal to "jobs"
         if (Helper::getAccessType() == 'jobs') {
 
+            // Set the type key in the $json array to "error"
             $json['type'] = 'error';
-
+        
+            // Set the message key in the $json array to the result of the trans function with the argument "lang.service_warning"
             $json['message'] = trans('lang.service_warning');
-
+        
+            // Return the $json array as a JSON response
             return $json;
-
         }
-
+  
+        // Validate the form data
         if (Auth::user()->user_verified == 1) {
 
             $this->validate(
@@ -373,8 +382,10 @@ class ServiceController extends Controller
 
             );
 
+            // If the user has submitted a latitude and longitude value
             if (!empty($request['latitude']) || !empty($request['longitude'])) {
 
+                // Validate the format of the latitude and longitude
                 $this->validate(
 
                     $request,
@@ -391,51 +402,65 @@ class ServiceController extends Controller
 
             }
 
+            // Get current user
             $user = User::find(Auth::user()->id);
 
+            // Get package item
             $package_item = Item::where('subscriber', Auth::user()->id)->first();
 
+            // Get package
             $package = !empty($package_item) ? Package::find($package_item->product_id) : '';
 
+            // Get package options
             $option = !empty($package) ? unserialize($package->options) : '';
 
+            // Get package expiry date
             $expiry = !empty($option) ? $package_item->created_at->addDays($option['duration']) : '';
 
+            // Format expiry date
             $expiry_date = !empty($expiry) ? Carbon::parse($expiry)->format('Y-m-d') : '';
 
+            // Get current date
             $current_date = Carbon::now()->format('Y-m-d');
 
+            // Get services count
             $posted_services = $user->services->count();
 
+            // Get featured services count
             $posted_featured_services = $user->services->where('is_featured', 'true')->count();
 
+            // Get payment settings
             $payment_settings = SiteManagement::getMetaValue('commision');
 
+            // Get package status
             $package_status = '';
 
+            // If the payment settings array is empty, then package status is set to true
             if (empty($payment_settings)) {
 
+                // Set package status to true
                 $package_status = 'true';
-
             } else {
 
+                // Set package status to the value of the enable_packages key
                 $package_status = !empty($payment_settings[0]['enable_packages']) ? $payment_settings[0]['enable_packages'] : 'true';
-
             }
 
+            // Check if the value of the $package_status variable is equal to the string "true"
             if ($package_status === 'true') {
 
+                // Check if the $package object is not empty and the current date is greater than the expiry date
                 if (!empty($package->count()) && $current_date > $expiry_date) {
-
+                    
+                    // Set the type key in the $json array to "error"
                     $json['type'] = 'error';
 
+                    // Set the message key in the $json array to the result of the trans function with the argument "lang.need_to_purchase_pkg"
                     $json['message'] = trans('lang.need_to_purchase_pkg');
 
+                    // Return the $json array as a JSON response
                     return $json;
-
                 }
-
-
 
                 if ($request['is_featured'] == 'true') {
 

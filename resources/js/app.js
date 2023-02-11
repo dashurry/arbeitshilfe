@@ -9543,52 +9543,51 @@ if (document.getElementById("services")) {
 
             },
 
+            // This is the Freelancer Submit Service Form
             submitService: function () {
-
+                // set the loading flag to true to show the spinner
                 this.loading = true;
 
+                // Get the form element from the document
                 let Form = document.getElementById('post_service_form');
 
+                // Creates a new FormData object
                 let form_data = new FormData(Form);
 
-                // var description = tinyMCE.get('wt-tinymceeditor').getContent();
-
-                // form_data.append('description', description);
-
+                // Store a reference to the current instance
                 var self = this;
 
+                // Send the data
                 axios.post(APP_URL + '/services/post-service', form_data)
 
-                    .then(function (response) {
+                .then(function (response) { // On success, check if the response is success or error
 
-                        if (response.data.type == 'success') {
+                    if (response.data.type == 'success') { // If the response is success
 
-                            self.loading = false;
+                        self.loading = false; // Hide the loading indicator
 
-                            self.showInfo(response.data.progress);
+                        self.showInfo(response.data.progress); // Show a toast to inform the user about the progress
 
-                            document.addEventListener('iziToast-closing', function (data) {
+                        document.addEventListener('iziToast-closing', function (data) { // When the toast is closed
 
-                                if (data.detail.id == 'info_notify') {
+                            if (data.detail.id == 'info_notify') { // If the toast ID is info_notify
 
-                                    self.showCompleted(response.data.message);
+                                self.showCompleted(response.data.message); // Show a toast to inform the user about the completion
 
-                                    window.location.replace(APP_URL + '/freelancer/services/posted');
+                                window.location.replace(APP_URL + '/freelancer/services/posted'); // Redirect the user to the services page
+                            }
+                        });
 
-                                }
+                    } else { // If the response is error
 
-                            });
+                        self.loading = false; // Hide the loading indicator
 
-                        } else {
+                        self.showError(response.data.message); // Show the error message
 
-                            self.loading = false;
-
-                            self.showError(response.data.message);
-
-                        }
-
-                    })
-
+                    }
+                })
+                    
+                    // If an error is caught, the code in the .catch() method runs
                     .catch(function (error) {
 
                         self.loading = false;
