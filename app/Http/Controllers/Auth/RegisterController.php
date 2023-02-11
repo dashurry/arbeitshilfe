@@ -152,21 +152,20 @@ class RegisterController extends Controller
 
     {
 
-
+        // Initialize a cURL session
         $ch = curl_init();
-
+        //Set the URL for the reCAPTCHA API
         curl_setopt($ch, CURLOPT_URL,"https://www.google.com/recaptcha/api/siteverify");
+        // Set the HTTP method to POST 
         curl_setopt($ch, CURLOPT_POST, 1);
+        // Pass the reCAPTCHA response from the client to the request 
         curl_setopt($ch, CURLOPT_POSTFIELDS,"secret=".env("GOOGLE_RECAPTCHA_SECRET_KEY")."&response=".$request["g-recaptcha-response"]."&remoteip=$request->ip()");
-
-
+        // Set the expected return type to JSON
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
+        // Decode the JSON response from the server
         $reCAPTCHAValidation = json_decode(curl_exec($ch));
-
+        // Close the cURL session
         curl_close($ch);
-
-        // return $cpatchaValidation;
 
         if($reCAPTCHAValidation->success == true)
         {
