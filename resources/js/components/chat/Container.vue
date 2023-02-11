@@ -4,7 +4,13 @@
             <div class="col-lg-12">
                 <div class="chat-box" :id="`chat-conversation-${this.$route.params.id}`">
                     <div class="card chat-app">
+
+                        <!-- v-if to only display the template if there are conversations -->
                         <template v-if="conversations.length > 0">
+                            
+                            <!-- This is the main div that contains the entire list of people.
+                            The 'active' class is added when the showPeopleList property is true,
+                            which makes the list visible. -->
                             <div id="plist" class="people-list" v-bind:class="{ 'active': showPeopleList }">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
