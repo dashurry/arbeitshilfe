@@ -462,28 +462,36 @@ class ServiceController extends Controller
                     return $json;
                 }
 
-                if ($request['is_featured'] == 'true') {
-
+                // Check if the is_featured key in the $request array is equal to the string "true"
+                if ($request['is_featured'] == 'true') 
+                {
+                    // Check if the no_of_featured_services key in the $option array is not empty and if the number of posted featured services is greater than or equal to the integer value of the no_of_featured_services key in the $option array
                     if (!empty($option['no_of_featured_services']) && $posted_featured_services >= intval($option['no_of_featured_services'])) {
-
+                        
+                        // Set the type key in the $json array to "error"
                         $json['type'] = 'error';
 
-                        $json['message'] = trans('lang.sorry_can_only_feature')  . ' ' . $option['no_of_featured_services'] . ' ' . trans('lang.services_acc_to_pkg');
+                        // Set the message key in the $json array to a concatenated string consisting of the result of the trans function with the argument "lang.sorry_can_only_feature", the string " ", the value of the no_of_featured_services key in the $option array, the string " ", and the result of the trans function with the argument "lang.services_acc_to_pkg"
+                        $json['message'] = trans('lang.sorry_can_only_feature') . ' ' . $option['no_of_featured_services'] . ' ' . trans('lang.services_acc_to_pkg');
 
+                        // Return the $json array as a JSON response
                         return $json;
-
                     }
-
                 }
 
+
+                // Check if the no_of_services key in the $option array is not empty and if the number of posted services is greater than or equal to the integer value of the no_of_services key in the $option array
                 if (!empty($option['no_of_services']) && $posted_services >= intval($option['no_of_services'])) {
 
+                    // Set the type key in the $json array to "error"
                     $json['type'] = 'error';
 
+                    // Set the message key in the $json array to a concatenated string consisting of the result of the trans function with the argument "lang.sorry_cannot_submit", the string " ", the value of the no_of_services key in the $option array, the string " ", and the result of the trans function with the argument "lang.services_acc_to_pkg"
                     $json['message'] = trans('lang.sorry_cannot_submit') . ' ' . $option['no_of_services'] . ' ' . trans('lang.services_acc_to_pkg');
 
+                    // Return the $json array as a JSON response
                     return $json;
-
+                    
                 } else {
 
                     $image_size = array(
@@ -496,41 +504,51 @@ class ServiceController extends Controller
 
                     $service_post = $this->service->storeService($request, $image_size);
 
+                    // if the service is posted successfully
                     if ($service_post['type'] == 'success') {
 
+                        // Set the type key in the $json array to "success"
                         $json['type'] = 'success';
 
+                        // publishing service
                         $json['progress'] = trans('lang.service_publishing');
 
+                        // success message
                         $json['message'] = trans('lang.service_post_success');
 
-                        // Send Email
-
+                        // get the user
                         $user = User::find(Auth::user()->id);
 
-                        //send email to admin
-
+                        // Check if email username and password is not empty.
                         if (!empty(config('mail.username')) && !empty(config('mail.password'))) {
 
+                            // Get the service details.
                             $service = $this->service::where('id', $service_post['new_service'])->first();
 
+                            // Set email params.
                             $email_params = array();
 
+                            // Set service title.
                             $email_params['service_title'] = $service->title;
 
+                            // Set posted service link.
                             $email_params['posted_service_link'] = url('/service/' . $service->slug);
 
+                            // Set name.
                             $email_params['name'] = Helper::getUserName(Auth::user()->id);
 
+                            // Set link.
                             $email_params['link'] = url('profile/' . $user->slug);
 
+                            // Get admin email template content.
                             $template_data = Helper::getAdminServicePostedEmailContent();
 
+                            // Send email to admin.
                             Mail::to(config('mail.username'))
 
-                                ->send(
+                            ->send(
 
-                                    new AdminEmailMailable(
+                                new AdminEmailMailable(
 
                                         'admin_email_new_service_posted',
 
@@ -540,26 +558,36 @@ class ServiceController extends Controller
 
                                     )
 
-                                );
-
+                            );
                         }
 
+                        // Return the $json array as a JSON response
                         return $json;
+                        
+                    } 
+                    // if the service is not posted successfully
+                    elseif ($service_post['type'] == 'error') {
 
-                    } elseif ($service_post['type'] == 'error') {
-
+                        // Set the type key in the $json array to "error"
                         $json['type'] = 'error';
 
+                        // message to display
                         $json['message'] = trans('lang.need_to_purchase_pkg');
 
+                        // Return the $json array as a JSON response
                         return $json;
 
-                    } elseif ($service_post['type'] == 'service_warning') {
+                    } 
+                    // if the service is not posted successfully
+                    elseif ($service_post['type'] == 'service_warning') {
 
+                        // Set the type key in the $json array to "error"
                         $json['type'] = 'error';
 
+                        // message to display 
                         $json['message'] = trans('lang.not_authorize');
 
+                        // Return the $json array as a JSON response
                         return $json;
 
                     }
@@ -578,36 +606,46 @@ class ServiceController extends Controller
 
                 $service_post = $this->service->storeService($request, $image_size);
 
+                // if the service is posted successfully
                 if ($service_post['type'] == 'success') {
 
+                    // Set the type key in the $json array to "success"
                     $json['type'] = 'success';
 
+                    // publishing service
                     $json['progress'] = trans('lang.service_publishing');
 
+                    // success message
                     $json['message'] = trans('lang.service_post_success');
 
-                    // Send Email
-
+                    // get the user
                     $user = User::find(Auth::user()->id);
 
-                    //send email to admin
-
+                    // Check if email username and password is not empty.
                     if (!empty(config('mail.username')) && !empty(config('mail.password'))) {
 
+                        // Get service details by id
                         $service = $this->service::where('id', $service_post['new_service'])->first();
 
+                        // Set email parameters
                         $email_params = array();
 
+                        // Get service title
                         $email_params['service_title'] = $service->title;
 
+                        // Get service link
                         $email_params['posted_service_link'] = url('/service/' . $service->slug);
 
+                        // Get freelancer name
                         $email_params['name'] = Helper::getUserName(Auth::user()->id);
 
+                        // Get freelancer link
                         $email_params['link'] = url('profile/' . $user->slug);
 
+                        // Get email content
                         $template_data = Helper::getAdminServicePostedEmailContent();
 
+                        // Send email to admin
                         Mail::to(config('mail.username'))
 
                             ->send(
@@ -626,22 +664,33 @@ class ServiceController extends Controller
 
                     }
 
+                    // Return the $json array as a JSON response
                     return $json;
 
-                } elseif ($service_post['type'] == 'error') {
+                }
+                // if the service is not posted successfully
+                elseif ($service_post['type'] == 'error') {
 
+                    // Set the type key in the $json array to "error"
                     $json['type'] = 'error';
 
+                    // message to display
                     $json['message'] = trans('lang.need_to_purchase_pkg');
 
+                    // Return the $json array as a JSON response
                     return $json;
 
-                } elseif ($service_post['type'] == 'service_warning') {
+                }
+                // if the service is not posted successfully
+                elseif ($service_post['type'] == 'service_warning') {
 
+                    // Set the type key in the $json array to "error"
                     $json['type'] = 'error';
 
+                    // message to display
                     $json['message'] = trans('lang.not_authorize');
 
+                    // Return the $json array as a JSON response
                     return $json;
 
                 }
@@ -650,10 +699,13 @@ class ServiceController extends Controller
 
         } else {
 
+            // Set the type key in the $json array to "error"
             $json['type'] = 'error';
 
+            // message to display
             $json['message'] = trans('lang.verify_accnt_post_service');
 
+            // Return the $json array as a JSON response
             return $json;
 
         }
