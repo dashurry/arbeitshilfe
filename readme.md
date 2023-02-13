@@ -15,6 +15,7 @@ Es wird Funktionen und Ressourcen geben, einschliesslich Stellenanzeigen, Beratu
 ## Features
 
 -  [Anmelde- und Registrierungsfunktion für Benutzer](https://streamable.com/e68tz7)
+- reCAPTCHA Feature
 - Auswahl der Benutzerrolle (Freiberufler, Arbeitgeber, Admin)
 - "Like"-System für Inhalte oder Profile
 - Benutzerdashboard zur Ansicht und Verwaltung von Kontoinformationen und Aktionen wie dem Einreichen von [Jobangeboten](https://streamable.com/pk0y3l).
