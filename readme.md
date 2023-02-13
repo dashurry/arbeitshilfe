@@ -14,15 +14,16 @@ Es wird Funktionen und Ressourcen geben, einschliesslich Stellenanzeigen, Beratu
 
 ## Features
 
-- Anmelde- und Registrierungsfunktion für Benutzer
+-  [Anmelde- und Registrierungsfunktion für Benutzer](https://streamable.com/e68tz7)
+- reCAPTCHA Feature
 - Auswahl der Benutzerrolle (Freiberufler, Arbeitgeber, Admin)
 - "Like"-System für Inhalte oder Profile
-- Benutzerdashboard zur Ansicht und Verwaltung von Kontoinformationen und Aktionen wie dem Einreichen von Jobangeboten.
+- Benutzerdashboard zur Ansicht und Verwaltung von Kontoinformationen und Aktionen wie dem Einreichen von [Jobangeboten](https://streamable.com/pk0y3l).
 - Live-Chatraum mit Pusher, VueJS und Laravel
 - Benachrichtigungssystem für neue Nachrichten und Job Angebote
 - Job-Board mit Suchfunktion und Filtern
 - Laravel Framework zur Verwaltung von Benutzerdaten, Authentifizierung, Datenbankzugriff, etc.
-- MySQL-Datenbank zur Verwaltung von Benutzerdaten, Stellenausschreibungen, Angeboten, Kategorien, Paketen und mehr
+- MySQL-Datenbank zur Verwaltung von Benutzerdaten, Stellenausschreibungen, Angeboten, Kategorien, Subscription Plans und mehr
 - Admin Dashboard mit Statistiken, Benutzerverwaltung und Job-Verwaltung
 - Cross platform
 
