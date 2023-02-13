@@ -167,51 +167,59 @@ class RegisterController extends Controller
         // Close the cURL session
         curl_close($ch);
 
-        if($reCAPTCHAValidation->success == true)
-        {
+        // Check if the reCAPTCHA response is valid
+        if ($reCAPTCHAValidation->success == true) {
+            
+            // validates the data from the request object
             $validator = $this->validator($request->all());
 
+            // Call the arbeitshilfeIsDemoSiteAjax method of the Helper class and assign the result to the $server variable
             $server = Helper::arbeitshilfeIsDemoSiteAjax();
 
+            // Check if the $server variable is not empty
             if (!empty($server)) {
-
+                // Set the type key in the $response array to "server_error"
                 $response['type'] = 'server_error';
 
+                // store the message property of the data property of the $server object in the $response array.
                 $response['message'] = $server->getData()->message;
 
+                //  return the value of the $response variable
                 return $response;
-
             }
 
+            // Check if the $validator variable fails
             if ($validator->fails()) {
 
-                return redirect()
-
-                    ->back()
-
-                    ->withInput()
-
-                    ->withErrors($validator, 'register');
+                // redirects the user back to the previous page with input and errors.
+                return redirect()->back()->withInput()->withErrors($validator, 'register');
 
             } else {
+                
+                // Call the create method of the $request object and assign the result to the $user variable
+                $user = $this->create($request->all());
+                
+                // call the event method of the $user variable and pass it an instance of the Registered class with the $user variable as its parameter.
+                event(new Registered($user));
 
-                event(new Registered($user = $this->create($request->all())));
-
+                // check if the configuration variables are empty
                 if (empty(config('mail.username')) && empty(config('mail.password'))) {
 
+                    // assignment operator
                     $json['email'] = $user['email'];
 
+                    // assignment operator
                     $json['url'] = $user['url'];
-
                 }
 
+                // Set the type key in the $json array to "success"
                 $json['type'] = 'success';
 
+                // Return the $json array as a JSON response
                 return $json;
-
             }
         }
-        else
+        else // checks if the recaptcha is correct. If it isn't, it returns an error message to the user.
         {
             $response['type'] = 'server_error';
 
