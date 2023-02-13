@@ -17,7 +17,7 @@ Es wird Funktionen und Ressourcen geben, einschliesslich Stellenanzeigen, Beratu
 -  [Anmelde- und Registrierungsfunktion für Benutzer](https://streamable.com/e68tz7)
 - Auswahl der Benutzerrolle (Freiberufler, Arbeitgeber, Admin)
 - "Like"-System für Inhalte oder Profile
-- Benutzerdashboard zur Ansicht und Verwaltung von Kontoinformationen und Aktionen wie dem Einreichen von Jobangeboten.
+- Benutzerdashboard zur Ansicht und Verwaltung von Kontoinformationen und Aktionen wie dem Einreichen von [Jobangeboten](https://streamable.com/pk0y3l).
 - Live-Chatraum mit Pusher, VueJS und Laravel
 - Benachrichtigungssystem für neue Nachrichten und Job Angebote
 - Job-Board mit Suchfunktion und Filtern
