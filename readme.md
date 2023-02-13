@@ -22,7 +22,7 @@ Es wird Funktionen und Ressourcen geben, einschliesslich Stellenanzeigen, Beratu
 - Benachrichtigungssystem für neue Nachrichten und Job Angebote
 - Job-Board mit Suchfunktion und Filtern
 - Laravel Framework zur Verwaltung von Benutzerdaten, Authentifizierung, Datenbankzugriff, etc.
-- MySQL-Datenbank zur Verwaltung von Benutzerdaten, Stellenausschreibungen, Angeboten, Kategorien, Paketen und mehr
+- MySQL-Datenbank zur Verwaltung von Benutzerdaten, Stellenausschreibungen, Angeboten, Kategorien, Subscription Plans und mehr
 - Admin Dashboard mit Statistiken, Benutzerverwaltung und Job-Verwaltung
 - Cross platform
 
