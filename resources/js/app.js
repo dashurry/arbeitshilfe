@@ -9554,6 +9554,10 @@ if (document.getElementById("services")) {
                 // Creates a new FormData object
                 let form_data = new FormData(Form);
 
+                // var description = tinyMCE.get('wt-tinymceeditor').getContent();
+
+                // form_data.append('description', description);
+                
                 // Store a reference to the current instance
                 var self = this;
 
