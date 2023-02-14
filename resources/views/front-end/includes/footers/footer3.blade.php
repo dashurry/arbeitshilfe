@@ -23,7 +23,7 @@
             
         <div class="row justify-content-between border-top pt-4 mt-4 text-muted h6 font-weight-light">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <span>© Copyright 2022. All rights reserved.</span>
+                <span>© Copyright 2023. All rights reserved.</span>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-2">
                 <ul class="d-flex align-items-center justify-content-center flex-wrap">
