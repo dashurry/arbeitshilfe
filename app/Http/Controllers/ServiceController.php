@@ -226,7 +226,7 @@ class ServiceController extends Controller
 
     /**
 
-     * Show the form for creating a new resource.
+     * Show the Freelancer Form for creating a new Service.
 
      *
 
@@ -238,10 +238,13 @@ class ServiceController extends Controller
 
     {
 
+        // get all languages from the language table
         $languages = Language::pluck('title', 'id');
 
+        // get all locations from the location table
         $locations = Location::pluck('title', 'id');
 
+        // get all response times from the response time table
         $response_time = ResponseTime::pluck('title', 'id');
 
         // this is if, i want to customize each <option> inside the <select> tag
@@ -253,8 +256,10 @@ class ServiceController extends Controller
         // Get all delivery times
         $delivery_time = DeliveryTime::pluck('title', 'id');
 
+        // Get all english levels
         $english_levels = Helper::getEnglishLevelList();
 
+        // Get all categories
         $categories = Category::pluck('title', 'id');
 
         if (file_exists(resource_path('views/extend/back-end/freelancer/services/create.blade.php'))) {
